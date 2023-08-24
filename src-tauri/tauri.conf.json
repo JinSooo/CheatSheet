@@ -12,7 +12,17 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "globalShortcut": {
+        "all": true
+      },
+      "app": {
+        "hide": true,
+        "show": true
+      },
+      "window": {
+        "hide": true,
+        "show": true
+      }
     },
     "bundle": {
       "active": true,
