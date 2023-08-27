@@ -1,14 +1,19 @@
 'use client'
 
-import { initShortCut } from '@/lib/utils/shortcut'
-import { invoke } from '@tauri-apps/api'
+import { listen } from '@tauri-apps/api/event'
+import { appWindow } from '@tauri-apps/api/window'
 import { useEffect } from 'react'
 
 export default function Home() {
-  useEffect(() => {
-    initShortCut()
+  const fn = async () => {
+    await listen('longPress', (data) => console.log(data))
+    await appWindow.listen('longPress', (data) => console.log(data))
+  }
 
-    invoke<string>('greet', { name: 'JinSo' }).then(console.log)
+  useEffect(() => {
+    // initShortCut()
+    // invoke<string>('greet', { name: 'JinSo' }).then(console.log)
+    fn()
   }, [])
 
   return (
