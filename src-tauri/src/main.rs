@@ -10,6 +10,19 @@ use winit::event_loop::EventLoop;
 
 fn main() {
     tauri::Builder::default()
+        // TODO: 利用多线程去运行hotkey的监听
+        // .setup(|app| {
+        //     let main_window = app.get_window("main").unwrap();
+        //     /*
+        //       初始化全局热键
+        //         因为需要去监听按键事件，要使用了一个eventLoop来实现，去不断判断热键是否被按下
+        //         所以防止主线程被毒死，另开一个线程
+        //     */
+        //     std::thread::spawn(move || {
+        //         init_hotkey(main_window);
+        //     });
+        //     Ok(())
+        // })
         .invoke_handler(tauri::generate_handler![init_listen])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

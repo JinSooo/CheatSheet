@@ -69,7 +69,8 @@
         "titleBarStyle": "Overlay",
         "acceptFirstMouse": true,
         "decorations": false,
-        "center": true
+        "center": true,
+        "alwaysOnTop": true
       }
     ]
   }
