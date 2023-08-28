@@ -1,12 +1,29 @@
 'use client'
 
-import { initListen } from '@/lib/utils/listen'
-import { useEffect } from 'react'
+import { invoke } from '@tauri-apps/api'
+import { listen } from '@tauri-apps/api/event'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [activeAppName, setActiveAppName] = useState('')
+
+  const initListen = async () => {
+    await listen('active-window', (event) => {
+      console.log('payload', event.payload)
+      setActiveAppName(event.payload as string)
+    })
+    // 先通知后端已经监听，再去初始化全局热键（避免监听被堵塞）
+    invoke('init_listen')
+  }
+
   useEffect(() => {
     initListen()
   }, [])
 
-  return <div>CheatSheet</div>
+  return (
+    <div>
+      CheatSheet
+      <h1 className='text-2xl'>{activeAppName}</h1>
+    </div>
+  )
 }

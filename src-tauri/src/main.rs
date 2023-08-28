@@ -6,41 +6,31 @@ use global_hotkey::{
     hotkey::{Code, HotKey},
     GlobalHotKeyEvent, GlobalHotKeyManager,
 };
-use tauri::Manager;
 use winit::event_loop::EventLoop;
 
 fn main() {
     tauri::Builder::default()
-        .setup(|app| {
-            let main_window = app.get_window("main").unwrap();
-            // std::thread::spawn(move || {
-            //     for i in 0..100 {
-            //         std::thread::sleep(std::time::Duration::from_millis(1000));
-            //         main_window.emit("init", i.to_string()).unwrap();
-            //         println!("init1, {}", i);
-            //     }
-            // });
-            init_hotkey(main_window);
-            Ok(())
-        })
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![init_listen])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
 
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn init_listen(_: tauri::AppHandle, window: tauri::Window) {
+    init_hotkey(window);
 }
 
 // 初始化全局热键
-fn init_hotkey(main_window: tauri::Window) {
+fn init_hotkey(window: tauri::Window) {
+    // 用于循环监听全局热键
     let event_loop = EventLoop::new();
+    // 热键
     let hotkey_manager = GlobalHotKeyManager::new().unwrap();
     let hotkey = HotKey::new(None, Code::F2);
+    let global_hotkey_channel = GlobalHotKeyEvent::receiver();
     hotkey_manager.register(hotkey).unwrap();
 
-    let global_hotkey_channel = GlobalHotKeyEvent::receiver();
+    // 当前窗口状态
     let mut flag = true;
 
     event_loop.run(move |_event, _, control_flow| {
@@ -49,15 +39,13 @@ fn init_hotkey(main_window: tauri::Window) {
         if let Ok(event) = global_hotkey_channel.try_recv() {
             if event.id == hotkey.id() {
                 if flag {
-                    main_window.hide().unwrap();
+                    window.hide().unwrap();
                 } else {
-                    let app_name = get_current_active_window();
-                    println!("currentWindow: {app_name}");
-                    main_window.show().unwrap();
+                    let active_app_name = get_current_active_window();
+                    window.emit("active-window", active_app_name).unwrap();
+                    // 等100ms再显示，留时间给页面进行渲染
                     std::thread::sleep(std::time::Duration::from_millis(100));
-                    // TODO: 无法与前端通信
-                    main_window.emit("currentWindow", app_name).unwrap();
-                    std::thread::sleep(std::time::Duration::from_millis(100));
+                    window.show().unwrap();
                 }
                 flag = !flag;
             }
