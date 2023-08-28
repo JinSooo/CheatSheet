@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@tauri-apps/api':
+    specifier: ^1.4.0
+    version: registry.npmmirror.com/@tauri-apps/api@1.4.0
   '@types/node':
     specifier: 20.5.3
     version: registry.npmmirror.com/@types/node@20.5.3
@@ -595,6 +598,13 @@ packages:
     version: 0.5.1
     dependencies:
       tslib: registry.npmmirror.com/tslib@2.6.2
+    dev: false
+
+  registry.npmmirror.com/@tauri-apps/api@1.4.0:
+    resolution: {integrity: sha512-Jd6HPoTM1PZSFIzq7FB8VmMu3qSSyo/3lSwLpoapW+lQ41CL5Dow2KryLg+gyazA/58DRWI9vu/XpEeHK4uMdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@tauri-apps/api/-/api-1.4.0.tgz}
+    name: '@tauri-apps/api'
+    version: 1.4.0
+    engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
     dev: false
 
   registry.npmmirror.com/@tauri-apps/cli-darwin-arm64@1.4.0:

@@ -12,7 +12,17 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "globalShortcut": {
+        "all": true
+      },
+      "app": {
+        "hide": true,
+        "show": true
+      },
+      "window": {
+        "hide": true,
+        "show": true
+      }
     },
     "bundle": {
       "active": true,
@@ -23,7 +33,7 @@
       },
       "externalBin": [],
       "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.tauri.cheatsheet",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -59,8 +69,10 @@
         "titleBarStyle": "Overlay",
         "acceptFirstMouse": true,
         "decorations": false,
-        "center": true
+        "center": true,
+        "alwaysOnTop": true
       }
-    ]
+    ],
+    "macOSPrivateApi": true
   }
 }
