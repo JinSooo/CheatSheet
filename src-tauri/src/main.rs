@@ -6,23 +6,10 @@ use global_hotkey::{
     hotkey::{Code, HotKey},
     GlobalHotKeyEvent, GlobalHotKeyManager,
 };
-use winit::event_loop::EventLoop;
+use tao::event_loop::{ControlFlow, EventLoop};
 
 fn main() {
     tauri::Builder::default()
-        // TODO: 利用多线程去运行hotkey的监听
-        // .setup(|app| {
-        //     let main_window = app.get_window("main").unwrap();
-        //     /*
-        //       初始化全局热键
-        //         因为需要去监听按键事件，要使用了一个eventLoop来实现，去不断判断热键是否被按下
-        //         所以防止主线程被毒死，另开一个线程
-        //     */
-        //     std::thread::spawn(move || {
-        //         init_hotkey(main_window);
-        //     });
-        //     Ok(())
-        // })
         .invoke_handler(tauri::generate_handler![init_listen])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -39,15 +26,15 @@ fn init_hotkey(window: tauri::Window) {
     let event_loop = EventLoop::new();
     // 热键
     let hotkey_manager = GlobalHotKeyManager::new().unwrap();
-    let hotkey = HotKey::new(None, Code::F2);
     let global_hotkey_channel = GlobalHotKeyEvent::receiver();
+    let hotkey = HotKey::new(None, Code::F2);
     hotkey_manager.register(hotkey).unwrap();
 
     // 当前窗口状态
     let mut flag = true;
 
     event_loop.run(move |_event, _, control_flow| {
-        control_flow.set_poll();
+        *control_flow = ControlFlow::Poll;
 
         if let Ok(event) = global_hotkey_channel.try_recv() {
             if event.id == hotkey.id() {
@@ -62,6 +49,7 @@ fn init_hotkey(window: tauri::Window) {
                 }
                 flag = !flag;
             }
+            println!("event: {:?}", event);
         }
     })
 }
