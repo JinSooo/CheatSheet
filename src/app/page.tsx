@@ -1,5 +1,6 @@
 'use client'
 
+import { readShortCut } from '@/lib/utils'
 import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
 
@@ -13,6 +14,11 @@ export default function Home() {
     })
   }
 
+  const read = async () => {
+    const shortcut = await readShortCut('shortcut.template')
+    console.log(shortcut)
+  }
+
   useEffect(() => {
     initListen()
   }, [])
@@ -21,6 +27,9 @@ export default function Home() {
     <div>
       CheatSheet
       <h1 className='text-2xl'>{activeAppName}</h1>
+      <button type='button' onClick={read}>
+        read
+      </button>
     </div>
   )
 }

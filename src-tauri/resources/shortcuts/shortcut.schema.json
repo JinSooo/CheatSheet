@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "description": "the name of Application" },
+    "list": {
+      "type": "array",
+      "description": "the list of shortcuts, each item is a kind of shortcut",
+      "properties": {
+        "title": { "type": "string" },
+        "shortcuts": {
+          "type": "array",
+          "description": "shortcut item",
+          "properties": {
+            "key": { "type": "string" },
+            "command": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

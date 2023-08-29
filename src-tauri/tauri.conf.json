@@ -22,6 +22,19 @@
       "window": {
         "hide": true,
         "show": true
+      },
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": false,
+        "exists": false,
+        "readDir": false,
+        "readFile": true,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": ["**"],
+        "writeFile": false
       }
     },
     "bundle": {
@@ -42,7 +55,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
+      "resources": ["./resources"],
       "shortDescription": "",
       "targets": "all",
       "windows": {

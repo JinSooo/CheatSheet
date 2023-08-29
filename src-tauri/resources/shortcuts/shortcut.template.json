@@ -1,0 +1,40 @@
+{
+  "$schema": "shortcut.schema.json",
+  "name": "template",
+  "list": [
+    {
+      "title": "File",
+      "shortcuts": [
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        },
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        },
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        }
+      ]
+    },
+    {
+      "title": "Edit",
+      "shortcuts": [
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        },
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        },
+        {
+          "key": "Ctrl+Shift+O",
+          "command": "open file"
+        }
+      ]
+    }
+  ]
+}
