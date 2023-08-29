@@ -1,5 +1,6 @@
 'use client'
 
+import ShortCut from '@/components/ShortCut/ShortCut'
 import { readShortCut } from '@/lib/utils'
 import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
@@ -23,13 +24,5 @@ export default function Home() {
     initListen()
   }, [])
 
-  return (
-    <div>
-      CheatSheet
-      <h1 className='text-2xl'>{activeAppName}</h1>
-      <button type='button' onClick={read}>
-        read
-      </button>
-    </div>
-  )
+  return <ShortCut appName={activeAppName} />
 }

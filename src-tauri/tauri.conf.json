@@ -73,10 +73,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 900,
         "resizable": false,
         "title": "CheatSheet",
-        "width": 800,
+        "width": 1600,
         "hiddenTitle": true,
         "transparent": true,
         "titleBarStyle": "Overlay",
