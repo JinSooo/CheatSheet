@@ -10,6 +10,15 @@ use tauri::Manager;
 
 fn main() {
     tauri::Builder::default()
+        // 失去焦点自动隐藏
+        .on_window_event(|event| match event.event() {
+            tauri::WindowEvent::Focused(focused) => {
+                if !focused {
+                    event.window().hide().unwrap();
+                }
+            }
+            _ => {}
+        })
         .setup(|app| {
             let main_window = app.get_window("main").unwrap();
             init_hotkey(main_window);
