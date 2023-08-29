@@ -1,14 +1,14 @@
 export interface ShortCut {
   name: string
-  list: ShortCutList[]
+  categories: ShortCutCategory[]
 }
 
-export interface ShortCutList {
-  title: string
+export interface ShortCutCategory {
+  name: string
   shortcuts: ShortCutItem[]
 }
 
 export interface ShortCutItem {
-  key: string
   command: string
+  description: string
 }

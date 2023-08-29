@@ -25,6 +25,9 @@ dependencies:
   eslint-config-prettier:
     specifier: ^9.0.0
     version: registry.npmmirror.com/eslint-config-prettier@9.0.0(eslint@8.47.0)
+  lucide-react:
+    specifier: ^0.270.0
+    version: registry.npmmirror.com/lucide-react@0.270.0(react@18.2.0)
   next:
     specifier: 13.4.19
     version: registry.npmmirror.com/next@13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -3147,6 +3150,17 @@ packages:
     version: 7.18.3
     engines: {node: '>=12'}
     dev: true
+
+  registry.npmmirror.com/lucide-react@0.270.0(react@18.2.0):
+    resolution: {integrity: sha512-J8aEhNX6Jx1GiEvvsDONpT1SGOx0DLx7Qj6sJ9TJS3RDP3Ab7vpwXcEG6J0aIRon33iUgEH2c6TFd7B8HTh2SQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lucide-react/-/lucide-react-0.270.0.tgz}
+    id: registry.npmmirror.com/lucide-react/0.270.0
+    name: lucide-react
+    version: 0.270.0
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
 
   registry.npmmirror.com/make-fetch-happen@11.1.1:
     resolution: {integrity: sha512-rLWS7GCSTcEujjVBs2YqG7Y4643u8ucvCJeSRqiLYhesrDuzeuFIk37xREzAsfQaqzl8b9rNCE4m6J8tvX4Q8w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/make-fetch-happen/-/make-fetch-happen-11.1.1.tgz}
