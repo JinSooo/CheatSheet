@@ -1,8 +1,11 @@
+import { OsType } from '@tauri-apps/api/os'
+
 interface Props {
   appName: string // App Name
+  os: OsType // OS Name
 }
 
-const ShortCut = ({ appName }: Props) => {
+const ShortCut = ({ appName, os }: Props) => {
   const shortcuts = {
     name: 'Windows',
     categories: [

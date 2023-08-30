@@ -11,6 +11,7 @@ fn main() {
         // 失去焦点自动隐藏
         .on_window_event(|event| init_tauri_event(event))
         .setup(|app| {
+            // app.
             init_hotkey(app.app_handle().clone());
             Ok(())
         })
