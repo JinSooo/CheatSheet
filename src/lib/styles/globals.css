@@ -73,3 +73,10 @@ body {
   width: calc(100vw + 18px);
   overflow: auto;
 }
+
+/* 字体 */
+@font-face {
+  font-style: normal;
+  font-family: "HarmonyOS";
+  src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
+}
