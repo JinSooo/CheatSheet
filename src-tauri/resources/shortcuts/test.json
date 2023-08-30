@@ -3,6 +3,42 @@
   "name": "Windows",
   "categories": [
     {
+      "name": "徽标键",
+      "shortcuts": [
+        { "command": "Win+N", "description": "打开通知中心和日历" },
+        { "command": "Win+O", "description": "锁定设备方向" },
+        { "command": "Win+P", "description": "选择演示显示模式" },
+        { "command": "Win+Ctrl+Q", "description": "打开快速助手" },
+        { "command": "Win+R", "description": "打开“运行”对话框" },
+        {
+          "command": "Win+Alt+R",
+          "description": "在焦点中录制游戏窗口的视频"
+        },
+        { "command": "Win+S", "description": "打开搜素" },
+        {
+          "command": "Win+Shift+S",
+          "description": "获取部分屏幕的屏幕截图"
+        },
+        { "command": "Win+T", "description": "循环浏览任务栏上的应用" },
+        { "command": "Win+U", "description": "打开辅助功能设置" },
+        { "command": "Win+V", "description": "打开剪贴板历史记录" },
+        { "command": "Win+Shift+V", "description": "将焦点设置到通知" },
+        { "command": "Win+W", "description": "打开小组件" },
+        { "command": "Win+X", "description": "打开“快速链接”菜单" },
+        {
+          "command": "Win+Y",
+          "description": "在 Windows Mixed Reality 与桌面之间切换输入"
+        },
+        { "command": "Win+Z", "description": "打开对齐布局" },
+        { "command": "Win+;", "description": "打开表情符号面板" },
+        { "command": "Win+,", "description": "临时速览桌面" },
+        { "command": "Win+Pause", "description": "打开设置 > 系统 > 关于" },
+        { "command": "Win+Ctrl+F", "description": "搜索电脑" },
+        { "command": "Win+Tab", "description": "打开任务视图" },
+        { "command": "Win+↑", "description": "最大化窗口" }
+      ]
+    },
+    {
       "name": "顶部快捷键",
       "shortcuts": [
         { "command": "F2", "description": "重命名所选项目" },
@@ -98,42 +134,7 @@
         }
       ]
     },
-    {
-      "name": "徽标键",
-      "shortcuts": [
-        { "command": "Win+N", "description": "打开通知中心和日历" },
-        { "command": "Win+O", "description": "锁定设备方向" },
-        { "command": "Win+P", "description": "选择演示显示模式" },
-        { "command": "Win+Ctrl+Q", "description": "打开快速助手" },
-        { "command": "Win+R", "description": "打开“运行”对话框" },
-        {
-          "command": "Win+Alt+R",
-          "description": "在焦点中录制游戏窗口的视频"
-        },
-        { "command": "Win+S", "description": "打开搜素" },
-        {
-          "command": "Win+Shift+S",
-          "description": "获取部分屏幕的屏幕截图"
-        },
-        { "command": "Win+T", "description": "循环浏览任务栏上的应用" },
-        { "command": "Win+U", "description": "打开辅助功能设置" },
-        { "command": "Win+V", "description": "打开剪贴板历史记录" },
-        { "command": "Win+Shift+V", "description": "将焦点设置到通知" },
-        { "command": "Win+W", "description": "打开小组件" },
-        { "command": "Win+X", "description": "打开“快速链接”菜单" },
-        {
-          "command": "Win+Y",
-          "description": "在 Windows Mixed Reality 与桌面之间切换输入"
-        },
-        { "command": "Win+Z", "description": "打开对齐布局" },
-        { "command": "Win+;", "description": "打开表情符号面板" },
-        { "command": "Win+,", "description": "临时速览桌面" },
-        { "command": "Win+Pause", "description": "打开设置 > 系统 > 关于" },
-        { "command": "Win+Ctrl+F", "description": "搜索电脑" },
-        { "command": "Win+Tab", "description": "打开任务视图" },
-        { "command": "Win+↑", "description": "最大化窗口" }
-      ]
-    },
+
     {
       "name": "输入法",
       "shortcuts": [

@@ -16,6 +16,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@egjs/react-grid": "^1.15.2",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "20.5.3",
     "@types/react": "18.2.21",

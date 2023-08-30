@@ -1,5 +1,6 @@
 import { OSType, ShortCut as ShortCutType } from '@/lib/types'
 import { readShortCut } from '@/lib/utils'
+import { MasonryGrid } from '@egjs/react-grid'
 import { useEffect, useState } from 'react'
 import Category from './Category'
 
@@ -24,16 +25,16 @@ const ShortCut = ({ appName, os }: Props) => {
   }, [os])
 
   return (
-    <>
-      {/* 四等分 */}
-      <div className='grid grid-cols-4 gap-4 box-border py-6 px-10'>
+    <div className='w-full h-full box-border py-6 px-10'>
+      {/* 瀑布流布局 */}
+      <MasonryGrid column={4} align='center'>
         {shortcut ? (
           shortcut.categories.map((category) => <Category key={category.name} category={category} os={os} />)
         ) : (
           <></>
         )}
-      </div>
-    </>
+      </MasonryGrid>
+    </div>
   )
 }
 

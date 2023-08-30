@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@egjs/react-grid':
+    specifier: ^1.15.2
+    version: registry.npmmirror.com/@egjs/react-grid@1.15.2
   '@tauri-apps/api':
     specifier: ^1.4.0
     version: registry.npmmirror.com/@tauri-apps/api@1.4.0
@@ -105,6 +108,61 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: registry.npmmirror.com/regenerator-runtime@0.14.0
+    dev: false
+
+  registry.npmmirror.com/@cfcs/core@0.0.24:
+    resolution: {integrity: sha512-feB38qu+eDk0Pggh/yR7gjaNmvUYA2uCxHP3Pz2MLE4LZ/9jPdtu8bzCSI47yTEhWyZCF5Pk698hdz8IN2mTjA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@cfcs/core/-/core-0.0.24.tgz}
+    name: '@cfcs/core'
+    version: 0.0.24
+    dependencies:
+      '@egjs/component': registry.npmmirror.com/@egjs/component@3.0.4
+    dev: false
+
+  registry.npmmirror.com/@egjs/children-differ@1.0.1:
+    resolution: {integrity: sha512-DRvyqMf+CPCOzAopQKHtW+X8iN6Hy6SFol+/7zCUiE5y4P/OB8JP8FtU4NxtZwtafvSL4faD5KoQYPj3JHzPFQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/children-differ/-/children-differ-1.0.1.tgz}
+    name: '@egjs/children-differ'
+    version: 1.0.1
+    dependencies:
+      '@egjs/list-differ': registry.npmmirror.com/@egjs/list-differ@1.0.1
+    dev: false
+
+  registry.npmmirror.com/@egjs/component@3.0.4:
+    resolution: {integrity: sha512-sXA7bGbIeLF2OAw/vpka66c6QBBUPcA4UUhR4WGJfnp2XWdiI8QrnJGJMr/UxpE/xnevX9tN3jvNPlW8WkHl3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/component/-/component-3.0.4.tgz}
+    name: '@egjs/component'
+    version: 3.0.4
+    dev: false
+
+  registry.npmmirror.com/@egjs/grid@1.14.2:
+    resolution: {integrity: sha512-MOIL6zdFmEFYVmlsrPr8eNPybDZqRKzJo1sceFiamAvxWJ+5yG17tVRP9zMSeXogjsShWhNUKqoPOUC4rClFAQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/grid/-/grid-1.14.2.tgz}
+    name: '@egjs/grid'
+    version: 1.14.2
+    dependencies:
+      '@egjs/children-differ': registry.npmmirror.com/@egjs/children-differ@1.0.1
+      '@egjs/component': registry.npmmirror.com/@egjs/component@3.0.4
+      '@egjs/imready': registry.npmmirror.com/@egjs/imready@1.4.1
+    dev: false
+
+  registry.npmmirror.com/@egjs/imready@1.4.1:
+    resolution: {integrity: sha512-JIOBs4lB7FYdsKi5uvz2j3SObX8eShtZjtqlOH41tm185aJOQZwiKBK8+V4MxzG4X6DqVhpdN8UcuVwBbElfsg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/imready/-/imready-1.4.1.tgz}
+    name: '@egjs/imready'
+    version: 1.4.1
+    dependencies:
+      '@cfcs/core': registry.npmmirror.com/@cfcs/core@0.0.24
+      '@egjs/component': registry.npmmirror.com/@egjs/component@3.0.4
+    dev: false
+
+  registry.npmmirror.com/@egjs/list-differ@1.0.1:
+    resolution: {integrity: sha512-OTFTDQcWS+1ZREOdCWuk5hCBgYO4OsD30lXcOCyVOAjXMhgL5rBRDnt/otb6Nz8CzU0L/igdcaQBDLWc4t9gvg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/list-differ/-/list-differ-1.0.1.tgz}
+    name: '@egjs/list-differ'
+    version: 1.0.1
+    dev: false
+
+  registry.npmmirror.com/@egjs/react-grid@1.15.2:
+    resolution: {integrity: sha512-5yai5v7a+nOZR6yQ4ByLFAgFHeFCVqb17wQxbw7mWGO2CTcm5IxkJnaujy96ikEdKrCwpI3SM5fK7iZAnREnpw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@egjs/react-grid/-/react-grid-1.15.2.tgz}
+    name: '@egjs/react-grid'
+    version: 1.15.2
+    dependencies:
+      '@egjs/grid': registry.npmmirror.com/@egjs/grid@1.14.2
     dev: false
 
   registry.npmmirror.com/@eslint-community/eslint-utils@4.4.0(eslint@8.47.0):
