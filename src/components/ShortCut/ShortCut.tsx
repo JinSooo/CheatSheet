@@ -25,9 +25,9 @@ const ShortCut = ({ appName, os }: Props) => {
   }, [os])
 
   return (
-    <div className='w-full h-full box-border py-6 px-10'>
+    <div className='w-full h-full box-border p-6'>
       {/* 瀑布流布局 */}
-      <MasonryGrid column={4} align='center'>
+      <MasonryGrid column={4}>
         {shortcut ? (
           shortcut.categories.map((category) => <Category key={category.name} category={category} os={os} />)
         ) : (
