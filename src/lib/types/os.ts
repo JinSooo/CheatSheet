@@ -1,5 +1,5 @@
 export enum OSType {
-  Windows = 'Windows',
-  Mac = 'Mac',
-  Linux = 'Linux',
+  Windows = 'win',
+  Mac = 'mac',
+  Linux = 'linux',
 }

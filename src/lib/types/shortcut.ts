@@ -9,6 +9,12 @@ export interface ShortCutCategory {
 }
 
 export interface ShortCutItem {
-  command: string
+  command: ShortCutCommand
   description: string
+}
+
+export interface ShortCutCommand {
+  win: string
+  mac: string
+  linux: string
 }

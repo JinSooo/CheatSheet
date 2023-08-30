@@ -5,11 +5,11 @@ import { OSType } from '../types'
 export const getOSType = async () => {
   const { type } = await import('@tauri-apps/api/os')
   const os = await type()
-  return convert(os)
+  return convertToOSType(os)
 }
 
 // OsType -> OSType
-const convert = (os: OsType) => {
+const convertToOSType = (os: OsType) => {
   switch (os) {
     case 'Windows_NT':
       return OSType.Windows

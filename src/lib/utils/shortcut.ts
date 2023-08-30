@@ -1,5 +1,5 @@
 import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
-import { OSType, ShortCut } from '../types'
+import { OSType, ShortCut, ShortCutCommand } from '../types'
 
 // 读取应用快捷键数据
 export const readShortCut = async (name: string): Promise<ShortCut> => {
@@ -15,11 +15,14 @@ const commandMap = new Map([
   ['Command', '⌘'],
   ['Alt', '⌥'],
   ['Shift', '⇧'],
+  ['Caps', '⇪'],
+  // ['Win', '⊞'],
 ])
 
 // 将快捷键转换为对应的图标和字符
-export const convertShortCutCommand = (os: OSType, command: string) => {
-  const arr = command.split('+')
+export const convertShortCutCommand = (os: OSType, command: ShortCutCommand) => {
+  if (!command[os]) return []
+  const arr = command[os].split('+')
 
   // 对Mac的键位做图标转换
   if (os === OSType.Mac) {
