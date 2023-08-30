@@ -25,3 +25,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* TODO: 文字滚动暂时先不用 */
+@layer components {
+  .text-move {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .text-move:hover {
+    animation: text-move 2s infinite alternate linear;
+  }
+
+  .text-overflow-hidden {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+}
+
+@keyframes text-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}

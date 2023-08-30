@@ -1,6 +1,7 @@
 import { OSType, ShortCut as ShortCutType } from '@/lib/types'
 import { readShortCut } from '@/lib/utils'
 import { useEffect, useState } from 'react'
+import Category from './Category'
 
 interface Props {
   appName: string // App Name
@@ -24,22 +25,8 @@ const ShortCut = ({ appName, os }: Props) => {
   return (
     <>
       {/* 四等分 */}
-      <div className='grid grid-cols-3 gap-2'>
-        {shortcut ? (
-          shortcut.categories.map((category) => (
-            <div key={category.name}>
-              <div className='font-bold text-2xl'>{category.name}</div>
-              {category.shortcuts.map((shortcut) => (
-                <div key={shortcut.command} className='flex gap-2'>
-                  <div className='w-40 text-right'>{shortcut.command}</div>
-                  <div>{shortcut.description}</div>
-                </div>
-              ))}
-            </div>
-          ))
-        ) : (
-          <></>
-        )}
+      <div className='grid grid-cols-4 gap-4'>
+        {shortcut ? shortcut.categories.map((category) => <Category key={category.name} category={category} />) : <></>}
       </div>
     </>
   )
