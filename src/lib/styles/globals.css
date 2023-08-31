@@ -3,22 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground: #373737;
+  --background: #f7f7f7;
+}
+
+[data-theme="dark"] {
+  --foreground: #c9c9c9;
+  --background: #1f1f1f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground: #c9c9c9;
+    --background: #1f1f1f;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-}
+/* body {
+  color: var(--background);
+  background-color: var(--foreground);
+} */
 
 /* TODO: 文字滚动暂时先不用 */
 @layer components {

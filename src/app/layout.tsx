@@ -19,9 +19,9 @@ export default function RootLayout({
     <html lang='zh-CN' suppressHydrationWarning>
       <head />
       <body>
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem themes={['light', 'dark']}>
           <div
-            className='h-screen w-screen rounded-xl'
+            className='w-screen rounded-2xl text-[var(--foreground)] bg-[var(--background)]'
             // style={{ background: 'rgba(0, 0, 0, 0.7)', boxShadow: 'inset 0 0 6px rgba(255, 255, 255, 0.2)' }}
           >
             {children}

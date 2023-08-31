@@ -8,7 +8,7 @@ interface Props {
 
 const ShortCutItem = ({ shortcut, os }: Props) => {
   return (
-    <div className='flex gap-3 mb-3 overflow-hidden'>
+    <div className='flex gap-4 mb-3 overflow-hidden'>
       <div className='w-[35%] text-right flex justify-end gap-1'>
         {convertShortCutCommand(os, shortcut.command).map((key) => (
           <div key={key} className='kbd kbd-sm'>
