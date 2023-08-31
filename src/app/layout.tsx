@@ -20,7 +20,12 @@ export default function RootLayout({
       <head />
       <body>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='h-screen w-screen bg-[#333] rounded-3xl'>{children}</div>
+          <div
+            className='h-screen w-screen rounded-xl'
+            // style={{ background: 'rgba(0, 0, 0, 0.7)', boxShadow: 'inset 0 0 6px rgba(255, 255, 255, 0.2)' }}
+          >
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
