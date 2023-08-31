@@ -1,31 +1,30 @@
 'use client'
 
+import ShortCut from '@/components/ShortCut/ShortCut'
+import { OSType } from '@/lib/types'
+import { getOSType, readShortCut } from '@/lib/utils'
 import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
   const [activeAppName, setActiveAppName] = useState('')
+  const [os, setOS] = useState<OSType>(OSType.Windows)
 
-  const initListen = async () => {
+  const init = async () => {
+    // 初始化监听事件
     await listen('active-window', (event) => {
-      console.log('payload', event.payload)
+      console.log('🎉🎉🎉', 'active-window', event.payload)
       setActiveAppName(event.payload as string)
     })
-
-    // 异步引入，确保处于浏览器环境
-    const { invoke } = await import('@tauri-apps/api')
-    // 先通知后端已经监听，再去初始化全局热键（避免监听被堵塞）
-    invoke('init_listen')
+    // 获取操作系统
+    const os = await getOSType()
+    console.log('🎉🎉🎉', 'os', os)
+    setOS(os)
   }
 
   useEffect(() => {
-    initListen()
+    init()
   }, [])
 
-  return (
-    <div>
-      CheatSheet
-      <h1 className='text-2xl'>{activeAppName}</h1>
-    </div>
-  )
+  return <ShortCut appName={activeAppName} os={os} />
 }

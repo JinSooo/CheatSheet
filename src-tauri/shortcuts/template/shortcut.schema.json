@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "description": "应用名称" },
+    "categories": {
+      "type": "array",
+      "description": "快捷键分类",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "分类名称" },
+          "shortcuts": {
+            "type": "array",
+            "description": "快捷键信息",
+            "items": {
+              "type": "object",
+              "properties": {
+                "command": {
+                  "type": "object",
+                  "description": "不同平台对应的键位",
+                  "properties": {
+                    "win": { "type": "string" },
+                    "mac": { "type": "string" },
+                    "linux": { "type": "string" }
+                  }
+                },
+                "description": { "type": "string", "description": "快捷键描述" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

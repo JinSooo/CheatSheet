@@ -1,0 +1,537 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Windows",
+  "categories": [
+    {
+      "name": "徽标键",
+      "shortcuts": [
+        {
+          "command": { "win": "Win+N", "mac": "Win+N", "linux": "Win+N" },
+          "description": "打开通知中心和日历"
+        },
+        {
+          "command": { "win": "Win+O", "mac": "Win+O", "linux": "Win+O" },
+          "description": "锁定设备方向"
+        },
+        {
+          "command": { "win": "Win+P", "mac": "Win+P", "linux": "Win+P" },
+          "description": "选择演示显示模式"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+Q",
+            "mac": "Win+Ctrl+Q",
+            "linux": "Win+Ctrl+Q"
+          },
+          "description": "打开快速助手"
+        },
+        {
+          "command": { "win": "Win+R", "mac": "Win+R", "linux": "Win+R" },
+          "description": "打开“运行”对话框"
+        },
+        {
+          "command": {
+            "win": "Win+Alt+R",
+            "mac": "Win+Alt+R",
+            "linux": "Win+Alt+R"
+          },
+          "description": "在焦点中录制游戏窗口的视频"
+        },
+        {
+          "command": { "win": "Win+S", "mac": "Win+S", "linux": "Win+S" },
+          "description": "打开搜素"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+S",
+            "mac": "Win+Shift+S",
+            "linux": "Win+Shift+S"
+          },
+          "description": "获取部分屏幕的屏幕截图"
+        },
+        {
+          "command": { "win": "Win+T", "mac": "Win+T", "linux": "Win+T" },
+          "description": "循环浏览任务栏上的应用"
+        },
+        {
+          "command": { "win": "Win+U", "mac": "Win+U", "linux": "Win+U" },
+          "description": "打开辅助功能设置"
+        },
+        {
+          "command": { "win": "Win+V", "mac": "Win+V", "linux": "Win+V" },
+          "description": "打开剪贴板历史记录"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+V",
+            "mac": "Win+Shift+V",
+            "linux": "Win+Shift+V"
+          },
+          "description": "将焦点设置到通知"
+        },
+        {
+          "command": { "win": "Win+W", "mac": "Win+W", "linux": "Win+W" },
+          "description": "打开小组件"
+        },
+        {
+          "command": { "win": "Win+X", "mac": "Win+X", "linux": "Win+X" },
+          "description": "打开“快速链接”菜单"
+        },
+        {
+          "command": { "win": "Win+Y", "mac": "Win+Y", "linux": "Win+Y" },
+          "description": "在 Windows Mixed Reality 与桌面之间切换输入"
+        },
+        {
+          "command": { "win": "Win+Z", "mac": "Win+Z", "linux": "Win+Z" },
+          "description": "打开对齐布局"
+        },
+        {
+          "command": { "win": "Win+;", "mac": "Win+;", "linux": "Win+;" },
+          "description": "打开表情符号面板"
+        },
+        {
+          "command": { "win": "Win+,", "mac": "Win+,", "linux": "Win+," },
+          "description": "临时速览桌面"
+        },
+        {
+          "command": {
+            "win": "Win+Pause",
+            "mac": "Win+Pause",
+            "linux": "Win+Pause"
+          },
+          "description": "打开设置 > 系统 > 关于"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+F",
+            "mac": "Win+Ctrl+F",
+            "linux": "Win+Ctrl+F"
+          },
+          "description": "搜索电脑"
+        },
+        {
+          "command": { "win": "Win+Tab", "mac": "Win+Tab", "linux": "Win+Tab" },
+          "description": "打开任务视图"
+        },
+        {
+          "command": { "win": "Win+↑", "mac": "Win+↑", "linux": "Win+↑" },
+          "description": "最大化窗口"
+        }
+      ]
+    },
+    {
+      "name": "顶部快捷键",
+      "shortcuts": [
+        {
+          "command": { "win": "F2", "mac": "F2", "linux": "F2" },
+          "description": "重命名所选项目"
+        },
+        {
+          "command": { "win": "F3", "mac": "F3", "linux": "F3" },
+          "description": "在文件资源管理器中搜索文件或文件夹"
+        },
+        {
+          "command": { "win": "F4", "mac": "F4", "linux": "F4" },
+          "description": "在文件资源管理器中显示地址栏列表"
+        },
+        {
+          "command": { "win": "F5", "mac": "F5", "linux": "F5" },
+          "description": "刷新活动窗口"
+        },
+        {
+          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
+          "description": "循环浏览窗口中或桌面上的屏幕元素"
+        },
+        {
+          "command": { "win": "F10", "mac": "F10", "linux": "F10" },
+          "description": "激活活动应用中的菜单栏"
+        }
+      ]
+    },
+    {
+      "name": "Alt快捷键",
+      "shortcuts": [
+        {
+          "command": { "win": "Alt+Tab", "mac": "Alt+Tab", "linux": "Alt+Tab" },
+          "description": "在打开的应用之间切换"
+        },
+        {
+          "command": { "win": "Alt+F4", "mac": "Alt+F4", "linux": "Alt+F4" },
+          "description": "关闭活动项，或者退出活动应用"
+        },
+        {
+          "command": { "win": "Alt+F8", "mac": "Alt+F8", "linux": "Alt+F8" },
+          "description": "在登录屏幕上显示你的密码"
+        },
+        {
+          "command": { "win": "Alt+Esc", "mac": "Alt+Esc", "linux": "Alt+Esc" },
+          "description": "按项目打开顺序循环浏览"
+        },
+        {
+          "command": {
+            "win": "Alt+Enter",
+            "mac": "Alt+Enter",
+            "linux": "Alt+Enter"
+          },
+          "description": "显示所选项目的属性"
+        },
+        {
+          "command": {
+            "win": "Alt+Space",
+            "mac": "Alt+Space",
+            "linux": "Alt+Space"
+          },
+          "description": "打开活动窗口的快捷菜单"
+        },
+        {
+          "command": { "win": "Alt+←", "mac": "Alt+←", "linux": "Alt+←" },
+          "description": "返回"
+        },
+        {
+          "command": { "win": "Alt+→", "mac": "Alt+→", "linux": "Alt+→" },
+          "description": "前进"
+        },
+        {
+          "command": {
+            "win": "Alt+Page Up",
+            "mac": "Alt+Page Up",
+            "linux": "Alt+Page Up"
+          },
+          "description": "向上移动一个屏幕"
+        },
+        {
+          "command": {
+            "win": "Alt+Page Down",
+            "mac": "Alt+Page Down",
+            "linux": "Alt+Page Down"
+          },
+          "description": "向下移动一个屏幕"
+        }
+      ]
+    },
+    {
+      "name": "编辑",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+X", "mac": "Ctrl+X", "linux": "Ctrl+X" },
+          "description": "剪切选定项"
+        },
+        {
+          "command": { "win": "Ctrl+C", "mac": "Ctrl+C", "linux": "Ctrl+C" },
+          "description": "复制选定项"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Ctrl+V", "linux": "Ctrl+V" },
+          "description": "粘贴选定项"
+        },
+        {
+          "command": { "win": "Ctrl+Z", "mac": "Ctrl+Z", "linux": "Ctrl+Z" },
+          "description": "撤消操作"
+        },
+        {
+          "command": { "win": "Ctrl+F4", "mac": "Ctrl+F4", "linux": "Ctrl+F4" },
+          "description": "关闭活动文档"
+        },
+        {
+          "command": { "win": "Ctrl+A", "mac": "Ctrl+A", "linux": "Ctrl+A" },
+          "description": "选择文档或窗口中的所有项目"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Ctrl+D", "linux": "Ctrl+D" },
+          "description": "删除选定项，将其移至回收站"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Ctrl+E", "linux": "Ctrl+E" },
+          "description": "打开搜索"
+        },
+        {
+          "command": { "win": "Ctrl+R", "mac": "Ctrl+R", "linux": "Ctrl+R" },
+          "description": "刷新活动窗口"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Ctrl+Y", "linux": "Ctrl+Y" },
+          "description": "恢复操作"
+        },
+        {
+          "command": { "win": "Ctrl+→", "mac": "Ctrl+→", "linux": "Ctrl+→" },
+          "description": "将光标移动到下一个字词的起始处"
+        },
+        {
+          "command": { "win": "Ctrl+←", "mac": "Ctrl+←", "linux": "Ctrl+←" },
+          "description": "将光标移动到上一个字词的起始处"
+        },
+        {
+          "command": { "win": "Ctrl+↓", "mac": "Ctrl+↓", "linux": "Ctrl+↓" },
+          "description": "将光标移动到下一段落的起始处"
+        },
+        {
+          "command": { "win": "Ctrl+↑", "mac": "Ctrl+↑", "linux": "Ctrl+↑" },
+          "description": "将光标移动到上一段落的起始处"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Esc",
+            "mac": "Ctrl+Esc",
+            "linux": "Ctrl+Esc"
+          },
+          "description": "打开“开始”菜单"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Esc",
+            "mac": "Ctrl+Shift+Esc",
+            "linux": "Ctrl+Shift+Esc"
+          },
+          "description": "打开任务管理器"
+        },
+        {
+          "command": { "win": "PrtScn", "mac": "PrtScn", "linux": "PrtScn" },
+          "description": "捕获整个屏幕的屏幕截图并将其复制到剪贴板"
+        }
+      ]
+    },
+    {
+      "name": "常用",
+      "shortcuts": [
+        {
+          "command": { "win": "Win", "mac": "Win", "linux": "Win" },
+          "description": "打开或关闭“开始”菜单"
+        },
+        {
+          "command": { "win": "Win+A", "mac": "Win+A", "linux": "Win+A" },
+          "description": "打开快速设置"
+        },
+        {
+          "command": { "win": "Win+B", "mac": "Win+B", "linux": "Win+B" },
+          "description": "将焦点设置为任务栏角落的第一个图标"
+        },
+        {
+          "command": { "win": "Win+C", "mac": "Win+C", "linux": "Win+C" },
+          "description": "从 Microsoft Teams 打开聊天"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+C",
+            "mac": "Win+Shift+C",
+            "linux": "Win+Shift+C"
+          },
+          "description": "打开超级按钮菜单"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+C",
+            "mac": "Win+Ctrl+C",
+            "linux": "Win+Ctrl+C"
+          },
+          "description": "打开颜色筛选器"
+        },
+        {
+          "command": { "win": "Win+D", "mac": "Win+D", "linux": "Win+D" },
+          "description": "显示和隐藏桌面"
+        },
+        {
+          "command": { "win": "Win+E", "mac": "Win+E", "linux": "Win+E" },
+          "description": "打开文件资源管理器"
+        },
+        {
+          "command": { "win": "Win+F", "mac": "Win+F", "linux": "Win+F" },
+          "description": "打开反馈中心并获取屏幕截图"
+        },
+        {
+          "command": { "win": "Win+G", "mac": "Win+G", "linux": "Win+G" },
+          "description": "打开 Xbox Game Bar"
+        },
+        {
+          "command": {
+            "win": "Win+Alt+B",
+            "mac": "Win+Alt+B",
+            "linux": "Win+Alt+B"
+          },
+          "description": "打开或关闭 HDR"
+        },
+        {
+          "command": { "win": "Win+H", "mac": "Win+H", "linux": "Win+H" },
+          "description": "启动语音键入"
+        },
+        {
+          "command": { "win": "Win+I", "mac": "Win+I", "linux": "Win+I" },
+          "description": "打开设置"
+        },
+        {
+          "command": { "win": "Win+J", "mac": "Win+J", "linux": "Win+J" },
+          "description": "请将焦点设置到可用的 Windows 提示"
+        },
+        {
+          "command": { "win": "Win+K", "mac": "Win+K", "linux": "Win+K" },
+          "description": "从“快速设置”打开“投放”"
+        },
+        {
+          "command": { "win": "Win+L", "mac": "Win+L", "linux": "Win+L" },
+          "description": "锁定你的电脑或切换帐户"
+        },
+        {
+          "command": { "win": "Win+M", "mac": "Win+M", "linux": "Win+M" },
+          "description": "最小化所有窗口"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+M",
+            "mac": "Win+Shift+M",
+            "linux": "Win+Shift+M"
+          },
+          "description": "还原桌面上的最小化窗口"
+        }
+      ]
+    },
+    {
+      "name": "输入法",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Win+Shift+Space",
+            "mac": "Win+Shift+Space",
+            "linux": "Win+Shift+Space"
+          },
+          "description": "在语言和键盘布局中向后循环"
+        },
+        {
+          "command": {
+            "win": "Win+Space",
+            "mac": "Win+Space",
+            "linux": "Win+Space"
+          },
+          "description": "切换输入语言和键盘布局"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+Space",
+            "mac": "Win+Ctrl+Space",
+            "linux": "Win+Ctrl+Space"
+          },
+          "description": "对之前选择的输入所做的更改"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+Enter",
+            "mac": "Win+Ctrl+Enter",
+            "linux": "Win+Ctrl+Enter"
+          },
+          "description": "打开“讲述人”"
+        },
+        {
+          "command": {
+            "win": "Win+Plus",
+            "mac": "Win+Plus",
+            "linux": "Win+Plus"
+          },
+          "description": "打开放大镜并放大"
+        },
+        {
+          "command": {
+            "win": "Win+Minus",
+            "mac": "Win+Minus",
+            "linux": "Win+Minus"
+          },
+          "description": "缩小放大镜"
+        },
+        {
+          "command": { "win": "Win+Esc", "mac": "Win+Esc", "linux": "Win+Esc" },
+          "description": "关闭放大镜"
+        },
+        {
+          "command": { "win": "Win+/", "mac": "Win+/", "linux": "Win+/" },
+          "description": "开始输入法复原流程"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+Shift+B",
+            "mac": "Win+Ctrl+Shift+B",
+            "linux": "Win+Ctrl+Shift+B"
+          },
+          "description": "从空白或黑屏唤醒电脑"
+        },
+        {
+          "command": {
+            "win": "Win+PrtScn",
+            "mac": "Win+PrtScn",
+            "linux": "Win+PrtScn"
+          },
+          "description": "将全屏屏幕截图保存到文件"
+        },
+        {
+          "command": {
+            "win": "Win+Alt+PrtScn",
+            "mac": "Win+Alt+PrtScn",
+            "linux": "Win+Alt+PrtScn"
+          },
+          "description": "将焦点中的游戏窗口的屏幕截图保存到文件"
+        }
+      ]
+    },
+    {
+      "name": "多桌面处理",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Win+Alt+↑",
+            "mac": "Win+Alt+↑",
+            "linux": "Win+Alt+↑"
+          },
+          "description": "将焦点中的窗口贴靠到屏幕的上半部分"
+        },
+        {
+          "command": { "win": "Win+↓", "mac": "Win+↓", "linux": "Win+↓" },
+          "description": "删除屏幕上的当前应用并最小化桌面窗口"
+        },
+        {
+          "command": {
+            "win": "Win+Alt+↓",
+            "mac": "Win+Alt+↓",
+            "linux": "Win+Alt+↓"
+          },
+          "description": "将焦点窗口贴靠到屏幕下半部分"
+        },
+        {
+          "command": { "win": "Win+←", "mac": "Win+←", "linux": "Win+←" },
+          "description": "最大化屏幕左侧的应用或桌面窗口"
+        },
+        {
+          "command": { "win": "Win+→", "mac": "Win+→", "linux": "Win+→" },
+          "description": "最大化屏幕右侧的应用或桌面窗口"
+        },
+        {
+          "command": {
+            "win": "Win+Home",
+            "mac": "Win+Home",
+            "linux": "Win+Home"
+          },
+          "description": "最小化活动桌面窗口之外的所有窗口"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+↑",
+            "mac": "Win+Shift+↑",
+            "linux": "Win+Shift+↑"
+          },
+          "description": "将桌面窗口拉伸至屏幕顶部和底部"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+↓",
+            "mac": "Win+Shift+↓",
+            "linux": "Win+Shift+↓"
+          },
+          "description": "在垂直方向上还原/最小化活动桌面窗口，而宽度保持不变"
+        },
+        {
+          "command": {
+            "win": "Win+Shift+←/→",
+            "mac": "Win+Shift+←/→",
+            "linux": "Win+Shift+←/→"
+          },
+          "description": "将桌面上的应用或窗口从一台显示器移动至另一台显示器"
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@egjs/react-grid": "^1.15.2",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "20.5.3",
     "@types/react": "18.2.21",
@@ -24,6 +25,7 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
+    "lucide-react": "^0.270.0",
     "next": "13.4.19",
     "next-themes": "^0.2.1",
     "postcss": "8.4.28",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.4.0",
+    "daisyui": "^3.6.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "rome": "12.1.3",
