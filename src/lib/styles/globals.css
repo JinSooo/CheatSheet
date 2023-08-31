@@ -71,7 +71,6 @@ html {
 body {
   height: 100%;
   width: calc(100vw + 18px);
-  overflow: auto;
 }
 
 /* 字体 */
@@ -84,4 +83,24 @@ body {
 html,
 body {
   background: transparent;
+}
+
+/*覆盖 tailwind 默认背景色*/
+:root, [data-theme] {
+  background-color: transparent;
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  }
 }
