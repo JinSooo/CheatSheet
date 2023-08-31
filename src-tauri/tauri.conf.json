@@ -71,7 +71,7 @@
         "width": 1600,
         "height": 900,
         "fullscreen": false,
-        "resizable": true,
+        "resizable": false,
         "transparent": true,
         "hiddenTitle": true,
         "titleBarStyle": "Overlay",

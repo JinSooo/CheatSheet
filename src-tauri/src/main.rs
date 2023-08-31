@@ -2,15 +2,16 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use active_win_pos_rs::get_active_window;
-use tauri::{GlobalShortcutManager, GlobalWindowEvent, Manager};
+use tauri::{GlobalShortcutManager, GlobalWindowEvent, Manager, PhysicalSize, Size};
 
 static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
+static WINDOW_SIZE_RATIO: f64 = 0.75;
 
 fn main() {
     tauri::Builder::default()
         // .on_window_event(|event| init_tauri_event(event))
         .setup(|app| {
-            // app.
+            adjust_window_size(app.get_window("main").unwrap());
             init_hotkey(app.app_handle().clone());
             Ok(())
         })
@@ -28,6 +29,22 @@ fn init_tauri_event(e: GlobalWindowEvent) {
             }
         }
         _ => (),
+    }
+}
+
+// 根据显示屏按比例适配窗口大小
+fn adjust_window_size(window: tauri::Window) {
+    if let Some(monitor) = window.current_monitor().unwrap() {
+        let size = monitor.size();
+        let width = size.width as f64 * WINDOW_SIZE_RATIO;
+        let height = size.height as f64 * WINDOW_SIZE_RATIO;
+        window
+            .set_size(Size::Physical(PhysicalSize {
+                width: width as u32,
+                height: height as u32,
+            }))
+            .unwrap();
+        window.center().unwrap();
     }
 }
 

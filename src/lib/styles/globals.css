@@ -80,3 +80,8 @@ body {
   font-family: "HarmonyOS";
   src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
 }
+
+html,
+body {
+  background: transparent;
+}
