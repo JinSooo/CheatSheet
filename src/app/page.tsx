@@ -22,11 +22,6 @@ export default function Home() {
     setOS(os)
   }
 
-  const read = async () => {
-    const shortcut = await readShortCut('shortcut.template')
-    console.log(shortcut)
-  }
-
   useEffect(() => {
     init()
   }, [])
