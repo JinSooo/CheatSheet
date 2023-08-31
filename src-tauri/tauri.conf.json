@@ -50,7 +50,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["./resources"],
+      "resources": ["./docs", "./shortcuts"],
       "shortDescription": "",
       "targets": "all",
       "windows": {

@@ -1,5 +1,5 @@
 {
-  "$schema": "./info/shortcut.schema.json",
+  "$schema": "./template/shortcut.schema.json",
   "name": "Windows",
   "categories": [
     {

@@ -3,7 +3,7 @@ import { OSType, ShortCut, ShortCutCommand } from '../types'
 
 // 读取应用快捷键数据
 export const readShortCut = async (name: string): Promise<ShortCut> => {
-  const content = await readTextFile(`resources/shortcuts/${name}.json`, {
+  const content = await readTextFile(`shortcuts/${name}.json`, {
     dir: BaseDirectory.Resource,
   })
   const shortcut = JSON.parse(content)

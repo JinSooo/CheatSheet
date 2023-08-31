@@ -19,11 +19,6 @@
   }
 }
 
-/* body {
-  color: var(--background);
-  background-color: var(--foreground);
-} */
-
 /* TODO: 文字滚动暂时先不用 */
 @layer components {
   .text-move {
