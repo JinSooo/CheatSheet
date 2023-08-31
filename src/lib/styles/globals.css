@@ -8,13 +8,13 @@
 }
 
 [data-theme="dark"] {
-  --foreground: #c9c9c9;
+  --foreground: #d3d3d3;
   --background: #1f1f1f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: #c9c9c9;
+    --foreground: #d3d3d3;
     --background: #1f1f1f;
   }
 }
@@ -69,7 +69,6 @@ html {
 body {
   height: 100%;
   width: calc(100vw + 18px);
-  overflow: auto;
 }
 
 /* 字体 */
@@ -79,8 +78,23 @@ body {
   src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
 }
 
-/* 解决tailwind初始化添加背景色 */
+/*覆盖 tailwind 默认背景色*/
 :root,
 [data-theme] {
   background-color: transparent;
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
 }

@@ -2719,7 +2719,8 @@ dependencies = [
 [[package]]
 name = "tao"
 version = "0.16.2"
-source = "git+git://github.com/tauri-apps/tao?branch=v0.16#444952a6ad7f0176d8226c532f1ecd06db74b996"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a6d198e01085564cea63e976ad1566c1ba2c2e4cc79578e35d9f05521505e31"
 dependencies = [
  "bitflags 1.3.2",
  "cairo-rs",
@@ -2764,8 +2765,9 @@ dependencies = [
 
 [[package]]
 name = "tao-macros"
-version = "0.1.0"
-source = "git+git://github.com/tauri-apps/tao?branch=v0.16#444952a6ad7f0176d8226c532f1ecd06db74b996"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec114582505d158b669b136e6851f85840c109819d77c42bb7c0709f727d18c2"
 dependencies = [
  "proc-macro2",
  "quote",
