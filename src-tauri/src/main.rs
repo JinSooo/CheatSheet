@@ -2,7 +2,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use active_win_pos_rs::get_active_window;
-use tauri::{GlobalShortcutManager, GlobalWindowEvent, Manager, PhysicalSize, Size};
+use tauri::{
+    AppHandle, CustomMenuItem, GlobalShortcutManager, GlobalWindowEvent, Manager, PhysicalSize,
+    Size, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
+};
 
 static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
 static WINDOW_SIZE_RATIO: f64 = 0.75;
@@ -10,6 +13,8 @@ static WINDOW_SIZE_RATIO: f64 = 0.75;
 fn main() {
     tauri::Builder::default()
         // .on_window_event(|event| init_tauri_event(event))
+        .system_tray(init_tray())
+        .on_system_tray_event(|app, event| tray_handler(app.app_handle().clone(), event))
         .setup(|app| {
             adjust_window_size(app.get_window("main").unwrap());
             init_hotkey(app.app_handle().clone());
@@ -29,6 +34,38 @@ fn init_tauri_event(e: GlobalWindowEvent) {
             }
         }
         _ => (),
+    }
+}
+
+fn init_tray() -> SystemTray {
+    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
+    let hide = CustomMenuItem::new("hide".to_string(), "Hide");
+    let tray_menu = SystemTrayMenu::new()
+        .add_item(quit)
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(hide);
+    SystemTray::new().with_menu(tray_menu)
+}
+
+fn tray_handler(app: AppHandle, event: SystemTrayEvent) {
+    match event {
+        // 左键点击
+        SystemTrayEvent::LeftClick {
+            position: _,
+            size: _,
+            ..
+        } => {
+            println!("system tray received a left click");
+        }
+        // 右键点击
+        SystemTrayEvent::RightClick {
+            position: _,
+            size: _,
+            ..
+        } => {
+            println!("system tray received a right click");
+        }
+        _ => {}
     }
 }
 
