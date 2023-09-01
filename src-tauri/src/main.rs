@@ -16,6 +16,10 @@ fn main() {
         .system_tray(init_tray())
         .on_system_tray_event(|app, event| tray_handler(app.app_handle().clone(), event))
         .setup(|app| {
+            // Tray图标提示信息
+            app.tray_handle()
+                .set_tooltip("CheatSheet   \n快捷键: F2   ")
+                .unwrap();
             adjust_window_size(app.get_window("main").unwrap());
             init_hotkey(app.app_handle().clone());
             Ok(())
@@ -38,33 +42,58 @@ fn init_tauri_event(e: GlobalWindowEvent) {
 }
 
 fn init_tray() -> SystemTray {
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
-    let hide = CustomMenuItem::new("hide".to_string(), "Hide");
     let tray_menu = SystemTrayMenu::new()
-        .add_item(quit)
+        .add_item(CustomMenuItem::new("show".to_string(), "显示").accelerator("F2"))
+        .add_item(CustomMenuItem::new("hide".to_string(), "隐藏").accelerator("F2"))
         .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(hide);
+        .add_item(CustomMenuItem::new("forbid".to_string(), "禁用快捷键"))
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(CustomMenuItem::new("active-window".to_string(), "当前应用"))
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
+        .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
+        .add_item(CustomMenuItem::new("update".to_string(), "检查更新..."))
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(CustomMenuItem::new("quit".to_string(), "退出"));
     SystemTray::new().with_menu(tray_menu)
 }
 
 fn tray_handler(app: AppHandle, event: SystemTrayEvent) {
+    let main_window = app.get_window("main").unwrap();
     match event {
-        // 左键点击
+        // 暂时保留
         SystemTrayEvent::LeftClick {
             position: _,
             size: _,
             ..
         } => {
-            println!("system tray received a left click");
+            println!("🎉🎉🎉 tray: left click");
         }
-        // 右键点击
         SystemTrayEvent::RightClick {
             position: _,
             size: _,
             ..
         } => {
-            println!("system tray received a right click");
+            println!("🎉🎉🎉 tray: right click");
         }
+        // 根据菜单 id 进行事件匹配
+        SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
+            "show" => {
+                main_window.show().unwrap();
+            }
+            "hide" => {
+                main_window.hide().unwrap();
+            }
+            "forbid" => {}
+            "active-window" => {}
+            "option" => {}
+            "help" => {}
+            "update" => {}
+            "quit" => {
+                app.exit(0);
+            }
+            _ => (),
+        },
         _ => {}
     }
 }
