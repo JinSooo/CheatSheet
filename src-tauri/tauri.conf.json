@@ -78,7 +78,8 @@
         "acceptFirstMouse": true,
         "decorations": false,
         "center": true,
-        "alwaysOnTop": true
+        "alwaysOnTop": true,
+        "skipTaskbar": true
       }
     ],
     "macOSPrivateApi": true,
