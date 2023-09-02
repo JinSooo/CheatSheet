@@ -26,6 +26,14 @@ pub fn init_tray() -> SystemTray {
                 )),
         ))
         .add_native_item(SystemTrayMenuItem::Separator)
+        .add_submenu(SystemTraySubmenu::new(
+            "主题",
+            SystemTrayMenu::new()
+                .add_item(CustomMenuItem::new("theme_system".to_string(), "系统默认").selected())
+                .add_item(CustomMenuItem::new("theme_light".to_string(), "亮色主题"))
+                .add_item(CustomMenuItem::new("theme_dark".to_string(), "暗色主题")),
+        ))
+        .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
         .add_item(CustomMenuItem::new("update".to_string(), "检查更新..."))
@@ -56,6 +64,9 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "hide" => on_hide(app),
             "forbid_shortcut" => on_forbid_shortcut(app),
             "forbid_active_window" => on_forbid_active_window(app),
+            "theme_system" => on_theme(app, id.as_str()),
+            "theme_light" => on_theme(app, id.as_str()),
+            "theme_dark" => on_theme(app, id.as_str()),
             "option" => on_option(),
             "help" => on_help(),
             "update" => on_update(),
@@ -112,6 +123,10 @@ fn on_forbid_active_window(app: &AppHandle) {
             .set_selected(IS_FORBID_ACTIVE_WINDOW)
             .unwrap();
     }
+}
+
+fn on_theme(app: &AppHandle, theme: &str) {
+    app.emit_all("theme", theme).unwrap();
 }
 
 fn on_option() {}

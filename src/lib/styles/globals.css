@@ -12,13 +12,6 @@
   --background: #1f1f1f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #d3d3d3;
-    --background: #1f1f1f;
-  }
-}
-
 /* TODO: 文字滚动暂时先不用 */
 @layer components {
   .text-move {
