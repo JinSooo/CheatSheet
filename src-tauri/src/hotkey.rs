@@ -4,11 +4,7 @@ use tauri::{AppHandle, GlobalShortcutManager, Manager};
 static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
 
 pub fn init_hotkey(app: AppHandle) {
-    app.global_shortcut_manager()
-        .register(GLOBAL_HOTKEY_SHORTCUT, move || {
-            hotkey_handler(&app);
-        })
-        .unwrap();
+    register_hotkey(app);
 }
 
 fn hotkey_handler(app: &AppHandle) {
@@ -23,4 +19,18 @@ fn hotkey_handler(app: &AppHandle) {
         std::thread::sleep(std::time::Duration::from_millis(100));
         window.show().unwrap();
     }
+}
+
+pub fn register_hotkey(app: AppHandle) {
+    app.global_shortcut_manager()
+        .register(GLOBAL_HOTKEY_SHORTCUT, move || {
+            hotkey_handler(&app);
+        })
+        .unwrap();
+}
+
+pub fn unregister_hotkey(app: &AppHandle) {
+    app.global_shortcut_manager()
+        .unregister(GLOBAL_HOTKEY_SHORTCUT)
+        .unwrap();
 }

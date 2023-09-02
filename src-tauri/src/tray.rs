@@ -1,3 +1,4 @@
+use crate::hotkey::{register_hotkey, unregister_hotkey};
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem,
@@ -36,7 +37,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
             "show" => on_show(app),
             "hide" => on_hide(app),
-            "forbid" => on_forbid(),
+            "forbid" => on_forbid(app),
             "active_window" => on_active_window(),
             "option" => on_option(),
             "help" => on_help(),
@@ -64,7 +65,22 @@ fn on_hide(app: &AppHandle) {
     app.get_window("main").unwrap().hide().unwrap();
 }
 
-fn on_forbid() {}
+// 是否禁用全局快捷键
+static mut IS_FORBID: bool = false;
+fn on_forbid(app: &AppHandle) {
+    unsafe {
+        if (IS_FORBID) {
+            register_hotkey(app.app_handle());
+        } else {
+            unregister_hotkey(app);
+        }
+        IS_FORBID = !IS_FORBID;
+        app.tray_handle()
+            .get_item("forbid")
+            .set_selected(IS_FORBID)
+            .unwrap();
+    }
+}
 
 fn on_active_window() {}
 
