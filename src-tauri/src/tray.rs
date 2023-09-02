@@ -1,4 +1,8 @@
-use crate::hotkey::{register_hotkey, unregister_hotkey};
+use crate::hotkey::{
+    register_hotkey, unregister_hotkey, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
+};
+use crate::utils::get_current_active_window;
+use tauri::api::notification::Notification;
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem,
@@ -12,7 +16,7 @@ pub fn init_tray() -> SystemTray {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("forbid".to_string(), "禁用快捷键"))
         .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(CustomMenuItem::new("active-window".to_string(), "当前应用"))
+        .add_item(CustomMenuItem::new("active_window".to_string(), "当前应用"))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
@@ -24,7 +28,14 @@ pub fn init_tray() -> SystemTray {
 
 pub fn init_tray_tooltip(app: AppHandle) {
     app.tray_handle()
-        .set_tooltip("CheatSheet   \n快捷键: F2   ")
+        .set_tooltip(
+            format!(
+                "CheatSheet   \n
+                 显示快捷键: {GLOBAL_HOTKEY_SHORTCUT}   \n
+                 当前应用快捷键: {GLOBAL_HOTKEY_ACTIVE_WINDOW}   "
+            )
+            .as_str(),
+        )
         .unwrap();
 }
 
@@ -38,7 +49,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "show" => on_show(app),
             "hide" => on_hide(app),
             "forbid" => on_forbid(app),
-            "active_window" => on_active_window(),
+            "active_window" => on_active_window(app),
             "option" => on_option(),
             "help" => on_help(),
             "update" => on_update(),
@@ -69,7 +80,7 @@ fn on_hide(app: &AppHandle) {
 static mut IS_FORBID: bool = false;
 fn on_forbid(app: &AppHandle) {
     unsafe {
-        if (IS_FORBID) {
+        if IS_FORBID {
             register_hotkey(app.app_handle());
         } else {
             unregister_hotkey(app);
@@ -82,7 +93,14 @@ fn on_forbid(app: &AppHandle) {
     }
 }
 
-fn on_active_window() {}
+fn on_active_window(app: &AppHandle) {
+    println!("message: {}", get_current_active_window());
+    Notification::new(&app.config().tauri.bundle.identifier)
+        .title("当前应用")
+        .body(get_current_active_window())
+        .show()
+        .unwrap();
+}
 
 fn on_option() {}
 
