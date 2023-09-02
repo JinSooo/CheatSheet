@@ -2,8 +2,6 @@ use crate::hotkey::{
     register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
     unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
 };
-use crate::utils::get_current_active_window;
-use tauri::api::notification::Notification;
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -27,8 +25,6 @@ pub fn init_tray() -> SystemTray {
                     "当前应用快捷键",
                 )),
         ))
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(CustomMenuItem::new("active_window".to_string(), "当前应用"))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
@@ -60,7 +56,6 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "hide" => on_hide(app),
             "forbid_shortcut" => on_forbid_shortcut(app),
             "forbid_active_window" => on_forbid_active_window(app),
-            "active_window" => on_active_window(app),
             "option" => on_option(),
             "help" => on_help(),
             "update" => on_update(),
@@ -117,15 +112,6 @@ fn on_forbid_active_window(app: &AppHandle) {
             .set_selected(IS_FORBID_ACTIVE_WINDOW)
             .unwrap();
     }
-}
-
-fn on_active_window(app: &AppHandle) {
-    println!("message: {}", get_current_active_window());
-    Notification::new(&app.config().tauri.bundle.identifier)
-        .title("当前应用")
-        .body(get_current_active_window())
-        .show()
-        .unwrap();
 }
 
 fn on_option() {}
