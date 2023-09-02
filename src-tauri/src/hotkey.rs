@@ -1,5 +1,4 @@
-use crate::utils::get_current_active_window;
-use tauri::api::notification::Notification;
+use crate::utils::{get_current_active_window, notification};
 use tauri::{AppHandle, GlobalShortcutManager, Manager};
 
 pub static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
@@ -14,13 +13,13 @@ pub fn register_hotkey(app: AppHandle) {
     app_handle
         .global_shortcut_manager()
         .register(GLOBAL_HOTKEY_SHORTCUT, move || {
-            hotkey_shortcut_handler(&app);
+            on_shortcut(&app);
         })
         .unwrap();
     app_handle
         .global_shortcut_manager()
         .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
-            hotkey_active_window_handler(&app_handle);
+            on_active_window(&app_handle);
         })
         .unwrap();
 }
@@ -31,7 +30,7 @@ pub fn unregister_hotkey(app: &AppHandle) {
         .unwrap();
 }
 
-fn hotkey_shortcut_handler(app: &AppHandle) {
+fn on_shortcut(app: &AppHandle) {
     let window = app.get_window("main").unwrap();
 
     if window.is_visible().unwrap() {
@@ -45,11 +44,6 @@ fn hotkey_shortcut_handler(app: &AppHandle) {
     }
 }
 
-fn hotkey_active_window_handler(app: &AppHandle) {
-    println!("message: {}", get_current_active_window());
-    Notification::new(&app.config().tauri.bundle.identifier)
-        .title("当前应用")
-        .body(get_current_active_window())
-        .show()
-        .unwrap();
+fn on_active_window(app: &AppHandle) {
+    notification(app, "当前应用", get_current_active_window().as_str());
 }

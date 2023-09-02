@@ -1,4 +1,5 @@
 use active_win_pos_rs::get_active_window;
+use tauri::api::notification::Notification;
 use tauri::{AppHandle, Manager, PhysicalSize, Size};
 
 // 根据显示屏按比例适配窗口大小
@@ -26,4 +27,13 @@ pub fn get_current_active_window() -> String {
         Ok(active_window) => active_window.app_name,
         Err(()) => "Default".to_string(),
     }
+}
+
+// 发送消息 Notification
+pub fn notification(app: &AppHandle, title: &str, body: &str) {
+    Notification::new(&app.config().tauri.bundle.identifier)
+        .title(title)
+        .body(body)
+        .show()
+        .unwrap();
 }
