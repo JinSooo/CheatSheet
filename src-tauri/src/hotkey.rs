@@ -5,28 +5,35 @@ pub static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
 pub static GLOBAL_HOTKEY_ACTIVE_WINDOW: &str = "Ctrl+F2";
 
 pub fn init_hotkey(app: AppHandle) {
-    register_hotkey(app);
+    register_hotkey_shortcut(app.app_handle());
+    register_hotkey_active_window(app.app_handle());
 }
 
-pub fn register_hotkey(app: AppHandle) {
-    let app_handle = app.app_handle();
-    app_handle
-        .global_shortcut_manager()
+pub fn register_hotkey_shortcut(app: AppHandle) {
+    app.global_shortcut_manager()
         .register(GLOBAL_HOTKEY_SHORTCUT, move || {
             on_shortcut(&app);
         })
         .unwrap();
-    app_handle
-        .global_shortcut_manager()
+}
+
+pub fn register_hotkey_active_window(app: AppHandle) {
+    app.global_shortcut_manager()
         .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
-            on_active_window(&app_handle);
+            on_active_window(&app);
         })
         .unwrap();
 }
 
-pub fn unregister_hotkey(app: &AppHandle) {
+pub fn unregister_hotkey_shortcut(app: &AppHandle) {
     app.global_shortcut_manager()
         .unregister(GLOBAL_HOTKEY_SHORTCUT)
+        .unwrap();
+}
+
+pub fn unregister_hotkey_active_window(app: &AppHandle) {
+    app.global_shortcut_manager()
+        .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
         .unwrap();
 }
 

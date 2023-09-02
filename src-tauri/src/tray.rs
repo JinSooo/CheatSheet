@@ -1,11 +1,12 @@
 use crate::hotkey::{
-    register_hotkey, unregister_hotkey, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
+    register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
+    unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
 };
 use crate::utils::get_current_active_window;
 use tauri::api::notification::Notification;
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
-    SystemTrayMenuItem,
+    SystemTrayMenuItem, SystemTraySubmenu,
 };
 
 pub fn init_tray() -> SystemTray {
@@ -14,7 +15,18 @@ pub fn init_tray() -> SystemTray {
         .add_item(CustomMenuItem::new("show".to_string(), "显示").accelerator("F2"))
         .add_item(CustomMenuItem::new("hide".to_string(), "隐藏").accelerator("F2"))
         .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(CustomMenuItem::new("forbid".to_string(), "禁用快捷键"))
+        .add_submenu(SystemTraySubmenu::new(
+            "禁用快捷键",
+            SystemTrayMenu::new()
+                .add_item(CustomMenuItem::new(
+                    "forbid_shortcut".to_string(),
+                    "显示快捷键",
+                ))
+                .add_item(CustomMenuItem::new(
+                    "forbid_active_window".to_string(),
+                    "当前应用快捷键",
+                )),
+        ))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("active_window".to_string(), "当前应用"))
         .add_native_item(SystemTrayMenuItem::Separator)
@@ -30,9 +42,7 @@ pub fn init_tray_tooltip(app: AppHandle) {
     app.tray_handle()
         .set_tooltip(
             format!(
-                "CheatSheet   \n
-                 显示快捷键: {GLOBAL_HOTKEY_SHORTCUT}   \n
-                 当前应用快捷键: {GLOBAL_HOTKEY_ACTIVE_WINDOW}   "
+                "CheatSheet   \n显示快捷键: {GLOBAL_HOTKEY_SHORTCUT}   \n当前应用快捷键: {GLOBAL_HOTKEY_ACTIVE_WINDOW}   "
             )
             .as_str(),
         )
@@ -48,7 +58,8 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
             "show" => on_show(app),
             "hide" => on_hide(app),
-            "forbid" => on_forbid(app),
+            "forbid_shortcut" => on_forbid_shortcut(app),
+            "forbid_active_window" => on_forbid_active_window(app),
             "active_window" => on_active_window(app),
             "option" => on_option(),
             "help" => on_help(),
@@ -76,19 +87,34 @@ fn on_hide(app: &AppHandle) {
     app.get_window("main").unwrap().hide().unwrap();
 }
 
-// 是否禁用全局快捷键
-static mut IS_FORBID: bool = false;
-fn on_forbid(app: &AppHandle) {
+static mut IS_FORBID_SHORTCUT: bool = false;
+fn on_forbid_shortcut(app: &AppHandle) {
     unsafe {
-        if IS_FORBID {
-            register_hotkey(app.app_handle());
+        if IS_FORBID_SHORTCUT {
+            register_hotkey_shortcut(app.app_handle());
         } else {
-            unregister_hotkey(app);
+            unregister_hotkey_shortcut(app);
         }
-        IS_FORBID = !IS_FORBID;
+        IS_FORBID_SHORTCUT = !IS_FORBID_SHORTCUT;
         app.tray_handle()
-            .get_item("forbid")
-            .set_selected(IS_FORBID)
+            .get_item("forbid_shortcut")
+            .set_selected(IS_FORBID_SHORTCUT)
+            .unwrap();
+    }
+}
+
+static mut IS_FORBID_ACTIVE_WINDOW: bool = false;
+fn on_forbid_active_window(app: &AppHandle) {
+    unsafe {
+        if IS_FORBID_ACTIVE_WINDOW {
+            register_hotkey_active_window(app.app_handle());
+        } else {
+            unregister_hotkey_active_window(app);
+        }
+        IS_FORBID_ACTIVE_WINDOW = !IS_FORBID_ACTIVE_WINDOW;
+        app.tray_handle()
+            .get_item("forbid_active_window")
+            .set_selected(IS_FORBID_ACTIVE_WINDOW)
             .unwrap();
     }
 }
