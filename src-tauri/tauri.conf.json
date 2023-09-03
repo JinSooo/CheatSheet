@@ -30,6 +30,9 @@
       },
       "os": {
         "all": true
+      },
+      "notification": {
+        "all": true
       }
     },
     "bundle": {
@@ -78,9 +81,14 @@
         "acceptFirstMouse": true,
         "decorations": false,
         "center": true,
-        "alwaysOnTop": true
+        "alwaysOnTop": true,
+        "skipTaskbar": true
       }
     ],
-    "macOSPrivateApi": true
+    "macOSPrivateApi": true,
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    }
   }
 }
