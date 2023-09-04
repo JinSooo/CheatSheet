@@ -5,11 +5,13 @@
 :root {
   --foreground: #373737;
   --background: #f7f7f7;
+  --background-config-menu: #ffffff;
 }
 
 [data-theme="dark"] {
   --foreground: #d3d3d3;
   --background: #1f1f1f;
+  --background-config-menu: #111111;
 }
 
 /* TODO: 文字滚动暂时先不用 */
