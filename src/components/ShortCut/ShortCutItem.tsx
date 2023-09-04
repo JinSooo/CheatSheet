@@ -16,9 +16,11 @@ const ShortCutItem = ({ shortcut, os }: Props) => {
           </div>
         ))}
       </div>
-      <p className='w-[65%] text-overflow-hidden' title={shortcut.description}>
-        {shortcut.description}
-      </p>
+      <p className='w-[65%] text-overflow-hidden'>{shortcut.description}</p>
+      {/* 顶部提示tooltip */}
+      <div className='absolute left-[40%] tooltip w-[50%] h-[24px] z-10' data-tip={shortcut.description}>
+        {' '}
+      </div>
     </div>
   )
 }
