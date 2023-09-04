@@ -25,6 +25,11 @@ const useTheme = () => {
     }
   }, [nextTheme])
 
+  useEffect(() => {
+    // 初始化一下，避免主题不匹配
+    setTheme('system')
+  })
+
   return { setTheme }
 }
 

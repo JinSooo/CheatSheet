@@ -39,5 +39,9 @@ export default function Home() {
     init()
   }, [])
 
-  return <ShortCut appName={activeAppName} os={os} />
+  return (
+    <div className='h-screen w-screen rounded-2xl text-[var(--foreground)] bg-[var(--background)] overflow-auto no-scrollbar'>
+      <ShortCut appName={activeAppName} os={os} />
+    </div>
+  )
 }

@@ -1,6 +1,9 @@
-use crate::hotkey::{
-    register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
-    unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
+use crate::{
+    hotkey::{
+        register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
+        unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
+    },
+    window::create_config_window,
 };
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
@@ -67,7 +70,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "theme_system" => on_theme(app, id.as_str()),
             "theme_light" => on_theme(app, id.as_str()),
             "theme_dark" => on_theme(app, id.as_str()),
-            "option" => on_option(),
+            "option" => on_option(app),
             "help" => on_help(),
             "update" => on_update(),
             "quit" => on_quit(app),
@@ -129,7 +132,9 @@ fn on_theme(app: &AppHandle, theme: &str) {
     app.emit_all("theme", theme).unwrap();
 }
 
-fn on_option() {}
+fn on_option(app: &AppHandle) {
+    create_config_window(app);
+}
 
 fn on_help() {}
 

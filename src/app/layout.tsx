@@ -20,9 +20,7 @@ export default function RootLayout({
       <head />
       <body>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='h-screen w-screen rounded-2xl text-[var(--foreground)] bg-[var(--background)] overflow-auto no-scrollbar'>
-            {children}
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>

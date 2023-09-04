@@ -5,6 +5,7 @@ mod event;
 mod hotkey;
 mod tray;
 mod utils;
+mod window;
 
 use event::*;
 use hotkey::*;
