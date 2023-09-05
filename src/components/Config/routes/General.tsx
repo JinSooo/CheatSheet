@@ -2,7 +2,7 @@ const General = () => {
   return (
     <div className='p-6'>
       <header className='mb-4'>
-        <p className='text-2xl text-center font-bold'>通用</p>
+        <p className='text-2xl text-center font-semibold'>通用</p>
       </header>
       <ul className='flex flex-col gap-6'>
         <li className='flex justify-between items-center'>
