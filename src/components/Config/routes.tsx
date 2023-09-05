@@ -7,7 +7,7 @@ const routes = [
   {
     id: 'general',
     path: '/config/general',
-    name: '常用',
+    name: '通用',
     element: <General />,
   },
   {

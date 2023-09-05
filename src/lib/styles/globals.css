@@ -28,6 +28,15 @@
   .text-overflow-hidden {
     @apply whitespace-nowrap overflow-hidden text-ellipsis;
   }
+
+  /* Config */
+  .config-menu {
+    @apply flex flex-col gap-6;
+  }
+
+  .config-menu > li {
+    @apply flex justify-between items-center;
+  }
 }
 
 @keyframes text-move {

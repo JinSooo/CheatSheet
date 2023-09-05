@@ -1,9 +1,8 @@
+import { Container } from '../common/Container'
+
 const SupportApp = () => {
   return (
-    <div className='p-6'>
-      <header className='mb-4'>
-        <p className='text-2xl text-center font-semibold'>已适配应用</p>
-      </header>
+    <Container title='已适配应用'>
       <table className='table table-pin-rows'>
         <thead>
           <tr>
@@ -256,7 +255,7 @@ const SupportApp = () => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </Container>
   )
 }
 
