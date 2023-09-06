@@ -1,7 +1,6 @@
 'use client'
 
 import { StoreContext } from '@/lib/store'
-import useWindowStore from '@/lib/store/window'
 import { ShortCut as ShortCutType } from '@/lib/types'
 import { readShortCut } from '@/lib/utils'
 import { MasonryGrid } from '@egjs/react-grid'

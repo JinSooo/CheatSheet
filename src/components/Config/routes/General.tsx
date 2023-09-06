@@ -1,7 +1,7 @@
 'use client'
 
 import useTheme from '@/lib/hooks/useTheme'
-import useWindowStore from '@/lib/store/window'
+import { emit } from '@tauri-apps/api/event'
 import { ChangeEvent } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
@@ -10,25 +10,17 @@ import Select from '../common/Select'
 
 const General = () => {
   const { setTheme } = useTheme()
-  const [setBackgroundOpacity, setWindowBorderRadius] = useWindowStore((state) => [
-    state.setBackgroundOpacity,
-    state.setWindowBorderRadius,
-  ])
-  const [backgroundOpacity] = useWindowStore((state) => [state.backgroundOpacity])
-
-  console.log('general', backgroundOpacity)
 
   const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value)
   }
 
   const handleWindowOpacity = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(+e.target.value)
-    setBackgroundOpacity(+e.target.value)
+    emit('background_opacity', +e.target.value / 10)
   }
 
   const handleWindowBorderRadius = (e: ChangeEvent<HTMLInputElement>) => {
-    setWindowBorderRadius(+e.target.value)
+    emit('window_border_radius', +e.target.value)
   }
 
   return (
