@@ -1,6 +1,8 @@
 'use client'
 
 import useTheme from '@/lib/hooks/useTheme'
+import useWindowStore from '@/lib/store/window'
+import { ChangeEvent } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Range from '../common/Range'
@@ -8,9 +10,25 @@ import Select from '../common/Select'
 
 const General = () => {
   const { setTheme } = useTheme()
+  const [setBackgroundOpacity, setWindowBorderRadius] = useWindowStore((state) => [
+    state.setBackgroundOpacity,
+    state.setWindowBorderRadius,
+  ])
+  const [backgroundOpacity] = useWindowStore((state) => [state.backgroundOpacity])
 
-  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  console.log('general', backgroundOpacity)
+
+  const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value)
+  }
+
+  const handleWindowOpacity = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(+e.target.value)
+    setBackgroundOpacity(+e.target.value)
+  }
+
+  const handleWindowBorderRadius = (e: ChangeEvent<HTMLInputElement>) => {
+    setWindowBorderRadius(+e.target.value)
   }
 
   return (
@@ -30,7 +48,7 @@ const General = () => {
         </li>
         <li>
           <p>窗口透明度</p>
-          <Range min={0} max={10} />
+          <Range min={0} max={10} onChange={handleWindowOpacity} />
         </li>
         <li>
           <p>窗口大小百分比</p>
@@ -38,7 +56,7 @@ const General = () => {
         </li>
         <li>
           <p>窗口圆角大小</p>
-          <Range min={0} max={10} />
+          <Range min={0} max={100} onChange={handleWindowBorderRadius} />
         </li>
         <li>
           <p>主题</p>

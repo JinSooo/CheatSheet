@@ -1,6 +1,7 @@
 'use client'
 
 import { StoreContext } from '@/lib/store'
+import useWindowStore from '@/lib/store/window'
 import { ShortCut as ShortCutType } from '@/lib/types'
 import { readShortCut } from '@/lib/utils'
 import { MasonryGrid } from '@egjs/react-grid'
@@ -8,7 +9,7 @@ import { useContext, useEffect, useState } from 'react'
 import Category from './Category'
 
 const ShortCut = () => {
-  const store = useContext(StoreContext)
+  const { os } = useContext(StoreContext)
   const [shortcut, setShortCut] = useState<ShortCutType>()
 
   const getShortCut = async (name: string) => {
@@ -20,8 +21,8 @@ const ShortCut = () => {
   }
 
   useEffect(() => {
-    getShortCut(store.os)
-  }, [store.os])
+    getShortCut(os)
+  }, [os])
 
   return (
     <div className='w-full h-full box-border p-6'>

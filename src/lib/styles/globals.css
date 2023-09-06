@@ -5,12 +5,14 @@
 :root {
   --foreground: #373737;
   --background: #f7f7f7;
+  --background-rgba: 247, 247, 247;
   --background-config-menu: #ffffff;
 }
 
 [data-theme="dark"] {
   --foreground: #d3d3d3;
   --background: #1f1f1f;
+  --background-rgba: 31, 31, 31;
   --background-config-menu: #111111;
 }
 
