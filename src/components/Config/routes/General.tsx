@@ -1,9 +1,18 @@
+'use client'
+
+import useTheme from '@/lib/hooks/useTheme'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Range from '../common/Range'
 import Select from '../common/Select'
 
 const General = () => {
+  const { setTheme } = useTheme()
+
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTheme(e.target.value)
+  }
+
   return (
     <Container title='通用'>
       <ul className='config-menu'>
@@ -28,6 +37,10 @@ const General = () => {
           <Range min={0} max={100} />
         </li>
         <li>
+          <p>窗口圆角大小</p>
+          <Range min={0} max={10} />
+        </li>
+        <li>
           <p>主题</p>
           <Select
             items={[
@@ -35,6 +48,7 @@ const General = () => {
               { key: 'light', description: '白天模式' },
               { key: 'dark', description: '夜间模式' },
             ]}
+            onChange={handleThemeChange}
           />
         </li>
         <li>
