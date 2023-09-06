@@ -7,9 +7,7 @@ import { OSType } from '@/lib/types'
 import { getOSType } from '@/lib/utils'
 import { listen } from '@tauri-apps/api/event'
 import type { Metadata } from 'next'
-import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { Client, HydrationProvider } from 'react-hydration-provider'
 
 export const metadata: Metadata = {
   title: 'CheatSheet',

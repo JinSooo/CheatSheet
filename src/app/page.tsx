@@ -10,7 +10,6 @@ export default function Home() {
   const _ = useTheme()
   const [backgroundOpacity, setBackgroundOpacity] = useState(1) // 背景透明度
   const [windowBorderRadius, setWindowBorderRadius] = useState(16) // 窗口圆角
-  const [mounted, setMounted] = useState(false)
 
   const initWindowListener = async () => {
     await listen('background_opacity', (event) => {
@@ -23,13 +22,7 @@ export default function Home() {
 
   useEffect(() => {
     initWindowListener()
-    setMounted(true)
   }, [])
-
-  // 一定要等到mounted为true后再渲染，因为useTheme要获取Client端的主题样式，如果在服务端就执行了，会导致其为undefined
-  if (!mounted) return null
-
-  console.log(`backgroundOpacity${backgroundOpacity}`)
 
   return (
     <div
