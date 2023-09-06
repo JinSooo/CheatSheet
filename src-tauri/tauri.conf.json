@@ -21,7 +21,10 @@
       },
       "window": {
         "hide": true,
-        "show": true
+        "show": true,
+        "setAlwaysOnTop": true,
+        "setSize": true,
+        "center": true
       },
       "fs": {
         "all": false,
