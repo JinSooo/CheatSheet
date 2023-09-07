@@ -50,7 +50,16 @@ const General = () => {
   // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
     const { invoke } = await import('@tauri-apps/api')
-    invoke('left_click_type', { lcType: e.target.value })
+    await invoke('left_click_type', { lcType: e.target.value })
+  }
+  // 开机自启
+  const handleAppAutostart = async (e: ChangeEvent<HTMLInputElement>) => {
+    const { invoke } = await import('@tauri-apps/api')
+    if (e.target.checked) {
+      await invoke('plugin:autostart|enable')
+    } else {
+      await invoke('plugin:autostart|disable')
+    }
   }
 
   useEffect(() => {
@@ -61,8 +70,8 @@ const General = () => {
     <Container title='通用'>
       <ul className='config-menu'>
         <li>
-          <p>开机启动</p>
-          <Checkbox />
+          <p>开机自启</p>
+          <Checkbox onChange={handleAppAutostart} />
         </li>
         <li>
           <p>启动时检查更新</p>

@@ -10,11 +10,16 @@ mod window;
 use event::*;
 use hotkey::*;
 use tauri::{generate_context, generate_handler, Manager};
+use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
 use utils::adjust_window_size;
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_autostart::init(
+            MacosLauncher::LaunchAgent,
+            Some(vec!["--flag1", "--flag2"]),
+        ))
         // .on_window_event(init_tauri_event)
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
