@@ -9,7 +9,7 @@ mod window;
 
 use event::*;
 use hotkey::*;
-use tauri::Manager;
+use tauri::{generate_context, generate_handler, Manager};
 use tray::*;
 use utils::adjust_window_size;
 
@@ -24,6 +24,7 @@ fn main() {
             init_hotkey(app.app_handle());
             Ok(())
         })
-        .run(tauri::generate_context!())
+        .invoke_handler(generate_handler![left_click_type])
+        .run(generate_context!())
         .expect("error while running tauri application");
 }

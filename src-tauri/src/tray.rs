@@ -3,7 +3,7 @@ use crate::{
         register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
         unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
     },
-    window::create_config_window,
+    window::show_config_window,
 };
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
@@ -59,7 +59,7 @@ pub fn init_tray_tooltip(app: AppHandle) {
 pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
     match event {
         // 暂时保留
-        SystemTrayEvent::LeftClick { .. } => on_left_click(),
+        SystemTrayEvent::LeftClick { .. } => on_left_click(app),
         SystemTrayEvent::RightClick { .. } => on_right_click(),
         // 根据菜单 id 进行事件匹配
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
@@ -70,7 +70,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "theme_system" => on_theme(app, id.as_str()),
             "theme_light" => on_theme(app, id.as_str()),
             "theme_dark" => on_theme(app, id.as_str()),
-            "option" => on_option(app),
+            "option" => on_config(app),
             "help" => on_help(),
             "update" => on_update(),
             "quit" => on_quit(app),
@@ -80,8 +80,34 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
     }
 }
 
-fn on_left_click() {
+/*
+  单击托盘事件
+    0: 空
+    1: 显示CheatSheet窗口
+    2: 显示配置窗口
+*/
+static mut LEFT_CLICK_TYPE: i32 = 0;
+fn on_left_click(app: &AppHandle) {
     println!("🎉🎉🎉 tray: left click");
+    unsafe {
+        match LEFT_CLICK_TYPE {
+            1 => {
+                app.get_window("main").unwrap().show().unwrap();
+            }
+            2 => {
+                show_config_window(app);
+            }
+            _ => (),
+        }
+    }
+}
+
+#[tauri::command]
+pub fn left_click_type(lc_type: String) {
+    dbg!(lc_type.as_str());
+    unsafe {
+        LEFT_CLICK_TYPE = lc_type.parse::<i32>().unwrap();
+    }
 }
 
 fn on_right_click() {
@@ -132,8 +158,8 @@ fn on_theme(app: &AppHandle, theme: &str) {
     app.emit_all("theme", theme).unwrap();
 }
 
-fn on_option(app: &AppHandle) {
-    create_config_window(app);
+fn on_config(app: &AppHandle) {
+    show_config_window(app);
 }
 
 fn on_help() {}

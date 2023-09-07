@@ -1,4 +1,4 @@
-use tauri::{AppHandle, WindowBuilder, WindowUrl};
+use tauri::{AppHandle, Manager, WindowBuilder, WindowUrl};
 
 pub fn create_config_window(app: &AppHandle) {
     WindowBuilder::new(app, "config", WindowUrl::App("/config".into()))
@@ -10,4 +10,15 @@ pub fn create_config_window(app: &AppHandle) {
         // .decorations(false)
         .build()
         .unwrap();
+}
+
+pub fn show_config_window(app: &AppHandle) {
+    match app.get_window("config") {
+        Some(config_window) => {
+            config_window.show().unwrap();
+        }
+        None => {
+            create_config_window(app);
+        }
+    };
 }

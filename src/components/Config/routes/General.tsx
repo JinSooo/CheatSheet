@@ -1,6 +1,7 @@
 'use client'
 
 import useTheme from '@/lib/hooks/useTheme'
+import { invoke } from '@tauri-apps/api'
 import { emit } from '@tauri-apps/api/event'
 import { LogicalSize, Monitor, WebviewWindow } from '@tauri-apps/api/window'
 import { ChangeEvent, useEffect, useRef } from 'react'
@@ -45,6 +46,10 @@ const General = () => {
       new LogicalSize((monitor.current?.size.width ?? 1920) * ratio, (monitor.current?.size.height ?? 1080) * ratio),
     )
     mainWindow.current?.center()
+  }
+  // 窗口大小
+  const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
+    invoke('left_click_type', { lcType: e.target.value })
   }
 
   useEffect(() => {
@@ -93,10 +98,11 @@ const General = () => {
           <p>托盘点击事件</p>
           <Select
             items={[
-              { key: 'null', description: '空' },
-              { key: 'cheatsheet', description: 'CheatSheet窗口' },
-              { key: 'config', description: '配置窗口' },
+              { key: '0', description: '空' },
+              { key: '1', description: 'CheatSheet窗口' },
+              { key: '2', description: '配置窗口' },
             ]}
+            onChange={handleTrayClick}
           />
         </li>
       </ul>
