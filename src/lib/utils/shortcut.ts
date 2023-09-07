@@ -12,7 +12,9 @@ export const readShortCut = async (name: string): Promise<ShortCut> => {
 
 const commandMap = new Map([
   ['Control', '⌃'],
+  ['Ctrl', '⌃'],
   ['Command', '⌘'],
+  ['Cmd', '⌘'],
   ['Alt', '⌥'],
   ['Shift', '⇧'],
   ['Caps', '⇪'],
@@ -34,4 +36,17 @@ export const convertShortCutCommand = (os: OSType, command: ShortCutCommand) => 
   }
 
   return arr
+}
+
+// 将快捷键转换为Mac的图标和字符
+export const convertMacShortCut = (command: string) => {
+  const arr = command.split('+')
+
+  for (let i = 0; i < arr.length; i++) {
+    if (commandMap.has(arr[i])) {
+      arr[i] = commandMap.get(arr[i]) ?? ''
+    }
+  }
+
+  return arr.join('+')
 }

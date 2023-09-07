@@ -2,11 +2,12 @@ import { InputHTMLAttributes } from 'react'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   submit?: () => void
+  tooltip?: string
 }
 
-const Keyboard = ({ submit, ...props }: Props) => {
+const Keyboard = ({ submit, tooltip, ...props }: Props) => {
   return (
-    <div className='relative w-1/3'>
+    <div className={`relative w-1/3 text-left ${tooltip ? 'tooltip tooltip-left' : ''}`} data-tip={tooltip}>
       <input
         type='text'
         placeholder='快捷键键位'
