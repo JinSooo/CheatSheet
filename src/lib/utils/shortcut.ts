@@ -22,9 +22,9 @@ const commandMap = new Map([
 ])
 
 // 将快捷键转换为对应的图标和字符
-export const convertShortCutCommand = (os: OSType, command: ShortCutCommand) => {
-  if (!command[os]) return []
-  const arr = command[os].split('+')
+export const convertShortCutCommand = (os: OSType, command: string) => {
+  if (!command) return []
+  const arr = command.split('+')
 
   // 对Mac的键位做图标转换
   if (os === OSType.Mac) {

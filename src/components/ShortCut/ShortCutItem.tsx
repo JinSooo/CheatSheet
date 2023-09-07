@@ -1,7 +1,7 @@
 import { StoreContext } from '@/lib/store'
-import { OSType, ShortCutItem as ShortCutItemType } from '@/lib/types'
-import { convertShortCutCommand } from '@/lib/utils'
+import { ShortCutItem as ShortCutItemType } from '@/lib/types'
 import { useContext } from 'react'
+import { ShortCutCommand } from '../common/ShortCutCommand'
 
 interface Props {
   shortcut: ShortCutItemType
@@ -13,11 +13,7 @@ const ShortCutItem = ({ shortcut }: Props) => {
   return (
     <div className='flex gap-4 mb-3 overflow-hidden'>
       <div className='w-[35%] text-right flex justify-end gap-1'>
-        {convertShortCutCommand(os, shortcut.command).map((key) => (
-          <div key={key} className='kbd kbd-sm'>
-            {key}
-          </div>
-        ))}
+        <ShortCutCommand command={shortcut.command[os]} />
       </div>
       <p className='w-[65%] text-overflow-hidden'>{shortcut.description}</p>
       {/* 顶部提示tooltip */}

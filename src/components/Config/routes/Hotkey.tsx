@@ -46,8 +46,6 @@ const Hotkey = () => {
     if (!combKey && !(e.key.length > 1 && e.key.startsWith('F'))) return
 
     combKey = combKey + e.key[0].toUpperCase() + e.key.slice(1)
-    // Mac下键位转换成对应的图标
-    if (os === OSType.Mac) combKey = convertMacShortCut(combKey)
     // 优化，相同则不更新
     if (cheatSheetShortCut === combKey) return
     setCheatSheetShortCut(combKey)
@@ -59,7 +57,7 @@ const Hotkey = () => {
         <li>
           <p>显示CheatSheet</p>
           {/* @ts-ignore */}
-          <Keyboard value={cheatSheetShortCut} onKeyDown={handleKeyDown} tooltip={keyBoardTool} />
+          <Keyboard command={cheatSheetShortCut} onKeyDown={handleKeyDown} tooltip={keyBoardTool} />
         </li>
         <li>
           <p>当前应用</p>
