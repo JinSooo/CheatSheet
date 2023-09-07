@@ -1,9 +1,8 @@
 'use client'
 
 import useTheme from '@/lib/hooks/useTheme'
-import { invoke } from '@tauri-apps/api'
 import { emit } from '@tauri-apps/api/event'
-import { LogicalSize, Monitor, WebviewWindow } from '@tauri-apps/api/window'
+import { Monitor, WebviewWindow } from '@tauri-apps/api/window'
 import { ChangeEvent, useEffect, useRef } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
@@ -41,14 +40,16 @@ const General = () => {
   }
   // 窗口大小
   const handleWindowSize = async (e: ChangeEvent<HTMLInputElement>) => {
+    const { LogicalSize } = await import('@tauri-apps/api/window')
     const ratio = +e.target.value / 100
     mainWindow.current?.setSize(
       new LogicalSize((monitor.current?.size.width ?? 1920) * ratio, (monitor.current?.size.height ?? 1080) * ratio),
     )
     mainWindow.current?.center()
   }
-  // 窗口大小
+  // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
+    const { invoke } = await import('@tauri-apps/api')
     invoke('left_click_type', { lcType: e.target.value })
   }
 

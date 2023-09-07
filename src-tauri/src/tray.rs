@@ -111,7 +111,7 @@ pub fn left_click_type(lc_type: String) {
 }
 
 fn on_right_click() {
-    println!("🎉🎉🎉 tray: left click");
+    println!("🎉🎉🎉 tray: right click");
 }
 
 fn on_show(app: &AppHandle) {
