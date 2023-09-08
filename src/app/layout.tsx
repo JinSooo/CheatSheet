@@ -9,14 +9,6 @@ import { listen } from '@tauri-apps/api/event'
 import type { Metadata } from 'next'
 import { useEffect, useState } from 'react'
 
-export const metadata: Metadata = {
-  title: 'CheatSheet',
-  description: 'CheatSheet',
-  icons: {
-    shortcut: ['#'],
-  },
-}
-
 export default function RootLayout({
   children,
 }: {
