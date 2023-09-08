@@ -4,10 +4,12 @@ import { StoreContext } from '@/lib/store'
 import { OSType } from '@/lib/types'
 import { convertMacShortCut, convertShortCutCommand } from '@/lib/utils'
 import { config } from 'process'
-import { useContext, useMemo, useState } from 'react'
+import { useContext, useMemo, useRef, useState } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
+
+type ShortCutKind = 'cheatsheet' | 'config'
 
 // 禁用特殊按键的组合键
 const forbiddenKeys = [
@@ -31,11 +33,15 @@ const keyBoardTooltipMac = '1. 先按功能键(Command、Control、Alt、Shift),
 const Hotkey = () => {
   const { os } = useContext(StoreContext)
   const keyBoardTool = useMemo(() => (os === OSType.Windows ? keyBoardTooltipWindows : keyBoardTooltipMac), [os])
-  const [cheatSheetShortCut, setCheatSheetShortCut] = useState('F2')
-  const [configShortCut, setConfigShortCut] = useState('Ctrl+F2')
+  // 保存当前生效的快捷键
+  const currentCheatSheetShortCut = useRef('F2')
+  const currentConfigShortCut = useRef('Ctrl+F2')
+  // 记录快捷键组合键
+  const [cheatSheetShortCut, setCheatSheetShortCut] = useState(currentCheatSheetShortCut.current)
+  const [configShortCut, setConfigShortCut] = useState(currentConfigShortCut.current)
 
   // 处理键盘按键的组合键
-  const handleKeyDown = (e: KeyboardEvent, target: 'cheatsheet' | 'config') => {
+  const handleKeyDown = (e: KeyboardEvent, target: ShortCutKind) => {
     e.preventDefault()
 
     let combKey = ''
@@ -58,15 +64,31 @@ const Hotkey = () => {
       setConfigShortCut(combKey)
     }
   }
+  // 失去焦点后重置为当前生效的快捷键
+  const handleBlur = (target: ShortCutKind) => {
+    /**
+     * TODO：这不是一种很好的处理方式，不确定性比较大，需要优化
+     * 延时恢复，因为点击submit提交的话，会导致input失去焦点，所以要先等submit更新当前生效快捷键
+     */
+    setTimeout(() => {
+      if (target === 'cheatsheet') {
+        setCheatSheetShortCut(currentCheatSheetShortCut.current)
+      } else if (target === 'config') {
+        setConfigShortCut(currentConfigShortCut.current)
+      }
+    }, 100)
+  }
   // 修改CheatSheet快捷键
   const handleCheatSheetShortCutSubmit = async () => {
     console.log('🎉🎉🎉', 'cheatsheet shortcut', cheatSheetShortCut)
+    currentCheatSheetShortCut.current = cheatSheetShortCut
     const { invoke } = await import('@tauri-apps/api')
     await invoke('register_hotkey_with_shortcut', { kind: 'cheatsheet', shortcut: cheatSheetShortCut })
   }
   // 修改Config快捷键
   const handleConfigSubmit = async () => {
     console.log('🎉🎉🎉', 'config shortcut', configShortCut)
+    currentConfigShortCut.current = configShortCut
     const { invoke } = await import('@tauri-apps/api')
     await invoke('register_hotkey_with_shortcut', { kind: 'config', shortcut: configShortCut })
   }
@@ -81,6 +103,7 @@ const Hotkey = () => {
             tooltip={keyBoardTool}
             // @ts-ignore
             onKeyDown={(e) => handleKeyDown(e, 'cheatsheet')}
+            onBlur={() => handleBlur('cheatsheet')}
             submit={handleCheatSheetShortCutSubmit}
           />
         </li>
@@ -91,6 +114,7 @@ const Hotkey = () => {
             tooltip={keyBoardTool}
             // @ts-ignore
             onKeyDown={(e) => handleKeyDown(e, 'config')}
+            onBlur={() => handleBlur('config')}
             submit={handleConfigSubmit}
           />
         </li>
