@@ -4,6 +4,7 @@ use crate::{
         unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
     },
     window::show_config_window,
+    APP,
 };
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
@@ -45,8 +46,10 @@ pub fn init_tray() -> SystemTray {
     SystemTray::new().with_menu(tray_menu)
 }
 
-pub fn init_tray_tooltip(app: AppHandle) {
-    app.tray_handle()
+pub fn init_tray_tooltip() {
+    let app_handle = APP.get().unwrap();
+    unsafe {
+        app_handle.tray_handle()
         .set_tooltip(
             format!(
                 "CheatSheet   \n显示快捷键: {GLOBAL_HOTKEY_SHORTCUT}   \n当前应用快捷键: {GLOBAL_HOTKEY_ACTIVE_WINDOW}   "
@@ -54,6 +57,7 @@ pub fn init_tray_tooltip(app: AppHandle) {
             .as_str(),
         )
         .unwrap();
+    }
 }
 
 pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
@@ -126,9 +130,9 @@ static mut IS_FORBID_SHORTCUT: bool = false;
 fn on_forbid_shortcut(app: &AppHandle) {
     unsafe {
         if IS_FORBID_SHORTCUT {
-            register_hotkey_shortcut(app.app_handle());
+            register_hotkey_shortcut();
         } else {
-            unregister_hotkey_shortcut(app);
+            unregister_hotkey_shortcut();
         }
         IS_FORBID_SHORTCUT = !IS_FORBID_SHORTCUT;
         app.tray_handle()
@@ -142,9 +146,9 @@ static mut IS_FORBID_ACTIVE_WINDOW: bool = false;
 fn on_forbid_active_window(app: &AppHandle) {
     unsafe {
         if IS_FORBID_ACTIVE_WINDOW {
-            register_hotkey_active_window(app.app_handle());
+            register_hotkey_active_window();
         } else {
-            unregister_hotkey_active_window(app);
+            unregister_hotkey_active_window();
         }
         IS_FORBID_ACTIVE_WINDOW = !IS_FORBID_ACTIVE_WINDOW;
         app.tray_handle()

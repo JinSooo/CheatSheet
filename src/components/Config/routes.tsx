@@ -1,4 +1,4 @@
-import { Info, Keyboard, LayoutGrid, Settings, Settings2 } from 'lucide-react'
+import { Info, Keyboard, LayoutGrid, Settings2 } from 'lucide-react'
 import About from './routes/About'
 import General from './routes/General'
 import Hotkey from './routes/Hotkey'

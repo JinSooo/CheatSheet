@@ -31,8 +31,8 @@ const keyBoardTooltipMac = '1. 先按功能键(Command、Control、Alt、Shift),
 const Hotkey = () => {
   const { os } = useContext(StoreContext)
   const keyBoardTool = useMemo(() => (os === OSType.Windows ? keyBoardTooltipWindows : keyBoardTooltipMac), [os])
-  const [cheatSheetShortCut, setCheatSheetShortCut] = useState('')
-  const [configShortCut, setConfigShortCut] = useState('')
+  const [cheatSheetShortCut, setCheatSheetShortCut] = useState('F2')
+  const [configShortCut, setConfigShortCut] = useState('Ctrl+F2')
 
   // 处理键盘按键的组合键
   const handleKeyDown = (e: KeyboardEvent, target: 'cheatsheet' | 'config') => {
@@ -59,12 +59,16 @@ const Hotkey = () => {
     }
   }
   // 修改CheatSheet快捷键
-  const handleCheatSheetShortCutSubmit = () => {
+  const handleCheatSheetShortCutSubmit = async () => {
     console.log('🎉🎉🎉', 'cheatsheet shortcut', cheatSheetShortCut)
+    const { invoke } = await import('@tauri-apps/api')
+    await invoke('register_hotkey_with_shortcut', { kind: 'cheatsheet', shortcut: cheatSheetShortCut })
   }
   // 修改Config快捷键
-  const handleConfigSubmit = () => {
+  const handleConfigSubmit = async () => {
     console.log('🎉🎉🎉', 'config shortcut', configShortCut)
+    const { invoke } = await import('@tauri-apps/api')
+    await invoke('register_hotkey_with_shortcut', { kind: 'config', shortcut: configShortCut })
   }
 
   return (

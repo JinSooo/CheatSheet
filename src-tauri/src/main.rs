@@ -9,10 +9,14 @@ mod window;
 
 use event::*;
 use hotkey::*;
+use once_cell::sync::OnceCell;
 use tauri::{generate_context, generate_handler, Manager};
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
 use utils::adjust_window_size;
+
+// Global AppHandle
+pub static APP: OnceCell<tauri::AppHandle> = OnceCell::new();
 
 fn main() {
     tauri::Builder::default()
@@ -24,12 +28,20 @@ fn main() {
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
         .setup(|app| {
-            init_tray_tooltip(app.app_handle());
+            // Global AppHandle
+            APP.get_or_init(|| app.handle());
+
+            init_tray_tooltip();
+            init_hotkey();
             adjust_window_size(app.app_handle());
-            init_hotkey(app.app_handle());
             Ok(())
         })
-        .invoke_handler(generate_handler![left_click_type])
+        .invoke_handler(generate_handler![
+            left_click_type,
+            register_hotkey_with_shortcut,
+            register_hotkey,
+            unregister_hotkey
+        ])
         .run(generate_context!())
         .expect("error while running tauri application");
 }

@@ -90,6 +90,7 @@ name = "app"
 version = "0.1.0"
 dependencies = [
  "active-win-pos-rs",
+ "once_cell",
  "serde",
  "serde_json",
  "tauri",

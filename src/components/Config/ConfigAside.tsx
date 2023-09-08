@@ -1,6 +1,5 @@
 'use client'
 
-import { Keyboard } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import routes from './routes'

@@ -1,40 +1,59 @@
-use crate::utils::{get_current_active_window, notification};
+use crate::{
+    utils::{get_current_active_window, notification},
+    APP,
+};
 use tauri::{AppHandle, GlobalShortcutManager, Manager};
 
-pub static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
-pub static GLOBAL_HOTKEY_ACTIVE_WINDOW: &str = "Ctrl+F2";
+pub static mut GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
+pub static mut GLOBAL_HOTKEY_ACTIVE_WINDOW: &str = "Ctrl+F2";
 
-pub fn init_hotkey(app: AppHandle) {
-    register_hotkey_shortcut(app.app_handle());
-    register_hotkey_active_window(app.app_handle());
+pub fn init_hotkey() {
+    register_hotkey_shortcut();
+    register_hotkey_active_window();
 }
 
-pub fn register_hotkey_shortcut(app: AppHandle) {
-    app.global_shortcut_manager()
-        .register(GLOBAL_HOTKEY_SHORTCUT, move || {
-            on_shortcut(&app);
-        })
-        .unwrap();
+pub fn register_hotkey_shortcut() {
+    let app_handle = APP.get().unwrap();
+    unsafe {
+        app_handle
+            .global_shortcut_manager()
+            .register(GLOBAL_HOTKEY_SHORTCUT, move || {
+                on_shortcut(&app_handle);
+            })
+            .unwrap();
+    }
 }
 
-pub fn register_hotkey_active_window(app: AppHandle) {
-    app.global_shortcut_manager()
-        .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
-            on_active_window(&app);
-        })
-        .unwrap();
+pub fn register_hotkey_active_window() {
+    let app_handle = APP.get().unwrap();
+    unsafe {
+        app_handle
+            .global_shortcut_manager()
+            .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
+                on_active_window(&app_handle);
+            })
+            .unwrap();
+    }
 }
 
-pub fn unregister_hotkey_shortcut(app: &AppHandle) {
-    app.global_shortcut_manager()
-        .unregister(GLOBAL_HOTKEY_SHORTCUT)
-        .unwrap();
+pub fn unregister_hotkey_shortcut() {
+    let app_handle = APP.get().unwrap();
+    unsafe {
+        app_handle
+            .global_shortcut_manager()
+            .unregister(GLOBAL_HOTKEY_SHORTCUT)
+            .unwrap();
+    }
 }
 
-pub fn unregister_hotkey_active_window(app: &AppHandle) {
-    app.global_shortcut_manager()
-        .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
-        .unwrap();
+pub fn unregister_hotkey_active_window() {
+    let app_handle = APP.get().unwrap();
+    unsafe {
+        app_handle
+            .global_shortcut_manager()
+            .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
+            .unwrap();
+    }
 }
 
 fn on_shortcut(app: &AppHandle) {
@@ -53,4 +72,47 @@ fn on_shortcut(app: &AppHandle) {
 
 fn on_active_window(app: &AppHandle) {
     notification(app, "当前应用", get_current_active_window().as_str());
+}
+
+#[tauri::command]
+pub fn register_hotkey_with_shortcut(kind: String, shortcut: String) {
+    match kind.as_str() {
+        "cheatsheet" => unsafe {
+            unregister_hotkey_shortcut();
+            GLOBAL_HOTKEY_SHORTCUT = Box::leak(shortcut.into_boxed_str());
+            register_hotkey_shortcut();
+        },
+        "config" => unsafe {
+            unregister_hotkey_active_window();
+            GLOBAL_HOTKEY_ACTIVE_WINDOW = Box::leak(shortcut.into_boxed_str());
+            register_hotkey_active_window();
+        },
+        _ => (),
+    }
+}
+
+#[tauri::command]
+pub fn register_hotkey(kind: String) {
+    match kind.as_str() {
+        "cheatsheet" => {
+            register_hotkey_shortcut();
+        }
+        "config" => {
+            register_hotkey_active_window();
+        }
+        _ => (),
+    }
+}
+
+#[tauri::command]
+pub fn unregister_hotkey(kind: String) {
+    match kind.as_str() {
+        "cheatsheet" => {
+            unregister_hotkey_shortcut();
+        }
+        "config" => {
+            unregister_hotkey_active_window();
+        }
+        _ => (),
+    }
 }
