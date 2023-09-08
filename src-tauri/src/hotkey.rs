@@ -1,4 +1,5 @@
 use crate::{
+    tray::init_tray_tooltip,
     utils::{get_current_active_window, notification},
     APP,
 };
@@ -81,11 +82,15 @@ pub fn register_hotkey_with_shortcut(kind: String, shortcut: String) {
             unregister_hotkey_shortcut();
             GLOBAL_HOTKEY_SHORTCUT = Box::leak(shortcut.into_boxed_str());
             register_hotkey_shortcut();
+            // 重新初始化 tray tooltip
+            init_tray_tooltip();
         },
         "config" => unsafe {
             unregister_hotkey_active_window();
             GLOBAL_HOTKEY_ACTIVE_WINDOW = Box::leak(shortcut.into_boxed_str());
             register_hotkey_active_window();
+            // 重新初始化 tray tooltip
+            init_tray_tooltip();
         },
         _ => (),
     }
