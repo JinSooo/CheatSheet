@@ -10,7 +10,7 @@ mod window;
 use event::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
-use tauri::{generate_context, generate_handler, Manager};
+use tauri::{generate_context, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
 use utils::adjust_window_size;
@@ -33,7 +33,7 @@ fn main() {
 
             init_tray_tooltip();
             init_hotkey();
-            adjust_window_size(app.app_handle());
+            adjust_window_size();
             Ok(())
         })
         .invoke_handler(generate_handler![

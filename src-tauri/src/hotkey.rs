@@ -30,7 +30,7 @@ pub fn register_hotkey_active_window() {
         app_handle
             .global_shortcut_manager()
             .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
-                on_active_window(&app_handle);
+                on_active_window();
             })
             .unwrap();
     }
@@ -70,8 +70,8 @@ fn on_shortcut(app: &AppHandle) {
     }
 }
 
-fn on_active_window(app: &AppHandle) {
-    notification(app, "当前应用", get_current_active_window().as_str());
+fn on_active_window() {
+    notification("当前应用", get_current_active_window().as_str());
 }
 
 #[tauri::command]

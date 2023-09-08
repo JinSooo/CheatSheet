@@ -1,7 +1,11 @@
 use tauri::{AppHandle, Manager, WindowBuilder, WindowUrl};
 
-pub fn create_config_window(app: &AppHandle) {
-    WindowBuilder::new(app, "config", WindowUrl::App("/config".into()))
+use crate::APP;
+
+pub fn create_config_window() {
+    let app_handle = APP.get().unwrap();
+
+    WindowBuilder::new(app_handle, "config", WindowUrl::App("/config".into()))
         .transparent(true)
         .accept_first_mouse(true)
         .center()
@@ -18,7 +22,7 @@ pub fn show_config_window(app: &AppHandle) {
             config_window.show().unwrap();
         }
         None => {
-            create_config_window(app);
+            create_config_window();
         }
     };
 }
