@@ -1,5 +1,6 @@
 'use client'
 
+import { Keyboard } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import routes from './routes'
@@ -18,7 +19,8 @@ const ConfigAside = () => {
             // TODO: 目前Light模式下色彩不匹配
             // style={{ backgroundColor: pathname === route.path ? 'var(--background)' : '' }}
           >
-            {route.name}
+            {route.icon}
+            <p>{route.name}</p>
           </Link>
         </li>
       ))}
