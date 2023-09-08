@@ -4,12 +4,12 @@ import { StoreContext } from '@/lib/store'
 import { OSType } from '@/lib/types'
 import { convertMacShortCut, convertShortCutCommand } from '@/lib/utils'
 import { config } from 'process'
-import { useContext, useMemo, useRef, useState } from 'react'
+import { ChangeEvent, useContext, useMemo, useRef, useState } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
 
-type ShortCutKind = 'cheatsheet' | 'config'
+type ShortCutKind = 'cheatsheet' | 'active_window'
 
 // 禁用特殊按键的组合键
 const forbiddenKeys = [
@@ -59,7 +59,7 @@ const Hotkey = () => {
     if (target === 'cheatsheet') {
       if (cheatSheetShortCut === combKey) return
       setCheatSheetShortCut(combKey)
-    } else if (target === 'config') {
+    } else if (target === 'active_window') {
       if (configShortCut === combKey) return
       setConfigShortCut(combKey)
     }
@@ -73,7 +73,7 @@ const Hotkey = () => {
     setTimeout(() => {
       if (target === 'cheatsheet') {
         setCheatSheetShortCut(currentCheatSheetShortCut.current)
-      } else if (target === 'config') {
+      } else if (target === 'active_window') {
         setConfigShortCut(currentConfigShortCut.current)
       }
     }, 100)
@@ -90,7 +90,16 @@ const Hotkey = () => {
     console.log('🎉🎉🎉', 'config shortcut', configShortCut)
     currentConfigShortCut.current = configShortCut
     const { invoke } = await import('@tauri-apps/api')
-    await invoke('register_hotkey_with_shortcut', { kind: 'config', shortcut: configShortCut })
+    await invoke('register_hotkey_with_shortcut', { kind: 'active-window', shortcut: configShortCut })
+  }
+  // 禁用快捷键
+  const handleForbidShortCut = async (e: ChangeEvent<HTMLInputElement>, kind: ShortCutKind) => {
+    const { invoke } = await import('@tauri-apps/api')
+    if (e.target.checked) {
+      await invoke('unregister_hotkey', { kind })
+    } else {
+      await invoke('register_hotkey', { kind })
+    }
   }
 
   return (
@@ -113,18 +122,18 @@ const Hotkey = () => {
             command={configShortCut}
             tooltip={keyBoardTool}
             // @ts-ignore
-            onKeyDown={(e) => handleKeyDown(e, 'config')}
-            onBlur={() => handleBlur('config')}
+            onKeyDown={(e) => handleKeyDown(e, 'active_window')}
+            onBlur={() => handleBlur('active_window')}
             submit={handleConfigSubmit}
           />
         </li>
         <li>
           <p>禁用CheatSheet快捷键</p>
-          <Checkbox />
+          <Checkbox onChange={(e) => handleForbidShortCut(e, 'cheatsheet')} />
         </li>
         <li>
           <p>禁用当前应用快捷键</p>
-          <Checkbox />
+          <Checkbox onChange={(e) => handleForbidShortCut(e, 'active_window')} />
         </li>
       </ul>
     </Container>

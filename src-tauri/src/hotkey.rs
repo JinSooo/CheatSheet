@@ -102,7 +102,7 @@ pub fn register_hotkey(kind: String) {
         "cheatsheet" => {
             register_hotkey_shortcut();
         }
-        "config" => {
+        "active_window" => {
             register_hotkey_active_window();
         }
         _ => (),
@@ -115,7 +115,7 @@ pub fn unregister_hotkey(kind: String) {
         "cheatsheet" => {
             unregister_hotkey_shortcut();
         }
-        "config" => {
+        "active_window" => {
             unregister_hotkey_active_window();
         }
         _ => (),
