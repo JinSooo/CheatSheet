@@ -12,7 +12,7 @@ export default function Home() {
   const [windowBorderRadius, setWindowBorderRadius] = useState(16) // 窗口圆角
 
   const initWindowListener = async () => {
-    await listen('background_opacity', (event) => {
+    await listen('window_opacity', (event) => {
       setBackgroundOpacity(event.payload as number)
     })
     await listen('window_border_radius', (event) => {

@@ -90,15 +90,15 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
     1: 显示CheatSheet窗口
     2: 显示配置窗口
 */
-static mut LEFT_CLICK_TYPE: i32 = 0;
+static mut LEFT_CLICK_TYPE: &str = "null";
 fn on_left_click(app: &AppHandle) {
     println!("🎉🎉🎉 tray: left click");
     unsafe {
         match LEFT_CLICK_TYPE {
-            1 => {
+            "cheatsheet" => {
                 app.get_window("main").unwrap().show().unwrap();
             }
-            2 => {
+            "config" => {
                 show_config_window(app);
             }
             _ => (),
@@ -108,9 +108,8 @@ fn on_left_click(app: &AppHandle) {
 
 #[tauri::command]
 pub fn left_click_type(lc_type: String) {
-    dbg!(lc_type.as_str());
     unsafe {
-        LEFT_CLICK_TYPE = lc_type.parse::<i32>().unwrap();
+        LEFT_CLICK_TYPE = Box::leak(lc_type.into_boxed_str());
     }
 }
 

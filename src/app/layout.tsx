@@ -5,9 +5,8 @@ import { StoreProvider } from '@/lib/store'
 import '@/lib/styles/globals.css'
 import { OSType } from '@/lib/types'
 import { getOSType } from '@/lib/utils'
-import { initConfigStore, store } from '@/lib/utils/store'
+import { Store, initConfigStore } from '@/lib/utils/store'
 import { listen } from '@tauri-apps/api/event'
-import type { Metadata } from 'next'
 import { useEffect, useState } from 'react'
 
 export default function RootLayout({
@@ -17,6 +16,8 @@ export default function RootLayout({
 }) {
   const [activeAppName, setActiveAppName] = useState('')
   const [os, setOS] = useState<OSType>(OSType.Windows)
+  // 全局配置文件Store
+  const [configStore, setConfigStore] = useState<Store>(new Store(''))
 
   // 初始化监听事件
   const initListen = async () => {
@@ -34,10 +35,15 @@ export default function RootLayout({
     setOS(osType)
   }
 
+  const initConfig = async () => {
+    setConfigStore(await initConfigStore())
+  }
+
   useEffect(() => {
     initListen()
     initOS()
     initConfigStore()
+    initConfig()
   }, [])
 
   return (
@@ -45,7 +51,7 @@ export default function RootLayout({
       <head />
       <body>
         <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
-          <StoreProvider value={{ os, appName: activeAppName }}>{children}</StoreProvider>
+          <StoreProvider value={{ os, configStore, appName: activeAppName }}>{children}</StoreProvider>
         </ThemeProvider>
       </body>
     </html>

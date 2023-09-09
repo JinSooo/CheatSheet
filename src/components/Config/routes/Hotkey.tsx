@@ -1,13 +1,12 @@
 'use client'
 
 import { StoreContext } from '@/lib/store'
-import { OSType } from '@/lib/types'
-import { convertMacShortCut, convertShortCutCommand } from '@/lib/utils'
-import { config } from 'process'
-import { ChangeEvent, useContext, useMemo, useRef, useState } from 'react'
+import { Config, OSType } from '@/lib/types'
+import { ChangeEvent, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
+import { Store } from '@/lib/utils/store'
 
 type ShortCutKind = 'cheatsheet' | 'active_window'
 
@@ -31,14 +30,30 @@ const keyBoardTooltipWindows = '1. 先按功能键(Ctrl、Alt、Shift),再按其
 const keyBoardTooltipMac = '1. 先按功能键(Command、Control、Alt、Shift),再按其他普通键\n2. 按F1-F12单键'
 
 const Hotkey = () => {
-  const { os } = useContext(StoreContext)
+  const { os, configStore } = useContext(StoreContext)
   const keyBoardTool = useMemo(() => (os === OSType.Windows ? keyBoardTooltipWindows : keyBoardTooltipMac), [os])
   // 保存当前生效的快捷键
   const currentCheatSheetShortCut = useRef('F2')
-  const currentConfigShortCut = useRef('Ctrl+F2')
+  const currentActiveWindowShortCut = useRef('Ctrl+F2')
   // 记录快捷键组合键
   const [cheatSheetShortCut, setCheatSheetShortCut] = useState(currentCheatSheetShortCut.current)
-  const [configShortCut, setConfigShortCut] = useState(currentConfigShortCut.current)
+  const [activeWindowShortCut, setActiveWindowShortCut] = useState(currentActiveWindowShortCut.current)
+  const [defaultConfig, setDefaultConfig] = useState<Config>({})
+
+  async function initConfig(configStore: Store) {
+    // 获取配置文件信息
+    const config: Config = {}
+    config.cheatSheetShortCut = await configStore.get('cheatSheetShortCut')
+    config.activeWindowShortCut = await configStore.get('activeWindowShortCut')
+    config.forbidCheatSheetShortCut = await configStore.get('forbidCheatSheetShortCut')
+    config.forbidActiveWindowShortCut = await configStore.get('forbidActiveWindowShortCut')
+    currentCheatSheetShortCut.current = config.cheatSheetShortCut
+    currentActiveWindowShortCut.current = config.activeWindowShortCut
+    setCheatSheetShortCut(config.cheatSheetShortCut)
+    setActiveWindowShortCut(config.activeWindowShortCut)
+    setDefaultConfig(config)
+    console.log(config)
+  }
 
   // 处理键盘按键的组合键
   const handleKeyDown = (e: KeyboardEvent, target: ShortCutKind) => {
@@ -60,8 +75,8 @@ const Hotkey = () => {
       if (cheatSheetShortCut === combKey) return
       setCheatSheetShortCut(combKey)
     } else if (target === 'active_window') {
-      if (configShortCut === combKey) return
-      setConfigShortCut(combKey)
+      if (activeWindowShortCut === combKey) return
+      setActiveWindowShortCut(combKey)
     }
   }
   // 失去焦点后重置为当前生效的快捷键
@@ -74,7 +89,7 @@ const Hotkey = () => {
       if (target === 'cheatsheet') {
         setCheatSheetShortCut(currentCheatSheetShortCut.current)
       } else if (target === 'active_window') {
-        setConfigShortCut(currentConfigShortCut.current)
+        setActiveWindowShortCut(currentActiveWindowShortCut.current)
       }
     }, 100)
   }
@@ -84,13 +99,17 @@ const Hotkey = () => {
     currentCheatSheetShortCut.current = cheatSheetShortCut
     const { invoke } = await import('@tauri-apps/api')
     await invoke('register_hotkey_with_shortcut', { kind: 'cheatsheet', shortcut: cheatSheetShortCut })
+    await configStore.set('cheatSheetShortCut', cheatSheetShortCut)
+    await configStore.save()
   }
   // 修改Config快捷键
-  const handleConfigSubmit = async () => {
-    console.log('🎉🎉🎉', 'config shortcut', configShortCut)
-    currentConfigShortCut.current = configShortCut
+  const handleActiveWindowSubmit = async () => {
+    console.log('🎉🎉🎉', 'config shortcut', activeWindowShortCut)
+    currentActiveWindowShortCut.current = activeWindowShortCut
     const { invoke } = await import('@tauri-apps/api')
-    await invoke('register_hotkey_with_shortcut', { kind: 'active-window', shortcut: configShortCut })
+    await invoke('register_hotkey_with_shortcut', { kind: 'active-window', shortcut: activeWindowShortCut })
+    await configStore.set('activeWindowShortCut', activeWindowShortCut)
+    await configStore.save()
   }
   // 禁用快捷键
   const handleForbidShortCut = async (e: ChangeEvent<HTMLInputElement>, kind: ShortCutKind) => {
@@ -100,7 +119,20 @@ const Hotkey = () => {
     } else {
       await invoke('register_hotkey', { kind })
     }
+    await configStore.set(
+      kind === 'cheatsheet' ? 'forbidCheatSheetShortCut' : 'forbidActiveWindowShortCut',
+      e.target.checked,
+    )
+    await configStore.save()
   }
+
+  useEffect(() => {
+    if (configStore.path) initConfig(configStore)
+  }, [configStore])
+
+  useEffect(() => {
+    initConfig(configStore)
+  }, [])
 
   return (
     <Container title='快捷键'>
@@ -119,21 +151,27 @@ const Hotkey = () => {
         <li>
           <p>当前应用</p>
           <Keyboard
-            command={configShortCut}
+            command={activeWindowShortCut}
             tooltip={keyBoardTool}
             // @ts-ignore
             onKeyDown={(e) => handleKeyDown(e, 'active_window')}
             onBlur={() => handleBlur('active_window')}
-            submit={handleConfigSubmit}
+            submit={handleActiveWindowSubmit}
           />
         </li>
         <li>
           <p>禁用CheatSheet快捷键</p>
-          <Checkbox onChange={(e) => handleForbidShortCut(e, 'cheatsheet')} />
+          <Checkbox
+            defaultChecked={defaultConfig.forbidCheatSheetShortCut}
+            onChange={(e) => handleForbidShortCut(e, 'cheatsheet')}
+          />
         </li>
         <li>
           <p>禁用当前应用快捷键</p>
-          <Checkbox onChange={(e) => handleForbidShortCut(e, 'active_window')} />
+          <Checkbox
+            defaultChecked={defaultConfig.forbidActiveWindowShortCut}
+            onChange={(e) => handleForbidShortCut(e, 'active_window')}
+          />
         </li>
       </ul>
     </Container>

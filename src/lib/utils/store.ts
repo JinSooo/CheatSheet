@@ -197,9 +197,6 @@ export class Store {
   }
 }
 
-// 全局配置文件Store
-export let store = new Store('')
-
 // 初始化配置文件
 export const initConfigStore = async () => {
   const { join, resourceDir } = await import('@tauri-apps/api/path')
@@ -207,6 +204,5 @@ export const initConfigStore = async () => {
   const configPath = await join(dir, 'config.json')
   console.log('configPath:', configPath)
 
-  // 加载Store
-  store = new Store(configPath)
+  return new Store(configPath)
 }
