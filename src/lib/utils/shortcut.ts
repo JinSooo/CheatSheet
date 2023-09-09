@@ -1,4 +1,4 @@
-import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
+import { BaseDirectory, FileEntry, readDir, readTextFile } from '@tauri-apps/api/fs'
 import { OSType, ShortCut, ShortCutCommand } from '../types'
 
 // 读取应用快捷键数据
@@ -8,6 +8,14 @@ export const readShortCut = async (name: string): Promise<ShortCut> => {
   })
   const shortcut = JSON.parse(content)
   return shortcut
+}
+
+// 读取当前已支持的应用
+export const readShortCutDir = async (): Promise<FileEntry[]> => {
+  const entries = await readDir('shortcuts', {
+    dir: BaseDirectory.Resource,
+  })
+  return entries
 }
 
 const commandMap = new Map([
