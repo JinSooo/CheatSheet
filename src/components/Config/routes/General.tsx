@@ -18,6 +18,9 @@ const General = () => {
   const mainWindow = useRef<WebviewWindow | null>()
   const monitor = useRef<Monitor | null>()
   const [defaultConfig, setDefaultConfig] = useState<Config>({})
+  // check
+  const [isAutoStart, setIsAutoStart] = useState(false)
+  const [isCheckUpdate, setIsCheckUpdate] = useState(false)
 
   const initConfig = async (configStore: Store) => {
     // 获取配置文件信息
@@ -29,6 +32,8 @@ const General = () => {
     config.windowSize = await configStore.get('windowSize')
     config.theme = await configStore.get('theme')
     config.trayLeftClick = await configStore.get('trayLeftClick')
+    setIsAutoStart(config.autoStart)
+    setIsCheckUpdate(config.checkUpdate)
     setDefaultConfig(config)
     console.log(config)
   }
@@ -85,6 +90,7 @@ const General = () => {
     } else {
       await invoke('plugin:autostart|disable')
     }
+    setIsAutoStart(e.target.checked)
     await configStore.set('autoStart', e.target.checked)
     await configStore.save()
   }
@@ -102,7 +108,7 @@ const General = () => {
       <ul className='config-menu'>
         <li>
           <p>开机自启</p>
-          <Checkbox defaultChecked={defaultConfig.autoStart} onChange={handleAppAutostart} />
+          <Checkbox checked={isAutoStart} onChange={handleAppAutostart} />
         </li>
         <li>
           <p>启动时检查更新</p>

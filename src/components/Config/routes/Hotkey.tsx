@@ -32,13 +32,17 @@ const keyBoardTooltipMac = '1. 先按功能键(Command、Control、Alt、Shift),
 const Hotkey = () => {
   const { os, configStore } = useContext(StoreContext)
   const keyBoardTool = useMemo(() => (os === OSType.Windows ? keyBoardTooltipWindows : keyBoardTooltipMac), [os])
+  // 默认配置
+  const [defaultConfig, setDefaultConfig] = useState<Config>({})
   // 保存当前生效的快捷键
   const currentCheatSheetShortCut = useRef('F2')
   const currentActiveWindowShortCut = useRef('Ctrl+F2')
   // 记录快捷键组合键
   const [cheatSheetShortCut, setCheatSheetShortCut] = useState(currentCheatSheetShortCut.current)
   const [activeWindowShortCut, setActiveWindowShortCut] = useState(currentActiveWindowShortCut.current)
-  const [defaultConfig, setDefaultConfig] = useState<Config>({})
+  // check
+  const [isForbiddenCheatSheetShortCut, setIsForbiddenCheatSheetShortCut] = useState(false)
+  const [isForbiddenActiveWindowShortCut, setIsForbiddenActiveWindowShortCut] = useState(false)
 
   async function initConfig(configStore: Store) {
     // 获取配置文件信息
@@ -51,6 +55,8 @@ const Hotkey = () => {
     currentActiveWindowShortCut.current = config.activeWindowShortCut
     setCheatSheetShortCut(config.cheatSheetShortCut)
     setActiveWindowShortCut(config.activeWindowShortCut)
+    setIsForbiddenCheatSheetShortCut(config.forbidCheatSheetShortCut)
+    setIsForbiddenActiveWindowShortCut(config.forbidActiveWindowShortCut)
     setDefaultConfig(config)
     console.log(config)
   }
@@ -119,10 +125,13 @@ const Hotkey = () => {
     } else {
       await invoke('register_hotkey', { kind })
     }
-    await configStore.set(
-      kind === 'cheatsheet' ? 'forbidCheatSheetShortCut' : 'forbidActiveWindowShortCut',
-      e.target.checked,
-    )
+    if (kind === 'cheatsheet') {
+      setIsForbiddenCheatSheetShortCut(e.target.checked)
+      await configStore.set('forbidCheatSheetShortCut', e.target.checked)
+    } else {
+      setIsForbiddenActiveWindowShortCut(e.target.checked)
+      await configStore.set('forbidActiveWindowShortCut', e.target.checked)
+    }
     await configStore.save()
   }
 
@@ -161,15 +170,12 @@ const Hotkey = () => {
         </li>
         <li>
           <p>禁用CheatSheet快捷键</p>
-          <Checkbox
-            defaultChecked={defaultConfig.forbidCheatSheetShortCut}
-            onChange={(e) => handleForbidShortCut(e, 'cheatsheet')}
-          />
+          <Checkbox checked={isForbiddenCheatSheetShortCut} onChange={(e) => handleForbidShortCut(e, 'cheatsheet')} />
         </li>
         <li>
           <p>禁用当前应用快捷键</p>
           <Checkbox
-            defaultChecked={defaultConfig.forbidActiveWindowShortCut}
+            checked={isForbiddenActiveWindowShortCut}
             onChange={(e) => handleForbidShortCut(e, 'active_window')}
           />
         </li>
