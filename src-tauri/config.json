@@ -1,3 +1,15 @@
 {
-  "name": "JinSo"
+  "autoStart": false,
+  "checkUpdate": false,
+  "windowAlwaysOnTop": true,
+  "windowOpacity": 10,
+  "windowBorderRadius": 16,
+  "windowSize": 75,
+  "theme": "system",
+  "trayLeftClick": "null",
+
+  "cheatSheetShortCut": "F2",
+  "configShortCut": "Ctrl+F2",
+  "forbidCheatSheetShortCut": false,
+  "forbidConfigShortCut": false
 }
