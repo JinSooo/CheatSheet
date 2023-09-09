@@ -5,6 +5,7 @@ import { StoreProvider } from '@/lib/store'
 import '@/lib/styles/globals.css'
 import { OSType } from '@/lib/types'
 import { getOSType } from '@/lib/utils'
+import { initConfigStore, store } from '@/lib/utils/store'
 import { listen } from '@tauri-apps/api/event'
 import type { Metadata } from 'next'
 import { useEffect, useState } from 'react'
@@ -36,6 +37,7 @@ export default function RootLayout({
   useEffect(() => {
     initListen()
     initOS()
+    initConfigStore()
   }, [])
 
   return (

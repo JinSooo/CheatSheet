@@ -29,6 +29,7 @@
       "fs": {
         "all": false,
         "readFile": true,
+        "writeFile": true,
         "readDir": true,
         "scope": ["**"]
       },
@@ -36,6 +37,9 @@
         "all": true
       },
       "notification": {
+        "all": true
+      },
+      "path": {
         "all": true
       }
     },
@@ -57,7 +61,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["./shortcuts"],
+      "resources": ["./shortcuts", "./config.json"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
