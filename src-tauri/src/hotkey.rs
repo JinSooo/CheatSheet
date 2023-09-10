@@ -7,6 +7,8 @@ use tauri::{AppHandle, GlobalShortcutManager, Manager};
 
 pub static mut GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
 pub static mut GLOBAL_HOTKEY_ACTIVE_WINDOW: &str = "Ctrl+F2";
+pub static mut IS_FORBIDDEN_GLOBAL_HOTKEY_SHORTCUT: bool = true;
+pub static mut IS_FORBIDDEN_GLOBAL_HOTKEY_ACTIVE_WINDOW: bool = true;
 
 pub fn init_hotkey() {
     register_hotkey_shortcut();
@@ -22,6 +24,7 @@ pub fn register_hotkey_shortcut() {
                 on_shortcut(&app_handle);
             })
             .unwrap();
+        IS_FORBIDDEN_GLOBAL_HOTKEY_SHORTCUT = false
     }
 }
 
@@ -34,26 +37,35 @@ pub fn register_hotkey_active_window() {
                 on_active_window();
             })
             .unwrap();
+        IS_FORBIDDEN_GLOBAL_HOTKEY_ACTIVE_WINDOW = false
     }
 }
 
 pub fn unregister_hotkey_shortcut() {
     let app_handle = APP.get().unwrap();
     unsafe {
-        app_handle
-            .global_shortcut_manager()
-            .unregister(GLOBAL_HOTKEY_SHORTCUT)
-            .unwrap();
+        // 应用可能已经被禁用，就不需要了
+        if !IS_FORBIDDEN_GLOBAL_HOTKEY_SHORTCUT {
+            app_handle
+                .global_shortcut_manager()
+                .unregister(GLOBAL_HOTKEY_SHORTCUT)
+                .unwrap();
+            IS_FORBIDDEN_GLOBAL_HOTKEY_SHORTCUT = true
+        }
     }
 }
 
 pub fn unregister_hotkey_active_window() {
     let app_handle = APP.get().unwrap();
     unsafe {
-        app_handle
-            .global_shortcut_manager()
-            .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
-            .unwrap();
+        // 应用可能已经被禁用，就不需要了
+        if !IS_FORBIDDEN_GLOBAL_HOTKEY_ACTIVE_WINDOW {
+            app_handle
+                .global_shortcut_manager()
+                .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
+                .unwrap();
+            IS_FORBIDDEN_GLOBAL_HOTKEY_ACTIVE_WINDOW = true
+        }
     }
 }
 
@@ -77,18 +89,27 @@ fn on_active_window() {
 
 #[tauri::command]
 pub fn register_hotkey_with_shortcut(kind: String, shortcut: String) {
+    println!("register_hotkey_with_shortcut: kind -> {kind}, shortcut: {shortcut}");
     match kind.as_str() {
         "cheatsheet" => unsafe {
+            let flag = IS_FORBIDDEN_GLOBAL_HOTKEY_SHORTCUT;
             unregister_hotkey_shortcut();
             GLOBAL_HOTKEY_SHORTCUT = Box::leak(shortcut.into_boxed_str());
-            register_hotkey_shortcut();
+            // 说明应用快捷键被禁用，则不需要去注册
+            if !flag {
+                register_hotkey_shortcut();
+            }
             // 重新初始化 tray tooltip
             init_tray_tooltip();
         },
-        "config" => unsafe {
+        "active_window" => unsafe {
+            let flag = IS_FORBIDDEN_GLOBAL_HOTKEY_ACTIVE_WINDOW;
             unregister_hotkey_active_window();
             GLOBAL_HOTKEY_ACTIVE_WINDOW = Box::leak(shortcut.into_boxed_str());
-            register_hotkey_active_window();
+            // 说明应用快捷键被禁用，则不需要去注册
+            if !flag {
+                register_hotkey_active_window();
+            }
             // 重新初始化 tray tooltip
             init_tray_tooltip();
         },

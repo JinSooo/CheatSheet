@@ -93,7 +93,7 @@ const Hotkey = () => {
       } else if (target === 'active_window') {
         setActiveWindowShortCut(currentActiveWindowShortCut.current)
       }
-    }, 100)
+    }, 250)
   }
   // 修改CheatSheet快捷键
   const handleCheatSheetShortCutSubmit = async () => {
@@ -109,7 +109,7 @@ const Hotkey = () => {
     console.log('🎉🎉🎉', 'config shortcut', activeWindowShortCut)
     currentActiveWindowShortCut.current = activeWindowShortCut
     const { invoke } = await import('@tauri-apps/api')
-    await invoke('register_hotkey_with_shortcut', { kind: 'active-window', shortcut: activeWindowShortCut })
+    await invoke('register_hotkey_with_shortcut', { kind: 'active_window', shortcut: activeWindowShortCut })
     await configStore.set('activeWindowShortCut', activeWindowShortCut)
     await configStore.save()
   }
@@ -150,7 +150,7 @@ const Hotkey = () => {
           />
         </li>
         <li>
-          <p>当前应用</p>
+          <p>当前聚焦应用</p>
           <Keyboard
             command={activeWindowShortCut}
             tooltip={keyBoardTool}
@@ -168,7 +168,7 @@ const Hotkey = () => {
           />
         </li>
         <li>
-          <p>禁用当前应用快捷键</p>
+          <p>禁用当前聚焦应用快捷键</p>
           <Checkbox
             defaultChecked={defaultConfig.forbidActiveWindowShortCut}
             onChange={(e) => handleForbidShortCut(e, 'active_window')}
