@@ -17,10 +17,8 @@ const General = () => {
   const { configStore } = useContext(StoreContext)
   const mainWindow = useRef<WebviewWindow | null>()
   const monitor = useRef<Monitor | null>()
+  // 默认配置
   const [defaultConfig, setDefaultConfig] = useState<Config>({})
-  // check
-  const [isAutoStart, setIsAutoStart] = useState(false)
-  const [isCheckUpdate, setIsCheckUpdate] = useState(false)
 
   const initConfig = async (configStore: Store) => {
     // 获取配置文件信息
@@ -32,10 +30,8 @@ const General = () => {
     config.windowSize = await configStore.get('windowSize')
     config.theme = await configStore.get('theme')
     config.trayLeftClick = await configStore.get('trayLeftClick')
-    setIsAutoStart(config.autoStart)
-    setIsCheckUpdate(config.checkUpdate)
     setDefaultConfig(config)
-    console.log(config)
+    console.log('🎉🎉🎉', 'General Config', 'config')
   }
 
   const init = async () => {
@@ -90,8 +86,12 @@ const General = () => {
     } else {
       await invoke('plugin:autostart|disable')
     }
-    setIsAutoStart(e.target.checked)
     await configStore.set('autoStart', e.target.checked)
+    await configStore.save()
+  }
+  // 检查更新
+  const handleAppCheckStart = async (e: ChangeEvent<HTMLInputElement>) => {
+    await configStore.set('checkUpdate', e.target.checked)
     await configStore.save()
   }
 
@@ -103,16 +103,19 @@ const General = () => {
     init()
   }, [])
 
+  // 随机取一个属性，判断config是否加载完成
+  if (!defaultConfig.theme) return <></>
+
   return (
     <Container title='通用'>
       <ul className='config-menu'>
         <li>
           <p>开机自启</p>
-          <Checkbox checked={isAutoStart} onChange={handleAppAutostart} />
+          <Checkbox defaultChecked={defaultConfig.autoStart} onChange={handleAppAutostart} />
         </li>
         <li>
           <p>启动时检查更新</p>
-          <Checkbox defaultChecked={defaultConfig.checkUpdate} />
+          <Checkbox defaultChecked={defaultConfig.checkUpdate} onChange={handleAppCheckStart} />
         </li>
         <li>
           <p>窗口透明度</p>
@@ -134,7 +137,7 @@ const General = () => {
         <li>
           <p>主题</p>
           <Select
-            defaultVal={defaultConfig.theme}
+            defaultValue={defaultConfig.theme}
             items={[
               { key: 'system', description: '跟随系统' },
               { key: 'light', description: '白天模式' },
@@ -146,7 +149,7 @@ const General = () => {
         <li>
           <p>托盘点击事件</p>
           <Select
-            defaultVal={defaultConfig.trayLeftClick}
+            defaultValue={defaultConfig.trayLeftClick}
             items={[
               { key: 'none', description: '空' },
               { key: 'cheatsheet', description: 'CheatSheet窗口' },

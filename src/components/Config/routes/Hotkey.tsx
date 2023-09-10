@@ -40,9 +40,6 @@ const Hotkey = () => {
   // 记录快捷键组合键
   const [cheatSheetShortCut, setCheatSheetShortCut] = useState(currentCheatSheetShortCut.current)
   const [activeWindowShortCut, setActiveWindowShortCut] = useState(currentActiveWindowShortCut.current)
-  // check
-  const [isForbiddenCheatSheetShortCut, setIsForbiddenCheatSheetShortCut] = useState(false)
-  const [isForbiddenActiveWindowShortCut, setIsForbiddenActiveWindowShortCut] = useState(false)
 
   async function initConfig(configStore: Store) {
     // 获取配置文件信息
@@ -51,14 +48,13 @@ const Hotkey = () => {
     config.activeWindowShortCut = await configStore.get('activeWindowShortCut')
     config.forbidCheatSheetShortCut = await configStore.get('forbidCheatSheetShortCut')
     config.forbidActiveWindowShortCut = await configStore.get('forbidActiveWindowShortCut')
+    // 显示对应快捷键
     currentCheatSheetShortCut.current = config.cheatSheetShortCut
     currentActiveWindowShortCut.current = config.activeWindowShortCut
     setCheatSheetShortCut(config.cheatSheetShortCut)
     setActiveWindowShortCut(config.activeWindowShortCut)
-    setIsForbiddenCheatSheetShortCut(config.forbidCheatSheetShortCut)
-    setIsForbiddenActiveWindowShortCut(config.forbidActiveWindowShortCut)
     setDefaultConfig(config)
-    console.log(config)
+    console.log('🎉🎉🎉', 'HotKey Config', 'config')
   }
 
   // 处理键盘按键的组合键
@@ -125,23 +121,19 @@ const Hotkey = () => {
     } else {
       await invoke('register_hotkey', { kind })
     }
-    if (kind === 'cheatsheet') {
-      setIsForbiddenCheatSheetShortCut(e.target.checked)
-      await configStore.set('forbidCheatSheetShortCut', e.target.checked)
-    } else {
-      setIsForbiddenActiveWindowShortCut(e.target.checked)
-      await configStore.set('forbidActiveWindowShortCut', e.target.checked)
-    }
+    await configStore.set(
+      kind === 'cheatsheet' ? 'forbidCheatSheetShortCut' : 'forbidActiveWindowShortCut',
+      e.target.checked,
+    )
     await configStore.save()
   }
 
   useEffect(() => {
-    if (configStore.path) initConfig(configStore)
+    initConfig(configStore)
   }, [configStore])
 
-  useEffect(() => {
-    initConfig(configStore)
-  }, [])
+  // 随机取一个属性，判断config是否加载完成
+  if (!defaultConfig.cheatSheetShortCut) return <></>
 
   return (
     <Container title='快捷键'>
@@ -170,12 +162,15 @@ const Hotkey = () => {
         </li>
         <li>
           <p>禁用CheatSheet快捷键</p>
-          <Checkbox checked={isForbiddenCheatSheetShortCut} onChange={(e) => handleForbidShortCut(e, 'cheatsheet')} />
+          <Checkbox
+            defaultChecked={defaultConfig.forbidCheatSheetShortCut}
+            onChange={(e) => handleForbidShortCut(e, 'cheatsheet')}
+          />
         </li>
         <li>
           <p>禁用当前应用快捷键</p>
           <Checkbox
-            checked={isForbiddenActiveWindowShortCut}
+            defaultChecked={defaultConfig.forbidActiveWindowShortCut}
             onChange={(e) => handleForbidShortCut(e, 'active_window')}
           />
         </li>
