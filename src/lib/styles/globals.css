@@ -99,3 +99,8 @@ body {
     }
   }
 }
+
+/* tooltip换行显示 */
+.tooltip:before {
+  white-space: break-spaces;
+}

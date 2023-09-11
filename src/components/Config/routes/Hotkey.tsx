@@ -6,7 +6,7 @@ import { ChangeEvent, useContext, useEffect, useMemo, useRef, useState } from 'r
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
-import { Store } from '@/lib/utils/store'
+import { Store } from 'tauri-plugin-store-api'
 
 type ShortCutKind = 'cheatsheet' | 'active_window'
 
@@ -26,12 +26,18 @@ const forbiddenKeys = [
   'scrolllock',
 ]
 // 按键提示信息
-const keyBoardTooltipWindows = '1. 先按功能键(Ctrl、Alt、Shift),再按其他普通键\n2. 按F1-F12单键'
-const keyBoardTooltipMac = '1. 先按功能键(Command、Control、Alt、Shift),再按其他普通键\n2. 按F1-F12单键'
+const keyBoardTooltip = {
+  [OSType.Windows]: ['Ctrl', 'Alt', 'Shift'],
+  [OSType.Mac]: ['Command', 'Control', 'Alt', 'Shift'],
+  [OSType.Linux]: ['Ctrl', 'Alt', 'Shift'],
+}
 
 const Hotkey = () => {
   const { os, configStore } = useContext(StoreContext)
-  const keyBoardTool = useMemo(() => (os === OSType.Windows ? keyBoardTooltipWindows : keyBoardTooltipMac), [os])
+  const keyBoardTool = useMemo(
+    () => `1. 先按功能键(${keyBoardTooltip[os].join(', ')}),再按其他普通键\n2. 按F1-F12单键`,
+    [os],
+  )
   // 默认配置
   const [defaultConfig, setDefaultConfig] = useState<Config>({})
   // 保存当前生效的快捷键
