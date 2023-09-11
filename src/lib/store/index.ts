@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 import { OSType } from '../types'
-import { Store } from '../utils/store'
+import { Store } from 'tauri-plugin-store-api'
 
 interface GlobalStore {
   os: OSType

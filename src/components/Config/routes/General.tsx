@@ -3,15 +3,15 @@
 import useTheme from '@/lib/hooks/useTheme'
 import { emit } from '@tauri-apps/api/event'
 import { Monitor, WebviewWindow } from '@tauri-apps/api/window'
-import { ChangeEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Range from '../common/Range'
 import Select from '../common/Select'
-import { Store } from '@/lib/utils/store'
 import { Config } from '@/lib/types'
 import { StoreContext } from '@/lib/store'
 import { debounce } from '@/lib/utils/util'
+import { Store } from 'tauri-plugin-store-api'
 
 const General = () => {
   const { setTheme } = useTheme()
