@@ -8,7 +8,5 @@
   "trayLeftClick": "none",
 
   "cheatSheetShortCut": "F2",
-  "activeWindowShortCut": "Ctrl+F2",
-  "forbidCheatSheetShortCut": false,
-  "forbidActiveWindowShortCut": false
+  "activeWindowShortCut": "Ctrl+F2"
 }

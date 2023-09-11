@@ -1,12 +1,4 @@
-use crate::{
-    config::get,
-    hotkey::{
-        register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
-        unregister_hotkey_shortcut,
-    },
-    window::show_config_window,
-    APP,
-};
+use crate::{config::get, window::show_config_window, APP};
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -17,19 +9,6 @@ pub fn init_tray() -> SystemTray {
     let tray_menu = SystemTrayMenu::new()
         .add_item(CustomMenuItem::new("show".to_string(), "显示").accelerator("F2"))
         .add_item(CustomMenuItem::new("hide".to_string(), "隐藏").accelerator("F2"))
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_submenu(SystemTraySubmenu::new(
-            "禁用快捷键",
-            SystemTrayMenu::new()
-                .add_item(CustomMenuItem::new(
-                    "forbid_shortcut".to_string(),
-                    "显示快捷键",
-                ))
-                .add_item(CustomMenuItem::new(
-                    "forbid_active_window".to_string(),
-                    "当前应用快捷键",
-                )),
-        ))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_submenu(SystemTraySubmenu::new(
             "主题",
@@ -47,20 +26,29 @@ pub fn init_tray() -> SystemTray {
     SystemTray::new().with_menu(tray_menu)
 }
 
-pub fn init_tray_tooltip() {
+pub fn init_tray_tooltip(cheatsheet_shortcut: &str, active_window_shortcut: &str) {
+    let cheatsheet = if cheatsheet_shortcut.is_empty() {
+        match get("cheatSheetShortCut") {
+            Some(v) => v.as_str().unwrap().to_string(),
+            None => "".to_string(),
+        }
+    } else {
+        cheatsheet_shortcut.to_string()
+    };
+    let active_window = if active_window_shortcut.is_empty() {
+        match get("activeWindowShortCut") {
+            Some(v) => v.as_str().unwrap().to_string(),
+            None => "".to_string(),
+        }
+    } else {
+        active_window_shortcut.to_string()
+    };
     let app_handle = APP.get().unwrap();
-    let cheatsheet_shortcut = match get("cheatSheetShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "F2".to_string(),
-    };
-    let active_window_shortcut = match get("activeWindowShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "Ctrl+F2".to_string(),
-    };
-    app_handle.tray_handle()
+    app_handle
+        .tray_handle()
         .set_tooltip(
             format!(
-                "CheatSheet   \n显示快捷键: {cheatsheet_shortcut}   \n当前应用快捷键: {active_window_shortcut}   "
+                "CheatSheet   \n显示快捷键: {cheatsheet}   \n当前应用快捷键: {active_window}   "
             )
             .as_str(),
         )
@@ -76,8 +64,6 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
             "show" => on_show(app),
             "hide" => on_hide(app),
-            "forbid_shortcut" => on_forbid_shortcut(app),
-            "forbid_active_window" => on_forbid_active_window(app),
             "theme_system" => on_theme(app, id.as_str()),
             "theme_light" => on_theme(app, id.as_str()),
             "theme_dark" => on_theme(app, id.as_str()),
@@ -130,38 +116,6 @@ fn on_show(app: &AppHandle) {
 
 fn on_hide(app: &AppHandle) {
     app.get_window("main").unwrap().hide().unwrap();
-}
-
-static mut IS_FORBID_SHORTCUT: bool = false;
-fn on_forbid_shortcut(app: &AppHandle) {
-    unsafe {
-        if IS_FORBID_SHORTCUT {
-            register_hotkey_shortcut();
-        } else {
-            unregister_hotkey_shortcut();
-        }
-        IS_FORBID_SHORTCUT = !IS_FORBID_SHORTCUT;
-        app.tray_handle()
-            .get_item("forbid_shortcut")
-            .set_selected(IS_FORBID_SHORTCUT)
-            .unwrap();
-    }
-}
-
-static mut IS_FORBID_ACTIVE_WINDOW: bool = false;
-fn on_forbid_active_window(app: &AppHandle) {
-    unsafe {
-        if IS_FORBID_ACTIVE_WINDOW {
-            register_hotkey_active_window();
-        } else {
-            unregister_hotkey_active_window();
-        }
-        IS_FORBID_ACTIVE_WINDOW = !IS_FORBID_ACTIVE_WINDOW;
-        app.tray_handle()
-            .get_item("forbid_active_window")
-            .set_selected(IS_FORBID_ACTIVE_WINDOW)
-            .unwrap();
-    }
 }
 
 fn on_theme(app: &AppHandle, theme: &str) {

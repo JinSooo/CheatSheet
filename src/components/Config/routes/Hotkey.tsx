@@ -46,8 +46,6 @@ const Hotkey = () => {
     const config: Config = {}
     config.cheatSheetShortCut = await configStore.get('cheatSheetShortCut')
     config.activeWindowShortCut = await configStore.get('activeWindowShortCut')
-    config.forbidCheatSheetShortCut = await configStore.get('forbidCheatSheetShortCut')
-    config.forbidActiveWindowShortCut = await configStore.get('forbidActiveWindowShortCut')
     // 显示对应快捷键
     currentCheatSheetShortCut.current = config.cheatSheetShortCut
     currentActiveWindowShortCut.current = config.activeWindowShortCut
@@ -100,31 +98,17 @@ const Hotkey = () => {
     console.log('🎉🎉🎉', 'cheatsheet shortcut', cheatSheetShortCut)
     currentCheatSheetShortCut.current = cheatSheetShortCut
     const { invoke } = await import('@tauri-apps/api')
-    await invoke('register_hotkey_with_shortcut', { kind: 'cheatsheet', shortcut: cheatSheetShortCut })
+    await invoke('register_shortcut_by_frontend', { app: 'cheatsheet', shortcut: cheatSheetShortCut })
     await configStore.set('cheatSheetShortCut', cheatSheetShortCut)
     await configStore.save()
   }
   // 修改Config快捷键
   const handleActiveWindowSubmit = async () => {
-    console.log('🎉🎉🎉', 'config shortcut', activeWindowShortCut)
+    console.log('🎉🎉🎉', 'activeWindow shortcut', activeWindowShortCut)
     currentActiveWindowShortCut.current = activeWindowShortCut
     const { invoke } = await import('@tauri-apps/api')
-    await invoke('register_hotkey_with_shortcut', { kind: 'active_window', shortcut: activeWindowShortCut })
+    await invoke('register_shortcut_by_frontend', { app: 'active_window', shortcut: activeWindowShortCut })
     await configStore.set('activeWindowShortCut', activeWindowShortCut)
-    await configStore.save()
-  }
-  // 禁用快捷键
-  const handleForbidShortCut = async (e: ChangeEvent<HTMLInputElement>, kind: ShortCutKind) => {
-    const { invoke } = await import('@tauri-apps/api')
-    if (e.target.checked) {
-      await invoke('unregister_hotkey', { kind })
-    } else {
-      await invoke('register_hotkey', { kind })
-    }
-    await configStore.set(
-      kind === 'cheatsheet' ? 'forbidCheatSheetShortCut' : 'forbidActiveWindowShortCut',
-      e.target.checked,
-    )
     await configStore.save()
   }
 
@@ -158,20 +142,6 @@ const Hotkey = () => {
             onKeyDown={(e) => handleKeyDown(e, 'active_window')}
             onBlur={() => handleBlur('active_window')}
             submit={handleActiveWindowSubmit}
-          />
-        </li>
-        <li>
-          <p>禁用CheatSheet快捷键</p>
-          <Checkbox
-            defaultChecked={defaultConfig.forbidCheatSheetShortCut}
-            onChange={(e) => handleForbidShortCut(e, 'cheatsheet')}
-          />
-        </li>
-        <li>
-          <p>禁用当前聚焦应用快捷键</p>
-          <Checkbox
-            defaultChecked={defaultConfig.forbidActiveWindowShortCut}
-            onChange={(e) => handleForbidShortCut(e, 'active_window')}
           />
         </li>
       </ul>

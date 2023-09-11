@@ -35,16 +35,14 @@ fn main() {
             APP.get_or_init(|| app.handle());
 
             init_config(&app);
-            init_tray_tooltip();
+            init_tray_tooltip("", "");
             init_hotkey();
             adjust_window_size();
             Ok(())
         })
         .invoke_handler(generate_handler![
             left_click_type,
-            register_hotkey_with_shortcut,
-            register_hotkey,
-            unregister_hotkey
+            register_shortcut_by_frontend
         ])
         .run(generate_context!())
         .expect("error while running tauri application");

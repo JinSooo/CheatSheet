@@ -1,5 +1,5 @@
 use crate::{
-    config::get,
+    config::{get, set},
     tray::init_tray_tooltip,
     utils::{get_current_active_window, notification},
     APP,
@@ -7,78 +7,96 @@ use crate::{
 use tauri::{AppHandle, GlobalShortcutManager, Manager};
 
 pub fn init_hotkey() {
-    let is_forbidden_cheatsheet = match get("forbidCheatSheetShortCut") {
-        Some(val) => val.as_bool().unwrap(),
-        None => false,
+    register_shortcut("all").unwrap();
+}
+
+fn register<F>(app_handle: &AppHandle, name: &str, handler: F, key: &str) -> Result<(), String>
+where
+    F: Fn() + Send + 'static,
+{
+    let shortcut = {
+        if key.is_empty() {
+            match get(name) {
+                Some(v) => v.as_str().unwrap().to_string(),
+                None => {
+                    set(name, "");
+                    String::new()
+                }
+            }
+        } else {
+            key.to_string()
+        }
     };
 
-    let is_forbidden_active_window = match get("forbidActiveWindowShortCut") {
-        Some(val) => val.as_bool().unwrap(),
-        None => false,
-    };
-    // 如果禁用就不注册了
-    if !is_forbidden_cheatsheet {
-        register_hotkey_shortcut();
+    if !shortcut.is_empty() {
+        app_handle
+            .global_shortcut_manager()
+            .register(shortcut.as_str(), handler)
+            .unwrap();
+        println!("Register Hotkey {name}: {shortcut}")
     }
-    if !is_forbidden_active_window {
-        register_hotkey_active_window();
+    Ok(())
+}
+
+fn unregister(app_handle: &AppHandle, name: &str) {
+    let shortcut = match get(name) {
+        Some(v) => v.as_str().unwrap().to_string(),
+        None => String::new(),
+    };
+    app_handle
+        .global_shortcut_manager()
+        .unregister(shortcut.as_str())
+        .unwrap();
+}
+
+fn register_shortcut(app: &str) -> Result<(), String> {
+    let app_handle = APP.get().unwrap();
+
+    match app {
+        "cheatsheet" => register(app_handle, "cheatSheetShortCut", on_shortcut, "")?,
+        "active_window" => register(app_handle, "activeWindowShortCut", on_active_window, "")?,
+        "all" => {
+            register(app_handle, "cheatSheetShortCut", on_shortcut, "")?;
+            register(app_handle, "activeWindowShortCut", on_active_window, "")?;
+        }
+        _ => {}
     }
+
+    Ok(())
 }
 
-pub fn register_hotkey_shortcut() {
-    let cheatsheet_shortcut = match get("cheatSheetShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "F2".to_string(),
-    };
+#[tauri::command]
+pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), String> {
+    println!("register_hotkey_with_shortcut: app -> {app}, shortcut: {shortcut}");
     let app_handle = APP.get().unwrap();
-    app_handle
-        .global_shortcut_manager()
-        .register(cheatsheet_shortcut.as_str(), move || {
-            on_shortcut(&app_handle);
-        })
-        .unwrap();
+
+    match app {
+        "cheatsheet" => {
+            unregister(app_handle, "cheatSheetShortCut");
+            register(app_handle, "cheatSheetShortCut", on_shortcut, shortcut)?;
+            // 重新初始化 tray tooltip
+            init_tray_tooltip(shortcut, "");
+        }
+        "active_window" => {
+            unregister(app_handle, "cheatSheetShortCut");
+            register(
+                app_handle,
+                "activeWindowShortCut",
+                on_active_window,
+                shortcut,
+            )?;
+            // 重新初始化 tray tooltip
+            init_tray_tooltip("", shortcut);
+        }
+        _ => {}
+    }
+
+    Ok(())
 }
 
-pub fn register_hotkey_active_window() {
-    let active_window_shortcut = match get("activeWindowShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "Ctrl+F2".to_string(),
-    };
+fn on_shortcut() {
     let app_handle = APP.get().unwrap();
-    app_handle
-        .global_shortcut_manager()
-        .register(active_window_shortcut.as_str(), move || {
-            on_active_window();
-        })
-        .unwrap();
-}
-
-pub fn unregister_hotkey_shortcut() {
-    let cheatsheet_shortcut = match get("cheatSheetShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "F2".to_string(),
-    };
-    let app_handle = APP.get().unwrap();
-    app_handle
-        .global_shortcut_manager()
-        .unregister(cheatsheet_shortcut.as_str())
-        .unwrap();
-}
-
-pub fn unregister_hotkey_active_window() {
-    let active_window_shortcut = match get("activeWindowShortCut") {
-        Some(val) => val.as_str().unwrap().to_string(),
-        None => "Ctrl+F2".to_string(),
-    };
-    let app_handle = APP.get().unwrap();
-    app_handle
-        .global_shortcut_manager()
-        .unregister(active_window_shortcut.as_str())
-        .unwrap();
-}
-
-fn on_shortcut(app: &AppHandle) {
-    let window = app.get_window("main").unwrap();
+    let window = app_handle.get_window("main").unwrap();
 
     if window.is_visible().unwrap() {
         window.hide().unwrap();
@@ -93,66 +111,4 @@ fn on_shortcut(app: &AppHandle) {
 
 fn on_active_window() {
     notification("当前应用", get_current_active_window().as_str());
-}
-
-#[tauri::command]
-pub fn register_hotkey_with_shortcut(kind: String, shortcut: String) {
-    println!("register_hotkey_with_shortcut: kind -> {kind}, shortcut: {shortcut}");
-    match kind.as_str() {
-        "cheatsheet" => {
-            let is_forbidden = match get("forbidCheatSheetShortCut") {
-                Some(val) => val.as_bool().unwrap(),
-                None => false,
-            };
-            // 如果没用被禁用，则删除注册快捷键
-            // 说明应用快捷键被禁用，则不需要去注册
-            if !is_forbidden {
-                unregister_hotkey_shortcut();
-                register_hotkey_shortcut();
-            }
-            // 重新初始化 tray tooltip
-            init_tray_tooltip();
-        }
-        "active_window" => {
-            let is_forbidden = match get("forbidActiveWindowShortCut") {
-                Some(val) => val.as_bool().unwrap(),
-                None => false,
-            };
-            // 如果没用被禁用，则删除注册快捷键
-            // 说明应用快捷键被禁用，则不需要去注册
-            if !is_forbidden {
-                unregister_hotkey_active_window();
-                register_hotkey_active_window();
-            }
-            // 重新初始化 tray tooltip
-            init_tray_tooltip();
-        }
-        _ => (),
-    }
-}
-
-#[tauri::command]
-pub fn register_hotkey(kind: String) {
-    match kind.as_str() {
-        "cheatsheet" => {
-            register_hotkey_shortcut();
-        }
-        "active_window" => {
-            register_hotkey_active_window();
-        }
-        _ => (),
-    }
-}
-
-#[tauri::command]
-pub fn unregister_hotkey(kind: String) {
-    match kind.as_str() {
-        "cheatsheet" => {
-            unregister_hotkey_shortcut();
-        }
-        "active_window" => {
-            unregister_hotkey_active_window();
-        }
-        _ => (),
-    }
 }
