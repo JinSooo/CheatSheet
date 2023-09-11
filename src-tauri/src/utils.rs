@@ -1,21 +1,21 @@
 use active_win_pos_rs::get_active_window;
 use tauri::api::notification::Notification;
-use tauri::{AppHandle, Manager, PhysicalSize, Size};
+use tauri::{LogicalSize, Manager, Size};
+
+use crate::APP;
 
 // 根据显示屏按比例适配窗口大小
 static WINDOW_SIZE_RATIO: f64 = 0.75;
-pub fn adjust_window_size(app: AppHandle) {
-    let window = app.get_window("main").unwrap();
+pub fn adjust_window_size() {
+    let app_handle = APP.get().unwrap();
+    let window = app_handle.get_window("main").unwrap();
 
     if let Some(monitor) = window.current_monitor().unwrap() {
         let size = monitor.size();
         let width = size.width as f64 * WINDOW_SIZE_RATIO;
         let height = size.height as f64 * WINDOW_SIZE_RATIO;
         window
-            .set_size(Size::Physical(PhysicalSize {
-                width: width as u32,
-                height: height as u32,
-            }))
+            .set_size(Size::Logical(LogicalSize { width, height }))
             .unwrap();
         window.center().unwrap();
     }
@@ -30,8 +30,10 @@ pub fn get_current_active_window() -> String {
 }
 
 // 发送消息 Notification
-pub fn notification(app: &AppHandle, title: &str, body: &str) {
-    Notification::new(&app.config().tauri.bundle.identifier)
+pub fn notification(title: &str, body: &str) {
+    let app_handle = APP.get().unwrap();
+
+    Notification::new(&app_handle.config().tauri.bundle.identifier)
         .title(title)
         .body(body)
         .show()

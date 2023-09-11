@@ -1,4 +1,4 @@
-import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
+import { BaseDirectory, FileEntry, readDir, readTextFile } from '@tauri-apps/api/fs'
 import { OSType, ShortCut, ShortCutCommand } from '../types'
 
 // 读取应用快捷键数据
@@ -10,9 +10,19 @@ export const readShortCut = async (name: string): Promise<ShortCut> => {
   return shortcut
 }
 
+// 读取当前已支持的应用
+export const readShortCutDir = async (): Promise<FileEntry[]> => {
+  const entries = await readDir('shortcuts', {
+    dir: BaseDirectory.Resource,
+  })
+  return entries
+}
+
 const commandMap = new Map([
   ['Control', '⌃'],
+  ['Ctrl', '⌃'],
   ['Command', '⌘'],
+  ['Cmd', '⌘'],
   ['Alt', '⌥'],
   ['Shift', '⇧'],
   ['Caps', '⇪'],
@@ -20,9 +30,9 @@ const commandMap = new Map([
 ])
 
 // 将快捷键转换为对应的图标和字符
-export const convertShortCutCommand = (os: OSType, command: ShortCutCommand) => {
-  if (!command[os]) return []
-  const arr = command[os].split('+')
+export const convertShortCutCommand = (os: OSType, command: string) => {
+  if (!command) return []
+  const arr = command.split('+')
 
   // 对Mac的键位做图标转换
   if (os === OSType.Mac) {
@@ -34,4 +44,17 @@ export const convertShortCutCommand = (os: OSType, command: ShortCutCommand) => 
   }
 
   return arr
+}
+
+// 将快捷键转换为Mac的图标和字符
+export const convertMacShortCut = (command: string) => {
+  const arr = command.split('+')
+
+  for (let i = 0; i < arr.length; i++) {
+    if (commandMap.has(arr[i])) {
+      arr[i] = commandMap.get(arr[i]) ?? ''
+    }
+  }
+
+  return arr.join('+')
 }

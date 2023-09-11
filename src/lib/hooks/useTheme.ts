@@ -1,31 +1,24 @@
+import { listen } from '@tauri-apps/api/event'
 import { useTheme as useNextTheme } from 'next-themes'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 const useTheme = () => {
   const nextTheme = useNextTheme()
 
-  const setTheme = useCallback(
-    (theme: string) => {
-      if (nextTheme.theme !== theme) {
-        nextTheme.setTheme(theme)
-        document.documentElement.setAttribute('data-theme', theme)
-      }
-    },
-    [nextTheme],
-  )
+  const initThemeListener = async () => {
+    // 监听主题变化
+    await listen('theme', (event) => {
+      const theme = (event.payload as string).split('_')[1]
+      console.log('🎉🎉🎉', 'theme', theme)
+      nextTheme.setTheme(theme)
+    })
+  }
 
-  // 监听如果是系统默认主题，则重新设置data-theme
   useEffect(() => {
-    console.log(nextTheme.theme, nextTheme.theme, nextTheme.theme)
-    if (nextTheme.theme === 'system') {
-      document.documentElement.setAttribute(
-        'data-theme',
-        (nextTheme.theme ?? 'system') === 'system' ? nextTheme.systemTheme ?? '' : nextTheme.theme ?? '',
-      )
-    }
-  }, [nextTheme])
+    initThemeListener()
+  }, [])
 
-  return { setTheme }
+  return { setTheme: nextTheme.setTheme }
 }
 
 export default useTheme

@@ -1,0 +1,12 @@
+{
+  "autoStart": false,
+  "checkUpdate": false,
+  "windowOpacity": 10,
+  "windowBorderRadius": 16,
+  "windowSize": 75,
+  "theme": "system",
+  "trayLeftClick": "none",
+
+  "cheatSheetShortCut": "F2",
+  "activeWindowShortCut": "Ctrl+F2"
+}

@@ -1,44 +1,102 @@
-use crate::utils::{get_current_active_window, notification};
+use crate::{
+    config::{get, set},
+    tray::init_tray_tooltip,
+    utils::{get_current_active_window, notification},
+    APP,
+};
 use tauri::{AppHandle, GlobalShortcutManager, Manager};
 
-pub static GLOBAL_HOTKEY_SHORTCUT: &str = "F2";
-pub static GLOBAL_HOTKEY_ACTIVE_WINDOW: &str = "Ctrl+F2";
-
-pub fn init_hotkey(app: AppHandle) {
-    register_hotkey_shortcut(app.app_handle());
-    register_hotkey_active_window(app.app_handle());
+pub fn init_hotkey() {
+    register_shortcut("all").unwrap();
 }
 
-pub fn register_hotkey_shortcut(app: AppHandle) {
-    app.global_shortcut_manager()
-        .register(GLOBAL_HOTKEY_SHORTCUT, move || {
-            on_shortcut(&app);
-        })
+fn register<F>(app_handle: &AppHandle, name: &str, handler: F, key: &str) -> Result<(), String>
+where
+    F: Fn() + Send + 'static,
+{
+    let shortcut = {
+        if key.is_empty() {
+            match get(name) {
+                Some(v) => v.as_str().unwrap().to_string(),
+                None => {
+                    set(name, "");
+                    String::new()
+                }
+            }
+        } else {
+            key.to_string()
+        }
+    };
+
+    if !shortcut.is_empty() {
+        app_handle
+            .global_shortcut_manager()
+            .register(shortcut.as_str(), handler)
+            .unwrap();
+        println!("Register Hotkey {name}: {shortcut}")
+    }
+    Ok(())
+}
+
+fn unregister(app_handle: &AppHandle, name: &str) {
+    let shortcut = match get(name) {
+        Some(v) => v.as_str().unwrap().to_string(),
+        None => String::new(),
+    };
+    app_handle
+        .global_shortcut_manager()
+        .unregister(shortcut.as_str())
         .unwrap();
 }
 
-pub fn register_hotkey_active_window(app: AppHandle) {
-    app.global_shortcut_manager()
-        .register(GLOBAL_HOTKEY_ACTIVE_WINDOW, move || {
-            on_active_window(&app);
-        })
-        .unwrap();
+fn register_shortcut(app: &str) -> Result<(), String> {
+    let app_handle = APP.get().unwrap();
+
+    match app {
+        "cheatsheet" => register(app_handle, "cheatSheetShortCut", on_shortcut, "")?,
+        "active_window" => register(app_handle, "activeWindowShortCut", on_active_window, "")?,
+        "all" => {
+            register(app_handle, "cheatSheetShortCut", on_shortcut, "")?;
+            register(app_handle, "activeWindowShortCut", on_active_window, "")?;
+        }
+        _ => {}
+    }
+
+    Ok(())
 }
 
-pub fn unregister_hotkey_shortcut(app: &AppHandle) {
-    app.global_shortcut_manager()
-        .unregister(GLOBAL_HOTKEY_SHORTCUT)
-        .unwrap();
+#[tauri::command]
+pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), String> {
+    println!("register_hotkey_with_shortcut: app -> {app}, shortcut: {shortcut}");
+    let app_handle = APP.get().unwrap();
+
+    match app {
+        "cheatsheet" => {
+            unregister(app_handle, "cheatSheetShortCut");
+            register(app_handle, "cheatSheetShortCut", on_shortcut, shortcut)?;
+            // 重新初始化 tray tooltip
+            init_tray_tooltip(shortcut, "");
+        }
+        "active_window" => {
+            unregister(app_handle, "cheatSheetShortCut");
+            register(
+                app_handle,
+                "activeWindowShortCut",
+                on_active_window,
+                shortcut,
+            )?;
+            // 重新初始化 tray tooltip
+            init_tray_tooltip("", shortcut);
+        }
+        _ => {}
+    }
+
+    Ok(())
 }
 
-pub fn unregister_hotkey_active_window(app: &AppHandle) {
-    app.global_shortcut_manager()
-        .unregister(GLOBAL_HOTKEY_ACTIVE_WINDOW)
-        .unwrap();
-}
-
-fn on_shortcut(app: &AppHandle) {
-    let window = app.get_window("main").unwrap();
+fn on_shortcut() {
+    let app_handle = APP.get().unwrap();
+    let window = app_handle.get_window("main").unwrap();
 
     if window.is_visible().unwrap() {
         window.hide().unwrap();
@@ -51,6 +109,6 @@ fn on_shortcut(app: &AppHandle) {
     }
 }
 
-fn on_active_window(app: &AppHandle) {
-    notification(app, "当前应用", get_current_active_window().as_str());
+fn on_active_window() {
+    notification("当前应用", get_current_active_window().as_str());
 }

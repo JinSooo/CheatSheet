@@ -2,42 +2,37 @@
 
 import ShortCut from '@/components/ShortCut/ShortCut'
 import useTheme from '@/lib/hooks/useTheme'
-import { OSType } from '@/lib/types'
-import { getOSType } from '@/lib/utils'
 import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const { setTheme } = useTheme()
-  const [activeAppName, setActiveAppName] = useState('')
-  const [os, setOS] = useState<OSType>(OSType.Windows)
+  // 内部自处理主题
+  const _ = useTheme()
+  const [backgroundOpacity, setBackgroundOpacity] = useState(1) // 背景透明度
+  const [windowBorderRadius, setWindowBorderRadius] = useState(16) // 窗口圆角
 
-  // 初始化监听事件
-  const initListen = async () => {
-    // 监听当前应用
-    await listen('active-window', (event) => {
-      console.log('🎉🎉🎉', 'active-window', event.payload)
-      setActiveAppName(event.payload as string)
+  const initWindowListener = async () => {
+    await listen('window_opacity', (event) => {
+      setBackgroundOpacity(event.payload as number)
     })
-    // 监听主题变化
-    await listen('theme', (event) => {
-      const theme = (event.payload as string).split('_')[1]
-      console.log('🎉🎉🎉', 'theme', theme)
-      setTheme(theme)
+    await listen('window_border_radius', (event) => {
+      setWindowBorderRadius(event.payload as number)
     })
-  }
-
-  const init = async () => {
-    await initListen()
-    // 获取操作系统
-    const os = await getOSType()
-    console.log('🎉🎉🎉', 'os', os)
-    setOS(os)
   }
 
   useEffect(() => {
-    init()
+    initWindowListener()
   }, [])
 
-  return <ShortCut appName={activeAppName} os={os} />
+  return (
+    <div
+      className='h-screen w-screen text-[var(--foreground)] overflow-auto no-scrollbar'
+      style={{
+        background: `rgba(var(--background-rgba), ${backgroundOpacity})`,
+        borderRadius: `${windowBorderRadius}px`,
+      }}
+    >
+      <ShortCut />
+    </div>
+  )
 }
