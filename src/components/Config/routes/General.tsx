@@ -57,12 +57,12 @@ const General = () => {
   // 窗口透明度
   const handleWindowOpacity = async (e: ChangeEvent<HTMLInputElement>) => {
     await emit('window_opacity', +e.target.value / 10)
-    await saveConfigStore('windowOpacity', e.target.value)
+    await saveConfigStore('windowOpacity', +e.target.value)
   }
   // 窗口圆角
   const handleWindowBorderRadius = async (e: ChangeEvent<HTMLInputElement>) => {
     await emit('window_border_radius', +e.target.value)
-    await saveConfigStore('windowBorderRadius', e.target.value)
+    await saveConfigStore('windowBorderRadius', +e.target.value)
   }
   // 窗口大小
   const handleWindowSize = async (e: ChangeEvent<HTMLInputElement>) => {

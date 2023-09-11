@@ -35,6 +35,7 @@ fn main() {
             APP.get_or_init(|| app.handle());
 
             init_config(&app);
+            check_config();
             init_tray_tooltip("", "");
             init_hotkey();
             adjust_window_size();

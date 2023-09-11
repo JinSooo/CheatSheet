@@ -1,5 +1,6 @@
 import { invoke } from '@tauri-apps/api/tauri'
 import { listen, UnlistenFn } from '@tauri-apps/api/event'
+import { app } from '@tauri-apps/api'
 
 /**
  * From: https://github.com/tauri-apps/plugins-workspace/blob/v1/plugins/store/guest-js/index.ts
@@ -199,8 +200,8 @@ export class Store {
 
 // 初始化配置文件
 export const initConfigStore = async () => {
-  const { join, resourceDir } = await import('@tauri-apps/api/path')
-  const dir = await resourceDir()
+  const { join, appConfigDir } = await import('@tauri-apps/api/path')
+  const dir = await appConfigDir()
   const configPath = await join(dir, 'config.json')
   console.log('configPath:', configPath)
 

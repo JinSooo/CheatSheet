@@ -61,7 +61,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["./shortcuts", "./config.json"],
+      "resources": ["./shortcuts"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
