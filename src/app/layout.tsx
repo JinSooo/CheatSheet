@@ -5,9 +5,10 @@ import { StoreProvider } from '@/lib/store'
 import '@/lib/styles/globals.css'
 import { OSType } from '@/lib/types'
 import { getOSType } from '@/lib/utils'
-import { Store, initConfigStore } from '@/lib/utils/store'
 import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
+import {Store} from "tauri-plugin-store-api";
+import {initConfigStore} from "@/lib/utils/store";
 
 export default function RootLayout({
   children,
