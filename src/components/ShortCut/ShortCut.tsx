@@ -24,7 +24,7 @@ const ShortCut = () => {
   }, [os])
 
   return (
-    <div className='w-full h-full box-border p-6'>
+    <div className='w-full h-full box-border p-6 select-none'>
       {/* 瀑布流布局 */}
       <MasonryGrid>
         {shortcut ? shortcut.categories.map((category) => <Category key={category.name} category={category} />) : <></>}

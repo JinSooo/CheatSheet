@@ -9,7 +9,7 @@ const ConfigAside = () => {
   console.log(pathname)
 
   return (
-    <ul className='menu w-44 h-full gap-2 pt-4'>
+    <ul className='menu w-44 h-full gap-2 pt-4 select-none'>
       {routes.map((route) => (
         <li key={route.path}>
           <Link
