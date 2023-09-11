@@ -3,7 +3,7 @@
 import useTheme from '@/lib/hooks/useTheme'
 import { emit } from '@tauri-apps/api/event'
 import { Monitor, WebviewWindow } from '@tauri-apps/api/window'
-import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Range from '../common/Range'
@@ -11,6 +11,7 @@ import Select from '../common/Select'
 import { Store } from '@/lib/utils/store'
 import { Config } from '@/lib/types'
 import { StoreContext } from '@/lib/store'
+import { debounce } from '@/lib/utils/util'
 
 const General = () => {
   const { setTheme } = useTheme()
@@ -42,23 +43,26 @@ const General = () => {
     monitor.current = await currentMonitor()
   }
 
+  // 防抖保存，避免多次存储
+  const saveConfigStore = debounce(async (key: string, value: unknown) => {
+    await configStore.set(key, value)
+    await configStore.save()
+  }, 200)
+
   // 主题
   const handleThemeChange = async (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value)
-    await configStore.set('theme', e.target.value)
-    await configStore.save()
+    await saveConfigStore('theme', e.target.value)
   }
   // 窗口透明度
   const handleWindowOpacity = async (e: ChangeEvent<HTMLInputElement>) => {
-    emit('window_opacity', +e.target.value / 10)
-    await configStore.set('windowOpacity', e.target.value)
-    await configStore.save()
+    await emit('window_opacity', +e.target.value / 10)
+    await saveConfigStore('windowOpacity', e.target.value)
   }
   // 窗口圆角
   const handleWindowBorderRadius = async (e: ChangeEvent<HTMLInputElement>) => {
-    emit('window_border_radius', +e.target.value)
-    await configStore.set('windowBorderRadius', e.target.value)
-    await configStore.save()
+    await emit('window_border_radius', +e.target.value)
+    await saveConfigStore('windowBorderRadius', e.target.value)
   }
   // 窗口大小
   const handleWindowSize = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -68,15 +72,13 @@ const General = () => {
       new LogicalSize((monitor.current?.size.width ?? 1920) * ratio, (monitor.current?.size.height ?? 1080) * ratio),
     )
     mainWindow.current?.center()
-    await configStore.set('windowSize', +e.target.value)
-    await configStore.save()
+    await saveConfigStore('windowSize', +e.target.value)
   }
   // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
     const { invoke } = await import('@tauri-apps/api')
     await invoke('left_click_type', { lcType: e.target.value })
-    await configStore.set('trayLeftClick', e.target.value)
-    await configStore.save()
+    await saveConfigStore('trayLeftClick', e.target.value)
   }
   // 开机自启
   const handleAppAutostart = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -86,13 +88,11 @@ const General = () => {
     } else {
       await invoke('plugin:autostart|disable')
     }
-    await configStore.set('autoStart', e.target.checked)
-    await configStore.save()
+    await saveConfigStore('autoStart', e.target.checked)
   }
   // 检查更新
   const handleAppCheckStart = async (e: ChangeEvent<HTMLInputElement>) => {
-    await configStore.set('checkUpdate', e.target.checked)
-    await configStore.save()
+    await saveConfigStore('checkUpdate', e.target.checked)
   }
 
   useEffect(() => {
