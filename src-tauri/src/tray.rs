@@ -1,7 +1,8 @@
 use crate::{
+    config::get,
     hotkey::{
         register_hotkey_active_window, register_hotkey_shortcut, unregister_hotkey_active_window,
-        unregister_hotkey_shortcut, GLOBAL_HOTKEY_ACTIVE_WINDOW, GLOBAL_HOTKEY_SHORTCUT,
+        unregister_hotkey_shortcut,
     },
     window::show_config_window,
     APP,
@@ -48,16 +49,22 @@ pub fn init_tray() -> SystemTray {
 
 pub fn init_tray_tooltip() {
     let app_handle = APP.get().unwrap();
-    unsafe {
-        app_handle.tray_handle()
+    let cheatsheet_shortcut = match get("cheatSheetShortCut") {
+        Some(val) => val.as_str().unwrap().to_string(),
+        None => "F2".to_string(),
+    };
+    let active_window_shortcut = match get("activeWindowShortCut") {
+        Some(val) => val.as_str().unwrap().to_string(),
+        None => "Ctrl+F2".to_string(),
+    };
+    app_handle.tray_handle()
         .set_tooltip(
             format!(
-                "CheatSheet   \n显示快捷键: {GLOBAL_HOTKEY_SHORTCUT}   \n当前应用快捷键: {GLOBAL_HOTKEY_ACTIVE_WINDOW}   "
+                "CheatSheet   \n显示快捷键: {cheatsheet_shortcut}   \n当前应用快捷键: {active_window_shortcut}   "
             )
             .as_str(),
         )
         .unwrap();
-    }
 }
 
 pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {

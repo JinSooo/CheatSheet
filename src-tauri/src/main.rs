@@ -34,10 +34,10 @@ fn main() {
             // Global AppHandle
             APP.get_or_init(|| app.handle());
 
+            init_config(&app);
             init_tray_tooltip();
             init_hotkey();
             adjust_window_size();
-            init_config(&app);
             Ok(())
         })
         .invoke_handler(generate_handler![
