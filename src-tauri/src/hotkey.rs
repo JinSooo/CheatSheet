@@ -1,10 +1,11 @@
+use crate::window::get_main_window;
 use crate::{
     config::{get, set},
     tray::init_tray_tooltip,
     utils::{get_current_active_window, notification},
     APP,
 };
-use tauri::{AppHandle, GlobalShortcutManager, Manager};
+use tauri::{AppHandle, GlobalShortcutManager};
 
 pub fn init_hotkey() {
     register_shortcut("all").unwrap();
@@ -95,8 +96,7 @@ pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), St
 }
 
 fn on_shortcut() {
-    let app_handle = APP.get().unwrap();
-    let window = app_handle.get_window("main").unwrap();
+    let window = get_main_window();
 
     if window.is_visible().unwrap() {
         window.hide().unwrap();

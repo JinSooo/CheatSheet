@@ -1,13 +1,9 @@
-use std::{default, sync::Mutex};
-
-use serde_json::{json, Value};
-use tauri::{
-    api::path::{config_dir, resource_dir},
-    App, Env, Manager, Wry,
-};
-use tauri_plugin_store::{Store, StoreBuilder};
-
+use crate::utils::WINDOW_SIZE_RATIO;
 use crate::APP;
+use serde_json::{json, Value};
+use std::sync::Mutex;
+use tauri::{api::path::config_dir, App, Manager, Wry};
+use tauri_plugin_store::{Store, StoreBuilder};
 
 pub struct StoreWrapper(pub Mutex<Store<Wry>>);
 
@@ -47,7 +43,7 @@ pub fn check_config() {
     check_config_key("checkUpdate", false);
     check_config_key("windowOpacity", 10);
     check_config_key("windowBorderRadius", 16);
-    check_config_key("windowSize", 75);
+    check_config_key("windowsSizeRatio", WINDOW_SIZE_RATIO);
     check_config_key("theme", "system");
     check_config_key("trayLeftClick", "none");
 }

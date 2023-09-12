@@ -79,8 +79,6 @@
     "windows": [
       {
         "label": "main",
-        "width": 1600,
-        "height": 900,
         "fullscreen": false,
         "resizable": false,
         "transparent": true,
@@ -90,7 +88,8 @@
         "decorations": false,
         "center": true,
         "alwaysOnTop": true,
-        "skipTaskbar": true
+        "skipTaskbar": true,
+        "visible": false
       }
     ],
     "macOSPrivateApi": true,
