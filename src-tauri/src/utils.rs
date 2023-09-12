@@ -13,8 +13,8 @@ pub fn adjust_window_size(window: &Window) {
     if let Some(monitor) = window.current_monitor().unwrap() {
         let size = monitor.size();
         let windows_size_ratio = match get("windows_size_ratio") {
-            None => WINDOW_SIZE_RATIO,
             Some(v) => v.as_f64().unwrap(),
+            None => WINDOW_SIZE_RATIO,
         };
         let width = size.width as f64 * windows_size_ratio;
         let height = size.height as f64 * windows_size_ratio;

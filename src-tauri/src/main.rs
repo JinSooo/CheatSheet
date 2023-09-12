@@ -12,7 +12,7 @@ use crate::utils::adjust_center_main_window;
 use config::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
-use tauri::generate_handler;
+use tauri::{api::notification::Notification, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
 

@@ -66,22 +66,17 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
             let mut builder =
                 WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
                     .position(position.x, position.y)
+                    .decorations(true)
                     .transparent(true)
                     .focused(true)
                     .title(title)
                     .visible(false);
 
-            // #[cfg(target_os = "macos")]
+            // TODO: Config窗口无头化
+            // #[cfg(not(target_os = "macos"))]
             // {
-            //     builder = builder
-            //         .title_bar_style(tauri::TitleBarStyle::Overlay)
-            //         .hidden_title(true);
+            //     builder = builder.decorations(false);
             // }
-
-            #[cfg(not(target_os = "macos"))]
-            {
-                builder = builder.decorations(false);
-            }
             let window = builder.build().unwrap();
             let _ = window.current_monitor();
             window.set_focus().unwrap();
@@ -99,5 +94,5 @@ pub fn config_window() {
     window.center().unwrap();
     // TODO: CheatSheet窗口会覆盖Config窗口，所以先将Config窗口也置顶，后续有其他方法再修改
     window.set_always_on_top(true).unwrap();
-    config_window.show().unwrap();
+    window.show().unwrap();
 }

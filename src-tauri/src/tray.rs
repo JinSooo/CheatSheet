@@ -60,16 +60,16 @@ pub fn init_tray_tooltip(cheatsheet_shortcut: &str, active_window_shortcut: &str
 pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
     match event {
         // 暂时保留
-        SystemTrayEvent::LeftClick { .. } => on_left_click(app),
+        SystemTrayEvent::LeftClick { .. } => on_left_click(),
         SystemTrayEvent::RightClick { .. } => on_right_click(),
         // 根据菜单 id 进行事件匹配
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
-            "show" => on_show(app),
-            "hide" => on_hide(app),
+            "show" => on_show(),
+            "hide" => on_hide(),
             "theme_system" => on_theme(app, id.as_str()),
             "theme_light" => on_theme(app, id.as_str()),
             "theme_dark" => on_theme(app, id.as_str()),
-            "option" => on_config(app),
+            "option" => on_config(),
             "help" => on_help(),
             "update" => on_update(),
             "quit" => on_quit(app),
@@ -90,7 +90,7 @@ pub fn init_tray_click() {
     }
 }
 
-fn on_left_click(app: &AppHandle) {
+fn on_left_click() {
     println!("🎉🎉🎉 tray: left click");
     unsafe {
         match LEFT_CLICK_TYPE {
@@ -116,11 +116,11 @@ fn on_right_click() {
     println!("🎉🎉🎉 tray: right click");
 }
 
-fn on_show(app: &AppHandle) {
+fn on_show() {
     get_main_window().show().unwrap();
 }
 
-fn on_hide(app: &AppHandle) {
+fn on_hide() {
     get_main_window().hide().unwrap();
 }
 
@@ -128,7 +128,7 @@ fn on_theme(app: &AppHandle, theme: &str) {
     app.emit_all("theme", theme).unwrap();
 }
 
-fn on_config(app: &AppHandle) {
+fn on_config() {
     config_window();
 }
 
