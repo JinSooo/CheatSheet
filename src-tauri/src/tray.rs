@@ -1,4 +1,4 @@
-use crate::{config::get, window::show_config_window, APP};
+use crate::{config::get, window::config_window, APP};
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -96,7 +96,7 @@ fn on_left_click(app: &AppHandle) {
                 app.get_window("main").unwrap().show().unwrap();
             }
             "config" => {
-                show_config_window(app);
+                config_window();
             }
             _ => (),
         }
@@ -127,7 +127,7 @@ fn on_theme(app: &AppHandle, theme: &str) {
 }
 
 fn on_config(app: &AppHandle) {
-    show_config_window(app);
+    config_window();
 }
 
 fn on_help() {}
