@@ -69,7 +69,10 @@ const General = () => {
     const { PhysicalSize } = await import('@tauri-apps/api/window')
     const ratio = +e.target.value
     await mainWindow.current?.setSize(
-      new PhysicalSize(Math.trunc((monitor.current?.size.width ?? 1920) * ratio), Math.trunc((monitor.current?.size.height ?? 1080) * ratio)),
+      new PhysicalSize(
+        Math.trunc((monitor.current?.size.width ?? 1920) * ratio),
+        Math.trunc((monitor.current?.size.height ?? 1080) * ratio),
+      ),
     )
     await mainWindow.current?.center()
     await saveConfigStore('windowsSizeRatio', +e.target.value)
@@ -123,7 +126,13 @@ const General = () => {
         </li>
         <li>
           <p>窗口大小百分比</p>
-          <Range defaultValue={defaultConfig.windowsSizeRatio} min={0} max={1} step={0.01} onChange={handleWindowSizeRatio} />
+          <Range
+            defaultValue={defaultConfig.windowsSizeRatio}
+            min={0}
+            max={1}
+            step={0.01}
+            onChange={handleWindowSizeRatio}
+          />
         </li>
         <li>
           <p>窗口圆角大小</p>

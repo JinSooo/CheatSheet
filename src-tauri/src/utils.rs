@@ -44,6 +44,7 @@ pub fn notification(title: &str, body: &str) {
 }
 
 // 调整并居中主窗口
+#[tauri::command]
 pub fn adjust_center_main_window() {
     let main_window = get_main_window();
     adjust_window_size(&main_window);

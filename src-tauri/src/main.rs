@@ -52,7 +52,8 @@ fn main() {
         })
         .invoke_handler(generate_handler![
             left_click_type,
-            register_shortcut_by_frontend
+            register_shortcut_by_frontend,
+            adjust_center_main_window
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")
@@ -62,7 +63,4 @@ fn main() {
                 api.prevent_exit();
             }
         });
-
-    // 调整并居中主窗口大小
-    adjust_center_main_window();
 }
