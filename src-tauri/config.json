@@ -3,7 +3,7 @@
   "checkUpdate": false,
   "windowOpacity": 10,
   "windowBorderRadius": 16,
-  "windowSize": 75,
+  "windowsSizeRatio": 0.75,
   "theme": "system",
   "trayLeftClick": "none",
 

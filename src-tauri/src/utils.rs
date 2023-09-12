@@ -1,23 +1,26 @@
+use crate::config::get;
+use crate::window::get_main_window;
+use crate::APP;
 use active_win_pos_rs::get_active_window;
 use tauri::api::notification::Notification;
-use tauri::{LogicalSize, Manager, Size};
-
-use crate::APP;
+use tauri::Window;
 
 // 根据显示屏按比例适配窗口大小
-static WINDOW_SIZE_RATIO: f64 = 0.75;
-pub fn adjust_window_size() {
-    let app_handle = APP.get().unwrap();
-    let window = app_handle.get_window("main").unwrap();
+pub static WINDOW_SIZE_RATIO: f64 = 0.75;
 
+pub fn adjust_window_size(window: &Window) {
+    println!("adjust_window_size");
     if let Some(monitor) = window.current_monitor().unwrap() {
         let size = monitor.size();
-        let width = size.width as f64 * WINDOW_SIZE_RATIO;
-        let height = size.height as f64 * WINDOW_SIZE_RATIO;
+        let windows_size_ratio = match get("windows_size_ratio") {
+            None => WINDOW_SIZE_RATIO,
+            Some(v) => v.as_f64().unwrap(),
+        };
+        let width = size.width as f64 * windows_size_ratio;
+        let height = size.height as f64 * windows_size_ratio;
         window
-            .set_size(Size::Logical(LogicalSize { width, height }))
+            .set_size(tauri::PhysicalSize::new(width, height))
             .unwrap();
-        window.center().unwrap();
     }
 }
 
@@ -38,4 +41,11 @@ pub fn notification(title: &str, body: &str) {
         .body(body)
         .show()
         .unwrap();
+}
+
+// 调整并居中主窗口
+pub fn adjust_center_main_window() {
+    let main_window = get_main_window();
+    adjust_window_size(&main_window);
+    main_window.center().unwrap();
 }

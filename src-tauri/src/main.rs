@@ -8,14 +8,13 @@ mod tray;
 mod utils;
 mod window;
 
+use crate::utils::adjust_center_main_window;
 use config::*;
-use event::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
-use tauri::{api::notification::Notification, generate_context, generate_handler};
+use tauri::generate_handler;
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
-use utils::adjust_window_size;
 
 // Global AppHandle
 pub static APP: OnceCell<tauri::AppHandle> = OnceCell::new();
@@ -38,6 +37,9 @@ fn main() {
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
         .setup(|app| {
+            #[cfg(target_os = "macos")]
+            app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+
             // Global AppHandle
             APP.get_or_init(|| app.handle());
 
@@ -46,13 +48,21 @@ fn main() {
             init_tray_tooltip("", "");
             init_tray_click();
             init_hotkey();
-            adjust_window_size();
             Ok(())
         })
         .invoke_handler(generate_handler![
             left_click_type,
             register_shortcut_by_frontend
         ])
-        .run(generate_context!())
-        .expect("error while running tauri application");
+        .build(tauri::generate_context!())
+        .expect("error while running tauri application")
+        // 窗口关闭不退出
+        .run(|_app_handle, event| {
+            if let tauri::RunEvent::ExitRequested { api, .. } = event {
+                api.prevent_exit();
+            }
+        });
+
+    // 调整并居中主窗口大小
+    adjust_center_main_window();
 }

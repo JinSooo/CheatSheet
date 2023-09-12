@@ -28,7 +28,7 @@ const General = () => {
     config.checkUpdate = await configStore.get('checkUpdate')
     config.windowOpacity = await configStore.get('windowOpacity')
     config.windowBorderRadius = await configStore.get('windowBorderRadius')
-    config.windowSize = await configStore.get('windowSize')
+    config.windowSizeRatio = await configStore.get('windowSizeRatio')
     config.theme = await configStore.get('theme')
     config.trayLeftClick = await configStore.get('trayLeftClick')
     setDefaultConfig(config)
@@ -64,15 +64,15 @@ const General = () => {
     await emit('window_border_radius', +e.target.value)
     await saveConfigStore('windowBorderRadius', +e.target.value)
   }
-  // 窗口大小
-  const handleWindowSize = async (e: ChangeEvent<HTMLInputElement>) => {
-    const { LogicalSize } = await import('@tauri-apps/api/window')
-    const ratio = +e.target.value / 100
-    mainWindow.current?.setSize(
-      new LogicalSize((monitor.current?.size.width ?? 1920) * ratio, (monitor.current?.size.height ?? 1080) * ratio),
+  // 窗口大小百分比
+  const handleWindowSizeRatio = async (e: ChangeEvent<HTMLInputElement>) => {
+    const { PhysicalSize } = await import('@tauri-apps/api/window')
+    const ratio = +e.target.value
+    await mainWindow.current?.setSize(
+      new PhysicalSize(Math.trunc((monitor.current?.size.width ?? 1920) * ratio), Math.trunc((monitor.current?.size.height ?? 1080) * ratio)),
     )
-    mainWindow.current?.center()
-    await saveConfigStore('windowSize', +e.target.value)
+    await mainWindow.current?.center()
+    await saveConfigStore('windowsSizeRatio', +e.target.value)
   }
   // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
@@ -123,7 +123,7 @@ const General = () => {
         </li>
         <li>
           <p>窗口大小百分比</p>
-          <Range defaultValue={defaultConfig.windowSize} min={50} max={100} onChange={handleWindowSize} />
+          <Range defaultValue={defaultConfig.windowsSizeRatio} min={0} max={1} step={0.01} onChange={handleWindowSizeRatio} />
         </li>
         <li>
           <p>窗口圆角大小</p>

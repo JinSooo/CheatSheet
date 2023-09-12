@@ -1,4 +1,6 @@
-use crate::{config::get, window::config_window, APP};
+use crate::config::get;
+use crate::window::{config_window, get_main_window};
+use crate::APP;
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -93,7 +95,7 @@ fn on_left_click(app: &AppHandle) {
     unsafe {
         match LEFT_CLICK_TYPE {
             "cheatsheet" => {
-                app.get_window("main").unwrap().show().unwrap();
+                get_main_window().show().unwrap();
             }
             "config" => {
                 config_window();
@@ -115,11 +117,11 @@ fn on_right_click() {
 }
 
 fn on_show(app: &AppHandle) {
-    app.get_window("main").unwrap().show().unwrap();
+    get_main_window().show().unwrap();
 }
 
 fn on_hide(app: &AppHandle) {
-    app.get_window("main").unwrap().hide().unwrap();
+    get_main_window().hide().unwrap();
 }
 
 fn on_theme(app: &AppHandle, theme: &str) {
