@@ -44,6 +44,7 @@ fn main() {
             init_config(&app);
             check_config();
             init_tray_tooltip("", "");
+            init_tray_click();
             init_hotkey();
             adjust_window_size();
             Ok(())
