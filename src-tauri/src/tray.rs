@@ -1,4 +1,4 @@
-use crate::{config::get, window::show_config_window, APP};
+use crate::{config::get, window::config_window, APP};
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -77,13 +77,17 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
     }
 }
 
-/*
-  单击托盘事件
-    0: 空
-    1: 显示CheatSheet窗口
-    2: 显示配置窗口
-*/
 static mut LEFT_CLICK_TYPE: &str = "null";
+pub fn init_tray_click() {
+    let kind = match get("trayLeftClick") {
+        Some(v) => v.as_str().unwrap().to_string(),
+        None => "".to_string(),
+    };
+    unsafe {
+        LEFT_CLICK_TYPE = Box::leak(kind.into_boxed_str());
+    }
+}
+
 fn on_left_click(app: &AppHandle) {
     println!("🎉🎉🎉 tray: left click");
     unsafe {
@@ -92,7 +96,7 @@ fn on_left_click(app: &AppHandle) {
                 app.get_window("main").unwrap().show().unwrap();
             }
             "config" => {
-                show_config_window(app);
+                config_window();
             }
             _ => (),
         }
@@ -123,7 +127,7 @@ fn on_theme(app: &AppHandle, theme: &str) {
 }
 
 fn on_config(app: &AppHandle) {
-    show_config_window(app);
+    config_window();
 }
 
 fn on_help() {}

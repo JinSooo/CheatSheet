@@ -12,7 +12,7 @@ use config::*;
 use event::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
-use tauri::{generate_context, generate_handler};
+use tauri::{api::notification::Notification, generate_context, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
 use utils::adjust_window_size;
@@ -22,6 +22,13 @@ pub static APP: OnceCell<tauri::AppHandle> = OnceCell::new();
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, _, cwd| {
+            Notification::new(&app.config().tauri.bundle.identifier)
+                .title("程序已经在运行, 请不要再次启动!")
+                .body(cwd)
+                .show()
+                .unwrap();
+        }))
         .plugin(tauri_plugin_autostart::init(
             MacosLauncher::LaunchAgent,
             Some(vec!["--flag1", "--flag2"]),
@@ -37,6 +44,7 @@ fn main() {
             init_config(&app);
             check_config();
             init_tray_tooltip("", "");
+            init_tray_click();
             init_hotkey();
             adjust_window_size();
             Ok(())
