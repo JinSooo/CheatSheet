@@ -97,5 +97,7 @@ pub fn config_window() {
         .unwrap();
     window.set_size(tauri::LogicalSize::new(800, 600)).unwrap();
     window.center().unwrap();
+    // TODO: CheatSheet窗口会覆盖Config窗口，所以先将Config窗口也置顶，后续有其他方法再修改
     window.set_always_on_top(true).unwrap();
+    config_window.show().unwrap();
 }
