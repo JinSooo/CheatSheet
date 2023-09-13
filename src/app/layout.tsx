@@ -40,9 +40,10 @@ export default function RootLayout({
     setConfigStore(await initConfigStore())
   }
 
-  const init = async () => {
+  const adjustCenterMainWindow = async () => {
     const { invoke } = await import('@tauri-apps/api')
-    // 调整窗口位置
+    // 调用两次调整窗口位置，防止窗口位置不正确
+    await invoke('adjust_center_main_window')
     await invoke('adjust_center_main_window')
   }
 
@@ -50,7 +51,7 @@ export default function RootLayout({
     initListen()
     initOS()
     initConfig()
-    init()
+    adjustCenterMainWindow()
   }, [])
 
   return (
