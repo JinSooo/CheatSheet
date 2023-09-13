@@ -103,9 +103,8 @@ fn on_shortcut() {
     } else {
         let active_app_name = get_current_active_window();
         window.emit("active-window", active_app_name).unwrap();
-        // 等100ms再显示，留时间给页面进行渲染
-        std::thread::sleep(std::time::Duration::from_millis(100));
-        window.show().unwrap();
+        // 显示交给前端去处理，避免闪屏
+        // window.show().unwrap();
     }
 }
 

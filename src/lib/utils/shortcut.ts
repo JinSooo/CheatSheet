@@ -12,20 +12,24 @@ const convertOSName = (os: OSType) => {
   }
 }
 
+// 读取操作系统快捷键数据
+export const readOSShortCut = async (os: OSType): Promise<ShortCut> => {
+  const content = await readTextFile(`shortcuts/${convertOSName(os)}.json`, {
+    dir: BaseDirectory.Resource,
+  })
+  return JSON.parse(content)
+}
+
 // 读取应用快捷键数据
-export const readShortCut = async (name: string, os: OSType): Promise<ShortCut> => {
-  let content = ''
+export const readAppShortCut = async (name: string): Promise<ShortCut | null> => {
   try {
-    content = await readTextFile(`shortcuts/${name}.json`, {
+    const content = await readTextFile(`shortcuts/${name}.json`, {
       dir: BaseDirectory.Resource,
     })
-  } catch (err) {
-    content = await readTextFile(`shortcuts/${convertOSName(os)}.json`, {
-      dir: BaseDirectory.Resource,
-    })
+    return JSON.parse(content)
+  } catch (error) {
+    return null
   }
-  const shortcut = JSON.parse(content)
-  return shortcut
 }
 
 // 读取当前已支持的应用
