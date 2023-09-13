@@ -8,20 +8,20 @@ import { useContext, useEffect, useState } from 'react'
 import Category from './Category'
 
 const ShortCut = () => {
-  const { os } = useContext(StoreContext)
+  const { os, appName } = useContext(StoreContext)
   const [shortcut, setShortCut] = useState<ShortCutType>()
 
   const getShortCut = async (name: string) => {
-    // const file = await readShortCut(name)
-    const file = await readShortCut('test')
+    const file = await readShortCut(name, os)
+    // const file = await readShortCut('test')
     if (!shortcut || file.name !== shortcut.name) {
       setShortCut(file)
     }
   }
 
   useEffect(() => {
-    getShortCut(os)
-  }, [os])
+    getShortCut(appName)
+  }, [appName])
 
   return (
     <div className='w-full h-full box-border p-6 select-none'>

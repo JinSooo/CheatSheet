@@ -1,11 +1,29 @@
 import { BaseDirectory, FileEntry, readDir, readTextFile } from '@tauri-apps/api/fs'
-import { OSType, ShortCut, ShortCutCommand } from '../types'
+import { OSType, ShortCut } from '../types'
+
+const convertOSName = (os: OSType) => {
+  switch (os) {
+    case OSType.Windows:
+      return 'Windows'
+    case OSType.Mac:
+      return 'Mac'
+    case OSType.Linux:
+      return 'Linux'
+  }
+}
 
 // 读取应用快捷键数据
-export const readShortCut = async (name: string): Promise<ShortCut> => {
-  const content = await readTextFile(`shortcuts/${name}.json`, {
-    dir: BaseDirectory.Resource,
-  })
+export const readShortCut = async (name: string, os: OSType): Promise<ShortCut> => {
+  let content = ''
+  try {
+    content = await readTextFile(`shortcuts/${name}.json`, {
+      dir: BaseDirectory.Resource,
+    })
+  } catch (err) {
+    content = await readTextFile(`shortcuts/${convertOSName(os)}.json`, {
+      dir: BaseDirectory.Resource,
+    })
+  }
   const shortcut = JSON.parse(content)
   return shortcut
 }
