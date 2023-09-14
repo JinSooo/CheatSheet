@@ -49,6 +49,7 @@ fn main() {
             check_config();
             init_tray_tooltip("", "");
             init_tray_click();
+            init_tray_theme();
             init_hotkey();
             init_active_window_map();
 
