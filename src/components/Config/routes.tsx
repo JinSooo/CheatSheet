@@ -1,5 +1,5 @@
 import { Info, Keyboard, LayoutGrid, Settings2 } from 'lucide-react'
-import About from './routes/About'
+import About from './routes/About/About'
 import General from './routes/General'
 import Hotkey from './routes/Hotkey'
 import SupportApp from './routes/SupportApp'
