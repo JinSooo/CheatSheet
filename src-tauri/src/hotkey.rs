@@ -1,8 +1,9 @@
+use crate::active_window::get_current_active_window;
 use crate::window::get_main_window;
 use crate::{
     config::{get, set},
     tray::init_tray_tooltip,
-    utils::{get_current_active_window, notification},
+    utils::notification,
     APP,
 };
 use tauri::{AppHandle, GlobalShortcutManager};

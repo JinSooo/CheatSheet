@@ -1,6 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod active_window;
 mod config;
 mod event;
 mod hotkey;
@@ -9,6 +10,7 @@ mod utils;
 mod window;
 
 use crate::utils::adjust_center_main_window;
+use active_window::*;
 use config::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
@@ -48,6 +50,8 @@ fn main() {
             init_tray_tooltip("", "");
             init_tray_click();
             init_hotkey();
+            init_active_window_map();
+
             Ok(())
         })
         .invoke_handler(generate_handler![

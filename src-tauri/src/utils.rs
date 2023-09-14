@@ -1,7 +1,6 @@
 use crate::config::get;
 use crate::window::get_main_window;
 use crate::APP;
-use active_win_pos_rs::get_active_window;
 use tauri::api::notification::Notification;
 use tauri::Window;
 
@@ -21,14 +20,6 @@ pub fn adjust_window_size(window: &Window) {
         window
             .set_size(tauri::PhysicalSize::new(width, height))
             .unwrap();
-    }
-}
-
-// 获取当前聚焦程序
-pub fn get_current_active_window() -> String {
-    match get_active_window() {
-        Ok(active_window) => active_window.app_name,
-        Err(()) => "Default".to_string(),
     }
 }
 
