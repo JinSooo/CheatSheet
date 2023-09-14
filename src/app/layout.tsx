@@ -9,6 +9,7 @@ import { listen } from '@tauri-apps/api/event'
 import { useEffect, useState } from 'react'
 import { Store } from 'tauri-plugin-store-api'
 import { initConfigStore } from '@/lib/utils/store'
+import { showMainWindow } from '@/lib/utils/window'
 
 export default function RootLayout({
   children,
@@ -24,8 +25,12 @@ export default function RootLayout({
   const initListen = async () => {
     // 监听当前应用
     await listen('active-window', (event) => {
-      console.log('🎉🎉🎉', 'active-window', event.payload)
-      setActiveAppName(event.payload as string)
+      setActiveAppName((activeAppName) => {
+        console.log('🎉🎉🎉', 'active-window', event.payload, activeAppName)
+        // 对于相同的应用，直接显示
+        if (event.payload === activeAppName) showMainWindow()
+        return event.payload as string
+      })
     })
   }
 

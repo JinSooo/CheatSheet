@@ -65,6 +65,7 @@ body {
 html {
   overflow: -moz-hidden-unscrollable;
   height: 100%;
+  font-family: "HarmonyOS";
 }
 
 body {

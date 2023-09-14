@@ -3,9 +3,10 @@
 import { StoreContext } from '@/lib/store'
 import { ShortCut as ShortCutType } from '@/lib/types'
 import { MasonryGrid } from '@egjs/react-grid'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Category from './Category'
 import { readAppShortCut, readOSShortCut } from '@/lib/utils'
+import { showMainWindow } from '@/lib/utils/window'
 
 const ShortCut = () => {
   const { os, appName } = useContext(StoreContext)
@@ -19,11 +20,6 @@ const ShortCut = () => {
     setShortCut(osShortCut.current)
   }
 
-  const show = async () => {
-    const { WebviewWindow } = await import('@tauri-apps/api/window')
-    WebviewWindow.getByLabel('main')?.show()
-  }
-
   const getAppShortCut = async (name: string) => {
     const file = await readAppShortCut(name)
     // @ts-ignore
@@ -34,9 +30,9 @@ const ShortCut = () => {
     getAppShortCut(appName)
   }, [appName])
 
-  // 界面更新完成后，再显示窗口
-  useEffect(() => {
-    show()
+  // 对于不同的应用，界面更新完成后，再显示窗口
+  useLayoutEffect(() => {
+    setTimeout(showMainWindow, 50)
   }, [shortcut])
 
   useEffect(() => {

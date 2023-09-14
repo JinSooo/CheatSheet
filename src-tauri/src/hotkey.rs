@@ -1,8 +1,9 @@
+use crate::active_window::get_current_active_window;
 use crate::window::get_main_window;
 use crate::{
     config::{get, set},
     tray::init_tray_tooltip,
-    utils::{get_current_active_window, notification},
+    utils::notification,
     APP,
 };
 use tauri::{AppHandle, GlobalShortcutManager};
@@ -104,7 +105,6 @@ fn on_shortcut() {
         let active_app_name = get_current_active_window();
         window.emit("active-window", active_app_name).unwrap();
         // 显示交给前端去处理，避免闪屏
-        // window.show().unwrap();
     }
 }
 
