@@ -40,43 +40,48 @@ export const readShortCutDir = async (): Promise<FileEntry[]> => {
   return entries
 }
 
-const commandMap = new Map([
+const commandMapMac = new Map([
   ['Control', '⌃'],
   ['Ctrl', '⌃'],
   ['Command', '⌘'],
   ['Cmd', '⌘'],
   ['Alt', '⌥'],
   ['Shift', '⇧'],
-  ['Caps', '⇪'],
-  // ['Win', '⊞'],
+])
+
+const commandMapWin = new Map([
+  [
+    'Win',
+    <span className='iconfont' key={'win'}>
+      &#xe882;
+    </span>,
+  ],
 ])
 
 // 将快捷键转换为对应的图标和字符
 export const convertShortCutCommand = (os: OSType, command: string) => {
   if (!command) return []
   const arr = command.split('+')
+  const ans: (JSX.Element | string)[] = new Array(arr.length)
 
-  // 对Mac的键位做图标转换
+  // 对键位做图标转换
   if (os === OSType.Mac) {
     for (let i = 0; i < arr.length; i++) {
-      if (commandMap.has(arr[i])) {
-        arr[i] = commandMap.get(arr[i]) ?? ''
+      if (commandMapMac.has(arr[i])) {
+        ans[i] = commandMapMac.get(arr[i]) ?? ''
+      } else {
+        ans[i] = arr[i]
+      }
+    }
+  } else if (os === OSType.Windows) {
+    for (let i = 0; i < arr.length; i++) {
+      if (commandMapWin.has(arr[i])) {
+        ans[i] = commandMapWin.get(arr[i]) ?? ''
+      } else {
+        ans[i] = arr[i]
       }
     }
   }
 
-  return arr
-}
-
-// 将快捷键转换为Mac的图标和字符
-export const convertMacShortCut = (command: string) => {
-  const arr = command.split('+')
-
-  for (let i = 0; i < arr.length; i++) {
-    if (commandMap.has(arr[i])) {
-      arr[i] = commandMap.get(arr[i]) ?? ''
-    }
-  }
-
-  return arr.join('+')
+  return ans
 }

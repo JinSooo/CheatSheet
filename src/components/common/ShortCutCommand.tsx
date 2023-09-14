@@ -13,7 +13,7 @@ export const ShortCutCommand = ({ command, gap = 0 }: Props) => {
   return (
     <div className={`flex ${gap > 0 ? `gap-${gap}` : ''}`}>
       {convertShortCutCommand(os, command).map((key) => (
-        <div key={key} className='kbd kbd-sm'>
+        <div key={key.toString()} className='kbd kbd-sm'>
           {key}
         </div>
       ))}

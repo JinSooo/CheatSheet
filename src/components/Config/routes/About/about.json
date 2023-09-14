@@ -9,7 +9,7 @@
       {
         "key": "开源协议",
         "value": "MIT",
-        "url": ""
+        "url": "https://github.com/JinSooo/CheatSheet/blob/develop/LICENSE"
       },
       {
         "key": "描述",
@@ -22,7 +22,7 @@
     "list": [
       {
         "key": "CheatSheet",
-        "value": "0.0.1"
+        "value": "0.1.0"
       },
       {
         "key": "Tauri",
