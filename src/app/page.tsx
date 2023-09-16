@@ -20,8 +20,17 @@ export default function Home() {
     })
   }
 
+  // FIX(Mac): CheatSheet窗口无法居中显示
+  const adjustCenterMainWindow = async () => {
+    const { invoke } = await import('@tauri-apps/api')
+    // 调用两次调整窗口位置，防止窗口位置不正确
+    await invoke('adjust_center_main_window')
+    await invoke('adjust_center_main_window')
+  }
+
   useEffect(() => {
     initWindowListener()
+    adjustCenterMainWindow()
   }, [])
 
   return (
