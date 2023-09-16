@@ -42,7 +42,6 @@ export const readShortCutDir = async (): Promise<FileEntry[]> => {
 
 const commandMapMac = new Map([
   ['Control', '⌃'],
-  ['Ctrl', '⌃'],
   ['Command', '⌘'],
   ['Cmd', '⌘'],
   ['Alt', '⌥'],
