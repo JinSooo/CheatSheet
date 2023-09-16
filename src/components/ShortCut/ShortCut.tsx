@@ -22,8 +22,8 @@ const ShortCut = () => {
 
   const getAppShortCut = async (name: string) => {
     const file = await readAppShortCut(name)
-    // @ts-ignore
-    setShortCut(file ?? osShortCut.current)
+    if (file?.name) setShortCut(file)
+    else setShortCut(osShortCut.current)
   }
 
   useEffect(() => {
@@ -43,7 +43,9 @@ const ShortCut = () => {
     <div className='w-full h-full box-border p-6 select-none'>
       {/* 瀑布流布局 */}
       <MasonryGrid>
-        {shortcut ? shortcut.categories.map((category) => <Category key={category.name} category={category} />) : <></>}
+        {shortcut?.categories.map((category) => (
+          <Category key={category.name} category={category} />
+        ))}
       </MasonryGrid>
     </div>
   )
