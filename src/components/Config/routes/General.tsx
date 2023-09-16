@@ -32,7 +32,7 @@ const General = () => {
     config.theme = await configStore.get('theme')
     config.trayLeftClick = await configStore.get('trayLeftClick')
     setDefaultConfig(config)
-    console.log('🎉🎉🎉', 'General Config', 'config')
+    console.log('🎉🎉🎉', 'General Config', config)
   }
 
   const init = async () => {
@@ -75,7 +75,7 @@ const General = () => {
       ),
     )
     await mainWindow.current?.center()
-    await saveConfigStore('windowsSizeRatio', +e.target.value)
+    await saveConfigStore('windowSizeRatio', +e.target.value)
   }
   // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
@@ -127,7 +127,7 @@ const General = () => {
         <li>
           <p>窗口大小百分比</p>
           <Range
-            defaultValue={defaultConfig.windowsSizeRatio}
+            defaultValue={defaultConfig.windowSizeRatio}
             min={0}
             max={1}
             step={0.01}
