@@ -40,7 +40,8 @@ export const readShortCutDir = async (): Promise<FileEntry[]> => {
   return entries
 }
 
-const commandMapMac = new Map([
+// Mac系统需要转换的图标
+const commandMapMac = new Map<string, string | JSX.Element>([
   ['Ctrl', '⌃'],
   ['Control', '⌃'],
   ['Command', '⌘'],
@@ -48,15 +49,20 @@ const commandMapMac = new Map([
   ['Alt', '⌥'],
   ['Option', '⌥'],
   ['Shift', '⇧'],
+  ['Esc', '⎋'],
+  ['Enter', '↩︎'],
 ])
 
-const commandMapWin = new Map([
-  [
-    'Win',
-    <span className='iconfont' key={'win'}>
-      &#xe882;
-    </span>,
-  ],
+// Windows系统需要转换的图标
+const commandMapWin = new Map<string, string | JSX.Element>([
+  ['Win', <span className='iconfont icon-windows-fill' key='Win' />],
+  ['Enter', '⏎'],
+])
+
+// 公共按键转换的图标
+const commandMap = new Map<string, string | JSX.Element>([
+  ['Space', <span className='iconfont icon-space' key='Space' />],
+  ['Backspace', '⌫'],
 ])
 
 // 将快捷键转换为对应的图标和字符
@@ -71,6 +77,12 @@ const convertKeyToIcon = (os: OSType, key: string) => {
       return commandMapWin.get(key) ?? ''
     }
   }
+
+  // 公共
+  if (commandMap.has(key)) {
+    return commandMap.get(key) ?? ''
+  }
+
   return key
 }
 

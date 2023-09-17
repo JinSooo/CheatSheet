@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "19899588",
+      "name": "space",
+      "font_class": "space",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
       "icon_id": "4936983",
       "name": "windows-fill",
       "font_class": "windows-fill",
