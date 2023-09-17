@@ -23,16 +23,19 @@ const generateCommand = (type: ShortCutKind['type'], arr: ShortCutKind['arr'], c
       </>
     ))
   } else if (type === 'multi') {
-    return arr.map((key, i) => (
-      <>
-        {key.map((item) => (
-          <div key={command + item.toString()} className='kbd kbd-sm'>
-            {item}
+    return (
+      <div className='flex flex-col gap-1'>
+        {arr.map((key) => (
+          <div key={command + key.toString()}>
+            {key.map((item) => (
+              <div key={command + item.toString()} className='kbd kbd-sm'>
+                {item}
+              </div>
+            ))}
           </div>
         ))}
-        {i !== arr.length - 1 && <div className='px-2'>|</div>}
-      </>
-    ))
+      </div>
+    )
   } else if (type === 'normal') {
     return arr[0].map((key) => (
       <div key={command + key.toString()} className='kbd kbd-sm'>
