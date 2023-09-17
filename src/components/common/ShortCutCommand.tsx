@@ -6,6 +6,7 @@ import { useContext, useMemo } from 'react'
 interface Props {
   command: string
   gap?: number
+  direction?: 'start' | 'end'
 }
 
 // 根据不同类型的快捷键生成对应的快捷键
@@ -41,12 +42,20 @@ const generateCommand = (type: ShortCutKind['type'], arr: ShortCutKind['arr'], c
   }
 }
 
-export const ShortCutCommand = ({ command, gap = 0 }: Props) => {
+export const ShortCutCommand = ({ command, gap = 0, direction = 'end' }: Props) => {
   const { os } = useContext(StoreContext)
   const commandEle = useMemo(() => {
     const { type, arr } = convertShortCutCommand(os, command)
     return generateCommand(type, arr, command)
   }, [os, command])
 
-  return <div className={`flex justify-end flex-wrap ${gap > 0 ? `gap-${gap}` : ''}`}>{commandEle}</div>
+  return (
+    <div
+      className={`flex flex-wrap ${gap > 0 ? `gap-${gap}` : ''} ${
+        direction === 'start' ? 'justify-start' : 'justify-end'
+      }`}
+    >
+      {commandEle}
+    </div>
+  )
 }
