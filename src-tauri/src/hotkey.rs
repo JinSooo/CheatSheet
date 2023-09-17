@@ -80,7 +80,7 @@ pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), St
             init_tray_tooltip(shortcut, "");
         }
         "active_window" => {
-            unregister(app_handle, "cheatSheetShortCut");
+            unregister(app_handle, "activeWindowShortCut");
             register(
                 app_handle,
                 "activeWindowShortCut",
