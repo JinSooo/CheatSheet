@@ -18,3 +18,8 @@ export interface ShortCutCommand {
   mac: string
   linux: string
 }
+
+export interface ShortCutKind {
+  type: 'combination' | 'multi' | 'normal'
+  arr: (JSX.Element | string)[][]
+}
