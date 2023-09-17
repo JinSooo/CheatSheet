@@ -11,7 +11,8 @@ import { listen } from '@tauri-apps/api/event'
 
 const ShortCut = () => {
   const { os } = useContext(StoreContext)
-  const osShortCut = useRef<ShortCutType>() // 缓存osShortCut，避免多次读取
+  const osShortCutRef = useRef<ShortCutType>() // 缓存osShortCut，避免多次读取
+  const cheatSheetShortCutRef = useRef<ShortCutType>() // CheatSheet软件提示
   const [activeAppName, setActiveAppName] = useState('') // 聚焦应用
   const [shortcut, setShortCut] = useState<ShortCutType>()
 
@@ -28,19 +29,24 @@ const ShortCut = () => {
     })
   }
 
-  const initOSShortCut = async () => {
-    const file = await readOSShortCut(os)
-    osShortCut.current = file
-    setShortCut(osShortCut.current)
+  const initShortCut = async () => {
+    // 操作系统快捷键
+    const file1 = await readOSShortCut(os)
+    osShortCutRef.current = file1
+    setShortCut(osShortCutRef.current)
+
+    // CheatSheet软件快捷键提示
+    const file2 = (await readAppShortCut('CheatSheet')) as ShortCutType
+    cheatSheetShortCutRef.current = file2
     // init activeAppName
-    setActiveAppName(file.name)
+    setActiveAppName(file2.name)
   }
 
   // 根据appName更新快捷键信息
   const getAppShortCut = async (name: string) => {
     const file = await readAppShortCut(name)
     if (file?.name) setShortCut(file)
-    else setShortCut(osShortCut.current)
+    else setShortCut(osShortCutRef.current)
   }
 
   useEffect(() => {
@@ -54,7 +60,7 @@ const ShortCut = () => {
 
   useEffect(() => {
     initListen()
-    initOSShortCut()
+    initShortCut()
   }, [])
 
   return (
@@ -62,6 +68,10 @@ const ShortCut = () => {
       {/* 瀑布流布局 */}
       <MasonryGrid>
         {shortcut?.categories.map((category) => (
+          <Category key={category.name} category={category} />
+        ))}
+        {/* CheatSheet辅助信息 */}
+        {cheatSheetShortCutRef.current?.categories.map((category) => (
           <Category key={category.name} category={category} />
         ))}
       </MasonryGrid>

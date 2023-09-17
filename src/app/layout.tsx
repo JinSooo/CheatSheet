@@ -36,9 +36,7 @@ export default function RootLayout({
 
   return (
     <html lang='zh-CN' suppressHydrationWarning>
-      <head>
-        <link rel='stylesheet' href='/fonts/iconfont/iconfont.css' />
-      </head>
+      <head />
       <body>
         <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
           <StoreProvider value={{ os, configStore }}>{children}</StoreProvider>

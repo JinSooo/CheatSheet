@@ -17,8 +17,7 @@ const ShortCutItem = ({ shortcut }: Props) => {
       </div>
       <p className='w-[60%] text-overflow-hidden'>{shortcut.description}</p>
       {/* 顶部提示tooltip */}
-      {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-      <div className='absolute left-[40%] tooltip w-[50%] h-[24px] z-10' data-tip={shortcut.description}></div>
+      <div className='absolute left-[40%] tooltip w-[50%] h-[24px] z-10' data-tip={shortcut.description} />
     </div>
   )
 }
