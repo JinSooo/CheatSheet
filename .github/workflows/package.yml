@@ -2,7 +2,8 @@ name: Package
 on:
   push:
     tags:
-      - "*"
+      - "v*"
+      - "!updater"
 jobs:
   change-version:
     runs-on: ubuntu-latest

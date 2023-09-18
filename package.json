@@ -13,7 +13,8 @@
     "check": "biome check .",
     "taze": "taze major -I",
     "taze:minor": "taze minor -w",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "updater": "node updater/updater.mjs"
   },
   "dependencies": {
     "@egjs/react-grid": "^1.15.2",
