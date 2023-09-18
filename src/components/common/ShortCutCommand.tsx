@@ -14,8 +14,11 @@ const generateCommand = (type: ShortCutKind['type'], arr: ShortCutKind['arr'], c
   if (type === 'combination') {
     return arr.map((key, i) => (
       <>
-        {key.map((item) => (
-          <div key={command + item.toString()} className='kbd kbd-sm'>
+        {key.map((item, index) => (
+          <div
+            key={command + (typeof item === 'string' ? item : item.key?.toString()) + index.toString()}
+            className='kbd kbd-sm'
+          >
             {item}
           </div>
         ))}
@@ -25,10 +28,13 @@ const generateCommand = (type: ShortCutKind['type'], arr: ShortCutKind['arr'], c
   } else if (type === 'multi') {
     return (
       <div className='flex flex-col gap-1'>
-        {arr.map((key) => (
-          <div key={command + key.toString()}>
-            {key.map((item) => (
-              <div key={command + item.toString()} className='kbd kbd-sm'>
+        {arr.map((key, index) => (
+          <div key={command + index.toString()}>
+            {key.map((item, index) => (
+              <div
+                key={command + (typeof item === 'string' ? item : item.key?.toString()) + index.toString()}
+                className='kbd kbd-sm'
+              >
                 {item}
               </div>
             ))}
@@ -37,9 +43,12 @@ const generateCommand = (type: ShortCutKind['type'], arr: ShortCutKind['arr'], c
       </div>
     )
   } else if (type === 'normal') {
-    return arr[0].map((key) => (
-      <div key={command + key.toString()} className='kbd kbd-sm'>
-        {key}
+    return arr[0].map((item, index) => (
+      <div
+        key={command + (typeof item === 'string' ? item : item.key?.toString()) + index.toString()}
+        className='kbd kbd-sm'
+      >
+        {item}
       </div>
     ))
   }

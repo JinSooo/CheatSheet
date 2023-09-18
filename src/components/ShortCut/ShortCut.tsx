@@ -66,11 +66,11 @@ const ShortCut = () => {
       {/* 瀑布流布局 */}
       <MasonryGrid>
         {shortcut?.categories.map((category) => (
-          <Category key={category.name} category={category} />
+          <Category key={shortcut.name + category.name} category={category} />
         ))}
         {/* CheatSheet辅助信息 */}
         {cheatSheetShortCutRef.current?.categories.map((category) => (
-          <Category key={category.name} category={category} />
+          <Category key={cheatSheetShortCutRef.current?.name + category.name} category={category} />
         ))}
       </MasonryGrid>
     </div>
