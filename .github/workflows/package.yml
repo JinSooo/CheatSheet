@@ -1,9 +1,8 @@
 name: Package
 on:
   push:
-    tags:
-      - "v*"
-      - "!updater"
+    branches: [ main ]
+    tags-ignore: [ updater ]
 jobs:
   change-version:
     runs-on: ubuntu-latest
