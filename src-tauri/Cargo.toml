@@ -1,11 +1,11 @@
 [package]
-name = "app"
-version = "0.1.0"
+name = "CheatSheet"
+version = "0.0.1"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
-default-run = "app"
+authors = ["JinSo, NoahCode"]
+license = "MIT"
+repository = "https://github.com/JinSooo/CheatSheet"
+default-run = "CheatSheet"
 edition = "2021"
 rust-version = "1.60"
 

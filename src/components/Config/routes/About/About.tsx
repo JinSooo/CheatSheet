@@ -3,6 +3,7 @@
 import { open } from '@tauri-apps/api/shell'
 import { Container } from '../../common/Container'
 import AboutInfo from './about.json'
+import Image from 'next/image'
 
 const About = () => {
   const toBrowser = async (url: string) => {
@@ -12,6 +13,9 @@ const About = () => {
   return (
     <Container title='关于应用'>
       <div className='flex flex-col gap-6'>
+        <div className='mx-auto'>
+          <Image src='/imgs/icon.png' alt='icon' width='64' height='64' />
+        </div>
         {AboutInfo.map((item) => (
           <div key={item.title}>
             <p className='text-lg font-semibold mb-2'>{item.title}</p>
