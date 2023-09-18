@@ -3,6 +3,24 @@
 version = 3
 
 [[package]]
+name = "CheatSheet"
+version = "0.0.1"
+dependencies = [
+ "active-win-pos-rs",
+ "dirs 5.0.1",
+ "log",
+ "mouse_position",
+ "once_cell",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-single-instance",
+ "tauri-plugin-store",
+]
+
+[[package]]
 name = "active-win-pos-rs"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -84,24 +102,6 @@ name = "anyhow"
 version = "1.0.75"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a4668cab20f66d8d020e1fbc0ebe47217433c1b6c8f2040faf858554e394ace6"
-
-[[package]]
-name = "app"
-version = "0.1.0"
-dependencies = [
- "active-win-pos-rs",
- "dirs 5.0.1",
- "log",
- "mouse_position",
- "once_cell",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-single-instance",
- "tauri-plugin-store",
-]
 
 [[package]]
 name = "appkit-nsworkspace-bindings"
