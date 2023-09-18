@@ -1,6 +1,6 @@
 [package]
 name = "CheatSheet"
-version = "0.0.1"
+version = "0.0.2"
 description = "A Tauri App"
 authors = ["JinSo, NoahCode"]
 license = "MIT"
