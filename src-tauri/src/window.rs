@@ -86,7 +86,7 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
 }
 
 pub fn config_window() {
-    let (window, _exists) = build_window("config", "CheatSheet Config", "/config");
+    let (window, _exists) = build_window("config", "CheatSheet Config", "/config/general");
     window
         .set_min_size(Some(tauri::LogicalSize::new(800, 400)))
         .unwrap();

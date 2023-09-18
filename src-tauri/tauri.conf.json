@@ -41,6 +41,9 @@
       },
       "path": {
         "all": true
+      },
+      "shell": {
+        "open": true
       }
     },
     "bundle": {
@@ -77,7 +80,10 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "dialog": false,
+      "endpoints": ["https://github.com/JinSooo/CheatSheet"],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJFQ0Q3MkU5MDAyNTE5REMKUldUY0dTVUE2WExOTGdzNklCRkM3WUxKcWRyK21nWVhaTGxOTHJyaFZsZTU5WGxwTzZza3hCWU8K"
     },
     "windows": [
       {

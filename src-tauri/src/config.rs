@@ -43,7 +43,7 @@ pub fn check_config() {
     check_config_key("checkUpdate", false);
     check_config_key("windowOpacity", 10);
     check_config_key("windowBorderRadius", 16);
-    check_config_key("windowsSizeRatio", WINDOW_SIZE_RATIO);
+    check_config_key("windowSizeRatio", WINDOW_SIZE_RATIO);
     check_config_key("theme", "system");
     check_config_key("trayLeftClick", "none");
 }
