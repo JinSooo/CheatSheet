@@ -33,13 +33,10 @@ const ShortCut = () => {
     // 操作系统快捷键
     const file1 = await readOSShortCut(os)
     osShortCutRef.current = file1
-    setShortCut(osShortCutRef.current)
 
     // CheatSheet软件快捷键提示
     const file2 = (await readAppShortCut('CheatSheet')) as ShortCutType
     cheatSheetShortCutRef.current = file2
-    // init activeAppName
-    setActiveAppName(file2.name)
   }
 
   // 根据appName更新快捷键信息
@@ -55,7 +52,8 @@ const ShortCut = () => {
 
   // 对于不同的应用，界面更新完成后，再显示窗口
   useLayoutEffect(() => {
-    setTimeout(showMainWindow, 50)
+    // FIX: 初始化时执行一次
+    if (shortcut?.name) setTimeout(showMainWindow, 50)
   }, [shortcut])
 
   useEffect(() => {
