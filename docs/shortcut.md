@@ -6,6 +6,11 @@
 
 > 按键的首字母请求使用大小 `Ctrl`...
 
+> 特殊按键的书写顺序
+
+- `Windows` -> `Ctrl+Shift+Alt+Win+Xxx`
+- `Mac` -> `Control+Shift+Option+Command+Xxx`
+
 ### 特殊键位
 
 #### 系统相关
@@ -78,9 +83,15 @@ Linux
 
 ## 页面最终呈现
 
+## 公共
+
+- `Space` -> `␣`
+- `Backspace` -> `⌫`
+
 ### Windows
 
-- `Win` -> Win图标
+- `Win` -> 徽标键
+- `Enter'` -> `⏎`
 
 ### Mac
 
@@ -89,3 +100,5 @@ Linux
 - `Cmd` -> `⌘`
 - `Alt` -> `⌥`
 - `Shift` -> `⇧`
+- `Esc` -> `⎋`
+- `Enter` -> `↩︎`
