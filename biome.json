@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "ignore": ["./out/*", "./src-tauri/target/*", "./.next/*", "./src/components/ui/*"]
+  },
+  "organizeImports": {
+    "enabled": true,
+    "ignore": []
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "useKeyWithClickEvents": "off",
+        "useKeyWithMouseEvents": "off"
+      }
+    },
+    "ignore": []
+  },
+  "formatter": {
+    "enabled": true,
+    "ignore": [],
+    "indentStyle": "space",
+    "lineWidth": 120,
+    "indentSize": 2
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
+      "semicolons": "asNeeded"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("../../../public/fonts/iconfont/iconfont.css");
+
+:root {
+  --foreground: #373737;
+  --background: #f7f7f7;
+  --background-rgba: 247, 247, 247;
+  --background-config-menu: #ffffff;
+}
+
+[data-theme="dark"] {
+  --foreground: #d3d3d3;
+  --background: #1f1f1f;
+  --background-rgba: 31, 31, 31;
+  --background-config-menu: #111111;
+}
+
+/* TODO: 文字滚动暂时先不用 */
+@layer components {
+  .text-move {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .text-move:hover {
+    animation: text-move 2s infinite alternate linear;
+  }
+
+  .text-overflow-hidden {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+
+  /* Config */
+  .config-menu {
+    @apply flex flex-col gap-6;
+  }
+
+  .config-menu > li {
+    @apply flex justify-between items-center;
+  }
+}
+
+@keyframes text-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+/* 隐藏滚动条 */
+/* Chrome */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+/* Firefox */
+html {
+  overflow: -moz-hidden-unscrollable;
+  height: 100%;
+  font-family: "HarmonyOS";
+}
+
+body {
+  height: 100%;
+  width: calc(100vw + 18px);
+}
+
+/* 字体 */
+@font-face {
+  font-style: normal;
+  font-family: "HarmonyOS";
+  src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
+}
+
+/*覆盖 tailwind 默认背景色*/
+:root,
+[data-theme] {
+  background-color: transparent;
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+/* tooltip换行显示 */
+.tooltip:before {
+  white-space: break-spaces;
+}

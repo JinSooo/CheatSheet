@@ -1,3 +1,4 @@
 {
-  "extends": ["next", "prettier"]
+  "extends": ["next", "prettier"],
+  "ignorePatterns": ["shortcut.md"]
 }

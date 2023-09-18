@@ -1,0 +1,64 @@
+{
+  "$schema": "shortcut.schema.json",
+  "name": "template",
+  "categories": [
+    {
+      "name": "File",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        }
+      ]
+    },
+    {
+      "name": "Edit",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Ctrl+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "open file"
+        }
+      ]
+    }
+  ]
+}

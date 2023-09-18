@@ -1,0 +1,285 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Mac",
+  "categories": [
+    {
+      "name": "访达",
+      "shortcuts": [
+        {
+          "command": { "mac": "Command+," },
+          "description": "设置..."
+        },
+        {
+          "command": { "mac": "Shift+Command+BackSpace" },
+          "description": "清倒废纸篓..."
+        },
+        {
+          "command": { "mac": "Option+Shift+Command+BackSpace" },
+          "description": "清倒废纸篓"
+        },
+        {
+          "command": { "mac": "Command+H" },
+          "description": "隐藏访达"
+        },
+        {
+          "command": { "mac": "Option+Command+H" },
+          "description": "隐藏其他"
+        },
+        {
+          "command": { "mac": "Command+Q" },
+          "description": "退出访达"
+        },
+        {
+          "command": { "mac": "Option+Command+Q" },
+          "description": "退出并保留窗口"
+        }
+      ]
+    },
+    {
+      "name": "编辑",
+      "shortcuts": [
+        {
+          "command": { "mac": "Command+C" },
+          "description": "复制"
+        },
+        {
+          "command": { "mac": "Option+Command+C" },
+          "description": "将\"桌面\"拷贝为路径名称"
+        },
+        {
+          "command": { "mac": "Command+V" },
+          "description": "粘贴"
+        },
+        {
+          "command": { "mac": "Command+Z" },
+          "description": "撤销"
+        },
+        {
+          "command": { "mac": "Command+A" },
+          "description": "全选"
+        }
+      ]
+    },
+    {
+      "name": "前往",
+      "shortcuts": [
+        {
+          "command": { "mac": "Command+↑" },
+          "description": "上层文件夹"
+        },
+        {
+          "command": { "mac": "Option+Command+↑" },
+          "description": "上层文件夹"
+        },
+        {
+          "command": { "mac": "Alt+Command+↑" },
+          "description": "新窗口中的上层文件夹"
+        },
+        {
+          "command": { "mac": "Shift+Command+↑" },
+          "description": "选择启动磁盘"
+        },
+        {
+          "command": { "mac": "Option+Command+↓" },
+          "description": "打开所选项"
+        },
+        {
+          "command": { "mac": "Shift+Command+F" },
+          "description": "最近使用"
+        },
+        {
+          "command": { "mac": "Shift+Command+O" },
+          "description": "文稿"
+        },
+        {
+          "command": { "mac": "Shift+Command+D" },
+          "description": "桌面"
+        },
+        {
+          "command": { "mac": "Option+Command+L" },
+          "description": "下载"
+        },
+        {
+          "command": { "mac": "Shift+Command+H" },
+          "description": "个人"
+        },
+        {
+          "command": { "mac": "Shift+Command+L" },
+          "description": "资源库"
+        },
+        {
+          "command": { "mac": "Shift+Command+C" },
+          "description": "电脑"
+        },
+        {
+          "command": { "mac": "Shift+Command+R" },
+          "description": "隔空投送"
+        },
+        {
+          "command": { "mac": "Shift+Command+K" },
+          "description": "网络"
+        },
+        {
+          "command": { "mac": "Shift+Command+I" },
+          "description": "iCloud云盘"
+        },
+        {
+          "command": { "mac": "Shift+Command+S" },
+          "description": "共享"
+        },
+        {
+          "command": { "mac": "Shift+Command+A" },
+          "description": "应用程序"
+        },
+        {
+          "command": { "mac": "Shift+Command+U" },
+          "description": "实用工具"
+        },
+        {
+          "command": { "mac": "Shift+Command+G" },
+          "description": "前往文件夹..."
+        },
+        {
+          "command": { "mac": "Command+K" },
+          "description": "连接服务器..."
+        }
+      ]
+    },
+    {
+      "name": "窗口",
+      "shortcuts": [
+        {
+          "command": { "mac": "Option+Command+M" },
+          "description": "全部最小化"
+        }
+      ]
+    },
+    {
+      "name": "文件",
+      "shortcuts": [
+        {
+          "command": { "mac": "Command+N" },
+          "description": "新建\"访达\"窗口"
+        },
+        {
+          "command": { "mac": "Option+Command+N" },
+          "description": "新建\"访达\"窗口"
+        },
+        {
+          "command": { "mac": "Shift+Command+N" },
+          "description": "新建文件夹"
+        },
+        {
+          "command": { "mac": "Command+T" },
+          "description": "新建标签页"
+        },
+        {
+          "command": { "mac": "Option+Command+O" },
+          "description": "在新标签页中打开"
+        },
+        {
+          "command": { "mac": "Option+Command+W" },
+          "description": "全部关闭"
+        },
+        {
+          "command": { "mac": "Command+I" },
+          "description": "显示简介"
+        },
+        {
+          "command": { "mac": "Option+Command+I" },
+          "description": "显示检查器"
+        },
+        {
+          "command": { "mac": "Control+Command+I" },
+          "description": "显示摘要信息"
+        },
+        {
+          "command": { "mac": "Command+F" },
+          "description": "查找"
+        },
+        {
+          "command": { "mac": "Command+F" },
+          "description": "查找"
+        },
+        {
+          "command": { "mac": "Control+Shift+Command+F" },
+          "description": "按名称查找..."
+        },
+        {
+          "command": { "mac": "Option+Command+F" },
+          "description": "将焦点设定到搜索栏"
+        }
+      ]
+    },
+    {
+      "name": "显示",
+      "shortcuts": [
+        {
+          "command": { "mac": "Control+Command+0" },
+          "description": "使用叠放"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+0" },
+          "description": "无"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+1" },
+          "description": "名称"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+2" },
+          "description": "种类"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+3" },
+          "description": "上次打开日期"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+4" },
+          "description": "添加日期"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+5" },
+          "description": "修改日期"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+6" },
+          "description": "大小"
+        },
+        {
+          "command": { "mac": "Control+Option+Command+7" },
+          "description": "标签"
+        },
+        {
+          "command": { "mac": "Command+J" },
+          "description": "查看显示选项"
+        }
+      ]
+    },
+    {
+      "name": "截图",
+      "shortcuts": [
+        {
+          "command": { "mac": "Shift+Command+5" },
+          "description": "截图"
+        },
+        {
+          "command": { "mac": "Shift+Command+3" },
+          "description": "保存截图"
+        },
+        {
+          "command": { "mac": "Control+Shift+Command+3" },
+          "description": "复制截图"
+        },
+        {
+          "command": { "mac": "Shift+Command+4" },
+          "description": "保存截图(选中)"
+        },
+        {
+          "command": { "mac": "Control+Shift+Command+4" },
+          "description": "复制截图(选中)"
+        }
+      ]
+    }
+  ]
+}

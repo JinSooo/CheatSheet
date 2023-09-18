@@ -7,12 +7,44 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "cheatsheet",
-    "version": "0.1.0"
+    "productName": "CheatSheet",
+    "version": "../package.json"
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "globalShortcut": {
+        "all": true
+      },
+      "app": {
+        "hide": true,
+        "show": true
+      },
+      "window": {
+        "hide": true,
+        "show": true,
+        "setAlwaysOnTop": true,
+        "setSize": true,
+        "center": true
+      },
+      "fs": {
+        "all": false,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "scope": ["**"]
+      },
+      "os": {
+        "all": true
+      },
+      "notification": {
+        "all": true
+      },
+      "path": {
+        "all": true
+      },
+      "shell": {
+        "open": true
+      }
     },
     "bundle": {
       "active": true,
@@ -23,7 +55,7 @@
       },
       "externalBin": [],
       "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.jinso.cheatsheet",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -32,29 +64,47 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
+      "resources": ["./shortcuts"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
-        "timestampUrl": ""
+        "timestampUrl": "",
+        "wix": {
+          "language": "zh-CN"
+        }
       }
     },
     "security": {
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "dialog": false,
+      "endpoints": ["https://github.com/JinSooo/CheatSheet"],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJFQ0Q3MkU5MDAyNTE5REMKUldUY0dTVUE2WExOTGdzNklCRkM3WUxKcWRyK21nWVhaTGxOTHJyaFZsZTU5WGxwTzZza3hCWU8K"
     },
     "windows": [
       {
+        "label": "main",
         "fullscreen": false,
-        "height": 600,
-        "resizable": true,
-        "title": "CheatSheet",
-        "width": 800
+        "resizable": false,
+        "transparent": true,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "acceptFirstMouse": true,
+        "decorations": false,
+        "center": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false
       }
-    ]
+    ],
+    "macOSPrivateApi": true,
+    "systemTray": {
+      "iconPath": "icons/tray.png",
+      "iconAsTemplate": true
+    }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Visual Studio Code",
+  "categories": [
+    {
+      "name": "徽标键",
+      "shortcuts": [
+        {
+          "command": { "win": "Win+N", "mac": "Win+N", "linux": "Win+N" },
+          "description": "打开通知中心和日历"
+        },
+        {
+          "command": { "win": "Win+O", "mac": "Win+O", "linux": "Win+O" },
+          "description": "锁定设备方向"
+        },
+        {
+          "command": { "win": "Win+P", "mac": "Win+P", "linux": "Win+P" },
+          "description": "选择演示显示模式"
+        },
+        {
+          "command": {
+            "win": "Win+Ctrl+Q",
+            "mac": "Win+Ctrl+Q",
+            "linux": "Win+Ctrl+Q"
+          },
+          "description": "打开快速助手"
+        }
+      ]
+    }
+  ]
+}

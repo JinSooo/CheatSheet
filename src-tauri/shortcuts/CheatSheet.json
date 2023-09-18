@@ -1,0 +1,51 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Windows",
+  "categories": [
+    {
+      "name": "CheatSheet",
+      "shortcuts": [
+        {
+          "command": { "win": "Space", "mac": "Space", "linux": "Space" },
+          "description": "空格键"
+        },
+        {
+          "command": { "win": "Backspace", "mac": "Backspace", "linux": "Backspace" },
+          "description": "退格键"
+        },
+        {
+          "command": { "win": "Win" },
+          "description": "徽标键"
+        },
+        {
+          "command": { "win": "Enter" },
+          "description": "回车键"
+        },
+        {
+          "command": { "mac": "Command" },
+          "description": "Command/Cmd键"
+        },
+        {
+          "command": { "mac": "Control" },
+          "description": "Control/Ctrl键"
+        },
+        {
+          "command": { "mac": "Option" },
+          "description": "Option/Alt键"
+        },
+        {
+          "command": { "mac": "Shift" },
+          "description": "Shift键"
+        },
+        {
+          "command": { "mac": "Esc" },
+          "description": "Esc键"
+        },
+        {
+          "command": { "mac": "Enter" },
+          "description": "Enter键"
+        }
+      ]
+    }
+  ]
+}
