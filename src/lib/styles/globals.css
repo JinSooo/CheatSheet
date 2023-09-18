@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("../../../public/fonts/iconfont/iconfont.css");
+
 :root {
   --foreground: #373737;
   --background: #f7f7f7;
@@ -78,22 +80,6 @@ body {
   font-style: normal;
   font-family: "HarmonyOS";
   src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
-}
-
-/* iconfont */
-@font-face {
-  font-family: "iconfont";
-  src: url("/fonts/iconfont/iconfont.woff2?t=1694698167950") format("woff2"),
-    url("/fonts/iconfont/iconfont.woff?t=1694698167950") format("woff"),
-    url("/fonts/iconfont/iconfont.ttf?t=1694698167950") format("truetype");
-}
-
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /*覆盖 tailwind 默认背景色*/

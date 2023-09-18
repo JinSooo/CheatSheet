@@ -1,1 +1,446 @@
-{}
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Microsoft Edge",
+  "categories": [
+    {
+      "name": "选项卡操作",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+Shift+B", "mac": "Command+Shift+B", "linux": "Ctrl+Shift+B" },
+          "description": "显示或隐藏收藏夹栏"
+        },
+        {
+          "command": { "win": "Alt+Shift+B", "linux": "Alt+Shift+B" },
+          "description": "将焦点放在收藏夹栏中的第一项上"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "将当前选项卡另存为收藏夹"
+        },
+        {
+          "command": {
+            "win": "Alt+E | Alt+F",
+            "linux": "Alt+E | Alt+F"
+          },
+          "description": "打开“设置及更多...”菜单"
+        },
+        {
+          "command": { "win": "Ctrl+H", "linux": "Ctrl+H" },
+          "description": "打开历史记录"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+I",
+            "mac": "Command+Shift+C",
+            "linux": "Ctrl+Shift+I"
+          },
+          "description": "打开开发人员工具"
+        },
+        {
+          "command": { "win": "Alt+Shift+I", "linux": "Alt+Shift+I" },
+          "description": "打开“发送反馈”对话框"
+        },
+        {
+          "command": {
+            "win": "Ctrl+J",
+            "mac": "Command+Option+L",
+            "linux": "Ctrl+J"
+          },
+          "description": "打开“下载”文件夹"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+O", "linux": "Ctrl+Shift+O" },
+          "description": "打开收藏夹"
+        }
+      ]
+    },
+    {
+      "name": "搜索操作",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+Shift+E", "mac": "Command+Shift+E", "linux": "Ctrl+Shift+E" },
+          "description": "在边栏中打开搜索"
+        },
+        {
+          "command": { "win": "Alt+D", "linux": "Alt+D" },
+          "description": "选择地址栏中的 URL 以进行编辑"
+        },
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "在页面上打开查找"
+        },
+        {
+          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
+          "description": "跳转到下一个结果以在页面上查找"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+G", "mac": "Command+Shift+G", "linux": "Ctrl+Shift+G" },
+          "description": "跳转到上一个结果以在页面上查找"
+        },
+        {
+          "command": { "win": "Ctrl+E | Ctrl+K", "linux": "Ctrl+E | Ctrl+K" },
+          "description": "在地址栏中打开搜索查询"
+        }
+      ]
+    },
+    {
+      "name": "url及操作",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+Shift+K", "linux": "Ctrl+Shift+K" },
+          "description": "复制当前标签页"
+        },
+        {
+          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
+          "description": "选择地址栏中的 URL 以进行编辑"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+L", "linux": "Ctrl+Shift+L" },
+          "description": "粘贴并搜索或粘贴并访问（如果它是 URL)"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+M", "mac": "Command+Shift+M", "linux": "Ctrl+Shift+M" },
+          "description": "以其他用户身份登录或以来宾身份浏览"
+        },
+        {
+          "command": {
+            "win": "Ctrl+O",
+            "mac": "Command+O",
+            "linux": "Ctrl+O"
+          },
+          "description": "在 Microsoft Edge 中打开计算机中的文件"
+        },
+        {
+          "command": {
+            "win": "Ctrl+P",
+            "mac": "Command+P",
+            "linux": "Ctrl+P"
+          },
+          "description": "打印当前页"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+P", "linux": "Ctrl+Shift+P" },
+          "description": "使用系统对话框打印"
+        },
+        {
+          "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
+          "description": "重新加载当前页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+R",
+            "mac": "Command+Shift+R",
+            "linux": "Ctrl+Shift+R"
+          },
+          "description": "重新加载当前页，忽略缓存内容"
+        },
+        {
+          "command": {
+            "win": "Ctrl+S",
+            "mac": "Command+S",
+            "linux": "Ctrl+S"
+          },
+          "description": "保存当前页"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+T",
+            "linux": "Alt+Shift+T"
+          },
+          "description": "将焦点放在应用栏工具栏中的第一项上"
+        },
+        {
+          "command": {
+            "win": "Ctrl+U",
+            "linux": "Ctrl+U"
+          },
+          "description": "查看源"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+U",
+            "mac": "Command+Shift+U",
+            "linux": "Ctrl+Shift+U"
+          },
+          "description": "开始或停止“大声朗读”"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+V",
+            "linux": "Ctrl+Shift+V"
+          },
+          "description": "不带格式粘贴"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Y",
+            "linux": "Ctrl+Shift+Y"
+          },
+          "description": "打开集合"
+        },
+        {
+          "command": {
+            "win": "Ctrl+0",
+            "linux": "Ctrl+0"
+          },
+          "description": "重置页面缩放级别"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Enter",
+            "linux": "Ctrl+Enter"
+          },
+          "description": "将 www.和.com添加到在地址栏中键入文本的开头和末尾"
+        },
+        {
+          "command": {
+            "win": "Ctrl+\\",
+            "mac": "Ctrl+\\",
+            "linux": "Ctrl+\\"
+          },
+          "description": "在PDF中在“根据页面调整”与“根据宽度调整”之间切换 PDF"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Delete",
+            "mac": "Command+Shift+Delete",
+            "linux": "Ctrl+Shift+Delete"
+          },
+          "description": "打开清除浏览数据选项"
+        },
+        {
+          "command": {
+            "win": "Alt",
+            "linux": "Alt"
+          },
+          "description": "将焦点放在“设置及更多 ”按钮上"
+        }
+      ]
+    },
+    {
+      "name": "标签页及窗口",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+M", "linux": "Ctrl+M" },
+          "description": "将当前标签页设为静音（切换）"
+        },
+        {
+          "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
+          "description": "打开新窗口"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+N", "linux": "Ctrl+Shift+N" },
+          "description": "打开新的 InPrivate 窗口"
+        },
+        {
+          "command": { "win": "Ctrl+T", "mac": "Command+T", "linux": "Ctrl+T" },
+          "description": "打开新标签页并切换到该标签页"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+T", "mac": "Command+Shift+T", "linux": "Ctrl+Shift+T" },
+          "description": "重新打开上一个关闭的标签页并切换到该标签页"
+        },
+        {
+          "command": { "win": "Ctrl+W", "mac": "Command+W", "linux": "Ctrl+W" },
+          "description": "关闭当前标签页"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+W", "mac": "Command+Shift+W", "linux": "Ctrl+Shift+W" },
+          "description": "关闭当前窗口"
+        },
+        {
+          "command": { "win": "Ctrl+Tab", "mac": "Control+Fn+↓", "linux": "Ctrl+Tab" },
+          "description": "切换到下一个标签页"
+        },
+        {
+          "command": { "win": "Ctrl+Shift+Tab", "mac": "Ctrl+Fn+↑", "linux": "Ctrl+Shift+Tab" },
+          "description": "切换到上一个标签页"
+        },
+        {
+          "command": { "win": "Ctrl+[", "mac": "Control+[", "linux": "Ctrl+[" },
+          "description": "在PDF中将 PDF 逆时针旋转 90 度"
+        },
+        {
+          "command": {
+            "win": "Ctrl+]",
+            "mac": "Ctrl+]",
+            "linux": "Ctrl+]"
+          },
+          "description": "在PDF中将 PDF 顺时针旋转 90 度"
+        },
+        {
+          "command": {
+            "win": "Alt+←",
+            "linux": "Alt+←"
+          },
+          "description": "返回"
+        },
+        {
+          "command": { "win": "Alt+→", "linux": "Alt+→" },
+          "description": "前进"
+        },
+        {
+          "command": {
+            "win": "Alt+Home",
+            "mac": "Command+Shift+H",
+            "linux": "Alt+Home"
+          },
+          "description": "在当前标签页中打开主页"
+        },
+        {
+          "command": {
+            "win": "Alt+F4",
+            "mac": "Command+Shift+W",
+            "linux": "Alt+F4"
+          },
+          "description": "关闭当前窗口"
+        }
+      ]
+    },
+    {
+      "name": "功能键",
+      "shortcuts": [
+        {
+          "command": { "win": "F1", "linux": "F1" },
+          "description": "打开帮助"
+        },
+        {
+          "command": { "win": "F3", "linux": "F3" },
+          "description": "查找当前标签页"
+        },
+        {
+          "command": { "win": "F4", "mac": "Command+L", "linux": "F4" },
+          "description": "选择地址栏中的 URL"
+        },
+        {
+          "command": { "win": "F5", "mac": "Command+R", "linux": "F5" },
+          "description": "重新加载当前标签页"
+        },
+        {
+          "command": {
+            "win": "F6",
+            "linux": "F6"
+          },
+          "description": "将焦点移动到下一个窗格"
+        },
+        {
+          "command": {
+            "win": "F7",
+            "linux": "F7"
+          },
+          "description": "打开或关闭插入光标浏览"
+        },
+        {
+          "command": { "win": "F9", "mac": "F9", "linux": "F9" },
+          "description": "进入或退出沉浸式阅读器"
+        },
+        {
+          "command": { "win": "F10", "linux": "F10" },
+          "description": "将焦点放在“设置及更多”按钮上"
+        },
+        {
+          "command": { "win": "F11", "linux": "F11" },
+          "description": "进入全屏（切换）"
+        },
+        {
+          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
+          "description": "打开开发人员工具"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F4",
+            "mac": "Command+W",
+            "linux": "Ctrl+F4"
+          },
+          "description": "关闭当前标签页"
+        },
+        {
+          "command": { "win": "Shift+F5", "mac": "Command+Shift+R", "linux": "Shift+F5" },
+          "description": "重新加载当前标签页，忽略缓存内容"
+        },
+        {
+          "command": { "win": "Shift+F6", "linux": "Shift+F6" },
+          "description": "将焦点移动到上一个窗格"
+        },
+        {
+          "command": { "win": "Ctrl+F6", "linux": "Ctrl+F6" },
+          "description": "将焦点移动到 Web 内容窗格"
+        },
+        {
+          "command": { "win": "Enter+F10", "linux": "Enter+F10" },
+          "description": "打开“设置及更多 ”菜单"
+        },
+        {
+          "command": { "win": "Shift+F10", "linux": "Shift+F10" },
+          "description": "打开上下文菜单"
+        }
+      ]
+    },
+    {
+      "name": "常见",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Esc",
+            "linux": "Esc"
+          },
+          "description": "退出全屏模式/停止加载页面/关闭对话框或弹出窗口"
+        },
+        {
+          "command": {
+            "win": "Space | PgDn",
+            "mac": "Space",
+            "linux": "Space | PgDn"
+          },
+          "description": "向下滚动网页，一次滚动一个屏幕"
+        },
+        {
+          "command": {
+            "win": "Shift+Space | Shift+PgUp",
+            "mac": "Shift+Space | Shift+PgUp",
+            "linux": "Shift+Space | Shift+PgUp"
+          },
+          "description": "向上滚动网页，一次滚动一个屏幕"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgDn",
+            "mac": "Ctrl+Fn+↓",
+            "linux": "Ctrl+PgDn"
+          },
+          "description": "切换到下一个标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgUp",
+            "mac": "Ctrl+Fn+↑",
+            "linux": "Ctrl+PgUp"
+          },
+          "description": "切换到上一个标签页"
+        },
+        {
+          "command": {
+            "win": "Home",
+            "linux": "Home"
+          },
+          "description": "转到页面顶部，将键盘焦点移动到窗格的第一项"
+        },
+        {
+          "command": { "win": "End", "linux": "End" },
+          "description": "转到页面底部，将键盘焦点移动到窗格的最后一项"
+        },
+        {
+          "command": { "win": "Tab", "linux": "Tab" },
+          "description": "转到下一个制表位"
+        },
+        {
+          "command": {
+            "win": "Shift+Tab",
+            "linux": "Shift+Tab"
+          },
+          "description": "转到上一个制表位"
+        }
+      ]
+    }
+  ]
+}
