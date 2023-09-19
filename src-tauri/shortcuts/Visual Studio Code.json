@@ -410,9 +410,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+K Command+F",
-            "mac": "Command+K Command+F",
-            "linux": "Ctrl+K Command+F"
+            "win": "Ctrl+K & Ctrl+F",
+            "mac": "Command+K & Command+F",
+            "linux": "Ctrl+K & Ctrl+F"
           },
           "description": "格式化选中内容"
         },
