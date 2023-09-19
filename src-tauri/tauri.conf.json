@@ -44,6 +44,9 @@
       },
       "shell": {
         "open": true
+      },
+      "dialog": {
+        "all": true
       }
     },
     "bundle": {
@@ -81,8 +84,8 @@
     },
     "updater": {
       "active": true,
-      "dialog": false,
-      "endpoints": ["https://github.com/JinSooo/CheatSheet"],
+      "dialog": true,
+      "endpoints": ["https://github.com/JinSooo/CheatSheet/releases/download/updater/update.json"],
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJFQ0Q3MkU5MDAyNTE5REMKUldUY0dTVUE2WExOTGdzNklCRkM3WUxKcWRyK21nWVhaTGxOTHJyaFZsZTU5WGxwTzZza3hCWU8K"
     },
     "windows": [

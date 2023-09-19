@@ -3,24 +3,6 @@
 version = 3
 
 [[package]]
-name = "CheatSheet"
-version = "0.0.3"
-dependencies = [
- "active-win-pos-rs",
- "dirs 5.0.1",
- "log",
- "mouse_position",
- "once_cell",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-single-instance",
- "tauri-plugin-store",
-]
-
-[[package]]
 name = "active-win-pos-rs"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -536,6 +518,24 @@ name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
+
+[[package]]
+name = "cheat_sheet"
+version = "0.0.4"
+dependencies = [
+ "active-win-pos-rs",
+ "dirs 5.0.1",
+ "log",
+ "mouse_position",
+ "once_cell",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-single-instance",
+ "tauri-plugin-store",
+]
 
 [[package]]
 name = "chrono"
