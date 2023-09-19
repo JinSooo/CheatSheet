@@ -4,10 +4,16 @@ import { open } from '@tauri-apps/api/shell'
 import { Container } from '../../common/Container'
 import AboutInfo from './about.json'
 import Image from 'next/image'
+import { emit } from '@tauri-apps/api/event'
+import { checkAppUpdate } from '@/lib/utils/updater'
 
 const About = () => {
   const toBrowser = async (url: string) => {
     await open(url)
+  }
+
+  const checkUpdate = async () => {
+    await checkAppUpdate()
   }
 
   return (
@@ -35,7 +41,7 @@ const About = () => {
           </div>
         ))}
         <div className='flex gap-4'>
-          <button className='btn btn-sm btn-outline btn-info' type='button'>
+          <button className='btn btn-sm btn-outline btn-info' type='button' onClick={checkUpdate}>
             检查更新
           </button>
           <button className='btn btn-sm btn-outline btn-info' type='button'>

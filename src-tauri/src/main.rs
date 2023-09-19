@@ -6,6 +6,7 @@ mod config;
 mod event;
 mod hotkey;
 mod tray;
+mod updater;
 mod utils;
 mod window;
 
