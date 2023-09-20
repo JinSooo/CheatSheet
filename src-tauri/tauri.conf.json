@@ -67,7 +67,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["./shortcuts"],
+      "resources": ["./shortcuts", "./resources"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
