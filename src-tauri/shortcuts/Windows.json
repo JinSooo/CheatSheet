@@ -103,19 +103,19 @@
           "description": "显示应用缩略图"
         },
         {
-          "command": { "win": "Win+↑" },
+          "command": { "win": "Win+Up" },
           "description": "将焦点中的窗口贴靠到屏幕的上半部分"
         },
         {
-          "command": { "win": "Win+↓" },
+          "command": { "win": "Win+Bottom" },
           "description": "将焦点中的窗口贴靠到屏幕的下半部分"
         },
         {
-          "command": { "win": "Win+←" },
+          "command": { "win": "Win+Left" },
           "description": "将焦点中的窗口贴靠到屏幕的左半部分"
         },
         {
-          "command": { "win": "Win+→" },
+          "command": { "win": "Win+Right" },
           "description": "将焦点中的窗口贴靠到屏幕的右半部分"
         }
       ]
@@ -128,11 +128,11 @@
           "description": "查看所有桌面"
         },
         {
-          "command": { "win": "Ctrl+Win+←" },
+          "command": { "win": "Ctrl+Win+Left" },
           "description": "切换到上一个桌面"
         },
         {
-          "command": { "win": "Ctrl+Win+→" },
+          "command": { "win": "Ctrl+Win+Right" },
           "description": "切换到下一个桌面"
         },
         {
@@ -214,19 +214,19 @@
           "description": "恢复"
         },
         {
-          "command": { "win": "Ctrl+→" },
+          "command": { "win": "Ctrl+Right" },
           "description": "将光标移动到下一个字词的起始处"
         },
         {
-          "command": { "win": "Ctrl+←" },
+          "command": { "win": "Ctrl+Left" },
           "description": "将光标移动到上一个字词的起始处"
         },
         {
-          "command": { "win": "Ctrl+↓" },
+          "command": { "win": "Ctrl+Bottom" },
           "description": "将光标移动到下一段落的起始处"
         },
         {
-          "command": { "win": "Ctrl+↑" },
+          "command": { "win": "Ctrl+Up" },
           "description": "将光标移动到上一段落的起始处"
         }
       ]

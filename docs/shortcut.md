@@ -44,12 +44,12 @@ Linux
 - `ScrollLock` -> `Scroll`
 - `NumLock` -> `Num`
 - `Print Screen` -> `PrtSc`
-- `退格键` -> `BackSpace`
+- `退格键` -> `Backspace`
 - `空格键` -> `Space`
-- `ArrowLeft` -> `←`
-- `ArrowRight` -> `→`
-- `ArrowTop` -> `↑`
-- `ArrowBottom` -> `↓`
+- `ArrowLeft` -> `Left`
+- `ArrowRight` -> `Right`
+- `ArrowTop` -> `Up`
+- `ArrowBottom` -> `Bottom`
 
 ### 转义字符
 
@@ -87,6 +87,10 @@ Linux
 
 - `Space` -> `␣`
 - `Backspace` -> `⌫`
+- `Left` -> `←`
+- `Right` -> `→`
+- `Top` -> `↑`
+- `Bottom` -> `↓`
 
 ### Windows
 

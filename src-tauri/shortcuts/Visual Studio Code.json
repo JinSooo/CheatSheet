@@ -43,30 +43,30 @@
           "description": "复制"
         },
         {
-          "command": { "win": "Alt+↑", "mac": "Option+↑", "linux": "Alt+↑" },
+          "command": { "win": "Alt+Up", "mac": "Option+Up", "linux": "Alt+Up" },
           "description": "向上移动行"
         },
         {
           "command": {
-            "win": "Alt+↓",
-            "mac": "Option+↓",
-            "linux": "Alt+↓"
+            "win": "Alt+Bottom",
+            "mac": "Option+Bottom",
+            "linux": "Alt+Bottom"
           },
           "description": "向下移动行"
         },
         {
           "command": {
-            "win": "Alt+Shift+↑",
-            "mac": "Option+Shift+↑",
-            "linux": "Alt+Shift+↑"
+            "win": "Alt+Shift+Up",
+            "mac": "Option+Shift+Up",
+            "linux": "Alt+Shift+Up"
           },
           "description": "向上复制行"
         },
         {
           "command": {
-            "win": "Alt+Shift+↓",
-            "mac": "Option+Shift+↓",
-            "linux": "Alt+Shift+↓"
+            "win": "Alt+Shift+Bottom",
+            "mac": "Option+Shift+Bottom",
+            "linux": "Alt+Shift+Bottom"
           },
           "description": "向下复制行"
         },
@@ -137,17 +137,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+↑",
-            "mac": "Command+↑",
-            "linux": "Ctrl+↑"
+            "win": "Ctrl+Up",
+            "mac": "Command+Up",
+            "linux": "Ctrl+Up"
           },
           "description": "按行向上滚动"
         },
         {
           "command": {
-            "win": "Ctrl+↓",
-            "mac": "Command+↓",
-            "linux": "Ctrl+↓"
+            "win": "Ctrl+Bottom",
+            "mac": "Command+Bottom",
+            "linux": "Ctrl+Bottom"
           },
           "description": "按行向下滚动"
         },
@@ -276,17 +276,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+↑",
-            "mac": "Command+Option+↑",
-            "linux": "Ctrl+Alt+↑"
+            "win": "Ctrl+Alt+Up",
+            "mac": "Command+Option+Up",
+            "linux": "Ctrl+Alt+Up"
           },
           "description": "向上插入光标"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+↓",
-            "mac": "Command+Option+↓",
-            "linux": "Ctrl+Alt+↓"
+            "win": "Ctrl+Alt+Bottom",
+            "mac": "Command+Option+Bottom",
+            "linux": "Ctrl+Alt+Bottom"
           },
           "description": "向下插入光标"
         },
@@ -800,17 +800,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+↑",
-            "mac": "Command+↑",
-            "linux": "Ctrl+↑"
+            "win": "Ctrl+Up",
+            "mac": "Command+Up",
+            "linux": "Ctrl+Up"
           },
           "description": "向上滚动"
         },
         {
           "command": {
-            "win": "Ctrl+↓",
-            "mac": "Command+↓",
-            "linux": "Ctrl+↓"
+            "win": "Ctrl+Bottom",
+            "mac": "Command+Bottom",
+            "linux": "Ctrl+Bottom"
           },
           "description": "向下滚动"
         }

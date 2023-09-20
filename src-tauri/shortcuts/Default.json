@@ -10,11 +10,11 @@
           "description": "设置..."
         },
         {
-          "command": { "mac": "Shift+Command+BackSpace" },
+          "command": { "mac": "Shift+Command+Backspace" },
           "description": "清倒废纸篓..."
         },
         {
-          "command": { "mac": "Option+Shift+Command+BackSpace" },
+          "command": { "mac": "Option+Shift+Command+Backspace" },
           "description": "清倒废纸篓"
         },
         {
@@ -64,23 +64,23 @@
       "name": "前往",
       "shortcuts": [
         {
-          "command": { "mac": "Command+↑" },
+          "command": { "mac": "Command+Up" },
           "description": "上层文件夹"
         },
         {
-          "command": { "mac": "Option+Command+↑" },
+          "command": { "mac": "Option+Command+Up" },
           "description": "上层文件夹"
         },
         {
-          "command": { "mac": "Alt+Command+↑" },
+          "command": { "mac": "Alt+Command+Up" },
           "description": "新窗口中的上层文件夹"
         },
         {
-          "command": { "mac": "Shift+Command+↑" },
+          "command": { "mac": "Shift+Command+Up" },
           "description": "选择启动磁盘"
         },
         {
-          "command": { "mac": "Option+Command+↓" },
+          "command": { "mac": "Option+Command+Bottom" },
           "description": "打开所选项"
         },
         {
