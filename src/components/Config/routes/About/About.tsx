@@ -10,6 +10,7 @@ import { save, open } from '@tauri-apps/api/dialog'
 import { desktopDir } from '@tauri-apps/api/path'
 import { relaunch } from '@tauri-apps/api/process'
 import { toast } from 'react-hot-toast'
+import { toastIcon, toastStyle } from '@/lib/utils/toast'
 
 const About = () => {
   const toBrowser = async (url: string) => {
@@ -36,7 +37,7 @@ const About = () => {
     if (!filePath) return
     // 保存文件
     await writeTextFile(filePath, content)
-    toast('配置文件导出成功', { icon: '🎉' })
+    toast('配置文件导出成功', { icon: toastIcon, style: toastStyle })
   }
 
   const importConfig = async () => {
@@ -56,7 +57,7 @@ const About = () => {
     console.log(content)
     // 写入配置
     await writeTextFile('config.json', content, { dir: BaseDirectory.AppConfig })
-    toast.loading('配置文件导入成功, 准备重新启动')
+    toast.loading('配置文件导入成功, 准备重新启动', { style: toastStyle })
     // 重新运行程序加载配置
     setTimeout(async () => {
       await relaunch()
