@@ -1,17 +1,18 @@
 'use client'
 
-import { open } from '@tauri-apps/api/shell'
+import { open as openBrowser } from '@tauri-apps/api/shell'
 import { Container } from '../../common/Container'
 import AboutInfo from './about.json'
 import Image from 'next/image'
 import { checkAppUpdate } from '@/lib/utils/updater'
 import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
-import { save } from '@tauri-apps/api/dialog'
+import { save, open } from '@tauri-apps/api/dialog'
 import { desktopDir } from '@tauri-apps/api/path'
+import { relaunch } from '@tauri-apps/api/process'
 
 const About = () => {
   const toBrowser = async (url: string) => {
-    await open(url)
+    await openBrowser(url)
   }
 
   const checkUpdate = async () => {
@@ -31,10 +32,32 @@ const About = () => {
         },
       ],
     })
-    if (filePath) {
-      // 保存文件
-      await writeTextFile(filePath, content)
-    }
+    if (!filePath) return
+    // 保存文件
+    await writeTextFile(filePath, content)
+  }
+
+  const importConfig = async () => {
+    // 获取文件路径
+    const filePath = (await open({
+      defaultPath: await desktopDir(),
+      filters: [
+        {
+          name: 'JSON',
+          extensions: ['json'],
+        },
+      ],
+    })) as string
+    if (!filePath) return
+    // 读取配置文件
+    const content = await readTextFile(filePath)
+    console.log(content)
+    // 写入配置
+    await writeTextFile('config.json', content, { dir: BaseDirectory.AppConfig })
+    // 重新运行程序加载配置
+    setTimeout(async () => {
+      await relaunch()
+    }, 1000)
   }
 
   return (
@@ -70,6 +93,9 @@ const About = () => {
           </button>
           <button className='btn btn-sm btn-outline btn-info' type='button' onClick={exportConfig}>
             导出配置
+          </button>
+          <button className='btn btn-sm btn-outline btn-info' type='button' onClick={importConfig}>
+            导入配置
           </button>
         </div>
       </div>

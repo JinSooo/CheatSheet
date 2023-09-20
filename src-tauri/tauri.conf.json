@@ -47,6 +47,9 @@
       },
       "dialog": {
         "all": true
+      },
+      "process": {
+        "relaunch": true
       }
     },
     "bundle": {
