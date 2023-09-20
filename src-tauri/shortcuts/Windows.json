@@ -107,7 +107,7 @@
           "description": "将焦点中的窗口贴靠到屏幕的上半部分"
         },
         {
-          "command": { "win": "Win+Bottom" },
+          "command": { "win": "Win+Down" },
           "description": "将焦点中的窗口贴靠到屏幕的下半部分"
         },
         {
@@ -222,7 +222,7 @@
           "description": "将光标移动到上一个字词的起始处"
         },
         {
-          "command": { "win": "Ctrl+Bottom" },
+          "command": { "win": "Ctrl+Down" },
           "description": "将光标移动到下一段落的起始处"
         },
         {

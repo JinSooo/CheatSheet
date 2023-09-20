@@ -80,7 +80,7 @@
           "description": "选择启动磁盘"
         },
         {
-          "command": { "mac": "Option+Command+Bottom" },
+          "command": { "mac": "Option+Command+Down" },
           "description": "打开所选项"
         },
         {

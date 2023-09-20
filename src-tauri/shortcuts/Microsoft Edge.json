@@ -249,7 +249,7 @@
           "description": "关闭当前窗口"
         },
         {
-          "command": { "win": "Ctrl+Tab", "mac": "Control+Fn+Bottom", "linux": "Ctrl+Tab" },
+          "command": { "win": "Ctrl+Tab", "mac": "Control+Fn+Down", "linux": "Ctrl+Tab" },
           "description": "切换到下一个标签页"
         },
         {
@@ -405,7 +405,7 @@
         {
           "command": {
             "win": "Ctrl+PgDn",
-            "mac": "Ctrl+Fn+Bottom",
+            "mac": "Ctrl+Fn+Down",
             "linux": "Ctrl+PgDn"
           },
           "description": "切换到下一个标签页"

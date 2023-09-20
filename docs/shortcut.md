@@ -48,8 +48,8 @@ Linux
 - `空格键` -> `Space`
 - `ArrowLeft` -> `Left`
 - `ArrowRight` -> `Right`
-- `ArrowTop` -> `Up`
-- `ArrowBottom` -> `Bottom`
+- `ArrowUp` -> `Up`
+- `ArrowDown` -> `Down`
 
 ### 转义字符
 

@@ -48,9 +48,9 @@
         },
         {
           "command": {
-            "win": "Alt+Bottom",
-            "mac": "Option+Bottom",
-            "linux": "Alt+Bottom"
+            "win": "Alt+Down",
+            "mac": "Option+Down",
+            "linux": "Alt+Down"
           },
           "description": "向下移动行"
         },
@@ -64,9 +64,9 @@
         },
         {
           "command": {
-            "win": "Alt+Shift+Bottom",
-            "mac": "Option+Shift+Bottom",
-            "linux": "Alt+Shift+Bottom"
+            "win": "Alt+Shift+Down",
+            "mac": "Option+Shift+Down",
+            "linux": "Alt+Shift+Down"
           },
           "description": "向下复制行"
         },
@@ -145,9 +145,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Bottom",
-            "mac": "Command+Bottom",
-            "linux": "Ctrl+Bottom"
+            "win": "Ctrl+Down",
+            "mac": "Command+Down",
+            "linux": "Ctrl+Down"
           },
           "description": "按行向下滚动"
         },
@@ -284,9 +284,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Bottom",
-            "mac": "Command+Option+Bottom",
-            "linux": "Ctrl+Alt+Bottom"
+            "win": "Ctrl+Alt+Down",
+            "mac": "Command+Option+Down",
+            "linux": "Ctrl+Alt+Down"
           },
           "description": "向下插入光标"
         },
@@ -808,9 +808,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Bottom",
-            "mac": "Command+Bottom",
-            "linux": "Ctrl+Bottom"
+            "win": "Ctrl+Down",
+            "mac": "Command+Down",
+            "linux": "Ctrl+Down"
           },
           "description": "向下滚动"
         }
