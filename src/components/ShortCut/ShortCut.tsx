@@ -42,7 +42,9 @@ const ShortCut = () => {
   // 根据appName更新快捷键信息
   const getAppShortCut = async (name: string) => {
     const file = await readAppShortCut(name)
-    if (file?.name) setShortCut(file)
+
+    // 避免重复读取CheatSheet快捷键
+    if (file?.name && file?.name !== 'CheatSheet') setShortCut(file)
     else setShortCut(osShortCutRef.current)
   }
 

@@ -91,7 +91,8 @@ export const convertShortCutCommand = (os: OSType, command: string): ShortCutKin
   const ans: (JSX.Element | string)[][] = []
 
   // 组合快捷键
-  if (command.indexOf('&') !== -1) {
+  // command.length > 1 用于避免单个字符的快捷键说明
+  if (command.indexOf('&') !== -1 && command.length > 1) {
     const group = command.split(' & ')
     for (let i = 0; i < group.length; i++) {
       const arr = group[i].split('+') as (JSX.Element | string)[]
@@ -107,7 +108,7 @@ export const convertShortCutCommand = (os: OSType, command: string): ShortCutKin
     }
   }
   // 多功能快捷键
-  else if (command.indexOf('|') !== -1) {
+  else if (command.indexOf('|') !== -1 && command.length > 1) {
     const group = command.split(' | ')
     for (let i = 0; i < group.length; i++) {
       const arr = group[i].split('+') as (JSX.Element | string)[]
