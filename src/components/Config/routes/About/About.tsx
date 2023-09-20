@@ -4,8 +4,10 @@ import { open } from '@tauri-apps/api/shell'
 import { Container } from '../../common/Container'
 import AboutInfo from './about.json'
 import Image from 'next/image'
-import { emit } from '@tauri-apps/api/event'
 import { checkAppUpdate } from '@/lib/utils/updater'
+import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
+import { save } from '@tauri-apps/api/dialog'
+import { desktopDir } from '@tauri-apps/api/path'
 
 const About = () => {
   const toBrowser = async (url: string) => {
@@ -14,6 +16,25 @@ const About = () => {
 
   const checkUpdate = async () => {
     await checkAppUpdate()
+  }
+
+  const exportConfig = async () => {
+    // 读取配置文件
+    const content = await readTextFile('config.json', { dir: BaseDirectory.AppConfig })
+    // 获取保存路径
+    const filePath = await save({
+      defaultPath: await desktopDir(),
+      filters: [
+        {
+          name: 'JSON',
+          extensions: ['json'],
+        },
+      ],
+    })
+    if (filePath) {
+      // 保存文件
+      await writeTextFile(filePath, content)
+    }
   }
 
   return (
@@ -47,9 +68,9 @@ const About = () => {
           <button className='btn btn-sm btn-outline btn-info' type='button'>
             前往下载
           </button>
-          {/* <button className='btn btn-sm btn-outline btn-info' type='button'>
-            复制配置
-          </button> */}
+          <button className='btn btn-sm btn-outline btn-info' type='button' onClick={exportConfig}>
+            导出配置
+          </button>
         </div>
       </div>
     </Container>
