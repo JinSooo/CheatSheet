@@ -50,6 +50,9 @@
       },
       "process": {
         "relaunch": true
+      },
+      "clipboard": {
+        "writeText": true
       }
     },
     "bundle": {
