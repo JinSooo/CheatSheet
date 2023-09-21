@@ -34,10 +34,9 @@ export const readAppShortCut = async (name: string): Promise<ShortCut | null> =>
 
 // 读取当前已支持的应用
 export const readShortCutDir = async (): Promise<FileEntry[]> => {
-  const entries = await readDir('shortcuts', {
+  return await readDir('shortcuts', {
     dir: BaseDirectory.Resource,
   })
-  return entries
 }
 
 // Mac系统需要转换的图标
@@ -63,6 +62,10 @@ const commandMapWin = new Map<string, string | JSX.Element>([
 const commandMap = new Map<string, string | JSX.Element>([
   ['Space', <span className='iconfont icon-space' key='Space' />],
   ['Backspace', '⌫'],
+  ['Up', '↑'],
+  ['Down', '↓'],
+  ['Left', '←'],
+  ['Right', '→'],
 ])
 
 // 将快捷键转换为对应的图标和字符

@@ -1,8 +1,8 @@
+@import url("../../../public/fonts/iconfont/iconfont.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("../../../public/fonts/iconfont/iconfont.css");
 
 :root {
   --foreground: #373737;
