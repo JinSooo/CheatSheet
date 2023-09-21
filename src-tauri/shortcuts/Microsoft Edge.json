@@ -249,11 +249,11 @@
           "description": "关闭当前窗口"
         },
         {
-          "command": { "win": "Ctrl+Tab", "mac": "Control+Fn+↓", "linux": "Ctrl+Tab" },
+          "command": { "win": "Ctrl+Tab", "mac": "Control+Fn+Down", "linux": "Ctrl+Tab" },
           "description": "切换到下一个标签页"
         },
         {
-          "command": { "win": "Ctrl+Shift+Tab", "mac": "Ctrl+Fn+↑", "linux": "Ctrl+Shift+Tab" },
+          "command": { "win": "Ctrl+Shift+Tab", "mac": "Ctrl+Fn+Up", "linux": "Ctrl+Shift+Tab" },
           "description": "切换到上一个标签页"
         },
         {
@@ -270,13 +270,13 @@
         },
         {
           "command": {
-            "win": "Alt+←",
-            "linux": "Alt+←"
+            "win": "Alt+Left",
+            "linux": "Alt+Left"
           },
           "description": "返回"
         },
         {
-          "command": { "win": "Alt+→", "linux": "Alt+→" },
+          "command": { "win": "Alt+Right", "linux": "Alt+Right" },
           "description": "前进"
         },
         {
@@ -405,7 +405,7 @@
         {
           "command": {
             "win": "Ctrl+PgDn",
-            "mac": "Ctrl+Fn+↓",
+            "mac": "Ctrl+Fn+Down",
             "linux": "Ctrl+PgDn"
           },
           "description": "切换到下一个标签页"
@@ -413,7 +413,7 @@
         {
           "command": {
             "win": "Ctrl+PgUp",
-            "mac": "Ctrl+Fn+↑",
+            "mac": "Ctrl+Fn+Up",
             "linux": "Ctrl+PgUp"
           },
           "description": "切换到上一个标签页"
