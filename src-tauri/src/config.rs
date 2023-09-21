@@ -1,6 +1,5 @@
 use crate::utils::WINDOW_SIZE_RATIO;
 use crate::APP;
-use log::info;
 use serde_json::{json, Value};
 use std::sync::Mutex;
 use tauri::{api::path::config_dir, App, Manager, Wry};
@@ -10,11 +9,10 @@ pub struct StoreWrapper(pub Mutex<Store<Wry>>);
 
 pub fn init_config(app: &App) {
     // 获取配置文件路径
-    // let config_path = resource_dir(app.package_info(), &Env::default()).unwrap();
     let config_path = config_dir().unwrap();
     let config_path = config_path.join(app.config().tauri.bundle.identifier.clone());
     let config_path = config_path.join("config.json");
-    info!("Load config: {:?}", config_path);
+    println!("Load config: {:?}", config_path);
 
     // 加载Store
     let mut store = StoreBuilder::new(app.handle(), config_path).build();

@@ -47,6 +47,12 @@
       },
       "dialog": {
         "all": true
+      },
+      "process": {
+        "relaunch": true
+      },
+      "clipboard": {
+        "writeText": true
       }
     },
     "bundle": {

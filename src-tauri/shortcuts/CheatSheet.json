@@ -18,10 +18,6 @@
           "description": "空格键"
         },
         {
-          "command": { "win": "Space", "mac": "Space", "linux": "Space" },
-          "description": "空格键"
-        },
-        {
           "command": { "win": "Backspace", "mac": "Backspace", "linux": "Backspace" },
           "description": "退格键"
         },
