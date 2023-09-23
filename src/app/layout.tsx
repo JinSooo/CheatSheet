@@ -24,7 +24,7 @@ export default function RootLayout({
   // 获取操作系统
   const initOS = async () => {
     const osType = await getOSType()
-    console.log('🎉🎉🎉', 'os', os)
+    console.log('🎉🎉🎉', 'os', osType)
     setOS(osType)
   }
 
