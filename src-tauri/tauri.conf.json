@@ -105,7 +105,6 @@
         "acceptFirstMouse": true,
         "decorations": false,
         "center": true,
-        "alwaysOnTop": true,
         "skipTaskbar": true,
         "visible": false
       }
