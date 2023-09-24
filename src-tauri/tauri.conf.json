@@ -22,9 +22,9 @@
       "window": {
         "hide": true,
         "show": true,
-        "setAlwaysOnTop": true,
         "setSize": true,
-        "center": true
+        "center": true,
+        "setFocus": true
       },
       "fs": {
         "all": false,
