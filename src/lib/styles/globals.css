@@ -105,11 +105,6 @@ body {
   }
 }
 
-/* tooltip换行显示 */
-.tooltip:before {
-  white-space: break-spaces;
-}
-
 /* 分割线高度 */
 .divider:before,
 .divider:after {
@@ -126,8 +121,22 @@ body {
 .tooltip:before {
   color: var(--foreground);
   background-color: var(--background);
+  /* tooltip换行显示 */
+  white-space: break-spaces;
+  /* 显示位置 */
+  left: 1rem;
+  transform: none;
+  max-width: 15rem;
 }
 
 .tooltip:after {
   border-color: var(--background) transparent transparent transparent;
+}
+
+.tooltip-left:before {
+  transform: translateY(-50%);
+  top: 50%;
+  left: auto;
+  right: var(--tooltip-offset);
+  bottom: auto;
 }

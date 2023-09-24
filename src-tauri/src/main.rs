@@ -38,7 +38,7 @@ fn main() {
             Some(vec!["--flag1", "--flag2"]),
         ))
         .plugin(tauri_plugin_store::Builder::default().build())
-        .on_window_event(init_tauri_event)
+        // .on_window_event(init_tauri_event)
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
         .setup(|app| {
