@@ -107,3 +107,9 @@ body {
 .tooltip:before {
   white-space: break-spaces;
 }
+
+/* 分割线太粗 */
+.divider:before,
+.divider:after {
+  height: 1px;
+}

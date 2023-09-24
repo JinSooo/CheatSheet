@@ -81,8 +81,8 @@ const About = () => {
         </div>
         {AboutInfo.map((item) => (
           <div key={item.title}>
-            <p className='text-lg font-semibold mb-2'>{item.title}</p>
-            <ul className='list-disc flex flex-col gap-2'>
+            <p className='font-semibold mb-2'>{item.title}</p>
+            <ul className='list-disc flex flex-col gap-2 text-sm'>
               {item.list.map((info) => (
                 <li className='ml-6' key={info.key}>
                   <span className='mr-2'>{`${info.key}: `}</span>
