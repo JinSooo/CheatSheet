@@ -7,7 +7,6 @@ import Image from 'next/image'
 import { checkAppUpdate } from '@/lib/utils/updater'
 import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
 import { save, open as openFile } from '@tauri-apps/api/dialog'
-import { desktopDir } from '@tauri-apps/api/path'
 import { relaunch } from '@tauri-apps/api/process'
 import { toast } from 'react-hot-toast'
 import { toastIcon, toastStyle } from '@/lib/utils/toast'
@@ -35,7 +34,6 @@ const About = () => {
     const content = await readTextFile('config.json', { dir: BaseDirectory.AppConfig })
     // 获取保存路径
     const filePath = await save({
-      defaultPath: await desktopDir(),
       filters: [
         {
           name: 'JSON',
@@ -52,7 +50,6 @@ const About = () => {
   const importConfig = async () => {
     // 获取文件路径
     const filePath = (await openFile({
-      defaultPath: await desktopDir(),
       filters: [
         {
           name: 'JSON',
