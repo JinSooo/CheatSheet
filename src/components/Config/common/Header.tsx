@@ -5,7 +5,7 @@ interface Props {
 const Header = ({ title }: Props) => {
   return (
     <header className='mb-4'>
-      <p className='text-2xl text-center font-semibold'>{title}</p>
+      <p className='text-xl text-center font-semibold'>{title}</p>
     </header>
   )
 }

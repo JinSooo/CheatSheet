@@ -12,7 +12,7 @@ export default function Layout({
   const _ = useTheme()
 
   return (
-    <div className='h-screen w-screen text-[var(--foreground)] bg-[var(--background-config-menu)] overflow-hidden flex'>
+    <div className='h-screen w-screen text-[var(--foreground)] bg-[var(--background-fore)] overflow-hidden flex'>
       <ConfigAside />
       <div className='flex-1 bg-[var(--background)] rounded-box my-4 mr-4 overflow-scroll no-scrollbar'>{children}</div>
     </div>

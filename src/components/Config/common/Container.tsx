@@ -7,7 +7,7 @@ interface Props extends PropsWithChildren {
 
 export const Container = ({ title, children }: Props) => {
   return (
-    <div className='p-6 select-none'>
+    <div className='p-4 pt-6 select-none'>
       <Header title={title} />
       {children}
     </div>
