@@ -68,14 +68,10 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
                 .decorations(true)
                 .transparent(true)
                 .focused(true)
+                .decorations(false)
                 .title(title)
                 .visible(false);
 
-            // TODO: Config窗口无头化
-            // #[cfg(not(target_os = "macos"))]
-            // {
-            //     builder = builder.decorations(false);
-            // }
             let window = builder.build().unwrap();
             let _ = window.current_monitor();
             window.set_focus().unwrap();

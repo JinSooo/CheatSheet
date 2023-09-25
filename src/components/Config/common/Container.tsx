@@ -1,15 +1,5 @@
 import { PropsWithChildren } from 'react'
-import Header from './Header'
 
-interface Props extends PropsWithChildren {
-  title: string
-}
-
-export const Container = ({ title, children }: Props) => {
-  return (
-    <div className='p-4 pt-6 select-none'>
-      <Header title={title} />
-      {children}
-    </div>
-  )
+export const Container = ({ children }: PropsWithChildren) => {
+  return <div className='p-4 pt-6 select-none'>{children}</div>
 }

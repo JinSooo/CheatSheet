@@ -35,7 +35,6 @@ const About = () => {
     const content = await readTextFile('config.json', { dir: BaseDirectory.AppConfig })
     // 获取保存路径
     const filePath = await save({
-      defaultPath: await desktopDir(),
       filters: [
         {
           name: 'JSON',
@@ -53,7 +52,6 @@ const About = () => {
     const { desktopDir } = await import('@tauri-apps/api/path')
     // 获取文件路径
     const filePath = (await openFile({
-      defaultPath: await desktopDir(),
       filters: [
         {
           name: 'JSON',
@@ -75,7 +73,7 @@ const About = () => {
   }
 
   return (
-    <Container title='关于应用'>
+    <Container>
       <div className='flex flex-col gap-6'>
         <div className='mx-auto'>
           <Image src='/imgs/icon.png' alt='icon' width='64' height='64' />

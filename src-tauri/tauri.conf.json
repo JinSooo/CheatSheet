@@ -24,7 +24,12 @@
         "show": true,
         "setSize": true,
         "center": true,
-        "setFocus": true
+        "setFocus": true,
+        "close": true,
+        "minimize": true,
+        "maximize": true,
+        "startDragging": true,
+        "unmaximize": true
       },
       "fs": {
         "all": false,

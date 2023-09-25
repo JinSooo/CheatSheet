@@ -111,7 +111,7 @@ const General = () => {
   if (!defaultConfig.theme) return <></>
 
   return (
-    <Container title='通用'>
+    <Container>
       <div className='flex flex-col gap-6'>
         <Category
           title='系统设置'

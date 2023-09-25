@@ -127,7 +127,7 @@ const Hotkey = () => {
   if (!defaultConfig.cheatSheetShortCut) return <></>
 
   return (
-    <Container title='快捷键'>
+    <Container>
       <div className='flex flex-col gap-6'>
         <Category
           title='快捷键设置'
