@@ -1,10 +1,17 @@
-## 0.0.4 (2023-09-20)
+## 0.0.5 (2023-09-26)
 
 ### New feature
 
-- 检查更新，软件内自动更新新版本内容
+- 导入、导出、复制配置
+- 添加 Toast 提示
+- 优化主题配色
+- Config窗口新UI
+- About窗口新UI
+- Config窗口取消Bar, 无头化
+
 
 ### Bugs fixed
 
-- 调整组合快捷键和多功能快捷键显示样式
-- 修复 Visual Studio Code 错误快捷键
+- 取消窗口置顶
+- 清除无用 shortcut 配置文件
+- 修复 tooltip 显示位置偏移
