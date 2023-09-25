@@ -7,7 +7,6 @@ import Image from 'next/image'
 import { checkAppUpdate } from '@/lib/utils/updater'
 import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
 import { save, open as openFile } from '@tauri-apps/api/dialog'
-import { desktopDir } from '@tauri-apps/api/path'
 import { relaunch } from '@tauri-apps/api/process'
 import { toast } from 'react-hot-toast'
 import { toastIcon, toastStyle } from '@/lib/utils/toast'
@@ -31,6 +30,7 @@ const About = () => {
   }
 
   const exportConfig = async () => {
+    const { desktopDir } = await import('@tauri-apps/api/path')
     // 读取配置文件
     const content = await readTextFile('config.json', { dir: BaseDirectory.AppConfig })
     // 获取保存路径
@@ -50,6 +50,7 @@ const About = () => {
   }
 
   const importConfig = async () => {
+    const { desktopDir } = await import('@tauri-apps/api/path')
     // 获取文件路径
     const filePath = (await openFile({
       defaultPath: await desktopDir(),
@@ -79,29 +80,15 @@ const About = () => {
         <div className='mx-auto'>
           <Image src='/imgs/icon.png' alt='icon' width='64' height='64' />
         </div>
-        {AboutInfo.map((item) => (
-          <div key={item.title}>
-            <p className='font-semibold mb-2'>{item.title}</p>
-            <ul className='list-disc flex flex-col gap-2 text-sm'>
-              {item.list.map((info) => (
-                <li className='ml-6' key={info.key}>
-                  <span className='mr-2'>{`${info.key}: `}</span>
-                  <span
-                    className={info.url ? 'link link-info' : ''}
-                    onClick={() => (info.url ? toBrowser(info.url) : {})}
-                  >
-                    {info.value}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <div className='flex gap-4'>
+        <div className='flex gap-4 mx-auto'>
           <button className='btn btn-sm btn-outline btn-info' type='button' onClick={checkUpdate}>
             检查更新
           </button>
-          <button className='btn btn-sm btn-outline btn-info' type='button'>
+          <button
+            className='btn btn-sm btn-outline btn-info'
+            type='button'
+            onClick={() => toBrowser('https://github.com/JinSooo/CheatSheet/releases')}
+          >
             前往下载
           </button>
           <button className='btn btn-sm btn-outline btn-info' type='button' onClick={copyConfig}>
@@ -114,6 +101,26 @@ const About = () => {
             导入配置
           </button>
         </div>
+        {AboutInfo.map((item) => (
+          <div className='text-sm' key={item.title}>
+            <p className='font-semibold mb-2 ml-4'>{item.title}</p>
+            <ul className='flex flex-col gap-2 bg-[var(--background-fore)] rounded-xl p-4'>
+              {item.list.map((info, i) => (
+                <li className='' key={info.key}>
+                  <span className='mr-2'>{`${info.key}: `}</span>
+                  <span
+                    className={info.url ? 'link link-info' : ''}
+                    onClick={() => (info.url ? toBrowser(info.url) : {})}
+                  >
+                    {info.value}
+                  </span>
+
+                  {i !== item.list.length - 1 && <div className='divider h-0 my-2' />}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </Container>
   )
