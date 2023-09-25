@@ -22,9 +22,14 @@
       "window": {
         "hide": true,
         "show": true,
-        "setAlwaysOnTop": true,
         "setSize": true,
-        "center": true
+        "center": true,
+        "setFocus": true,
+        "close": true,
+        "minimize": true,
+        "maximize": true,
+        "startDragging": true,
+        "unmaximize": true
       },
       "fs": {
         "all": false,
@@ -47,6 +52,12 @@
       },
       "dialog": {
         "all": true
+      },
+      "process": {
+        "relaunch": true
+      },
+      "clipboard": {
+        "writeText": true
       }
     },
     "bundle": {
@@ -67,7 +78,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["./shortcuts"],
+      "resources": ["./shortcuts", "./resources"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
@@ -99,7 +110,6 @@
         "acceptFirstMouse": true,
         "decorations": false,
         "center": true,
-        "alwaysOnTop": true,
         "skipTaskbar": true,
         "visible": false
       }

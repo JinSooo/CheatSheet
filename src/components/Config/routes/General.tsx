@@ -12,6 +12,7 @@ import { Config } from '@/lib/types'
 import { StoreContext } from '@/lib/store'
 import { debounce } from '@/lib/utils/util'
 import { Store } from 'tauri-plugin-store-api'
+import Category from '../common/Category'
 
 const General = () => {
   const { setTheme } = useTheme()
@@ -110,64 +111,94 @@ const General = () => {
   if (!defaultConfig.theme) return <></>
 
   return (
-    <Container title='通用'>
-      <ul className='config-menu'>
-        <li>
-          <p>开机自启</p>
-          <Checkbox defaultChecked={defaultConfig.autoStart} onChange={handleAppAutostart} />
-        </li>
-        <li>
-          <p>启动时检查更新</p>
-          <Checkbox defaultChecked={defaultConfig.checkUpdate} onChange={handleAppCheckStart} />
-        </li>
-        <li>
-          <p>窗口透明度</p>
-          <Range defaultValue={defaultConfig.windowOpacity} min={0} max={10} onChange={handleWindowOpacity} />
-        </li>
-        <li>
-          <p>窗口大小百分比</p>
-          <Range
-            defaultValue={defaultConfig.windowSizeRatio}
-            min={0}
-            max={1}
-            step={0.01}
-            onChange={handleWindowSizeRatio}
-          />
-        </li>
-        <li>
-          <p>窗口圆角大小</p>
-          <Range
-            defaultValue={defaultConfig.windowBorderRadius}
-            min={0}
-            max={100}
-            onChange={handleWindowBorderRadius}
-          />
-        </li>
-        <li>
-          <p>主题</p>
-          <Select
-            defaultValue={defaultConfig.theme}
-            items={[
-              { key: 'system', description: '跟随系统' },
-              { key: 'light', description: '白天模式' },
-              { key: 'dark', description: '夜间模式' },
-            ]}
-            onChange={handleThemeChange}
-          />
-        </li>
-        <li>
-          <p>托盘点击事件</p>
-          <Select
-            defaultValue={defaultConfig.trayLeftClick}
-            items={[
-              { key: 'none', description: '空' },
-              { key: 'cheatsheet', description: 'CheatSheet窗口' },
-              { key: 'config', description: '配置窗口' },
-            ]}
-            onChange={handleTrayClick}
-          />
-        </li>
-      </ul>
+    <Container>
+      <div className='flex flex-col gap-6'>
+        <Category
+          title='系统设置'
+          category={[
+            {
+              name: '开机自启',
+              component: <Checkbox defaultChecked={defaultConfig.autoStart} onChange={handleAppAutostart} />,
+            },
+            {
+              name: '启动时检查更新',
+              component: <Checkbox defaultChecked={defaultConfig.checkUpdate} onChange={handleAppCheckStart} />,
+            },
+          ]}
+        />
+        <Category
+          title='窗口设置'
+          category={[
+            {
+              name: '窗口透明度',
+              component: (
+                <Range defaultValue={defaultConfig.windowOpacity} min={0} max={10} onChange={handleWindowOpacity} />
+              ),
+            },
+            {
+              name: '窗口大小百分比',
+              component: (
+                <Range
+                  defaultValue={defaultConfig.windowSizeRatio}
+                  min={0}
+                  max={1}
+                  step={0.01}
+                  onChange={handleWindowSizeRatio}
+                />
+              ),
+            },
+            {
+              name: '窗口圆角大小',
+              component: (
+                <Range
+                  defaultValue={defaultConfig.windowBorderRadius}
+                  min={0}
+                  max={100}
+                  onChange={handleWindowBorderRadius}
+                />
+              ),
+            },
+          ]}
+        />
+        <Category
+          title='外观设置'
+          category={[
+            {
+              name: '主题',
+              component: (
+                <Select
+                  defaultValue={defaultConfig.theme}
+                  items={[
+                    { key: 'system', description: '跟随系统' },
+                    { key: 'light', description: '白天模式' },
+                    { key: 'dark', description: '夜间模式' },
+                  ]}
+                  onChange={handleThemeChange}
+                />
+              ),
+            },
+          ]}
+        />
+        <Category
+          title='事件设置'
+          category={[
+            {
+              name: '托盘点击事件',
+              component: (
+                <Select
+                  defaultValue={defaultConfig.trayLeftClick}
+                  items={[
+                    { key: 'none', description: '空' },
+                    { key: 'cheatsheet', description: 'CheatSheet窗口' },
+                    { key: 'config', description: '配置窗口' },
+                  ]}
+                  onChange={handleTrayClick}
+                />
+              ),
+            },
+          ]}
+        />
+      </div>
     </Container>
   )
 }

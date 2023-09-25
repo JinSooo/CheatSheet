@@ -1,10 +1,18 @@
 {
   "$schema": "./template/shortcut.schema.json",
-  "name": "Windows",
+  "name": "CheatSheet",
   "categories": [
     {
       "name": "CheatSheet",
       "shortcuts": [
+        {
+          "command": { "win": "|", "mac": "|", "linux": "|" },
+          "description": "多功能快捷键, 即上下两种快捷键都可以实现操作"
+        },
+        {
+          "command": { "win": "&", "mac": "&", "linux": "&" },
+          "description": "组合快捷键, 即先按下上快捷键, 再按下下快捷键来实现操作"
+        },
         {
           "command": { "win": "Space", "mac": "Space", "linux": "Space" },
           "description": "空格键"

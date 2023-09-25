@@ -34,10 +34,9 @@ export const readAppShortCut = async (name: string): Promise<ShortCut | null> =>
 
 // 读取当前已支持的应用
 export const readShortCutDir = async (): Promise<FileEntry[]> => {
-  const entries = await readDir('shortcuts', {
+  return await readDir('shortcuts', {
     dir: BaseDirectory.Resource,
   })
-  return entries
 }
 
 // Mac系统需要转换的图标
@@ -63,6 +62,10 @@ const commandMapWin = new Map<string, string | JSX.Element>([
 const commandMap = new Map<string, string | JSX.Element>([
   ['Space', <span className='iconfont icon-space' key='Space' />],
   ['Backspace', '⌫'],
+  ['Up', '↑'],
+  ['Down', '↓'],
+  ['Left', '←'],
+  ['Right', '→'],
 ])
 
 // 将快捷键转换为对应的图标和字符
@@ -91,7 +94,8 @@ export const convertShortCutCommand = (os: OSType, command: string): ShortCutKin
   const ans: (JSX.Element | string)[][] = []
 
   // 组合快捷键
-  if (command.indexOf('&') !== -1) {
+  // command.length > 1 用于避免单个字符的快捷键说明
+  if (command.indexOf('&') !== -1 && command.length > 1) {
     const group = command.split(' & ')
     for (let i = 0; i < group.length; i++) {
       const arr = group[i].split('+') as (JSX.Element | string)[]
@@ -107,7 +111,7 @@ export const convertShortCutCommand = (os: OSType, command: string): ShortCutKin
     }
   }
   // 多功能快捷键
-  else if (command.indexOf('|') !== -1) {
+  else if (command.indexOf('|') !== -1 && command.length > 1) {
     const group = command.split(' | ')
     for (let i = 0; i < group.length; i++) {
       const arr = group[i].split('+') as (JSX.Element | string)[]

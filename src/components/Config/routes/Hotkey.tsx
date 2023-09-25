@@ -7,6 +7,7 @@ import Checkbox from '../common/Checkbox'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
 import { Store } from 'tauri-plugin-store-api'
+import Category from '../common/Category'
 
 type ShortCutKind = 'cheatsheet' | 'active_window'
 
@@ -126,31 +127,40 @@ const Hotkey = () => {
   if (!defaultConfig.cheatSheetShortCut) return <></>
 
   return (
-    <Container title='快捷键'>
-      <ul className='config-menu'>
-        <li>
-          <p>显示CheatSheet</p>
-          <Keyboard
-            command={cheatSheetShortCut}
-            tooltip={keyBoardTool}
-            // @ts-ignore
-            onKeyDown={(e) => handleKeyDown(e, 'cheatsheet')}
-            onBlur={() => handleBlur('cheatsheet')}
-            submit={handleCheatSheetShortCutSubmit}
-          />
-        </li>
-        <li>
-          <p>当前聚焦应用</p>
-          <Keyboard
-            command={activeWindowShortCut}
-            tooltip={keyBoardTool}
-            // @ts-ignore
-            onKeyDown={(e) => handleKeyDown(e, 'active_window')}
-            onBlur={() => handleBlur('active_window')}
-            submit={handleActiveWindowSubmit}
-          />
-        </li>
-      </ul>
+    <Container>
+      <div className='flex flex-col gap-6'>
+        <Category
+          title='快捷键设置'
+          category={[
+            {
+              name: '显示CheatSheet',
+              component: (
+                <Keyboard
+                  command={cheatSheetShortCut}
+                  tooltip={keyBoardTool}
+                  // @ts-ignore
+                  onKeyDown={(e) => handleKeyDown(e, 'cheatsheet')}
+                  onBlur={() => handleBlur('cheatsheet')}
+                  submit={handleCheatSheetShortCutSubmit}
+                />
+              ),
+            },
+            {
+              name: '当前聚焦应用',
+              component: (
+                <Keyboard
+                  command={activeWindowShortCut}
+                  tooltip={keyBoardTool}
+                  // @ts-ignore
+                  onKeyDown={(e) => handleKeyDown(e, 'active_window')}
+                  onBlur={() => handleBlur('active_window')}
+                  submit={handleActiveWindowSubmit}
+                />
+              ),
+            },
+          ]}
+        />
+      </div>
     </Container>
   )
 }

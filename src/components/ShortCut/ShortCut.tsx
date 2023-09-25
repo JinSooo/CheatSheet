@@ -31,18 +31,18 @@ const ShortCut = () => {
 
   const initShortCut = async () => {
     // 操作系统快捷键
-    const file1 = await readOSShortCut(os)
-    osShortCutRef.current = file1
+    osShortCutRef.current = await readOSShortCut(os)
 
     // CheatSheet软件快捷键提示
-    const file2 = (await readAppShortCut('CheatSheet')) as ShortCutType
-    cheatSheetShortCutRef.current = file2
+    cheatSheetShortCutRef.current = (await readAppShortCut('CheatSheet')) as ShortCutType
   }
 
   // 根据appName更新快捷键信息
   const getAppShortCut = async (name: string) => {
     const file = await readAppShortCut(name)
-    if (file?.name) setShortCut(file)
+
+    // 避免重复读取CheatSheet快捷键
+    if (file?.name && file?.name !== 'CheatSheet') setShortCut(file)
     else setShortCut(osShortCutRef.current)
   }
 
@@ -58,8 +58,11 @@ const ShortCut = () => {
 
   useEffect(() => {
     initListen()
-    initShortCut()
   }, [])
+
+  useEffect(() => {
+    initShortCut()
+  }, [os])
 
   return (
     <div className='w-full h-full box-border p-6 select-none'>

@@ -9,7 +9,6 @@ pub struct StoreWrapper(pub Mutex<Store<Wry>>);
 
 pub fn init_config(app: &App) {
     // 获取配置文件路径
-    // let config_path = resource_dir(app.package_info(), &Env::default()).unwrap();
     let config_path = config_dir().unwrap();
     let config_path = config_path.join(app.config().tauri.bundle.identifier.clone());
     let config_path = config_path.join("config.json");

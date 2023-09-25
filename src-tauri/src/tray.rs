@@ -130,7 +130,9 @@ fn on_right_click() {
 }
 
 fn on_show() {
-    get_main_window().show().unwrap();
+    let main_window = get_main_window();
+    main_window.show().unwrap();
+    main_window.set_focus().unwrap();
 }
 
 fn on_hide() {

@@ -42,7 +42,7 @@ const SupportApp = () => {
   }, [])
 
   return (
-    <Container title='已适配应用'>
+    <Container>
       <table className='table table-pin-rows'>
         {Object.entries(dirList).map(([key, dirs]) => (
           <Fragment key={key}>

@@ -10,6 +10,7 @@ import { Store } from 'tauri-plugin-store-api'
 import { initConfigStore } from '@/lib/utils/store'
 import { listen } from '@tauri-apps/api/event'
 import { checkAppUpdate } from '@/lib/utils/updater'
+import { Toaster } from 'react-hot-toast'
 
 export default function RootLayout({
   children,
@@ -23,7 +24,7 @@ export default function RootLayout({
   // 获取操作系统
   const initOS = async () => {
     const osType = await getOSType()
-    console.log('🎉🎉🎉', 'os', os)
+    console.log('🎉🎉🎉', 'os', osType)
     setOS(osType)
   }
 
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
           <StoreProvider value={{ os, configStore }}>{children}</StoreProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

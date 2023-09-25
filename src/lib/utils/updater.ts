@@ -1,6 +1,7 @@
-import { message } from '@tauri-apps/api/dialog'
 import { relaunch } from '@tauri-apps/api/process'
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater'
+import toast from 'react-hot-toast'
+import { toastIcon, toastStyle } from './toast'
 
 export const checkAppUpdate = async () => {
   try {
@@ -12,7 +13,7 @@ export const checkAppUpdate = async () => {
       await installUpdate()
       await relaunch()
     } else {
-      await message('当前应用已经是最新版本!', { type: 'info', title: 'Updater' })
+      toast('当前应用已经是最新版本!', { icon: toastIcon, style: toastStyle })
     }
   } catch (error) {
     console.error(error)

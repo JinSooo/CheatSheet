@@ -13,6 +13,7 @@ mod window;
 use crate::utils::adjust_center_main_window;
 use active_window::*;
 use config::*;
+use event::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
 use tauri::{api::notification::Notification, generate_handler};
@@ -28,6 +29,7 @@ fn main() {
             Notification::new(&app.config().tauri.bundle.identifier)
                 .title("程序已经在运行, 请不要再次启动!")
                 .body(cwd)
+                .icon("icon")
                 .show()
                 .unwrap();
         }))
@@ -36,7 +38,7 @@ fn main() {
             Some(vec!["--flag1", "--flag2"]),
         ))
         .plugin(tauri_plugin_store::Builder::default().build())
-        // .on_window_event(init_tauri_event)
+        .on_window_event(init_tauri_event)
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
         .setup(|app| {
