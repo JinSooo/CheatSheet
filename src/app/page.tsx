@@ -37,7 +37,7 @@ export default function Home() {
     <div
       className='h-screen w-screen text-[var(--foreground)] overflow-auto no-scrollbar'
       style={{
-        background: `rgba(var(--background-rgba), ${backgroundOpacity})`,
+        background: `rgba(var(--background-fore-rgba), ${backgroundOpacity})`,
         borderRadius: `${windowBorderRadius}px`,
       }}
     >

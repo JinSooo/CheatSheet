@@ -10,7 +10,7 @@ const Category = ({ title, category }: Props) => {
   return (
     <div className='w-full text-sm'>
       <p className='mb-2 pl-4 font-semibold'>{title}</p>
-      <ul className='bg-[var(--background)] flex flex-col p-4 rounded-xl'>
+      <ul className='bg-[var(--background-fore)] flex flex-col p-4 rounded-xl'>
         {category.map((item, i) => (
           <Fragment key={item.name}>
             <li>

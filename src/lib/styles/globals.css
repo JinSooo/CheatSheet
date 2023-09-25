@@ -5,17 +5,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #373737;
-  --background: #f7f7f7;
-  --background-rgba: 247, 247, 247;
-  --background-config-menu: #ffffff;
+  --foreground: #373737; /* 前景色：文字 */
+  --background: #f2f2f2; /* 背景色：背景 */
+  --background-rgba: 242, 242, 242;
+  --background-fore: #ffffff; /* 背景色上层区分色(用于分类)：侧边栏选中、 */
+  --background-fore-rgba: 255, 255, 255;
 }
 
 [data-theme="dark"] {
   --foreground: #d3d3d3;
-  --background: #1f1f1f;
-  --background-rgba: 31, 31, 31;
-  --background-config-menu: #111111;
+  --background: #111111;
+  --background-rgba: 17, 17, 17;
+  --background-fore: #1f1f1f;
+  --background-fore-rgba: 31, 31, 31;
 }
 
 /* TODO: 文字滚动暂时先不用 */
@@ -103,13 +105,38 @@ body {
   }
 }
 
-/* tooltip换行显示 */
-.tooltip:before {
-  white-space: break-spaces;
-}
-
-/* 分割线太粗 */
+/* 分割线高度 */
 .divider:before,
 .divider:after {
   height: 1px;
+}
+
+/* 修改侧边栏菜单的选中背景色和字体颜色 */
+.menu li > *:not(ul):not(.menu-title):not(details).active {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+/* 修改提示框的选中背景色和字体颜色 */
+.tooltip:before {
+  color: var(--foreground);
+  background-color: var(--background);
+  /* tooltip换行显示 */
+  white-space: break-spaces;
+  /* 显示位置 */
+  left: 1rem;
+  transform: none;
+  max-width: 15rem;
+}
+
+.tooltip:after {
+  border-color: var(--background) transparent transparent transparent;
+}
+
+.tooltip-left:before {
+  transform: translateY(-50%);
+  top: 50%;
+  left: auto;
+  right: var(--tooltip-offset);
+  bottom: auto;
 }

@@ -63,14 +63,13 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
         }
         None => {
             info!("Window not existence, Creating new window: {}", label);
-            let mut builder =
-                WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
-                    .position(position.x, position.y)
-                    .decorations(true)
-                    .transparent(true)
-                    .focused(true)
-                    .title(title)
-                    .visible(false);
+            let builder = WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
+                .position(position.x, position.y)
+                .decorations(true)
+                .transparent(true)
+                .focused(true)
+                .title(title)
+                .visible(false);
 
             // TODO: Config窗口无头化
             // #[cfg(not(target_os = "macos"))]
