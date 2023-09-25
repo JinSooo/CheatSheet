@@ -74,7 +74,7 @@ const About = () => {
   }
 
   return (
-    <Container title='关于应用'>
+    <Container>
       <div className='flex flex-col gap-6'>
         <div className='mx-auto'>
           <Image src='/imgs/icon.png' alt='icon' width='64' height='64' />
