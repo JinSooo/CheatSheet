@@ -10,6 +10,8 @@ mod updater;
 mod utils;
 mod window;
 
+use std::time;
+
 use crate::utils::adjust_center_main_window;
 use active_window::*;
 use config::*;
@@ -55,6 +57,13 @@ fn main() {
             init_tray_theme();
             init_hotkey();
             init_active_window_map();
+
+            // FIX(Mac): CheatSheet窗口无法居中显示
+            std::thread::spawn(|| {
+                std::thread::sleep(time::Duration::from_millis(10));
+                adjust_center_main_window();
+                adjust_center_main_window();
+            });
 
             Ok(())
         })
