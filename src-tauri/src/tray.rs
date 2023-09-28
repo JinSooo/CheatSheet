@@ -2,8 +2,10 @@ use crate::config::get;
 use crate::updater::check_update;
 use crate::window::{config_window, get_main_window};
 use crate::APP;
+use tauri::api::shell::open;
 use tauri::{
-    AppHandle, CustomMenuItem, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
+    AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
+    SystemTrayMenuItem,
 };
 
 pub fn init_tray() -> SystemTray {
@@ -60,7 +62,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "show" => on_show(),
             "hide" => on_hide(),
             "option" => on_config(),
-            "help" => on_help(),
+            "help" => on_help(app),
             "update" => on_update(),
             "relaunch" => on_relaunch(app),
             "quit" => on_quit(app),
@@ -121,7 +123,14 @@ fn on_config() {
     config_window();
 }
 
-fn on_help() {}
+fn on_help(app: &AppHandle) {
+    open(
+        &app.app_handle().shell_scope(),
+        "https://github.com/JinSooo/CheatSheet/issues",
+        None,
+    )
+    .unwrap();
+}
 
 fn on_relaunch(app: &AppHandle) {
     app.restart();
