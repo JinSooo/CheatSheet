@@ -13,7 +13,7 @@ export default function Layout({
   const _ = useTheme()
 
   return (
-    <div className='h-screen w-screen text-[var(--foreground)] bg-[var(--background-fore)] overflow-hidden flex rounded-xl p-4 pl-2'>
+    <div className='h-screen w-screen text-[var(--foreground)] bg-[var(--background-fore)] overflow-hidden flex rounded-sm p-4 pl-2'>
       <ConfigAside />
       <div className='flex-1 flex flex-col'>
         <Header />
