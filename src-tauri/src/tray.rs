@@ -16,6 +16,7 @@ pub fn init_tray() -> SystemTray {
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
         .add_item(CustomMenuItem::new("update".to_string(), "检查更新..."))
         .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(CustomMenuItem::new("relaunch".to_string(), "重启"))
         .add_item(CustomMenuItem::new("quit".to_string(), "退出"));
     SystemTray::new().with_menu(tray_menu)
 }
@@ -61,6 +62,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
             "option" => on_config(),
             "help" => on_help(),
             "update" => on_update(),
+            "relaunch" => on_relaunch(app),
             "quit" => on_quit(app),
             _ => (),
         },
@@ -120,6 +122,10 @@ fn on_config() {
 }
 
 fn on_help() {}
+
+fn on_relaunch(app: &AppHandle) {
+    app.restart();
+}
 
 fn on_update() {
     check_update();
