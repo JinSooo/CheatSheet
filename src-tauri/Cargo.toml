@@ -17,11 +17,11 @@ tauri-build = { version = "1.4.0", features = [] }
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.4.0", features = [ "window-unmaximize", "window-maximize", "window-close", "window-start-dragging", "window-minimize", "window-set-focus", "clipboard-write-text", "process-relaunch", "dialog-all", "updater", "shell-open", "path-all", "fs-write-file", "fs-read-dir", "window-center", "window-set-size", "notification-all", "system-tray", "os-all", "fs-read-file", "macos-private-api", "window-show", "window-hide", "app-show", "app-hide", "global-shortcut-all"] }
+tauri = { version = "1.4.1", features = [ "window-unmaximize", "window-maximize", "window-close", "window-start-dragging", "window-minimize", "window-set-focus", "clipboard-write-text", "process-relaunch", "dialog-all", "updater", "shell-open", "path-all", "fs-write-file", "fs-read-dir", "window-center", "window-set-size", "notification-all", "system-tray", "os-all", "fs-read-file", "macos-private-api", "window-show", "window-hide", "app-show", "app-hide", "global-shortcut-all"] }
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
-active-win-pos-rs = "0.8.1"
+active-win-pos-rs = "0.8.2"
 once_cell = "1.18.0"
 dirs = "5.0.1"
 log = "0.4.20"

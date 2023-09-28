@@ -2,8 +2,7 @@
 
 import { StoreContext } from '@/lib/store'
 import { Config, OSType } from '@/lib/types'
-import { ChangeEvent, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import Checkbox from '../common/Checkbox'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Container } from '../common/Container'
 import Keyboard from '../common/Keyboard'
 import { Store } from 'tauri-plugin-store-api'
