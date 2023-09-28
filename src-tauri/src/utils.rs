@@ -11,7 +11,7 @@ pub fn adjust_window_size(window: &Window) {
     println!("adjust_window_size");
     if let Some(monitor) = window.current_monitor().unwrap() {
         let size = monitor.size();
-        let windows_size_ratio = match get("windows_size_ratio") {
+        let windows_size_ratio = match get("windowSizeRatio") {
             Some(v) => v.as_f64().unwrap(),
             None => WINDOW_SIZE_RATIO,
         };

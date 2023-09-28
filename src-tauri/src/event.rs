@@ -9,7 +9,7 @@ pub fn init_tauri_event(e: GlobalWindowEvent) {
 }
 
 fn on_focused(e: &GlobalWindowEvent, focused: &bool) {
-    if !focused && e.window().is_visible().unwrap() {
+    if e.window().label() == "main" && !focused && e.window().is_visible().unwrap() {
         e.window().hide().unwrap();
     }
 }
