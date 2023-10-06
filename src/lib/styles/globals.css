@@ -140,3 +140,17 @@ body {
   right: var(--tooltip-offset);
   bottom: auto;
 }
+
+/* 修改滚动条样式 */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #c0c1c550;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #c0c1c550;
+}

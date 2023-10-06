@@ -94,9 +94,9 @@ pub fn config_window() {
 pub fn update_window() {
     let (window, _exists) = build_window("update", "CheatSheet Updater", "/update");
     window
-        .set_min_size(Some(tauri::LogicalSize::new(500, 400)))
+        .set_min_size(Some(tauri::LogicalSize::new(600, 400)))
         .unwrap();
-    window.set_size(tauri::LogicalSize::new(500, 400)).unwrap();
+    window.set_size(tauri::LogicalSize::new(600, 400)).unwrap();
     window.center().unwrap();
     window.show().unwrap();
     window.set_focus().unwrap();

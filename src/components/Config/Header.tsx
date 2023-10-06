@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <WindowBar className='min-h-0 p-0 pb-3 pl-4 flex justify-between'>
-      <div className='font-semibold select-none'>
+      <div className='font-semibold select-none flex items-center'>
         <Menu size={18} className='mr-1' />
         {routes.find((route) => route.path === pathname)?.name ?? ''}
       </div>
