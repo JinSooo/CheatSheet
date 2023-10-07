@@ -6,12 +6,13 @@
 
 :root {
   --foreground: #373737; /* 前景色：文字 */
-  --background: #f2f2f2; /* 背景色：背景 */
+  --background: #eeeeee; /* 背景色：背景 */
   --background-rgba: 242, 242, 242;
-  --background-fore: #ffffff; /* 背景色上层区分色(用于分类)：侧边栏选中、 */
-  --background-fore-rgba: 255, 255, 255;
+  --background-fore: #fafafa; /* 背景色上层区分色(用于分类)：侧边栏选中、 */
+  --background-fore-rgba: 250, 250, 250;
   --background-header: #e3e3e3;
   --background-prose: #f3f3f3;
+  --background-config-category: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
   --background-fore-rgba: 31, 31, 31;
   --background-header: #383838;
   --background-prose: #2c2c2c;
+  --background-config-category: #2a2a2a;
 }
 
 /* TODO: 文字滚动暂时先不用 */
