@@ -17,7 +17,8 @@ const Update = () => {
   const [currentVersion, setCurrentVersion] = useState('')
   const [manifest, setManifest] = useState<UpdateManifest>()
   const [total, setTotal] = useState(0)
-  const [downloaded, setDownloaded] = useState(0)
+  const [downloaded, setDownloaded] = useState(-1)
+  const percent = (downloaded / total) * 100
 
   const init = async () => {
     // 获取当前窗口
@@ -103,7 +104,7 @@ const Update = () => {
               <span className='font-semibold'>{currentVersion}</span>。您现在要下载吗？
             </p>
             <p className='font-semibold'>更新信息: </p>
-            <div className='bg-[var(--background-prose)] shadow-inner overflow-auto rounded pl-2 mr-4 mb-8'>
+            <div className='bg-[var(--background-prose)] shadow-inner overflow-auto rounded pl-2 mr-4 mb-8 h-full'>
               <div className='prose prose-neutral dark:prose-invert scale-[.85] -translate-x-7 -translate-y-4'>
                 <MarkDown>{manifest?.body}</MarkDown>
               </div>
@@ -122,8 +123,18 @@ const Update = () => {
       )}
       {/* 进度条 */}
       {total !== 0 && (
-        <div className='absolute bottom-[3.25rem] w-full px-8 flex items-center gap-4'>
-          <progress className='progress progress-info' value={(downloaded / total) * 100} max='100' />
+        <div className='absolute bottom-11 w-full px-8 flex flex-col justify-center gap-1'>
+          <div className='flex justify-between text-sm'>
+            {downloaded < total ? (
+              <>
+                <p>下载进度</p>
+                <p>{Math.floor(percent)}%</p>
+              </>
+            ) : (
+              <p>安装中...</p>
+            )}
+          </div>
+          <progress className='progress progress-info' value={percent} max='100' />
         </div>
       )}
     </div>
