@@ -6,7 +6,6 @@ mod config;
 mod event;
 mod hotkey;
 mod tray;
-mod updater;
 mod utils;
 mod window;
 
@@ -21,6 +20,7 @@ use once_cell::sync::OnceCell;
 use tauri::{api::notification::Notification, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tray::*;
+use window::*;
 
 // Global AppHandle
 pub static APP: OnceCell<tauri::AppHandle> = OnceCell::new();
@@ -70,7 +70,7 @@ fn main() {
         .invoke_handler(generate_handler![
             left_click_type,
             register_shortcut_by_frontend,
-            adjust_center_main_window
+            update_window
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")

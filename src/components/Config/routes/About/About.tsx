@@ -4,13 +4,13 @@ import { open } from '@tauri-apps/api/shell'
 import { Container } from '../../common/Container'
 import AboutInfo from './about.json'
 import Image from 'next/image'
-import { checkAppUpdate } from '@/lib/utils/updater'
 import { BaseDirectory, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
 import { save, open as openFile } from '@tauri-apps/api/dialog'
 import { relaunch } from '@tauri-apps/api/process'
 import { toast } from 'react-hot-toast'
 import { toastIcon, toastStyle } from '@/lib/utils/toast'
 import { writeText } from '@tauri-apps/api/clipboard'
+import { openUpdateWindow } from '@/lib/utils/window'
 
 const About = () => {
   const toBrowser = async (url: string) => {
@@ -18,7 +18,7 @@ const About = () => {
   }
 
   const checkUpdate = async () => {
-    await checkAppUpdate()
+    openUpdateWindow()
   }
 
   const copyConfig = async () => {
@@ -30,7 +30,6 @@ const About = () => {
   }
 
   const exportConfig = async () => {
-    const { desktopDir } = await import('@tauri-apps/api/path')
     // 读取配置文件
     const content = await readTextFile('config.json', { dir: BaseDirectory.AppConfig })
     // 获取保存路径
@@ -49,7 +48,6 @@ const About = () => {
   }
 
   const importConfig = async () => {
-    const { desktopDir } = await import('@tauri-apps/api/path')
     // 获取文件路径
     const filePath = (await openFile({
       filters: [

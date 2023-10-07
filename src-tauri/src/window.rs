@@ -57,12 +57,12 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
     let app_handle = APP.get().unwrap();
     match app_handle.get_window(label) {
         Some(v) => {
-            info!("Window existence: {}", label);
+            println!("Window existence: {}", label);
             v.set_focus().unwrap();
             (v, true)
         }
         None => {
-            info!("Window not existence, Creating new window: {}", label);
+            println!("Window not existence, Creating new window: {}", label);
             let builder = WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
                 .position(position.x, position.y)
                 .decorations(true)
@@ -74,7 +74,6 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
 
             let window = builder.build().unwrap();
             let _ = window.current_monitor();
-            window.set_focus().unwrap();
             (window, false)
         }
     }
@@ -91,6 +90,7 @@ pub fn config_window() {
     window.set_focus().unwrap();
 }
 
+#[tauri::command(async)]
 pub fn update_window() {
     let (window, _exists) = build_window("update", "CheatSheet Updater", "/update");
     window

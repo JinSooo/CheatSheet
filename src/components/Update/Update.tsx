@@ -26,15 +26,17 @@ const Update = () => {
       <div className='w-1/3 mt-6'>
         <Image src='imgs/icon.png' width={100} height={100} alt='icon' className='mx-auto' />
       </div>
-      <div className='flex-1 flex flex-col gap-2 pt-2'>
-        <p>
-          当前版本: <span className='ml-1'>0.0.1</span>
-        </p>
-        <p>
-          最新版本: <span className='ml-1'>0.0.1</span>
-        </p>
+      <div className='flex-1 flex flex-col gap-2 pt-2 pb-12'>
+        <div className='flex justify-between w-[85%]'>
+          <p>
+            当前版本: <span className='ml-1'>0.0.1</span>
+          </p>
+          <p>
+            最新版本: <span className='ml-1'>0.0.1</span>
+          </p>
+        </div>
         <p>版本日志: </p>
-        <div className='prose prose-neutral dark:prose-invert h-3/5 overflow-auto scale-[.85] -translate-x-6 -translate-y-4'>
+        <div className='prose prose-neutral dark:prose-invert overflow-auto scale-[.85] -translate-x-7 -translate-y-4  rounded p-2'>
           <MarkDown>{changelog}</MarkDown>
         </div>
       </div>

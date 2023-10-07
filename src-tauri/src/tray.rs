@@ -1,5 +1,4 @@
 use crate::config::{get, set};
-use crate::updater::check_update;
 use crate::window::{config_window, get_main_window, update_window};
 use crate::APP;
 use tauri::{
@@ -177,7 +176,6 @@ fn on_config() {
 fn on_help() {}
 
 fn on_update() {
-    // check_update();
     update_window();
 }
 
