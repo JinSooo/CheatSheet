@@ -11,8 +11,16 @@ import { toast } from 'react-hot-toast'
 import { toastIcon, toastStyle } from '@/lib/utils/toast'
 import { writeText } from '@tauri-apps/api/clipboard'
 import { openUpdateWindow } from '@/lib/utils/window'
+import { useEffect, useState } from 'react'
 
 const About = () => {
+  const [version, setVersion] = useState('0.0.0')
+
+  const init = async () => {
+    const { getVersion } = await import('@tauri-apps/api/app')
+    setVersion(await getVersion())
+  }
+
   const toBrowser = async (url: string) => {
     await open(url)
   }
@@ -70,6 +78,10 @@ const About = () => {
     }, 1000)
   }
 
+  useEffect(() => {
+    init()
+  }, [])
+
   return (
     <Container>
       <div className='flex flex-col gap-6'>
@@ -100,17 +112,16 @@ const About = () => {
         {AboutInfo.map((item) => (
           <div className='text-sm' key={item.title}>
             <p className='font-semibold mb-2 ml-4'>{item.title}</p>
-            <ul className='flex flex-col gap-2 bg-[var(--background-fore)] rounded-xl p-4'>
+            <ul className='flex flex-col gap-2 bg-[var(--background-config-category)] rounded-xl p-4'>
               {item.list.map((info, i) => (
-                <li className='' key={info.key}>
+                <li key={info.key}>
                   <span className='mr-2'>{`${info.key}: `}</span>
                   <span
                     className={info.url ? 'link link-info' : ''}
                     onClick={() => (info.url ? toBrowser(info.url) : {})}
                   >
-                    {info.value}
+                    {info.key === '版本' ? version : info.value}
                   </span>
-
                   {i !== item.list.length - 1 && <div className='divider h-0 my-2' />}
                 </li>
               ))}
