@@ -13,7 +13,7 @@ let eventId = 0
 const Update = () => {
   const window = useRef<WebviewWindow>()
   const [loading, setLoading] = useState(true)
-  const [shouldUpdate, setShouldUpdate] = useState(true)
+  const [isLatest, setIsLatest] = useState(true)
   const [currentVersion, setCurrentVersion] = useState('')
   const [manifest, setManifest] = useState<UpdateManifest>()
   const [total, setTotal] = useState(0)
@@ -39,7 +39,7 @@ const Update = () => {
 
   const check = async () => {
     const { shouldUpdate, manifest } = await checkUpdate()
-    setShouldUpdate(shouldUpdate)
+    setIsLatest(!shouldUpdate)
 
     if (shouldUpdate) {
       setManifest(manifest)
@@ -74,33 +74,52 @@ const Update = () => {
         <Image src='imgs/icon.png' width={72} height={72} alt='icon' className='mx-auto' />
       </div>
       {loading ? (
+        // 加载
         <div className='flex-1 flex justify-center'>
           <span className='loading loading-spinner -translate-y-10' />
         </div>
-      ) : (
+      ) : isLatest ? (
+        // 最新版本
         <div className='flex-1 flex flex-col gap-2 pt-4 pb-12 text-sm'>
-          <p className='font-semibold'>新版本的 CheatSheet 已经发布</p>
+          <p className='font-semibold'>当前应用已是最新版本</p>
           <p>
-            CheatSheet <span className='font-semibold'>{manifest?.version}</span> 可供下载，您现在的版本是{' '}
-            <span className='font-semibold'>{currentVersion}</span>。您现在要下载吗？
+            CheatSheet 最新版本 <span className='font-semibold'>{currentVersion}</span>，您现在的版本是{' '}
+            <span className='font-semibold'>{currentVersion}</span>。
           </p>
-          <p className='font-semibold'>更新信息: </p>
-          <div className='bg-[var(--background-prose)] shadow-inner overflow-auto rounded pl-2 mr-4 mb-8'>
-            <div className='prose prose-neutral dark:prose-invert scale-[.85] -translate-x-7 -translate-y-4'>
-              <MarkDown>{manifest?.body}</MarkDown>
-            </div>
+          {/* 操纵 */}
+          <div className={`absolute right-2 bottom-10 ${total !== 0 ? 'hidden' : ''}`}>
+            <button type='button' className='btn btn-info btn-sm w-24' onClick={close}>
+              确认
+            </button>
           </div>
         </div>
+      ) : (
+        // 更新窗口
+        <>
+          <div className='flex-1 flex flex-col gap-2 pt-4 pb-12 text-sm'>
+            <p className='font-semibold'>新版本的 CheatSheet 已经发布</p>
+            <p>
+              CheatSheet <span className='font-semibold'>{manifest?.version}</span> 可供下载，您现在的版本是{' '}
+              <span className='font-semibold'>{currentVersion}</span>。您现在要下载吗？
+            </p>
+            <p className='font-semibold'>更新信息: </p>
+            <div className='bg-[var(--background-prose)] shadow-inner overflow-auto rounded pl-2 mr-4 mb-8'>
+              <div className='prose prose-neutral dark:prose-invert scale-[.85] -translate-x-7 -translate-y-4'>
+                <MarkDown>{manifest?.body}</MarkDown>
+              </div>
+            </div>
+          </div>
+          {/* 操纵 */}
+          <div className={`absolute right-2 bottom-10 ${total !== 0 ? 'hidden' : ''}`}>
+            <button type='button' className='btn btn-info btn-sm w-24 mr-6' onClick={update}>
+              更新
+            </button>
+            <button type='button' className='btn btn-neutral btn-sm w-24' onClick={close}>
+              取消
+            </button>
+          </div>
+        </>
       )}
-      {/* 操纵 */}
-      <div className={`absolute right-2 bottom-10 ${total !== 0 ? 'hidden' : ''}`}>
-        <button type='button' className='btn btn-info btn-sm w-24 mr-6' onClick={update}>
-          更新
-        </button>
-        <button type='button' className='btn btn-neutral btn-sm w-24' onClick={close}>
-          取消
-        </button>
-      </div>
       {/* 进度条 */}
       {total !== 0 && (
         <div className='absolute bottom-[3.25rem] w-full px-8 flex items-center gap-4'>
