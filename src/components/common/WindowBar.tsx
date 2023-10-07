@@ -38,15 +38,19 @@ const WindowBar = () => {
   return (
     <div>
       <button className='btn btn-ghost btn-sm normal-case1 p-1' type='button' onClick={minimize}>
-        <Minus />
+        <div className='w-[24px] h-[24px] flex justify-center items-center scale-75'>
+          <Minus />
+        </div>
       </button>
       <button className='btn btn-ghost btn-sm normal-case1 p-1' type='button' onClick={maximize}>
-        <div className='w-[24px] h-[24px] flex justify-center items-center scale-90'>
+        <div className='w-[24px] h-[24px] flex justify-center items-center scale-75'>
           {isMaximized ? <Minimize /> : <Maximize />}
         </div>
       </button>
       <button className='btn btn-ghost btn-sm normal-case1 p-1' type='button' onClick={close}>
-        <X />
+        <div className='w-[24px] h-[24px] flex justify-center items-center scale-75'>
+          <X />
+        </div>
       </button>
     </div>
   )

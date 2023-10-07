@@ -1,6 +1,7 @@
 use crate::APP;
 use log::{info, warn};
 use tauri::{Manager, Monitor, Window, WindowBuilder};
+use window_shadows::set_shadow;
 
 // Get main window instance
 pub fn get_main_window() -> Window {
@@ -73,6 +74,11 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
                 .visible(false);
 
             let window = builder.build().unwrap();
+
+            // 设置窗口阴影
+            #[cfg(any(windows, target_os = "macos"))]
+            set_shadow(&window, true).unwrap();
+
             let _ = window.current_monitor();
             window.set_focus().unwrap();
             (window, false)

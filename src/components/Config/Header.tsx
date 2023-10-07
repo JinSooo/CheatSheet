@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div
-      className='navbar min-h-0 p-0 pb-3 pl-4 bg-[var(--background-fore)] flex justify-between'
+      className='navbar min-h-0 p-0 pb-3 pl-4 bg-[var(--background-fore)] flex justify-between items-center'
       data-tauri-drag-region
     >
       <div className='font-semibold select-none'>
