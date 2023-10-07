@@ -5,6 +5,10 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { UpdateManifest, checkUpdate, installUpdate } from '@tauri-apps/api/updater'
 import { WebviewWindow } from '@tauri-apps/api/window'
+import { UnlistenFn, listen } from '@tauri-apps/api/event'
+
+let unlisten: UnlistenFn
+let eventId = 0
 
 const Update = () => {
   const window = useRef<WebviewWindow>()
@@ -29,12 +33,31 @@ const Update = () => {
     await window.current?.close()
   }
 
+  const update = async () => {
+    await installUpdate()
+  }
+
   const check = async () => {
     const { shouldUpdate, manifest } = await checkUpdate()
     setShouldUpdate(shouldUpdate)
 
     if (shouldUpdate) {
       setManifest(manifest)
+
+      // 记录当前下载进度
+      unlisten = await listen('tauri://update-download-progress', (e) => {
+        if (eventId === 0) {
+          eventId = e.id
+        }
+        if (e.id === eventId) {
+          // @ts-ignore
+          setTotal(e.payload.contentLength)
+          setDownloaded((a) => {
+            // @ts-ignore
+            return a + e.payload.chunkLength
+          })
+        }
+      })
     }
 
     setLoading(false)
@@ -55,7 +78,7 @@ const Update = () => {
           <span className='loading loading-spinner -translate-y-10' />
         </div>
       ) : (
-        <div className='flex-1 flex flex-col gap-2 pt-2 pb-12 text-sm'>
+        <div className='flex-1 flex flex-col gap-2 pt-4 pb-12 text-sm'>
           <p className='font-semibold'>新版本的 CheatSheet 已经发布</p>
           <p>
             CheatSheet <span className='font-semibold'>{manifest?.version}</span> 可供下载，您现在的版本是{' '}
@@ -69,14 +92,21 @@ const Update = () => {
           </div>
         </div>
       )}
-      <div className='absolute right-2 bottom-10'>
-        <button type='button' className='btn btn-info btn-sm w-24 mr-6'>
+      {/* 操纵 */}
+      <div className={`absolute right-2 bottom-10 ${total !== 0 ? 'hidden' : ''}`}>
+        <button type='button' className='btn btn-info btn-sm w-24 mr-6' onClick={update}>
           更新
         </button>
         <button type='button' className='btn btn-neutral btn-sm w-24' onClick={close}>
           取消
         </button>
       </div>
+      {/* 进度条 */}
+      {total !== 0 && (
+        <div className='absolute bottom-[3.25rem] w-full px-8 flex items-center gap-4'>
+          <progress className='progress progress-info' value={(downloaded / total) * 100} max='100' />
+        </div>
+      )}
     </div>
   )
 }
