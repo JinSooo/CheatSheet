@@ -19,6 +19,7 @@ use hotkey::*;
 use once_cell::sync::OnceCell;
 use tauri::{api::notification::Notification, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
+use tauri_plugin_log::LogTarget;
 use tray::*;
 use window::*;
 
@@ -39,6 +40,11 @@ fn main() {
             MacosLauncher::LaunchAgent,
             Some(vec!["--flag1", "--flag2"]),
         ))
+        .plugin(
+            tauri_plugin_log::Builder::default()
+                .targets([LogTarget::LogDir, LogTarget::Stdout])
+                .build(),
+        )
         .plugin(tauri_plugin_store::Builder::default().build())
         .on_window_event(init_tauri_event)
         .system_tray(init_tray())

@@ -6,6 +6,7 @@ use crate::{
     utils::notification,
     APP,
 };
+use log::info;
 use tauri::{AppHandle, GlobalShortcutManager};
 
 pub fn init_hotkey() {
@@ -35,7 +36,7 @@ where
             .global_shortcut_manager()
             .register(shortcut.as_str(), handler)
             .unwrap();
-        println!("Register Hotkey {name}: {shortcut}")
+        info!("Register Hotkey {name}: {shortcut}")
     }
     Ok(())
 }
@@ -69,7 +70,7 @@ fn register_shortcut(app: &str) -> Result<(), String> {
 
 #[tauri::command]
 pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), String> {
-    println!("register_hotkey_with_shortcut: app -> {app}, shortcut: {shortcut}");
+    info!("register_hotkey_with_shortcut: app -> {app}, shortcut: {shortcut}");
     let app_handle = APP.get().unwrap();
 
     match app {

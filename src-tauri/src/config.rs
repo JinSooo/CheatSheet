@@ -1,5 +1,6 @@
 use crate::utils::WINDOW_SIZE_RATIO;
 use crate::APP;
+use log::info;
 use serde_json::{json, Value};
 use std::sync::Mutex;
 use tauri::{api::path::config_dir, App, Manager, Wry};
@@ -12,15 +13,15 @@ pub fn init_config(app: &App) {
     let config_path = config_dir().unwrap();
     let config_path = config_path.join(app.config().tauri.bundle.identifier.clone());
     let config_path = config_path.join("config.json");
-    println!("Load config: {:?}", config_path);
+    info!("Load config: {:?}", config_path);
 
     // 加载Store
     let mut store = StoreBuilder::new(app.handle(), config_path).build();
     match store.load() {
-        Ok(_) => println!("Config loaded"),
+        Ok(_) => info!("Config loaded"),
         Err(e) => {
-            println!("Config load error: {:?}", e);
-            println!("Config not found, creating new config");
+            info!("Config load error: {:?}", e);
+            info!("Config not found, creating new config");
         }
     }
     // 添加到app中

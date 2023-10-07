@@ -1,6 +1,7 @@
 use crate::config::{get, set};
 use crate::window::{config_window, get_main_window, update_window};
 use crate::APP;
+use log::info;
 use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
@@ -103,7 +104,7 @@ pub fn init_tray_click() {
 }
 
 fn on_left_click() {
-    println!("🎉🎉🎉 tray: left click");
+    info!("🎉🎉🎉 tray: left click");
     unsafe {
         match LEFT_CLICK_TYPE {
             "cheatsheet" => {
@@ -125,7 +126,7 @@ pub fn left_click_type(lc_type: String) {
 }
 
 fn on_right_click() {
-    println!("🎉🎉🎉 tray: right click");
+    info!("🎉🎉🎉 tray: right click");
 }
 
 fn on_show() {

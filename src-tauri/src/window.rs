@@ -57,12 +57,12 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
     let app_handle = APP.get().unwrap();
     match app_handle.get_window(label) {
         Some(v) => {
-            println!("Window existence: {}", label);
+            info!("Window existence: {}", label);
             v.set_focus().unwrap();
             (v, true)
         }
         None => {
-            println!("Window not existence, Creating new window: {}", label);
+            info!("Window not existence, Creating new window: {}", label);
             let builder = WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
                 .position(position.x, position.y)
                 .decorations(true)
