@@ -22,22 +22,18 @@ const Update = () => {
 `
 
   return (
-    <div className='relative flex w-full h-full'>
-      <div className='w-1/3 mt-6'>
-        <Image src='imgs/icon.png' width={100} height={100} alt='icon' className='mx-auto' />
+    <div className='relative flex w-full h-full pr-2'>
+      <div className='w-1/4 mt-6'>
+        <Image src='imgs/icon.png' width={72} height={72} alt='icon' className='mx-auto' />
       </div>
-      <div className='flex-1 flex flex-col gap-2 pt-2 pb-12'>
-        <div className='flex justify-between w-[85%]'>
-          <p>
-            当前版本: <span className='ml-1'>0.0.1</span>
-          </p>
-          <p>
-            最新版本: <span className='ml-1'>0.0.1</span>
-          </p>
-        </div>
-        <p>版本日志: </p>
-        <div className='prose prose-neutral dark:prose-invert overflow-auto scale-[.85] -translate-x-7 -translate-y-4  rounded p-2'>
-          <MarkDown>{changelog}</MarkDown>
+      <div className='flex-1 flex flex-col gap-2 pt-2 pb-12 text-sm'>
+        <p className='font-semibold'>新版本的 CheatSheet 已经发布</p>
+        <p>CheatSheet 0.0.5 可供下载，您现在的版本是 0.0.5。您现在要下载吗？</p>
+        <p className='font-semibold'>更新信息: </p>
+        <div className='bg-[var(--background-prose)] shadow-inner overflow-auto rounded pl-2 mr-4 mb-8'>
+          <div className='prose prose-neutral dark:prose-invert scale-[.85] -translate-x-7 -translate-y-4'>
+            <MarkDown>{changelog}</MarkDown>
+          </div>
         </div>
       </div>
       <div className='absolute right-2 bottom-10'>

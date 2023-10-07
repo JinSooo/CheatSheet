@@ -10,6 +10,8 @@
   --background-rgba: 242, 242, 242;
   --background-fore: #ffffff; /* 背景色上层区分色(用于分类)：侧边栏选中、 */
   --background-fore-rgba: 255, 255, 255;
+  --background-header: #e3e3e3;
+  --background-prose: #f3f3f3;
 }
 
 [data-theme="dark"] {
@@ -18,6 +20,8 @@
   --background-rgba: 17, 17, 17;
   --background-fore: #1f1f1f;
   --background-fore-rgba: 31, 31, 31;
+  --background-header: #383838;
+  --background-prose: #2c2c2c;
 }
 
 /* TODO: 文字滚动暂时先不用 */
