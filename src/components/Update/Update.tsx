@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from 'react'
 import { UpdateManifest, checkUpdate, installUpdate } from '@tauri-apps/api/updater'
 import { WebviewWindow } from '@tauri-apps/api/window'
 import { UnlistenFn, listen } from '@tauri-apps/api/event'
+import toast from 'react-hot-toast'
+import { toastIcon, toastStyle } from '@/lib/utils/toast'
+import { relaunch } from '@tauri-apps/api/process'
 
 let unlisten: UnlistenFn
 let eventId = 0
@@ -35,7 +38,10 @@ const Update = () => {
   }
 
   const update = async () => {
-    await installUpdate()
+    installUpdate().then(() => {
+      toast('下载成功', { icon: toastIcon, style: toastStyle })
+      relaunch()
+    })
   }
 
   const check = async () => {
@@ -70,7 +76,7 @@ const Update = () => {
   }, [])
 
   return (
-    <div className='relative flex w-full h-full pr-2'>
+    <div className='relative flex w-full h-full pr-2 select-none'>
       <div className='w-1/4 mt-6'>
         <Image src='imgs/icon.png' width={72} height={72} alt='icon' className='mx-auto' />
       </div>
@@ -123,7 +129,7 @@ const Update = () => {
       )}
       {/* 进度条 */}
       {total !== 0 && (
-        <div className='absolute bottom-11 w-full px-8 flex flex-col justify-center gap-1'>
+        <div className='absolute bottom-11 w-full px-6 flex flex-col justify-center gap-1'>
           <div className='flex justify-between text-sm'>
             {downloaded < total ? (
               <>
