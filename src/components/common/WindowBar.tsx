@@ -1,7 +1,7 @@
 'use client'
 
 import { WebviewWindow } from '@tauri-apps/api/window'
-import { Maximize, Minimize, Minus, Square, X } from 'lucide-react'
+import { Maximize, Minimize, Minus, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 const WindowBar = () => {
@@ -36,7 +36,7 @@ const WindowBar = () => {
   })
 
   return (
-    <div>
+    <div className='z-[999]'>
       <button className='btn btn-ghost btn-sm normal-case1 p-1' type='button' onClick={minimize}>
         <div className='w-[24px] h-[24px] flex justify-center items-center scale-75'>
           <Minus />
