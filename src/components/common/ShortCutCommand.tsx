@@ -73,7 +73,7 @@ export const ShortCutCommand = ({ command, gap = 0, direction = 'end' }: Props) 
   return (
     <div
       className={`flex flex-wrap ${gap > 0 ? `gap-${gap}` : ''} ${
-        direction === 'start' ? 'justify-start' : 'justify-start'
+        direction === 'start' ? 'justify-start' : 'justify-end'
       }`}
     >
       {commandEle}

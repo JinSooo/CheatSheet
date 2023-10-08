@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <div className='navbar min-h-0 p-0 pb-3 pl-4 bg-[var(--background-fore)] flex justify-between items-center'>
-      <div className='font-semibold select-none'>
+      <div className='font-semibold select-none flex items-center'>
         <Menu size={18} className='mr-1' />
         {routes.find((route) => route.path === pathname)?.name ?? ''}
       </div>

@@ -89,7 +89,6 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
             set_shadow(&window, true).unwrap();
 
             let _ = window.current_monitor();
-            window.set_focus().unwrap();
             (window, false)
         }
     }
@@ -101,6 +100,18 @@ pub fn config_window() {
         .set_min_size(Some(tauri::LogicalSize::new(800, 400)))
         .unwrap();
     window.set_size(tauri::LogicalSize::new(800, 600)).unwrap();
+    window.center().unwrap();
+    window.show().unwrap();
+    window.set_focus().unwrap();
+}
+
+#[tauri::command(async)]
+pub fn update_window() {
+    let (window, _exists) = build_window("update", "CheatSheet Updater", "/update");
+    window
+        .set_min_size(Some(tauri::LogicalSize::new(600, 400)))
+        .unwrap();
+    window.set_size(tauri::LogicalSize::new(600, 400)).unwrap();
     window.center().unwrap();
     window.show().unwrap();
     window.set_focus().unwrap();
