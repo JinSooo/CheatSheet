@@ -1,6 +1,7 @@
 use crate::config::get;
 use crate::window::get_main_window;
 use crate::APP;
+use log::info;
 use tauri::api::notification::Notification;
 use tauri::Window;
 
@@ -8,7 +9,7 @@ use tauri::Window;
 pub static WINDOW_SIZE_RATIO: f64 = 0.75;
 
 pub fn adjust_window_size(window: &Window) {
-    println!("adjust_window_size");
+    info!("adjust_window_size");
     if let Some(monitor) = window.current_monitor().unwrap() {
         let size = monitor.size();
         let windows_size_ratio = match get("windowSizeRatio") {

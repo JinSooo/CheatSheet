@@ -1,18 +1,18 @@
-use crate::config::get;
-use crate::updater::check_update;
-use crate::window::{config_window, get_main_window};
-use crate::APP;
-use tauri::api::shell::open;
+use log::info;
 use tauri::{
-    AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
-    SystemTrayMenuItem,
+  AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
+  SystemTrayMenuItem,
 };
+use tauri::api::shell::open;
+
+use crate::APP;
+use crate::config::get;
+use crate::window::{config_window, get_main_window, update_window};
 
 pub fn init_tray() -> SystemTray {
     // Tray 菜单
     let tray_menu = SystemTrayMenu::new()
-        .add_item(CustomMenuItem::new("show".to_string(), "显示").accelerator("F2"))
-        .add_item(CustomMenuItem::new("hide".to_string(), "隐藏").accelerator("F2"))
+        .add_item(CustomMenuItem::new("toggle".to_string(), "显示/隐藏").accelerator("F2"))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
@@ -59,8 +59,7 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
         SystemTrayEvent::RightClick { .. } => on_right_click(),
         // 根据菜单 id 进行事件匹配
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
-            "show" => on_show(),
-            "hide" => on_hide(),
+            "toggle" => on_toggle(),
             "option" => on_config(),
             "help" => on_help(app),
             "update" => on_update(),
@@ -84,7 +83,7 @@ pub fn init_tray_click() {
 }
 
 fn on_left_click() {
-    println!("🎉🎉🎉 tray: left click");
+    info!("🎉🎉🎉 tray: left click");
     unsafe {
         match LEFT_CLICK_TYPE {
             "cheatsheet" => {
@@ -106,17 +105,17 @@ pub fn left_click_type(lc_type: String) {
 }
 
 fn on_right_click() {
-    println!("🎉🎉🎉 tray: right click");
+    info!("🎉🎉🎉 tray: right click");
 }
 
-fn on_show() {
+fn on_toggle() {
     let main_window = get_main_window();
-    main_window.show().unwrap();
-    main_window.set_focus().unwrap();
-}
-
-fn on_hide() {
-    get_main_window().hide().unwrap();
+    if main_window.is_visible().unwrap() {
+      main_window.hide().unwrap();
+    } else {
+      main_window.show().unwrap();
+      main_window.set_focus().unwrap();
+    }
 }
 
 fn on_config() {
@@ -137,7 +136,7 @@ fn on_relaunch(app: &AppHandle) {
 }
 
 fn on_update() {
-    check_update();
+    update_window();
 }
 
 fn on_quit(app: &AppHandle) {

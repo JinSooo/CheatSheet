@@ -7,30 +7,17 @@
         "value": "CheatSheet"
       },
       {
-        "key": "开源协议",
-        "value": "MIT",
-        "url": "https://github.com/JinSooo/CheatSheet/blob/develop/LICENSE"
+        "key": "版本",
+        "value": "0.0.0"
       },
       {
         "key": "描述",
         "value": "一个跨平台显示应用快捷键的软件"
-      }
-    ]
-  },
-  {
-    "title": "版本",
-    "list": [
-      {
-        "key": "CheatSheet",
-        "value": "0.1.0"
       },
       {
-        "key": "Tauri",
-        "value": "1.4.0"
-      },
-      {
-        "key": "Next",
-        "value": "13.4.19"
+        "key": "开源协议",
+        "value": "MIT",
+        "url": "https://github.com/JinSooo/CheatSheet/blob/develop/LICENSE"
       }
     ]
   },

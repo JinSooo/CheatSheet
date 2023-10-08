@@ -64,23 +64,31 @@ fn build_window(label: &str, title: &str, url: &str) -> (Window, bool) {
         }
         None => {
             info!("Window not existence, Creating new window: {}", label);
-            let builder = WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
+            let mut builder = WindowBuilder::new(app_handle, label, tauri::WindowUrl::App(url.into()))
                 .position(position.x, position.y)
-                .decorations(true)
-                .transparent(true)
                 .focused(true)
-                .decorations(false)
                 .title(title)
                 .visible(false);
+
+            #[cfg(target_os = "macos")]
+            {
+              builder = builder
+                .title_bar_style(tauri::TitleBarStyle::Overlay)
+                .hidden_title(true);
+            }
+
+            #[cfg(not(target_os = "macos"))]
+            {
+              builder = builder.transparent(true).decorations(false);
+            }
 
             let window = builder.build().unwrap();
 
             // 设置窗口阴影
-            #[cfg(any(windows, target_os = "macos"))]
+            #[cfg(not(target_os = "linux"))]
             set_shadow(&window, true).unwrap();
 
             let _ = window.current_monitor();
-            window.set_focus().unwrap();
             (window, false)
         }
     }
@@ -92,6 +100,18 @@ pub fn config_window() {
         .set_min_size(Some(tauri::LogicalSize::new(800, 400)))
         .unwrap();
     window.set_size(tauri::LogicalSize::new(800, 600)).unwrap();
+    window.center().unwrap();
+    window.show().unwrap();
+    window.set_focus().unwrap();
+}
+
+#[tauri::command(async)]
+pub fn update_window() {
+    let (window, _exists) = build_window("update", "CheatSheet Updater", "/update");
+    window
+        .set_min_size(Some(tauri::LogicalSize::new(600, 400)))
+        .unwrap();
+    window.set_size(tauri::LogicalSize::new(600, 400)).unwrap();
     window.center().unwrap();
     window.show().unwrap();
     window.set_focus().unwrap();
