@@ -36,7 +36,7 @@ const WindowBarButton = () => {
   })
 
   return (
-    <div>
+    <div className='z-[999]'>
       <button className='btn btn-ghost btn-sm normal-case1 p-1' type='button' onClick={minimize}>
         <Minus />
       </button>
