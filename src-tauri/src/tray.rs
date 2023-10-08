@@ -1,30 +1,24 @@
-use crate::config::{get, set};
-use crate::window::{config_window, get_main_window, update_window};
-use crate::APP;
 use log::info;
 use tauri::{
-    AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
-    SystemTrayMenuItem, SystemTraySubmenu,
+  AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
+  SystemTrayMenuItem,
 };
+use tauri::api::shell::open;
+
+use crate::APP;
+use crate::config::get;
+use crate::window::{config_window, get_main_window, update_window};
 
 pub fn init_tray() -> SystemTray {
     // Tray 菜单
     let tray_menu = SystemTrayMenu::new()
-        .add_item(CustomMenuItem::new("show".to_string(), "显示").accelerator("F2"))
-        .add_item(CustomMenuItem::new("hide".to_string(), "隐藏").accelerator("F2"))
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_submenu(SystemTraySubmenu::new(
-            "主题",
-            SystemTrayMenu::new()
-                .add_item(CustomMenuItem::new("theme_system".to_string(), "系统默认"))
-                .add_item(CustomMenuItem::new("theme_light".to_string(), "亮色主题"))
-                .add_item(CustomMenuItem::new("theme_dark".to_string(), "暗色主题")),
-        ))
+        .add_item(CustomMenuItem::new("toggle".to_string(), "显示/隐藏").accelerator("F2"))
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(CustomMenuItem::new("option".to_string(), "首选项..."))
         .add_item(CustomMenuItem::new("help".to_string(), "帮助"))
         .add_item(CustomMenuItem::new("update".to_string(), "检查更新..."))
         .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(CustomMenuItem::new("relaunch".to_string(), "重启"))
         .add_item(CustomMenuItem::new("quit".to_string(), "退出"));
     SystemTray::new().with_menu(tray_menu)
 }
@@ -65,26 +59,11 @@ pub fn tray_handler<'a>(app: &'a AppHandle, event: SystemTrayEvent) {
         SystemTrayEvent::RightClick { .. } => on_right_click(),
         // 根据菜单 id 进行事件匹配
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
-            "show" => on_show(),
-            "hide" => on_hide(),
-            "theme_system" => on_theme(
-                app,
-                id.as_str(),
-                vec!["theme_system", "theme_light", "theme_dark"],
-            ),
-            "theme_light" => on_theme(
-                app,
-                id.as_str(),
-                vec!["theme_system", "theme_light", "theme_dark"],
-            ),
-            "theme_dark" => on_theme(
-                app,
-                id.as_str(),
-                vec!["theme_system", "theme_light", "theme_dark"],
-            ),
+            "toggle" => on_toggle(),
             "option" => on_config(),
-            "help" => on_help(),
+            "help" => on_help(app),
             "update" => on_update(),
+            "relaunch" => on_relaunch(app),
             "quit" => on_quit(app),
             _ => (),
         },
@@ -129,52 +108,32 @@ fn on_right_click() {
     info!("🎉🎉🎉 tray: right click");
 }
 
-fn on_show() {
+fn on_toggle() {
     let main_window = get_main_window();
-    main_window.show().unwrap();
-    main_window.set_focus().unwrap();
-}
-
-fn on_hide() {
-    get_main_window().hide().unwrap();
-}
-
-pub fn init_tray_theme() {
-    let theme = {
-        match get("theme") {
-            Some(v) => "theme_".to_string() + &v.as_str().unwrap().to_string(),
-            None => {
-                set("theme", "system");
-                "theme_system".to_string()
-            }
-        }
-    };
-    let app_handle = APP.get().unwrap();
-    app_handle
-        .tray_handle()
-        .get_item(theme.as_str())
-        .set_selected(true)
-        .unwrap();
-}
-
-fn on_theme(app: &AppHandle, id: &str, themes: Vec<&str>) {
-    themes.iter().for_each(|theme_id| {
-        let item = app.app_handle().tray_handle().get_item(theme_id);
-        if id.to_string() == theme_id.to_string() {
-            app.emit_all("theme", id).unwrap();
-            item.set_selected(true).unwrap();
-            set("theme", id.to_string().split("_").collect::<Vec<&str>>()[1]);
-        } else {
-            item.set_selected(false).unwrap();
-        }
-    })
+    if main_window.is_visible().unwrap() {
+      main_window.hide().unwrap();
+    } else {
+      main_window.show().unwrap();
+      main_window.set_focus().unwrap();
+    }
 }
 
 fn on_config() {
     config_window();
 }
 
-fn on_help() {}
+fn on_help(app: &AppHandle) {
+    open(
+        &app.app_handle().shell_scope(),
+        "https://github.com/JinSooo/CheatSheet/issues",
+        None,
+    )
+    .unwrap();
+}
+
+fn on_relaunch(app: &AppHandle) {
+    app.restart();
+}
 
 fn on_update() {
     update_window();
