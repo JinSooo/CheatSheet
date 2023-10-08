@@ -7,9 +7,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+Shift+P | Ctrl+Shift+F1",
-            "mac": "Command+Shift+P | Command+Shift+F1",
-            "linux": "Ctrl+Shift+P | Ctrl+Shift+F1"
+            "win": "Ctrl+Shift+P",
+            "mac": "Command+Shift+P",
+            "linux": "Ctrl+Shift+P"
           },
           "description": "显示命令面板"
         },

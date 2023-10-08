@@ -1,8 +1,8 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "npm run build",
-    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
     "distDir": "../out"
   },
@@ -95,7 +95,7 @@
     },
     "updater": {
       "active": true,
-      "dialog": true,
+      "dialog": false,
       "endpoints": ["https://github.com/JinSooo/CheatSheet/releases/download/updater/update.json"],
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJFQ0Q3MkU5MDAyNTE5REMKUldUY0dTVUE2WExOTGdzNklCRkM3WUxKcWRyK21nWVhaTGxOTHJyaFZsZTU5WGxwTzZza3hCWU8K"
     },

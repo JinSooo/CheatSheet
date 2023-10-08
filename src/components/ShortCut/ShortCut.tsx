@@ -47,7 +47,8 @@ const ShortCut = () => {
   }
 
   useEffect(() => {
-    getAppShortCut(activeAppName)
+    // FIX: 初始化时执行一次
+    if (activeAppName) getAppShortCut(activeAppName)
   }, [activeAppName])
 
   // 对于不同的应用，界面更新完成后，再显示窗口

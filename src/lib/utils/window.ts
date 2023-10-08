@@ -5,3 +5,8 @@ export const showMainWindow = async () => {
   mainWindow.show()
   mainWindow.setFocus()
 }
+
+export const openUpdateWindow = async () => {
+  const { invoke } = await import('@tauri-apps/api')
+  invoke('update_window')
+}
