@@ -24,7 +24,9 @@ export default function Layout({
         <ConfigAside />
         <div className='flex-1 flex flex-col'>
           <Header />
-          <div className='flex-1 bg-[var(--background)] rounded-box ml-1 overflow-y-auto'>{children}</div>
+          <div className='flex-1 bg-[var(--background)] rounded-box pl-1 overflow-hidden flex shadow-inner'>
+            <div className='flex-1 overflow-auto'>{children}</div>
+          </div>
         </div>
       </div>
     </div>
