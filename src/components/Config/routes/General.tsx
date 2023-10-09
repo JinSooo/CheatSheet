@@ -21,6 +21,15 @@ const General = () => {
   const monitor = useRef<Monitor | null>()
   // 默认配置
   const [defaultConfig, setDefaultConfig] = useState<Config>({})
+  // 系统字体列表
+  const [fontFamilies, setFontFamilies] = useState<string[]>([])
+
+  const initFontFamilies = async () => {
+    const { invoke } = await import('@tauri-apps/api')
+    const fontFamilies = await invoke('get_font_families')
+    console.log('🎉🎉🎉', 'Font Families', fontFamilies)
+    setFontFamilies(fontFamilies as string[])
+  }
 
   const initConfig = async (configStore: Store) => {
     // 获取配置文件信息
@@ -32,6 +41,7 @@ const General = () => {
     config.windowSizeRatio = await configStore.get('windowSizeRatio')
     config.theme = await configStore.get('theme')
     config.trayLeftClick = await configStore.get('trayLeftClick')
+    config.fontFamily = await configStore.get('fontFamily')
     setDefaultConfig(config)
     console.log('🎉🎉🎉', 'General Config', config)
   }
@@ -53,18 +63,27 @@ const General = () => {
   // 主题
   const handleThemeChange = async (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value)
-    await saveConfigStore('theme', e.target.value)
+    saveConfigStore('theme', e.target.value)
   }
+
+  // 字体
+  const handleFontFamilyChange = async (e: ChangeEvent<HTMLSelectElement>) => {
+    await emit('font_family', e.target.value)
+    saveConfigStore('fontFamily', e.target.value)
+  }
+
   // 窗口透明度
   const handleWindowOpacity = async (e: ChangeEvent<HTMLInputElement>) => {
     await emit('window_opacity', +e.target.value / 10)
-    await saveConfigStore('windowOpacity', +e.target.value)
+    saveConfigStore('windowOpacity', +e.target.value)
   }
+
   // 窗口圆角
   const handleWindowBorderRadius = async (e: ChangeEvent<HTMLInputElement>) => {
     await emit('window_border_radius', +e.target.value)
-    await saveConfigStore('windowBorderRadius', +e.target.value)
+    saveConfigStore('windowBorderRadius', +e.target.value)
   }
+
   // 窗口大小百分比
   const handleWindowSizeRatio = async (e: ChangeEvent<HTMLInputElement>) => {
     const { PhysicalSize } = await import('@tauri-apps/api/window')
@@ -76,14 +95,16 @@ const General = () => {
       ),
     )
     await mainWindow.current?.center()
-    await saveConfigStore('windowSizeRatio', +e.target.value)
+    saveConfigStore('windowSizeRatio', +e.target.value)
   }
+
   // 托盘左击事件
   const handleTrayClick = async (e: ChangeEvent<HTMLSelectElement>) => {
     const { invoke } = await import('@tauri-apps/api')
     await invoke('left_click_type', { lcType: e.target.value })
-    await saveConfigStore('trayLeftClick', e.target.value)
+    saveConfigStore('trayLeftClick', e.target.value)
   }
+
   // 开机自启
   const handleAppAutostart = async (e: ChangeEvent<HTMLInputElement>) => {
     const { invoke } = await import('@tauri-apps/api')
@@ -92,11 +113,12 @@ const General = () => {
     } else {
       await invoke('plugin:autostart|disable')
     }
-    await saveConfigStore('autoStart', e.target.checked)
+    saveConfigStore('autoStart', e.target.checked)
   }
+
   // 检查更新
   const handleAppCheckStart = async (e: ChangeEvent<HTMLInputElement>) => {
-    await saveConfigStore('checkUpdate', e.target.checked)
+    saveConfigStore('checkUpdate', e.target.checked)
   }
 
   useEffect(() => {
@@ -105,6 +127,7 @@ const General = () => {
 
   useEffect(() => {
     init()
+    initFontFamilies()
   }, [])
 
   // 随机取一个属性，判断config是否加载完成
@@ -174,6 +197,16 @@ const General = () => {
                     { key: 'dark', description: '夜间模式' },
                   ]}
                   onChange={handleThemeChange}
+                />
+              ),
+            },
+            {
+              name: '字体',
+              component: (
+                <Select
+                  defaultValue={defaultConfig.fontFamily}
+                  items={fontFamilies.map((fontFamily) => ({ key: fontFamily, description: fontFamily })) ?? []}
+                  onChange={handleFontFamilyChange}
                 />
               ),
             },
