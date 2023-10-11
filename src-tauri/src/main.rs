@@ -6,6 +6,7 @@ mod config;
 mod event;
 mod hotkey;
 mod tray;
+mod updater;
 mod utils;
 mod window;
 
@@ -21,6 +22,7 @@ use tauri::{api::notification::Notification, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tauri_plugin_log::LogTarget;
 use tray::*;
+use updater::*;
 use window::*;
 
 // Global AppHandle
@@ -62,6 +64,8 @@ fn main() {
             init_tray_click();
             init_hotkey();
             init_active_window_map();
+
+            check_update();
 
             // FIX(Mac): CheatSheet窗口无法居中显示
             std::thread::spawn(|| {
