@@ -17,8 +17,6 @@
 
 <img src="public/imgs/cheatsheet-win-lightdark.png" width="400" />
 &nbsp
-&nbsp
-&nbsp
 <img src="public/imgs/cheatsheet-mac-lightdark.png" width="400" />
 </div>
 
@@ -46,7 +44,15 @@
 
 当处于某个应用下时, 按下全局热键, 即可显示当前应用的快捷键
 
-<!-- GIF -->
+<div align="center">
+  <img src="public/imgs/1.gif" width="800" />
+</div>
+
+多个应用直接切换
+
+<div align="center">
+  <img src="public/imgs/3.gif" width="800" />
+</div>
 
 ## 全局热键
 
@@ -64,7 +70,9 @@
 
 当快捷键描述超出一定长度时, 对于溢出的字符会进行省略, 可以通过将鼠标划入到该描述的方式来显示完整的描述。
 
-<!-- GIF -->
+<div align="center">
+  <img src="public/imgs/2.gif" width="800" />
+</div>
 
 # 🚀 配置窗口
 
@@ -79,7 +87,9 @@
 
 ## CheatSheet 窗口样式
 
-<!-- GIF -->
+<div align="center">
+  <img src="public/imgs/4.gif" width="800" />
+</div>
 
 ## 自定义全局热键
 
