@@ -100,12 +100,17 @@ pub fn register_shortcut_by_frontend(app: &str, shortcut: &str) -> Result<(), St
 fn on_shortcut() {
     let window = get_main_window();
 
+    // 如果窗口显示，但被其他应用覆盖时，不再隐藏，直接显示新的快捷键
     if window.is_visible().unwrap() {
-        window.hide().unwrap();
+        if window.is_focused().unwrap() {
+            window.hide().unwrap();
+        } else {
+            let active_app_name = get_current_active_window();
+            window.emit("active-window", active_app_name).unwrap();
+        }
     } else {
         let active_app_name = get_current_active_window();
         window.emit("active-window", active_app_name).unwrap();
-        // 显示交给前端去处理，避免闪屏
     }
 }
 
