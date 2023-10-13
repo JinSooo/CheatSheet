@@ -21,6 +21,7 @@ use tauri_plugin_autostart::MacosLauncher;
 use tauri_plugin_log::LogTarget;
 use tray::*;
 use updater::*;
+use utils::*;
 use window::*;
 
 // Global AppHandle
@@ -76,7 +77,8 @@ fn main() {
         .invoke_handler(generate_handler![
             left_click_type,
             register_shortcut_by_frontend,
-            update_window
+            update_window,
+            get_font_families
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")

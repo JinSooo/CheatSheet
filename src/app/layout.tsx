@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { Store } from 'tauri-plugin-store-api'
 import { initConfigStore } from '@/lib/utils/store'
 import { Toaster } from 'react-hot-toast'
+import { listen } from '@tauri-apps/api/event'
 
 export default function RootLayout({
   children,
@@ -30,10 +31,35 @@ export default function RootLayout({
     setConfigStore(await initConfigStore())
   }
 
+  const initListener = async () => {
+    await listen('font_family', (event) => {
+      appendFontFamilyHTMLElement(event.payload as string)
+    })
+  }
+
+  const initFontFamily = async () => {
+    configStore.get('fontFamily').then((fontFamily) => {
+      if (!fontFamily) return
+
+      appendFontFamilyHTMLElement(fontFamily as string)
+    })
+  }
+
+  const appendFontFamilyHTMLElement = (fontFamily: string) => {
+    let style = document.createElement('style')
+    style.innerHTML = `* { font-family: ${fontFamily} !important; }`
+    document.head.appendChild(style)
+  }
+
   useEffect(() => {
     initOS()
     initConfig()
+    initListener()
   }, [])
+
+  useEffect(() => {
+    initFontFamily()
+  }, [configStore])
 
   return (
     <html lang='zh-CN' suppressHydrationWarning>
