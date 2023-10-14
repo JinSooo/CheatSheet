@@ -5,28 +5,81 @@
     {
       "name": "通用",
       "shortcuts": [
-        { "command": { "win": "Ctrl+S", "mac": "Ctrl+S", "linux": "Ctrl+S" }, "description": "保存" },
         {
-          "command": { "win": "Ctrl+Shift+S", "mac": "Ctrl+Shift+S", "linux": "Ctrl+Shift+S" },
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "保存"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+S",
+            "mac": "Command+Shift+S",
+            "linux": "Ctrl+Shift+S"
+          },
           "description": "另存为"
         },
-        { "command": { "win": "Ctrl+Enter", "mac": "Ctrl+Enter", "linux": "Ctrl+Enter" }, "description": "发送请求" },
-        { "command": { "win": "Ctrl+\\", "mac": "Ctrl+\\", "linux": "Ctrl+\\" }, "description": "切换侧边栏" },
-        { "command": { "win": "Ctrl+L", "mac": "Ctrl+L", "linux": "Ctrl+L" }, "description": "跳转到URL栏" },
-        { "command": { "win": "Ctrl+Alt+C", "mac": "Ctrl+Alt+C", "linux": "Ctrl+Alt+C" }, "description": "打开控制台" }
+        {
+          "command": {
+            "win": "Ctrl+Enter",
+            "mac": "Command+Enter",
+            "linux": "Ctrl+Enter"
+          },
+          "description": "发送请求"
+        },
+        {
+          "command": {
+            "win": "Ctrl+\\",
+            "mac": "Command+\\",
+            "linux": "Ctrl+\\"
+          },
+          "description": "切换侧边栏"
+        },
+        {
+          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
+          "description": "跳转到URL栏"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+C",
+            "mac": "Command+Option+C",
+            "linux": "Ctrl+Alt+C"
+          },
+          "description": "打开控制台"
+        }
       ]
     },
     {
       "name": "导航",
       "shortcuts": [
-        { "command": { "win": "Ctrl+Alt+1", "mac": "Ctrl+Alt+1", "linux": "Ctrl+Alt+1" }, "description": "侧边栏" },
-        { "command": { "win": "Ctrl+Alt+2", "mac": "Ctrl+Alt+2", "linux": "Ctrl+Alt+2" }, "description": "生成器" },
         {
-          "command": { "win": "Ctrl+1 throw 9", "mac": "Ctrl+1 throw 9", "linux": "Ctrl+1 throw 9" },
+          "command": {
+            "win": "Ctrl+Alt+1",
+            "mac": "Command+Option+1",
+            "linux": "Ctrl+Alt+1"
+          },
+          "description": "侧边栏"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+2",
+            "mac": "Command+Option+2",
+            "linux": "Ctrl+Alt+2"
+          },
+          "description": "生成器"
+        },
+        {
+          "command": {
+            "win": "Ctrl+1 throw 9",
+            "mac": "Command+1 throw 9",
+            "linux": "Ctrl+1 throw 9"
+          },
           "description": "切换第 n 个选项卡"
         },
         {
-          "command": { "win": "Ctrl+Shift+/", "mac": "Ctrl+Shift+/", "linux": "Ctrl+Shift+/" },
+          "command": {
+            "win": "Ctrl+Shift+/",
+            "mac": "Command+Shift+/",
+            "linux": "Ctrl+Shift+/"
+          },
           "description": "在选项卡之间切换"
         }
       ]
@@ -34,10 +87,22 @@
     {
       "name": "侧边栏",
       "shortcuts": [
-        { "command": { "win": "↓", "mac": "↓", "linux": "↓" }, "description": "移至下一项" },
-        { "command": { "win": "↑", "mac": "↑", "linux": "↑" }, "description": "移至上一项" },
-        { "command": { "win": "←", "mac": "←", "linux": "←" }, "description": "收起收藏夹/文件夹" },
-        { "command": { "win": "→", "mac": "→", "linux": "→" }, "description": "展开收藏夹/文件夹" },
+        {
+          "command": { "win": "↓", "mac": "↓", "linux": "↓" },
+          "description": "移至下一项"
+        },
+        {
+          "command": { "win": "↑", "mac": "↑", "linux": "↑" },
+          "description": "移至上一项"
+        },
+        {
+          "command": { "win": "←", "mac": "←", "linux": "←" },
+          "description": "收起收藏夹/文件夹"
+        },
+        {
+          "command": { "win": "→", "mac": "→", "linux": "→" },
+          "description": "展开收藏夹/文件夹"
+        },
         {
           "command": { "win": "Shift+↓", "mac": "Shift+↓", "linux": "Shift+↓" },
           "description": "选择当前和下一个项目"
@@ -46,17 +111,35 @@
           "command": { "win": "Shift+↑", "mac": "Shift+↑", "linux": "Shift+↑" },
           "description": "选择当前和上一个项目"
         },
-        { "command": { "win": "Ctrl+F", "mac": "Ctrl+F", "linux": "Ctrl+F" }, "description": "搜索边栏" },
-        { "command": { "win": "Enter", "mac": "Enter", "linux": "Enter" }, "description": "在选项卡中打开请求" }
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "搜索边栏"
+        },
+        {
+          "command": { "win": "Enter", "mac": "Enter", "linux": "Enter" },
+          "description": "在选项卡中打开请求"
+        }
       ]
     },
     {
       "name": "编辑",
       "shortcuts": [
-        { "command": { "win": "Ctrl+C", "mac": "Ctrl+C", "linux": "Ctrl+C" }, "description": "复制" },
-        { "command": { "win": "Ctrl+V", "mac": "Ctrl+V", "linux": "Ctrl+V" }, "description": "粘贴" },
-        { "command": { "win": "Ctrl+D", "mac": "Ctrl+D", "linux": "Ctrl+D" }, "description": "复制" },
-        { "command": { "win": "Ctrl+E", "mac": "Ctrl+E", "linux": "Ctrl+E" }, "description": "编辑/重命名" }
+        {
+          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
+          "description": "复制"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
+          "description": "粘贴"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "复制"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
+          "description": "编辑/重命名"
+        }
       ]
     }
   ]

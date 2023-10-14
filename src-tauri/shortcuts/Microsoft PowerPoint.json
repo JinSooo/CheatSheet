@@ -5,100 +5,181 @@
     {
       "name": "常用快捷键",
       "shortcuts": [
-        { "command": { "win": "Ctrl+N", "mac": "Ctrl+N", "linux": "Ctrl+N" }, "description": "创建新演示文稿" },
-        { "command": { "win": "Ctrl+M", "mac": "Ctrl+M", "linux": "Ctrl+M" }, "description": "添加新幻灯片" },
-        { "command": { "win": "Ctrl+B", "mac": "Ctrl+B", "linux": "Ctrl+B" }, "description": "使所选文字加粗" },
         {
-          "command": { "win": "Alt+H, F, S", "mac": "Alt+H, F, S", "linux": "Alt+H, F, S" },
+          "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
+          "description": "创建新演示文稿"
+        },
+        {
+          "command": { "win": "Ctrl+M", "mac": "Command+M", "linux": "Ctrl+M" },
+          "description": "添加新幻灯片"
+        },
+        {
+          "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
+          "description": "使所选文字加粗"
+        },
+        {
+          "command": {
+            "win": "Alt+H, F, S",
+            "mac": "Option+H, F, S",
+            "linux": "Alt+H, F, S"
+          },
           "description": "更改所选文字的字号"
         },
-        { "command": { "win": "Alt+W, Q", "mac": "Alt+W, Q", "linux": "Alt+W, Q" }, "description": "打开“缩放”对话框" },
         {
-          "command": { "win": "Ctrl+X", "mac": "Ctrl+X", "linux": "Ctrl+X" },
+          "command": {
+            "win": "Alt+W, Q",
+            "mac": "Option+W, Q",
+            "linux": "Alt+W, Q"
+          },
+          "description": "打开“缩放”对话框"
+        },
+        {
+          "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
           "description": "剪切所选文字、对象或幻灯片"
         },
         {
-          "command": { "win": "Ctrl+C", "mac": "Ctrl+C", "linux": "Ctrl+C" },
+          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
           "description": "复制所选文字、对象或幻灯片"
         },
         {
-          "command": { "win": "Ctrl+V", "mac": "Ctrl+V", "linux": "Ctrl+V" },
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
           "description": "粘贴剪切或复制的文本、对象或幻灯片"
         },
-        { "command": { "win": "Ctrl+Z", "mac": "Ctrl+Z", "linux": "Ctrl+Z" }, "description": "撤消最后一个操作" },
-        { "command": { "win": "Ctrl+S", "mac": "Ctrl+S", "linux": "Ctrl+S" }, "description": "保存演示文稿" },
         {
-          "command": { "win": "Alt+N, P, D", "mac": "Alt+N, P, D", "linux": "Alt+N, P, D" },
+          "command": { "win": "Ctrl+Z", "mac": "Command+Z", "linux": "Ctrl+Z" },
+          "description": "撤消最后一个操作"
+        },
+        {
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "保存演示文稿"
+        },
+        {
+          "command": {
+            "win": "Alt+N, P, D",
+            "mac": "Option+N, P, D",
+            "linux": "Alt+N, P, D"
+          },
           "description": "插入来自设备的图片"
         },
         {
-          "command": { "win": "Alt+N, S, H", "mac": "Alt+N, S, H", "linux": "Alt+N, S, H" },
+          "command": {
+            "win": "Alt+N, S, H",
+            "mac": "Option+N, S, H",
+            "linux": "Alt+N, S, H"
+          },
           "description": "插入形状"
         },
-        { "command": { "win": "Alt+G, H", "mac": "Alt+G, H", "linux": "Alt+G, H" }, "description": "选择主题" },
-        { "command": { "win": "Alt+H, L", "mac": "Alt+H, L", "linux": "Alt+H, L" }, "description": "选择幻灯片布局" },
         {
-          "command": { "win": "Page down", "mac": "Page down", "linux": "Page down" },
+          "command": {
+            "win": "Alt+G, H",
+            "mac": "Option+G, H",
+            "linux": "Alt+G, H"
+          },
+          "description": "选择主题"
+        },
+        {
+          "command": {
+            "win": "Alt+H, L",
+            "mac": "Option+H, L",
+            "linux": "Alt+H, L"
+          },
+          "description": "选择幻灯片布局"
+        },
+        {
+          "command": {
+            "win": "Page down",
+            "mac": "Page down",
+            "linux": "Page down"
+          },
           "description": "转到下一张幻灯片"
         },
-        { "command": { "win": "Page up", "mac": "Page up", "linux": "Page up" }, "description": "转到上一张幻灯片" },
-        { "command": { "win": "Alt+H", "mac": "Alt+H", "linux": "Alt+H" }, "description": "转到“开始”选项卡" },
-        { "command": { "win": "Alt+N", "mac": "Alt+N", "linux": "Alt+N" }, "description": "转到“插入”选项卡" },
-        { "command": { "win": "F5", "mac": "F5", "linux": "F5" }, "description": "开始幻灯片放映" },
-        { "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" }, "description": "结束幻灯片放映" },
-        { "command": { "win": "Ctrl+Q", "mac": "Ctrl+Q", "linux": "Ctrl+Q" }, "description": "关闭 PowerPoint" }
+        {
+          "command": { "win": "Page up", "mac": "Page up", "linux": "Page up" },
+          "description": "转到上一张幻灯片"
+        },
+        {
+          "command": { "win": "Alt+H", "mac": "Option+H", "linux": "Alt+H" },
+          "description": "转到“开始”选项卡"
+        },
+        {
+          "command": { "win": "Alt+N", "mac": "Option+N", "linux": "Alt+N" },
+          "description": "转到“插入”选项卡"
+        },
+        {
+          "command": { "win": "F5", "mac": "F5", "linux": "F5" },
+          "description": "开始幻灯片放映"
+        },
+        {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "结束幻灯片放映"
+        },
+        {
+          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
+          "description": "关闭 PowerPoint"
+        }
       ]
     },
     {
       "name": "使用功能区选项卡的访问键",
       "shortcuts": [
         {
-          "command": { "win": "Alt+Q", "mac": "Alt+Q", "linux": "Alt+Q" },
+          "command": { "win": "Alt+Q", "mac": "Option+Q", "linux": "Alt+Q" },
           "description": "移动到功能区上的“搜索”字段，然后键入搜索词以查找帮助或帮助内容"
         },
-        { "command": { "win": "Alt+F", "mac": "Alt+F", "linux": "Alt+F" }, "description": "打开“文件”菜单" },
         {
-          "command": { "win": "Alt+H", "mac": "Alt+H", "linux": "Alt+H" },
+          "command": { "win": "Alt+F", "mac": "Option+F", "linux": "Alt+F" },
+          "description": "打开“文件”菜单"
+        },
+        {
+          "command": { "win": "Alt+H", "mac": "Option+H", "linux": "Alt+H" },
           "description": "打开“主页”选项卡并设置幻灯片、字体、段落或绘图的格式"
         },
         {
-          "command": { "win": "Alt+N", "mac": "Alt+N", "linux": "Alt+N" },
+          "command": { "win": "Alt+N", "mac": "Option+N", "linux": "Alt+N" },
           "description": "打开“插入”选项卡并插入幻灯片、表格、图像、插图、窗体、链接、文本、符号或媒体"
         },
         {
-          "command": { "win": "Alt+J, I", "mac": "Alt+J, I", "linux": "Alt+J, I" },
+          "command": {
+            "win": "Alt+J, I",
+            "mac": "Option+J, I",
+            "linux": "Alt+J, I"
+          },
           "description": "打开“绘图”选项卡并访问绘图工具"
         },
         {
-          "command": { "win": "Alt+G", "mac": "Alt+G", "linux": "Alt+G" },
+          "command": { "win": "Alt+G", "mac": "Option+G", "linux": "Alt+G" },
           "description": "打开“设计”选项卡，应用主题并自定义幻灯片"
         },
         {
-          "command": { "win": "Alt+K", "mac": "Alt+K", "linux": "Alt+K" },
+          "command": { "win": "Alt+K", "mac": "Option+K", "linux": "Alt+K" },
           "description": "打开“切换”选项卡，在幻灯片之间添加切换效果"
         },
         {
-          "command": { "win": "Alt+A", "mac": "Alt+A", "linux": "Alt+A" },
+          "command": { "win": "Alt+A", "mac": "Option+A", "linux": "Alt+A" },
           "description": "打开“动画”选项卡，向幻灯片添加动画"
         },
         {
-          "command": { "win": "Alt+S", "mac": "Alt+S", "linux": "Alt+S" },
+          "command": { "win": "Alt+S", "mac": "Option+S", "linux": "Alt+S" },
           "description": "打开“幻灯片放映”选项卡，设置和播放幻灯片放映"
         },
         {
-          "command": { "win": "Alt+R", "mac": "Alt+R", "linux": "Alt+R" },
+          "command": { "win": "Alt+R", "mac": "Option+R", "linux": "Alt+R" },
           "description": "打开“审阅”选项卡，检查拼写和辅助功能并添加批注"
         },
         {
-          "command": { "win": "Alt+W", "mac": "Alt+W", "linux": "Alt+W" },
+          "command": { "win": "Alt+W", "mac": "Option+W", "linux": "Alt+W" },
           "description": "打开“视图”选项卡和预览演示文稿布局、显示和隐藏网格线和参考线、设置缩放缩放、管理窗口和查看宏"
         },
         {
-          "command": { "win": "Alt+C", "mac": "Alt+C", "linux": "Alt+C" },
+          "command": { "win": "Alt+C", "mac": "Option+C", "linux": "Alt+C" },
           "description": "打开“录制”选项卡，在演示文稿中管理屏幕录制、音频和视频"
         },
         {
-          "command": { "win": "Alt+Y, 2", "mac": "Alt+Y, 2", "linux": "Alt+Y, 2" },
+          "command": {
+            "win": "Alt+Y, 2",
+            "mac": "Option+Y, 2",
+            "linux": "Alt+Y, 2"
+          },
           "description": "打开“帮助”选项卡并浏览 PowerPoint ，联系支持人员并留下反馈"
         }
       ]
@@ -107,22 +188,51 @@
       "name": "通过键盘使用功能区",
       "shortcuts": [
         {
-          "command": { "win": "Tab or Shift+Tab", "mac": "Tab or Shift+Tab", "linux": "Tab or Shift+Tab" },
+          "command": {
+            "win": "Tab or Shift+Tab",
+            "mac": "Tab or Shift+Tab",
+            "linux": "Tab or Shift+Tab"
+          },
           "description": "将焦点移动到功能区上的命令"
         },
         {
-          "command": { "win": "Arrow keys", "mac": "Arrow keys", "linux": "Arrow keys" },
+          "command": {
+            "win": "Arrow keys",
+            "mac": "Arrow keys",
+            "linux": "Arrow keys"
+          },
           "description": "在功能区上分别向下、向上、向左或向右在各项之间移动"
         },
         {
-          "command": { "win": "Spacebar or Enter", "mac": "Spacebar or Enter", "linux": "Spacebar or Enter" },
+          "command": {
+            "win": "Spacebar or Enter",
+            "mac": "Spacebar or Enter",
+            "linux": "Spacebar or Enter"
+          },
           "description": "激活所选按钮或控件"
         },
-        { "command": { "win": "↓", "mac": "↓", "linux": "↓" }, "description": "打开所选命令的列表" },
-        { "command": { "win": "Alt+↓", "mac": "Alt+↓", "linux": "Alt+↓" }, "description": "打开所选按钮的菜单" },
-        { "command": { "win": "Ctrl+F1", "mac": "Ctrl+F1", "linux": "Ctrl+F1" }, "description": "展开或收起功能区" },
         {
-          "command": { "win": "Shift+F10", "mac": "Shift+F10", "linux": "Shift+F10" },
+          "command": { "win": "↓", "mac": "↓", "linux": "↓" },
+          "description": "打开所选命令的列表"
+        },
+        {
+          "command": { "win": "Alt+↓", "mac": "Option+↓", "linux": "Alt+↓" },
+          "description": "打开所选按钮的菜单"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F1",
+            "mac": "Command+F1",
+            "linux": "Ctrl+F1"
+          },
+          "description": "展开或收起功能区"
+        },
+        {
+          "command": {
+            "win": "Shift+F10",
+            "mac": "Shift+F10",
+            "linux": "Shift+F10"
+          },
           "description": "打开上下文菜单"
         },
         {
@@ -138,13 +248,24 @@
     {
       "name": "在窗格之间移动",
       "shortcuts": [
-        { "command": { "win": "F6", "mac": "F6", "linux": "F6" }, "description": "在“普通”视图中的窗格之间顺时针循环" },
         {
-          "command": { "win": "Shift+F6", "mac": "Shift+F6", "linux": "Shift+F6" },
+          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
+          "description": "在“普通”视图中的窗格之间顺时针循环"
+        },
+        {
+          "command": {
+            "win": "Shift+F6",
+            "mac": "Shift+F6",
+            "linux": "Shift+F6"
+          },
           "description": "逆时针循环浏览“普通”视图中的窗格"
         },
         {
-          "command": { "win": "Ctrl+Shift+Tab", "mac": "Ctrl+Shift+Tab", "linux": "Ctrl+Shift+Tab" },
+          "command": {
+            "win": "Ctrl+Shift+Tab",
+            "mac": "Command+Shift+Tab",
+            "linux": "Ctrl+Shift+Tab"
+          },
           "description": "在“缩略图”窗格 和“大纲视图”窗格之间 切换"
         }
       ]
@@ -153,31 +274,59 @@
       "name": "在“大纲”视图中工作",
       "shortcuts": [
         {
-          "command": { "win": "Alt+Shift+←", "mac": "Alt+Shift+←", "linux": "Alt+Shift+←" },
+          "command": {
+            "win": "Alt+Shift+←",
+            "mac": "Option+Shift+←",
+            "linux": "Alt+Shift+←"
+          },
           "description": "提升段落级别"
         },
         {
-          "command": { "win": "Alt+Shift+→", "mac": "Alt+Shift+→", "linux": "Alt+Shift+→" },
+          "command": {
+            "win": "Alt+Shift+→",
+            "mac": "Option+Shift+→",
+            "linux": "Alt+Shift+→"
+          },
           "description": "降低段落级别"
         },
         {
-          "command": { "win": "Alt+Shift+↑", "mac": "Alt+Shift+↑", "linux": "Alt+Shift+↑" },
+          "command": {
+            "win": "Alt+Shift+↑",
+            "mac": "Option+Shift+↑",
+            "linux": "Alt+Shift+↑"
+          },
           "description": "上移所选段落"
         },
         {
-          "command": { "win": "Alt+Shift+↓", "mac": "Alt+Shift+↓", "linux": "Alt+Shift+↓" },
+          "command": {
+            "win": "Alt+Shift+↓",
+            "mac": "Option+Shift+↓",
+            "linux": "Alt+Shift+↓"
+          },
           "description": "下移所选段落"
         },
         {
-          "command": { "win": "Alt+Shift+1", "mac": "Alt+Shift+1", "linux": "Alt+Shift+1" },
+          "command": {
+            "win": "Alt+Shift+1",
+            "mac": "Option+Shift+1",
+            "linux": "Alt+Shift+1"
+          },
           "description": "显示级别 1 标题"
         },
         {
-          "command": { "win": "Alt+Shift+Plus", "mac": "Alt+Shift+Plus", "linux": "Alt+Shift+Plus" },
+          "command": {
+            "win": "Alt+Shift+Plus",
+            "mac": "Option+Shift+Plus",
+            "linux": "Alt+Shift+Plus"
+          },
           "description": "展开标题下的文本"
         },
         {
-          "command": { "win": "Alt+Shift+Minus", "mac": "Alt+Shift+Minus", "linux": "Alt+Shift+Minus" },
+          "command": {
+            "win": "Alt+Shift+Minus",
+            "mac": "Option+Shift+Minus",
+            "linux": "Alt+Shift+Minus"
+          },
           "description": "折叠标题下的文本"
         }
       ]
@@ -185,14 +334,28 @@
     {
       "name": "选择并编辑文本和对象",
       "shortcuts": [
-        { "command": { "win": "Shift+→", "mac": "Shift+→", "linux": "Shift+→" }, "description": "向右选择一个字符" },
-        { "command": { "win": "Shift+←", "mac": "Shift+←", "linux": "Shift+←" }, "description": "向左选择一个字符" },
         {
-          "command": { "win": "Ctrl+Shift+→", "mac": "Ctrl+Shift+→", "linux": "Ctrl+Shift+→" },
+          "command": { "win": "Shift+→", "mac": "Shift+→", "linux": "Shift+→" },
+          "description": "向右选择一个字符"
+        },
+        {
+          "command": { "win": "Shift+←", "mac": "Shift+←", "linux": "Shift+←" },
+          "description": "向左选择一个字符"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+→",
+            "mac": "Command+Shift+→",
+            "linux": "Ctrl+Shift+→"
+          },
           "description": "选择到词尾"
         },
         {
-          "command": { "win": "Ctrl+Shift+←", "mac": "Ctrl+Shift+←", "linux": "Ctrl+Shift+←" },
+          "command": {
+            "win": "Ctrl+Shift+←",
+            "mac": "Command+Shift+←",
+            "linux": "Ctrl+Shift+←"
+          },
           "description": "选择到词首"
         },
         {
@@ -203,29 +366,60 @@
           "command": { "win": "Shift+↓", "mac": "Shift+↓", "linux": "Shift+↓" },
           "description": "选择下一行（前提是光标位于行的开头）"
         },
-        { "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" }, "description": "选择对象内的文本时，选择对象" },
         {
-          "command": { "win": "Tab or Shift+Tab", "mac": "Tab or Shift+Tab", "linux": "Tab or Shift+Tab" },
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "选择对象内的文本时，选择对象"
+        },
+        {
+          "command": {
+            "win": "Tab or Shift+Tab",
+            "mac": "Tab or Shift+Tab",
+            "linux": "Tab or Shift+Tab"
+          },
           "description": "选择一个对象时选择另一个对象"
         },
-        { "command": { "win": "Ctrl+[", "mac": "Ctrl+[", "linux": "Ctrl+[" }, "description": "将对象向后发送一个位置" },
-        { "command": { "win": "Ctrl+]", "mac": "Ctrl+]", "linux": "Ctrl+]" }, "description": "将对象向前发送一个位置" },
         {
-          "command": { "win": "Ctrl+Shift+[", "mac": "Ctrl+Shift+[", "linux": "Ctrl+Shift+[" },
+          "command": { "win": "Ctrl+[", "mac": "Command+[", "linux": "Ctrl+[" },
+          "description": "将对象向后发送一个位置"
+        },
+        {
+          "command": { "win": "Ctrl+]", "mac": "Command+]", "linux": "Ctrl+]" },
+          "description": "将对象向前发送一个位置"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+[",
+            "mac": "Command+Shift+[",
+            "linux": "Ctrl+Shift+["
+          },
           "description": "将对象置于底层"
         },
         {
-          "command": { "win": "Ctrl+Shift+]", "mac": "Ctrl+Shift+]", "linux": "Ctrl+Shift+]" },
+          "command": {
+            "win": "Ctrl+Shift+]",
+            "mac": "Command+Shift+]",
+            "linux": "Ctrl+Shift+]"
+          },
           "description": "将对象发送到顶层"
         },
-        { "command": { "win": "Enter", "mac": "Enter", "linux": "Enter" }, "description": "选择对象内的文本" },
-        { "command": { "win": "Ctrl+A", "mac": "Ctrl+A", "linux": "Ctrl+A" }, "description": "选择幻灯片上的所有对象" },
         {
-          "command": { "win": "Ctrl+Spacebar", "mac": "Ctrl+Spacebar", "linux": "Ctrl+Spacebar" },
+          "command": { "win": "Enter", "mac": "Enter", "linux": "Enter" },
+          "description": "选择对象内的文本"
+        },
+        {
+          "command": { "win": "Ctrl+A", "mac": "Command+A", "linux": "Ctrl+A" },
+          "description": "选择幻灯片上的所有对象"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Spacebar",
+            "mac": "Command+Spacebar",
+            "linux": "Ctrl+Spacebar"
+          },
           "description": "播放或暂停媒体"
         },
         {
-          "command": { "win": "Ctrl+A", "mac": "Ctrl+A", "linux": "Ctrl+A" },
+          "command": { "win": "Ctrl+A", "mac": "Command+A", "linux": "Ctrl+A" },
           "description": "在“幻灯片浏览”视图或缩略图窗格中选择所有幻灯片"
         }
       ]
@@ -234,45 +428,95 @@
       "name": "删除和复制文本和对象",
       "shortcuts": [
         {
-          "command": { "win": "Backspace", "mac": "Backspace", "linux": "Backspace" },
+          "command": {
+            "win": "Backspace",
+            "mac": "Backspace",
+            "linux": "Backspace"
+          },
           "description": "向左删除一个字符"
         },
         {
-          "command": { "win": "Ctrl+Backspace", "mac": "Ctrl+Backspace", "linux": "Ctrl+Backspace" },
+          "command": {
+            "win": "Ctrl+Backspace",
+            "mac": "Command+Backspace",
+            "linux": "Ctrl+Backspace"
+          },
           "description": "向左删除一个字词"
         },
-        { "command": { "win": "Delete", "mac": "Delete", "linux": "Delete" }, "description": "向右删除一个字符" },
         {
-          "command": { "win": "Ctrl+Delete", "mac": "Ctrl+Delete", "linux": "Ctrl+Delete" },
+          "command": { "win": "Delete", "mac": "Delete", "linux": "Delete" },
+          "description": "向右删除一个字符"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Delete",
+            "mac": "Command+Delete",
+            "linux": "Ctrl+Delete"
+          },
           "description": "在右侧位置删除(光标位于两个单词之间) "
         },
-        { "command": { "win": "Ctrl+X", "mac": "Ctrl+X", "linux": "Ctrl+X" }, "description": "剪切选定的对象或文本" },
-        { "command": { "win": "Ctrl+C", "mac": "Ctrl+C", "linux": "Ctrl+C" }, "description": "复制选定的对象或文本" },
         {
-          "command": { "win": "Ctrl+V", "mac": "Ctrl+V", "linux": "Ctrl+V" },
+          "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
+          "description": "剪切选定的对象或文本"
+        },
+        {
+          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
+          "description": "复制选定的对象或文本"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
           "description": "粘贴剪切或复制的对象或文本"
         },
-        { "command": { "win": "Ctrl+D", "mac": "Ctrl+D", "linux": "Ctrl+D" }, "description": "复制对象" },
-        { "command": { "win": "Ctrl+Z", "mac": "Ctrl+Z", "linux": "Ctrl+Z" }, "description": "撤消最后一个操作" },
-        { "command": { "win": "Ctrl+Y", "mac": "Ctrl+Y", "linux": "Ctrl+Y" }, "description": "恢复最后一个操作" },
         {
-          "command": { "win": "Ctrl+Shift+C", "mac": "Ctrl+Shift+C", "linux": "Ctrl+Shift+C" },
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "复制对象"
+        },
+        {
+          "command": { "win": "Ctrl+Z", "mac": "Command+Z", "linux": "Ctrl+Z" },
+          "description": "撤消最后一个操作"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "恢复最后一个操作"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+C",
+            "mac": "Command+Shift+C",
+            "linux": "Ctrl+Shift+C"
+          },
           "description": "只复制格式"
         },
         {
-          "command": { "win": "Ctrl+Shift+V", "mac": "Ctrl+Shift+V", "linux": "Ctrl+Shift+V" },
+          "command": {
+            "win": "Ctrl+Shift+V",
+            "mac": "Command+Shift+V",
+            "linux": "Ctrl+Shift+V"
+          },
           "description": "只粘贴格式"
         },
         {
-          "command": { "win": "Alt+Shift+C", "mac": "Alt+Shift+C", "linux": "Alt+Shift+C" },
+          "command": {
+            "win": "Alt+Shift+C",
+            "mac": "Option+Shift+C",
+            "linux": "Alt+Shift+C"
+          },
           "description": "复制动画刷"
         },
         {
-          "command": { "win": "Alt+Shift+V", "mac": "Alt+Shift+V", "linux": "Alt+Shift+V" },
+          "command": {
+            "win": "Alt+Shift+V",
+            "mac": "Option+Shift+V",
+            "linux": "Alt+Shift+V"
+          },
           "description": "粘贴动画刷"
         },
         {
-          "command": { "win": "Ctrl+Alt+V", "mac": "Ctrl+Alt+V", "linux": "Ctrl+Alt+V" },
+          "command": {
+            "win": "Ctrl+Alt+V",
+            "mac": "Command+Option+V",
+            "linux": "Ctrl+Alt+V"
+          },
           "description": "打开“选择性粘贴”对话框"
         }
       ]
