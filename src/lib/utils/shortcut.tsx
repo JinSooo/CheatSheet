@@ -66,6 +66,8 @@ const commandMap = new Map<string, string | JSX.Element>([
   ['Down', '↓'],
   ['Left', '←'],
   ['Right', '→'],
+  ['Plus', '+'],
+  ['Minus', '-'],
 ])
 
 // 将快捷键转换为对应的图标和字符

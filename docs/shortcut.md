@@ -50,6 +50,8 @@ Linux
 - `ArrowRight` -> `Right`
 - `ArrowUp` -> `Up`
 - `ArrowDown` -> `Down`
+- `+` -> `Plus`
+- `-` -> `Minus`
 
 ### 转义字符
 
