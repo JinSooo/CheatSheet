@@ -28,7 +28,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (configStore.path) initWindowStyle(configStore)
+    if (configStore) initWindowStyle(configStore)
   }, [configStore])
 
   useEffect(() => {

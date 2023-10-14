@@ -46,7 +46,7 @@ export default function RootLayout({
   }
 
   const appendFontFamilyHTMLElement = (fontFamily: string) => {
-    let style = document.createElement('style')
+    const style = document.createElement('style')
     style.innerHTML = `* { font-family: ${fontFamily} !important; }`
     document.head.appendChild(style)
   }

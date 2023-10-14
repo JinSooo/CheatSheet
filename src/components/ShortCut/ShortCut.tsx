@@ -32,7 +32,6 @@ const ShortCut = () => {
   const initShortCut = async () => {
     // 操作系统快捷键
     osShortCutRef.current = await readOSShortCut(os)
-
     // CheatSheet软件快捷键提示
     cheatSheetShortCutRef.current = (await readAppShortCut('CheatSheet')) as ShortCutType
   }
@@ -58,24 +57,22 @@ const ShortCut = () => {
   }, [shortcut])
 
   useEffect(() => {
-    initListen()
-  }, [])
-
-  useEffect(() => {
     initShortCut()
   }, [os])
+
+  useEffect(() => {
+    initListen()
+  }, [])
 
   return (
     <div className='w-full h-full box-border p-6 select-none'>
       {/* 瀑布流布局 */}
       <MasonryGrid>
         {shortcut?.categories.map((category) => (
-          <Category key={shortcut.name + category.name} category={category} />
+          <Category key={category.name} category={category} />
         ))}
         {/* CheatSheet辅助信息 */}
-        {cheatSheetShortCutRef.current?.categories.map((category) => (
-          <Category key={cheatSheetShortCutRef.current?.name + category.name} category={category} />
-        ))}
+        {cheatSheetShortCutRef.current && <Category category={cheatSheetShortCutRef.current?.categories[0]} />}
       </MasonryGrid>
     </div>
   )
