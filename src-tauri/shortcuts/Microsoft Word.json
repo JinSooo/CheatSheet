@@ -22,6 +22,23 @@
           "description": "关闭文档"
         },
         {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "取消命令"
+        },
+        {
+          "command": { "win": "Ctrl+Z", "mac": "Command+Z", "linux": "Ctrl+Z" },
+          "description": "撤消上一操作"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "如果可能，请恢复上一操作"
+        }
+      ]
+    },
+    {
+      "name": "编辑",
+      "shortcuts": [
+        {
           "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
           "description": "将所选内容剪切到剪贴板"
         },
@@ -68,19 +85,12 @@
         {
           "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
           "description": "将文本右对齐"
-        },
-        {
-          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
-          "description": "取消命令"
-        },
-        {
-          "command": { "win": "Ctrl+Z", "mac": "Command+Z", "linux": "Ctrl+Z" },
-          "description": "撤消上一操作"
-        },
-        {
-          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
-          "description": "如果可能，请恢复上一操作"
-        },
+        }
+      ]
+    },
+    {
+      "name": "文档窗口",
+      "shortcuts": [
         {
           "command": {
             "win": "Ctrl+Alt+S",
@@ -108,99 +118,87 @@
       ]
     },
     {
-      "name": "使用功能区选项卡的访问键",
+      "name": "选项卡",
       "shortcuts": [
         {
           "command": { "win": "Alt+Q", "mac": "Option+Q", "linux": "Alt+Q" },
-          "description": "移动到功能区上的“告诉我搜索”或“搜索”字段以搜索帮助或帮助内容"
+          "description": "移动到功能区上的\"告诉我搜索\"或\"搜索\"字段"
         },
         {
           "command": { "win": "Alt+F", "mac": "Option+F", "linux": "Alt+F" },
-          "description": "打开“文件”页以使用 Backstage 视图"
+          "description": "打开\"文件\"页以使用 Backstage 视图"
         },
         {
           "command": { "win": "Alt+H", "mac": "Option+H", "linux": "Alt+H" },
-          "description": "打开“开始”选项卡，使用常见的格式命令、段落样式和“查找”工具"
+          "description": "打开\"开始\"选项卡"
         },
         {
           "command": { "win": "Alt+N", "mac": "Option+N", "linux": "Alt+N" },
-          "description": "打开“插入”选项卡以插入表格、图片和形状、页眉或文本框"
+          "description": "打开\"插入\"选项卡"
         },
         {
           "command": { "win": "Alt+G", "mac": "Option+G", "linux": "Alt+G" },
-          "description": "打开“设计”选项卡以使用主题、颜色和效果，如页面边框"
+          "description": "打开\"设计\"选项卡"
         },
         {
           "command": { "win": "Alt+P", "mac": "Option+P", "linux": "Alt+P" },
-          "description": "打开“布局”选项卡以使用页边距、页面方向、缩进和间距"
+          "description": "打开\"布局\"选项卡"
         },
         {
           "command": { "win": "Alt+S", "mac": "Option+S", "linux": "Alt+S" },
-          "description": "打开“引用”选项卡，添加目录、脚注或引文表"
+          "description": "打开\"引用\"选项卡"
         },
         {
           "command": { "win": "Alt+M", "mac": "Option+M", "linux": "Alt+M" },
-          "description": "打开“邮件”选项卡以管理邮件合并任务以及处理信封和标签"
+          "description": "打开\"邮件\"选项卡"
         },
         {
           "command": { "win": "Alt+R", "mac": "Option+R", "linux": "Alt+R" },
-          "description": "打开“审阅”选项卡以使用拼写检查、设置校对语言，以及跟踪和审阅对文档的更改"
+          "description": "打开\"审阅\"选项卡"
         },
         {
           "command": { "win": "Alt+W", "mac": "Option+W", "linux": "Alt+W" },
-          "description": "打开“视图”选项卡以选择文档视图或模式，例如阅读模式或大纲视图。 还可以设置缩放缩放和管理多个文档窗口"
+          "description": "打开\"视图\"选项卡"
         }
       ]
     },
     {
-      "name": "通过键盘使用功能区",
+      "name": "功能区",
       "shortcuts": [
         {
           "command": {
-            "win": "Alt or F10",
-            "mac": "Option or F10",
-            "linux": "Alt or F10"
+            "win": "Alt | F10",
+            "mac": "Option | F10",
+            "linux": "Alt | F10"
           },
           "description": "选择功能区的活动选项卡并激活访问键"
         },
         {
           "command": {
-            "win": "Tab or Shift+Tab",
-            "mac": "Tab or Shift+Tab",
-            "linux": "Tab or Shift+Tab"
+            "win": "Tab | Shift+Tab",
+            "mac": "Tab | Shift+Tab",
+            "linux": "Tab | Shift+Tab"
           },
           "description": "将焦点移动到功能区上的命令"
         },
         {
           "command": {
-            "win": "Ctrl+←/→",
-            "mac": "Command+←/→",
-            "linux": "Ctrl+←/→"
+            "win": "Ctrl+Left | Ctrl+Right",
+            "mac": "Command+Left | Command+Right",
+            "linux": "Ctrl+Left | Ctrl+Right"
           },
           "description": "在功能区上的命令分组之间移动"
         },
         {
-          "command": {
-            "win": "Arrow keys",
-            "mac": "Arrow keys",
-            "linux": "Arrow keys"
-          },
-          "description": "在功能区上的项目之间移动"
-        },
-        {
-          "command": {
-            "win": "Spacebar or Enter",
-            "mac": "Spacebar or Enter",
-            "linux": "Spacebar or Enter"
-          },
-          "description": "激活所选按钮"
-        },
-        {
-          "command": { "win": "↓", "mac": "↓", "linux": "↓" },
+          "command": { "win": "Down", "mac": "Down", "linux": "Down" },
           "description": "打开所选命令的列表"
         },
         {
-          "command": { "win": "Alt+↓", "mac": "Option+↓", "linux": "Alt+↓" },
+          "command": {
+            "win": "Alt+Down",
+            "mac": "Option+Down",
+            "linux": "Alt+Down"
+          },
           "description": "打开所选按钮的菜单"
         },
         {
@@ -220,28 +218,44 @@
           "description": "打开上下文菜单"
         },
         {
-          "command": { "win": "←", "mac": "←", "linux": "←" },
+          "command": { "win": "Left", "mac": "Left", "linux": "Left" },
           "description": "当主菜单处于打开或选中状态时，移到子菜单"
         }
       ]
     },
     {
-      "name": "导航文档",
+      "name": "光标",
       "shortcuts": [
         {
-          "command": { "win": "Ctrl+←", "mac": "Command+←", "linux": "Ctrl+←" },
+          "command": {
+            "win": "Ctrl+Left",
+            "mac": "Command+Left",
+            "linux": "Ctrl+Left"
+          },
           "description": "将光标向左移动一个字词"
         },
         {
-          "command": { "win": "Ctrl+→", "mac": "Command+→", "linux": "Ctrl+→" },
+          "command": {
+            "win": "Ctrl+Right",
+            "mac": "Command+Right",
+            "linux": "Ctrl+Right"
+          },
           "description": "将光标向右移动一个字词"
         },
         {
-          "command": { "win": "Ctrl+↑", "mac": "Command+↑", "linux": "Ctrl+↑" },
+          "command": {
+            "win": "Ctrl+Up",
+            "mac": "Command+Up",
+            "linux": "Ctrl+Up"
+          },
           "description": "将光标向上移动一个段落"
         },
         {
-          "command": { "win": "Ctrl+↓", "mac": "Command+↓", "linux": "Ctrl+↓" },
+          "command": {
+            "win": "Ctrl+Down",
+            "mac": "Command+Down",
+            "linux": "Ctrl+Down"
+          },
           "description": "将光标向下移动一个段落"
         },
         {
@@ -254,45 +268,45 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Page up",
-            "mac": "Command+Option+Page up",
-            "linux": "Ctrl+Alt+Page up"
+            "win": "Ctrl+Alt+PgUp",
+            "mac": "Command+Option+PgUp",
+            "linux": "Ctrl+Alt+PgUp"
           },
           "description": "将光标移动到屏幕顶部"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Page down",
-            "mac": "Command+Option+Page down",
-            "linux": "Ctrl+Alt+Page down"
+            "win": "Ctrl+Alt+PgDn",
+            "mac": "Command+Option+PgDn",
+            "linux": "Ctrl+Alt+PgDn"
           },
           "description": "将光标移动到屏幕底部"
         },
         {
-          "command": { "win": "Page up", "mac": "Page up", "linux": "Page up" },
+          "command": { "win": "PgUp", "mac": "PgUp", "linux": "PgUp" },
           "description": "将文档视图向上滚动一个屏幕来移动光标"
         },
         {
           "command": {
-            "win": "Page down",
-            "mac": "Page down",
-            "linux": "Page down"
+            "win": "PgDn",
+            "mac": "PgDn",
+            "linux": "PgDn"
           },
           "description": "将文档视图向下滚动一个屏幕来移动光标"
         },
         {
           "command": {
-            "win": "Ctrl+Page down",
-            "mac": "Command+Page down",
-            "linux": "Ctrl+Page down"
+            "win": "Ctrl+PgDn",
+            "mac": "Command+PgDn",
+            "linux": "Ctrl+PgDn"
           },
           "description": "将光标移动到下一页的顶部"
         },
         {
           "command": {
-            "win": "Ctrl+Page up",
-            "mac": "Command+Page up",
-            "linux": "Ctrl+Page up"
+            "win": "Ctrl+PgUp",
+            "mac": "Command+PgUp",
+            "linux": "Ctrl+PgUp"
           },
           "description": "将光标移动到上一页的顶部"
         },
@@ -319,7 +333,12 @@
             "linux": "Shift+F5"
           },
           "description": "将光标移动到上一修订的位置"
-        },
+        }
+      ]
+    },
+    {
+      "name": "导航文档",
+      "shortcuts": [
         {
           "command": {
             "win": "Ctrl+Alt+5",
@@ -334,11 +353,11 @@
         },
         {
           "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
-          "description": "显示“导航”任务窗格，在文档内容中搜索"
+          "description": "显示\"导航\"任务窗格，在文档内容中搜索"
         },
         {
           "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
-          "description": "显示“定位”对话框，导航到特定页面、书签、脚注、表格、批注、图形或其他位置"
+          "description": "显示\"定位\"对话框，导航到特定页面、书签、脚注、表格、批注、图形或其他位置"
         },
         {
           "command": {
@@ -367,17 +386,9 @@
         },
         {
           "command": {
-            "win": "Arrow keys",
-            "mac": "Arrow keys",
-            "linux": "Arrow keys"
-          },
-          "description": "在放大的预览页上移动"
-        },
-        {
-          "command": {
-            "win": "Page up or Page down",
-            "mac": "Page up or Page down",
-            "linux": "Page up or Page down"
+            "win": "PgUp | PgDn",
+            "mac": "PgUp | PgDn",
+            "linux": "PgUp | PgDn"
           },
           "description": "在缩小显示比例时逐页翻阅预览页"
         },
@@ -404,25 +415,17 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Shift+Arrow keys",
-            "mac": "Shift+Arrow keys",
-            "linux": "Shift+Arrow keys"
-          },
-          "description": "选择文本"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Shift+←",
-            "mac": "Command+Shift+←",
-            "linux": "Ctrl+Shift+←"
+            "win": "Ctrl+Shift+Left",
+            "mac": "Command+Shift+Left",
+            "linux": "Ctrl+Shift+Left"
           },
           "description": "选择左侧的单词"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+→",
-            "mac": "Command+Shift+→",
-            "linux": "Ctrl+Shift+→"
+            "win": "Ctrl+Shift+Right",
+            "mac": "Command+Shift+Right",
+            "linux": "Ctrl+Shift+Right"
           },
           "description": "选择右侧单词"
         },
@@ -444,33 +447,33 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+↑",
-            "mac": "Command+Shift+↑",
-            "linux": "Ctrl+Shift+↑"
+            "win": "Ctrl+Shift+Up",
+            "mac": "Command+Shift+Up",
+            "linux": "Ctrl+Shift+Up"
           },
           "description": "从当前位置选择到当前段落的开头"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+↓",
-            "mac": "Command+Shift+↓",
-            "linux": "Ctrl+Shift+↓"
+            "win": "Ctrl+Shift+Down",
+            "mac": "Command+Shift+Down",
+            "linux": "Ctrl+Shift+Down"
           },
           "description": "从当前位置选择到当前段落的末尾"
         },
         {
           "command": {
-            "win": "Shift+Page up",
-            "mac": "Shift+Page up",
-            "linux": "Shift+Page up"
+            "win": "Shift+PgUp",
+            "mac": "Shift+PgUp",
+            "linux": "Shift+PgUp"
           },
           "description": "从当前位置选择到屏幕顶部"
         },
         {
           "command": {
-            "win": "Shift+Page down",
-            "mac": "Shift+Page down",
-            "linux": "Shift+Page down"
+            "win": "Shift+PgDn",
+            "mac": "Shift+PgDn",
+            "linux": "Shift+PgDn"
           },
           "description": "从当前位置选择到屏幕底部"
         },
@@ -492,9 +495,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+Page down",
-            "mac": "Command+Option+Shift+Page down",
-            "linux": "Ctrl+Alt+Shift+Page down"
+            "win": "Ctrl+Alt+Shift+PgDn",
+            "mac": "Command+Option+Shift+PgDn",
+            "linux": "Ctrl+Alt+Shift+PgDn"
           },
           "description": "从当前位置选择窗口底部"
         },
@@ -512,24 +515,12 @@
           "description": "开始扩展所选内容"
         },
         {
-          "command": { "win": "F8, ←/→", "mac": "F8, ←/→", "linux": "F8, ←/→" },
-          "description": "向左或向右选择最近的字符"
-        },
-        {
           "command": {
             "win": "Shift+F8",
             "mac": "Shift+F8",
             "linux": "Shift+F8"
           },
           "description": "减少选择"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Shift+F8,arrow keys",
-            "mac": "Command+Shift+F8,arrow keys",
-            "linux": "Ctrl+Shift+F8,arrow keys"
-          },
-          "description": "纵向选择文字块"
         },
         {
           "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
@@ -557,26 +548,6 @@
           "description": "向右删除一个字词"
         },
         {
-          "command": {
-            "win": "Alt+H, F, O",
-            "mac": "Option+H, F, O",
-            "linux": "Alt+H, F, O"
-          },
-          "description": "打开剪贴板任务窗格，从而允许在应用之间复制和粘贴 Microsoft Office 内容"
-        },
-        {
-          "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
-          "description": "将所选内容剪切到剪贴板"
-        },
-        {
-          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
-          "description": "将所选内容复制到剪贴板"
-        },
-        {
-          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
-          "description": "粘贴剪贴板的内容"
-        },
-        {
           "command": { "win": "Alt+F3", "mac": "Option+F3", "linux": "Alt+F3" },
           "description": "使用所选内容定义自动图文集块"
         },
@@ -586,7 +557,7 @@
             "mac": "Command+F3",
             "linux": "Ctrl+F3"
           },
-          "description": "将所选内容剪切到“峰值”"
+          "description": "将所选内容剪切到\"峰值\""
         },
         {
           "command": {
@@ -622,29 +593,21 @@
         },
         {
           "command": { "win": "Ctrl+H", "mac": "Command+H", "linux": "Ctrl+H" },
-          "description": "显示“替换”对话框，查找和替换文本、特定格式或特殊项目"
+          "description": "显示\"替换\"对话框，查找和替换文本、特定格式或特殊项目"
         },
         {
           "command": {
-            "win": "Alt+N, J, J",
-            "mac": "Option+N, J, J",
-            "linux": "Alt+N, J, J"
-          },
-          "description": "显示“对象”对话框，将文件对象插入文档"
-        },
-        {
-          "command": {
-            "win": "Alt+N, M",
-            "mac": "Option+N, M",
-            "linux": "Alt+N, M"
+            "win": "Alt+N & M",
+            "mac": "Option+N & M",
+            "linux": "Alt+N & M"
           },
           "description": "插入SmartArt图形"
         },
         {
           "command": {
-            "win": "Alt+N, W",
-            "mac": "Option+N, W",
-            "linux": "Alt+N, W"
+            "win": "Alt+N & W",
+            "mac": "Option+N & W",
+            "linux": "Alt+N & W"
           },
           "description": "插入艺术字图形"
         }
