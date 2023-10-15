@@ -3,7 +3,7 @@
   "name": "Google Chrome",
   "categories": [
     {
-      "name": "标签页和窗口快捷键",
+      "name": "标签页",
       "shortcuts": [
         {
           "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
@@ -96,7 +96,12 @@
             "linux": "Ctrl+F4"
           },
           "description": "关闭当前标签页"
-        },
+        }
+      ]
+    },
+    {
+      "name": "窗口",
+      "shortcuts": [
         {
           "command": {
             "win": "Ctrl+Shift+W",
@@ -136,14 +141,14 @@
       ]
     },
     {
-      "name": "Google Chrome 功能快捷键",
+      "name": "功能",
       "shortcuts": [
         {
-          "command": { "win": "Alt+F", "mac": "Option+F", "linux": "Alt+F" },
-          "description": "打开 Chrome 菜单"
-        },
-        {
-          "command": { "win": "Alt+E", "mac": "Option+E", "linux": "Alt+E" },
+          "command": {
+            "win": "Alt+F | Alt+E",
+            "mac": "Option+F | Option+E",
+            "linux": "Alt+F | Alt+E"
+          },
           "description": "打开 Chrome 菜单"
         },
         {
@@ -179,22 +184,6 @@
           "description": "打开 Chrome 任务管理器"
         },
         {
-          "command": {
-            "win": "Shift+Alt+T",
-            "mac": "Shift+Option+T",
-            "linux": "Shift+Alt+T"
-          },
-          "description": "将焦点放置在 Chrome 工具栏中的第一项上"
-        },
-        {
-          "command": { "win": "F10", "mac": "F10", "linux": "F10" },
-          "description": "将焦点放置在 Chrome 工具栏中最右侧的那一项上"
-        },
-        {
-          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
-          "description": "将焦点移到未聚焦的对话框（如果显示）或所有工具栏"
-        },
-        {
           "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
           "description": "打开查找栏搜索当前网页"
         },
@@ -216,14 +205,10 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+J",
-            "mac": "Command+Shift+J",
-            "linux": "Ctrl+Shift+J"
+            "win": "Ctrl+Shift+J | F12",
+            "mac": "Command+Shift+J | F12",
+            "linux": "Ctrl+Shift+J | F12"
           },
-          "description": "打开\"开发者工具\""
-        },
-        {
-          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
           "description": "打开\"开发者工具\""
         },
         {
@@ -253,10 +238,6 @@
             "linux": "Alt+Shift+I"
           },
           "description": "打开反馈表单"
-        },
-        {
-          "command": { "win": "F7", "mac": "F7", "linux": "F7" },
-          "description": "开启光标浏览模式"
         },
         {
           "command": {
@@ -302,43 +283,31 @@
       ]
     },
     {
-      "name": "网页快捷键",
+      "name": "网页",
       "shortcuts": [
         {
           "command": { "win": "Ctrl+P", "mac": "Command+P", "linux": "Ctrl+P" },
-          "description": "打开选项以打印当前网页"
+          "description": "打印当前网页"
         },
         {
           "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
-          "description": "打开选项以保存当前网页"
+          "description": "保存当前网页"
         },
         {
-          "command": { "win": "F5 ", "mac": "F5 ", "linux": "F5 " },
-          "description": "重新加载当前网页"
-        },
-        {
-          "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
+          "command": {
+            "win": "F5 | Ctrl+R",
+            "mac": "F5 | Command+R",
+            "linux": "F5 | Ctrl+R"
+          },
           "description": "重新加载当前网页"
         },
         {
           "command": {
-            "win": "Shift+F5",
-            "mac": "Shift+F5",
-            "linux": "Shift+F5"
+            "win": "Shift+F5 | Ctrl+Shift+R",
+            "mac": "Shift+F5 | Command+Shift+R",
+            "linux": "Shift+F5 | Ctrl+Shift+R"
           },
           "description": "重新加载当前网页（忽略缓存的内容）"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Shift+R",
-            "mac": "Command+Shift+R",
-            "linux": "Ctrl+Shift+R"
-          },
-          "description": "重新加载当前网页（忽略缓存的内容）"
-        },
-        {
-          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
-          "description": "停止加载网页"
         },
         {
           "command": { "win": "Tab", "mac": "Tab", "linux": "Tab" },
@@ -373,30 +342,6 @@
           "description": "将所有打开的标签页以书签的形式保存在新文件夹中"
         },
         {
-          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
-          "description": "开启或关闭全屏模式"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Plus",
-            "mac": "Command+Plus",
-            "linux": "Ctrl+Plus"
-          },
-          "description": "放大网页上的所有内容"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Minus",
-            "mac": "Command+Minus",
-            "linux": "Ctrl+Minus"
-          },
-          "description": "缩小网页上的所有内容"
-        },
-        {
-          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
-          "description": "将网页上的所有内容恢复到默认大小"
-        },
-        {
           "command": {
             "win": "Space | PgDn",
             "mac": "Space | PgDn",
@@ -422,6 +367,43 @@
         },
         {
           "command": {
+            "win": "Alt+Home",
+            "mac": "Option+Home",
+            "linux": "Alt+Home"
+          },
+          "description": "在当前标签页中打开主页"
+        }
+      ]
+    },
+    {
+      "name": "内容",
+      "shortcuts": [
+        {
+          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
+          "description": "开启或关闭全屏模式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Plus",
+            "mac": "Command+Plus",
+            "linux": "Ctrl+Plus"
+          },
+          "description": "放大网页上的所有内容"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
+          },
+          "description": "缩小网页上的所有内容"
+        },
+        {
+          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
+          "description": "将网页上的所有内容恢复到默认大小"
+        },
+        {
+          "command": {
             "win": "Ctrl+Left",
             "mac": "Command+Left",
             "linux": "Ctrl+Left"
@@ -443,14 +425,6 @@
             "linux": "Ctrl+Backspace"
           },
           "description": "删除文本字段中的上一个字词"
-        },
-        {
-          "command": {
-            "win": "Alt+Home",
-            "mac": "Option+Home",
-            "linux": "Alt+Home"
-          },
-          "description": "在当前标签页中打开主页"
         }
       ]
     }
