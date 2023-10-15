@@ -7,9 +7,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Double Shift",
-            "mac": "Double Shift",
-            "linux": "Double Shift"
+            "win": "Shift+Shift",
+            "mac": "Shift+Shift",
+            "linux": "Shift+Shift"
           },
           "description": "全局搜索"
         },
@@ -71,9 +71,9 @@
         },
         {
           "command": {
-            "win": "Double Ctrl",
-            "mac": "Double Command",
-            "linux": "Double Ctrl"
+            "win": "Ctrl+Ctrl",
+            "mac": "Command+Command",
+            "linux": "Ctrl+Ctrl"
           },
           "description": "运行任何东西"
         },
@@ -111,7 +111,7 @@
             "mac": "Command+Option+Shift+T",
             "linux": "Ctrl+Alt+Shift+T"
           },
-          "description": "重构这个"
+          "description": "重构"
         },
         {
           "command": {
@@ -281,11 +281,19 @@
       "name": "插入符号导航",
       "shortcuts": [
         {
-          "command": { "win": "Ctrl+←", "mac": "Command+←", "linux": "Ctrl+←" },
+          "command": {
+            "win": "Ctrl+Left",
+            "mac": "Command+Left",
+            "linux": "Ctrl+Left"
+          },
           "description": "将插入符号移动到上一个单词"
         },
         {
-          "command": { "win": "Ctrl+→", "mac": "Command+→", "linux": "Ctrl+→" },
+          "command": {
+            "win": "Ctrl+Right",
+            "mac": "Command+Right",
+            "linux": "Ctrl+Right"
+          },
           "description": "将插入符号移动到下一个单词"
         },
         {
@@ -313,38 +321,42 @@
           "description": "将插入符号移动到代码块末尾"
         },
         {
-          "command": { "win": "Alt+↓", "mac": "Option+↓", "linux": "Alt+↓" },
+          "command": {
+            "win": "Alt+Down",
+            "mac": "Option+Down",
+            "linux": "Alt+Down"
+          },
           "description": "下一个方法"
         },
         {
-          "command": { "win": "Alt+↑", "mac": "Option+↑", "linux": "Alt+↑" },
+          "command": { "win": "Alt+Up", "mac": "Option+Up", "linux": "Alt+Up" },
           "description": "上一个的方法"
         },
         {
           "command": {
-            "win": "Ctrl+Page Up",
-            "mac": "Command+Page Up",
-            "linux": "Ctrl+Page Up"
+            "win": "Ctrl+PgUp",
+            "mac": "Command+PgUp",
+            "linux": "Ctrl+PgUp"
           },
           "description": "将插入符号移至页面顶部"
         },
         {
           "command": {
-            "win": "Ctrl+Page Down",
-            "mac": "Command+Page Down",
-            "linux": "Ctrl+Page Down"
+            "win": "Ctrl+PgDn",
+            "mac": "Command+PgDn",
+            "linux": "Ctrl+PgDn"
           },
           "description": "将插入符号移至页面底部"
         },
         {
-          "command": { "win": "Page Up", "mac": "Page Up", "linux": "Page Up" },
+          "command": { "win": "PgUp", "mac": "PgUp", "linux": "PgUp" },
           "description": "向上翻页"
         },
         {
           "command": {
-            "win": "Page Down",
-            "mac": "Page Down",
-            "linux": "Page Down"
+            "win": "PgDn",
+            "mac": "PgDn",
+            "linux": "PgDn"
           },
           "description": "向下翻页"
         },
@@ -374,26 +386,34 @@
           "description": "全选"
         },
         {
-          "command": { "win": "Shift+←", "mac": "Shift+←", "linux": "Shift+←" },
+          "command": {
+            "win": "Shift+Left",
+            "mac": "Shift+Left",
+            "linux": "Shift+Left"
+          },
           "description": "向左选择"
         },
         {
-          "command": { "win": "Shift+→", "mac": "Shift+→", "linux": "Shift+→" },
+          "command": {
+            "win": "Shift+Right",
+            "mac": "Shift+Right",
+            "linux": "Shift+Right"
+          },
           "description": "向右选择"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+←",
-            "mac": "Command+Shift+←",
-            "linux": "Ctrl+Shift+←"
+            "win": "Ctrl+Shift+Left",
+            "mac": "Command+Shift+Left",
+            "linux": "Ctrl+Shift+Left"
           },
           "description": "使用选择将插入符号移动到上一个单词"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+→",
-            "mac": "Command+Shift+→",
-            "linux": "Ctrl+Shift+→"
+            "win": "Ctrl+Shift+Right",
+            "mac": "Command+Shift+Right",
+            "linux": "Ctrl+Shift+Right"
           },
           "description": "使用选择将插入符号移至下一个单词"
         },
@@ -414,11 +434,19 @@
           "description": "使用选择将插入符号移动到行尾"
         },
         {
-          "command": { "win": "Shift+↑", "mac": "Shift+↑", "linux": "Shift+↑" },
+          "command": {
+            "win": "Shift+Up",
+            "mac": "Shift+Up",
+            "linux": "Shift+Up"
+          },
           "description": "向上选择"
         },
         {
-          "command": { "win": "Shift+↓", "mac": "Shift+↓", "linux": "Shift+↓" },
+          "command": {
+            "win": "Shift+Down",
+            "mac": "Shift+Down",
+            "linux": "Shift+Down"
+          },
           "description": "向下选择"
         },
         {
@@ -439,33 +467,33 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+Page Up",
-            "mac": "Command+Shift+Page Up",
-            "linux": "Ctrl+Shift+Page Up"
+            "win": "Ctrl+Shift+PgUp",
+            "mac": "Command+Shift+PgUp",
+            "linux": "Ctrl+Shift+PgUp"
           },
           "description": "使用选择将插入符号移至页面顶部"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+Page Down",
-            "mac": "Command+Shift+Page Down",
-            "linux": "Ctrl+Shift+Page Down"
+            "win": "Ctrl+Shift+PgDn",
+            "mac": "Command+Shift+PgDn",
+            "linux": "Ctrl+Shift+PgDn"
           },
           "description": "使用选择将插入符号移动到页面底部"
         },
         {
           "command": {
-            "win": "Shift+Page Up",
-            "mac": "Shift+Page Up",
-            "linux": "Shift+Page Up"
+            "win": "Shift+PgUp",
+            "mac": "Shift+PgUp",
+            "linux": "Shift+PgUp"
           },
           "description": "选择页面向上翻页"
         },
         {
           "command": {
-            "win": "Shift+Page Down",
-            "mac": "Shift+Page Down",
-            "linux": "Shift+Page Down"
+            "win": "Shift+PgDn",
+            "mac": "Shift+PgDn",
+            "linux": "Shift+PgDn"
           },
           "description": "带选择的向下翻页"
         },
@@ -504,49 +532,49 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+NumPad +",
-            "mac": "Command+NumPad +",
-            "linux": "Ctrl+NumPad +"
+            "win": "Ctrl+Plus",
+            "mac": "Command+Plus",
+            "linux": "Ctrl+Plus"
           },
           "description": "展开"
         },
         {
           "command": {
-            "win": "Ctrl+NumPad -",
-            "mac": "Command+NumPad -",
-            "linux": "Ctrl+NumPad -"
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
           },
           "description": "折叠"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+NumPad +",
-            "mac": "Command+Option+NumPad +",
-            "linux": "Ctrl+Alt+NumPad +"
+            "win": "Ctrl+Alt+Plus",
+            "mac": "Command+Option+Plus",
+            "linux": "Ctrl+Alt+Plus"
           },
           "description": "递归展开"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+NumPad -",
-            "mac": "Command+Option+NumPad -",
-            "linux": "Ctrl+Alt+NumPad -"
+            "win": "Ctrl+Alt+Minus",
+            "mac": "Command+Option+Minus",
+            "linux": "Ctrl+Alt+Minus"
           },
           "description": "递归折叠"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+NumPad +",
-            "mac": "Command+Shift+NumPad +",
-            "linux": "Ctrl+Shift+NumPad +"
+            "win": "Ctrl+Shift+Plus",
+            "mac": "Command+Shift+Plus",
+            "linux": "Ctrl+Shift+Plus"
           },
           "description": "展开全部"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+NumPad -",
-            "mac": "Command+Shift+NumPad -",
-            "linux": "Ctrl+Shift+NumPad -"
+            "win": "Ctrl+Shift+Minus",
+            "mac": "Command+Shift+Minus",
+            "linux": "Ctrl+Shift+Minus"
           },
           "description": "折叠全部"
         },
@@ -561,35 +589,11 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Alt+Shift+Click",
-            "mac": "Option+Shift+Click",
-            "linux": "Alt+Shift+Click"
-          },
-          "description": "添加/删除插入符号"
-        },
-        {
-          "command": {
             "win": "Alt+Shift+Insert",
             "mac": "Option+Shift+Insert",
             "linux": "Alt+Shift+Insert"
           },
           "description": "切换列选择模式"
-        },
-        {
-          "command": {
-            "win": "Double Ctrl + Up",
-            "mac": "Double Command + Up",
-            "linux": "Double Ctrl + Up"
-          },
-          "description": "克隆上面的插入符号"
-        },
-        {
-          "command": {
-            "win": "Double Ctrl + Down",
-            "mac": "Double Command + Down",
-            "linux": "Double Ctrl + Down"
-          },
-          "description": "克隆下面的插入符号"
         },
         {
           "command": {
@@ -618,30 +622,6 @@
             "linux": "Alt+Shift+J"
           },
           "description": "取消选择最后一次出现"
-        },
-        {
-          "command": {
-            "win": "Alt+Shift+Middle-Click",
-            "mac": "Option+Shift+Middle-Click",
-            "linux": "Alt+Shift+Middle-Click"
-          },
-          "description": "创建矩形选择"
-        },
-        {
-          "command": {
-            "win": "Alt+Click",
-            "mac": "Option+Click",
-            "linux": "Alt+Click"
-          },
-          "description": "拖动以创建矩形选区"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Alt+Shift+Click",
-            "mac": "Command+Option+Shift+Click",
-            "linux": "Ctrl+Alt+Shift+Click"
-          },
-          "description": "拖动以创建多个矩形选择"
         }
       ]
     },
@@ -706,33 +686,33 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+↑",
-            "mac": "Command+Shift+↑",
-            "linux": "Ctrl+Shift+↑"
+            "win": "Ctrl+Shift+Up",
+            "mac": "Command+Shift+Up",
+            "linux": "Ctrl+Shift+Up"
           },
           "description": "向上移动语句"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+↓",
-            "mac": "Command+Shift+↓",
-            "linux": "Ctrl+Shift+↓"
+            "win": "Ctrl+Shift+Down",
+            "mac": "Command+Shift+Down",
+            "linux": "Ctrl+Shift+Down"
           },
           "description": "下移语句"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+←",
-            "mac": "Command+Option+Shift+←",
-            "linux": "Ctrl+Alt+Shift+←"
+            "win": "Ctrl+Alt+Shift+Left",
+            "mac": "Command+Option+Shift+Left",
+            "linux": "Ctrl+Alt+Shift+Left"
           },
           "description": "向左移动元素"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+→",
-            "mac": "Command+Option+Shift+→",
-            "linux": "Ctrl+Alt+Shift+→"
+            "win": "Ctrl+Alt+Shift+Right",
+            "mac": "Command+Option+Shift+Right",
+            "linux": "Ctrl+Alt+Shift+Right"
           },
           "description": "向右移动语句"
         },
@@ -802,10 +782,6 @@
           "description": "切换器"
         },
         {
-          "command": { "win": "Alt+F1", "mac": "Option+F1", "linux": "Alt+F1" },
-          "description": "选择在..."
-        },
-        {
           "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
           "description": "最近的文件"
         },
@@ -819,26 +795,34 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+←",
-            "mac": "Command+Option+←",
-            "linux": "Ctrl+Alt+←"
+            "win": "Ctrl+Alt+Left",
+            "mac": "Command+Option+Left",
+            "linux": "Ctrl+Alt+Left"
           },
           "description": "向后"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+→",
-            "mac": "Command+Option+→",
-            "linux": "Ctrl+Alt+→"
+            "win": "Ctrl+Alt+Right",
+            "mac": "Command+Option+Right",
+            "linux": "Ctrl+Alt+Right"
           },
           "description": "向前"
         },
         {
-          "command": { "win": "Alt+→", "mac": "Option+→", "linux": "Alt+→" },
+          "command": {
+            "win": "Alt+Right",
+            "mac": "Option+Right",
+            "linux": "Alt+Right"
+          },
           "description": "选择下一个选项卡"
         },
         {
-          "command": { "win": "Alt+←", "mac": "Option+←", "linux": "Alt+←" },
+          "command": {
+            "win": "Alt+Left",
+            "mac": "Option+Left",
+            "linux": "Alt+Left"
+          },
           "description": "选择上一个选项卡"
         },
         {
@@ -847,9 +831,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+[digit]",
-            "mac": "Command+Shift+[digit]",
-            "linux": "Ctrl+Shift+[digit]"
+            "win": "Ctrl+Shift+NumPad",
+            "mac": "Command+Shift+NumPad",
+            "linux": "Ctrl+Shift+NumPad"
           },
           "description": "用数字切换书签"
         },
@@ -871,9 +855,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+[digit]",
-            "mac": "Command+[digit]",
-            "linux": "Ctrl+[digit]"
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
           },
           "description": "用数字转到书签"
         },
@@ -887,17 +871,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+↓",
-            "mac": "Command+Option+↓",
-            "linux": "Ctrl+Alt+↓"
+            "win": "Ctrl+Alt+Down",
+            "mac": "Command+Option+Down",
+            "linux": "Ctrl+Alt+Down"
           },
           "description": "下一次的事件"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+↑",
-            "mac": "Command+Option+↑",
-            "linux": "Ctrl+Alt+↑"
+            "win": "Ctrl+Alt+Up",
+            "mac": "Command+Option+Up",
+            "linux": "Ctrl+Alt+Up"
           },
           "description": "上一次的事件"
         }
@@ -908,9 +892,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Double Shift",
-            "mac": "Double Shift",
-            "linux": "Double Shift"
+            "win": "Shift+Shift",
+            "mac": "Shift+Shift",
+            "linux": "Shift+Shift"
           },
           "description": "全局搜索"
         },
@@ -1091,9 +1075,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Double Ctrl",
-            "mac": "Double Command",
-            "linux": "Double Ctrl"
+            "win": "Ctrl+Ctrl",
+            "mac": "Command+Command",
+            "linux": "Ctrl+Ctrl"
           },
           "description": "运行任何东西"
         },
@@ -1381,17 +1365,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+↓",
-            "mac": "Command+Option+Shift+↓",
-            "linux": "Ctrl+Alt+Shift+↓"
+            "win": "Ctrl+Alt+Shift+Down",
+            "mac": "Command+Option+Shift+Down",
+            "linux": "Ctrl+Alt+Shift+Down"
           },
           "description": "下一个变化"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+↑",
-            "mac": "Command+Option+Shift+↑",
-            "linux": "Ctrl+Alt+Shift+↑"
+            "win": "Ctrl+Alt+Shift+Up",
+            "mac": "Command+Option+Shift+Up",
+            "linux": "Ctrl+Alt+Shift+Up"
           },
           "description": "上一个变化"
         },
@@ -1483,33 +1467,33 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+←",
-            "mac": "Command+Option+Shift+←",
-            "linux": "Ctrl+Alt+Shift+←"
+            "win": "Ctrl+Alt+Shift+Left",
+            "mac": "Command+Option+Shift+Left",
+            "linux": "Ctrl+Alt+Shift+Left"
           },
           "description": "向左伸展"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+→",
-            "mac": "Command+Option+Shift+→",
-            "linux": "Ctrl+Alt+Shift+→"
+            "win": "Ctrl+Alt+Shift+Right",
+            "mac": "Command+Option+Shift+Right",
+            "linux": "Ctrl+Alt+Shift+Right"
           },
           "description": "向右伸展"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+↑",
-            "mac": "Command+Option+Shift+↑",
-            "linux": "Ctrl+Alt+Shift+↑"
+            "win": "Ctrl+Alt+Shift+Up",
+            "mac": "Command+Option+Shift+Up",
+            "linux": "Ctrl+Alt+Shift+Up"
           },
           "description": "伸展到顶部"
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Shift+↓",
-            "mac": "Command+Option+Shift+↓",
-            "linux": "Ctrl+Alt+Shift+↓"
+            "win": "Ctrl+Alt+Shift+Down",
+            "mac": "Command+Option+Shift+Down",
+            "linux": "Ctrl+Alt+Shift+Down"
           },
           "description": "伸展到底部"
         },
