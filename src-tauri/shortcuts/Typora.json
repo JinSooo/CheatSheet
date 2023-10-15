@@ -43,7 +43,7 @@
             "mac": "Command+Shift+S",
             "linux": "Ctrl+Shift+S"
           },
-          "description": "另存为/复制"
+          "description": "另存为 & 复制"
         },
         {
           "command": { "win": "Ctrl+,", "mac": "Command+,", "linux": "Ctrl+," },
@@ -88,7 +88,7 @@
         },
         {
           "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
-          "description": "选择行/句子  选择行(在表格中)"
+          "description": "选择行 & 句子  选择行(在表格中)"
         },
         {
           "command": {
@@ -115,7 +115,11 @@
           "description": "删除单词"
         },
         {
-          "command": { "win": "Ctrl+↑", "mac": "Command+↑", "linux": "Ctrl+↑" },
+          "command": {
+            "win": "Ctrl+Up",
+            "mac": "Command+Up",
+            "linux": "Ctrl+Up"
+          },
           "description": "跳到顶部"
         },
         {
@@ -123,7 +127,11 @@
           "description": "跳到选择"
         },
         {
-          "command": { "win": "Ctrl+↓", "mac": "Command+↓", "linux": "Ctrl+↓" },
+          "command": {
+            "win": "Ctrl+Down",
+            "mac": "Command+Down",
+            "linux": "Ctrl+Down"
+          },
           "description": "跳到底部"
         },
         {
@@ -132,17 +140,17 @@
         },
         {
           "command": {
-            "win": "F3/Enter",
-            "mac": "F3/Enter",
-            "linux": "F3/Enter"
+            "win": "F3 & Enter",
+            "mac": "F3 & Enter",
+            "linux": "F3 & Enter"
           },
           "description": "查找下一个"
         },
         {
           "command": {
-            "win": "Shift+F3/Enter",
-            "mac": "Shift+F3/Enter",
-            "linux": "Shift+F3/Enter"
+            "win": "Shift+F3 & Enter",
+            "mac": "Shift+F3 & Enter",
+            "linux": "Shift+F3 & Enter"
           },
           "description": "查找上一个"
         },
@@ -157,57 +165,57 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl + 1/2/3/4/5/6",
-            "mac": "Command + 1/2/3/4/5/6",
-            "linux": "Ctrl + 1/2/3/4/5/6"
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
           },
-          "description": "标题1-6"
+          "description": "标题1~6"
         },
         {
           "command": {
-            "win": "Ctrl + 0",
-            "mac": "Command + 0",
-            "linux": "Ctrl + 0"
+            "win": "Ctrl+0",
+            "mac": "Command+0",
+            "linux": "Ctrl+0"
           },
           "description": "段落"
         },
         {
           "command": {
-            "win": "Ctrl + =",
-            "mac": "Command + =",
-            "linux": "Ctrl + ="
+            "win": "Ctrl+=",
+            "mac": "Command+=",
+            "linux": "Ctrl+="
           },
           "description": "增加标题级别"
         },
         {
           "command": {
-            "win": "Ctrl + –",
-            "mac": "Command + –",
-            "linux": "Ctrl + –"
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
           },
           "description": "降低标题级别"
         },
         {
           "command": {
-            "win": "Ctrl + T",
-            "mac": "Command + T",
-            "linux": "Ctrl + T"
+            "win": "Ctrl+T",
+            "mac": "Command+T",
+            "linux": "Ctrl+T"
           },
           "description": "表格"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + K",
-            "mac": "Command + Shift + K",
-            "linux": "Ctrl + Shift + K"
+            "win": "Ctrl+Shift+K",
+            "mac": "Command+Shift+K",
+            "linux": "Ctrl+Shift+K"
           },
           "description": "代码块"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + M",
-            "mac": "Command + Shift + M",
-            "linux": "Ctrl + Shift + M"
+            "win": "Ctrl+Shift+M",
+            "mac": "Command+Shift+M",
+            "linux": "Ctrl+Shift+M"
           },
           "description": "公式块"
         },
@@ -237,17 +245,17 @@
         },
         {
           "command": {
-            "win": "Ctrl+[ / Tab",
-            "mac": "Command+[ / Tab",
-            "linux": "Ctrl+[ / Tab"
+            "win": "Ctrl+] & Tab",
+            "mac": "Command+] & Tab",
+            "linux": "Ctrl+] & Tab"
           },
           "description": "缩进"
         },
         {
           "command": {
-            "win": "Ctrl+] / Shift+Tab",
-            "mac": "Command+] / Shift+Tab",
-            "linux": "Ctrl+] / Shift+Tab"
+            "win": "Ctrl+[ & Shift+Tab",
+            "mac": "Command+[ & Shift+Tab",
+            "linux": "Ctrl+[ & Shift+Tab"
           },
           "description": "减少缩进"
         }
@@ -257,7 +265,7 @@
       "name": "格式",
       "shortcuts": [
         {
-          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
+          "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
           "description": "加粗"
         },
         {
@@ -270,41 +278,41 @@
         },
         {
           "command": {
-            "win": "Ctrl + Shift + `",
-            "mac": "Command + Shift + `",
-            "linux": "Ctrl + Shift + `"
+            "win": "Ctrl+Shift+`",
+            "mac": "Command+Shift+`",
+            "linux": "Ctrl+Shift+`"
           },
           "description": "代码"
         },
         {
           "command": {
-            "win": "Alt + Shift + 5",
-            "mac": "Option + Shift + 5",
-            "linux": "Alt + Shift + 5"
+            "win": "Alt+Shift+5",
+            "mac": "Option+Shift+5",
+            "linux": "Alt+Shift+5"
           },
           "description": "删除线"
         },
         {
           "command": {
-            "win": "Ctrl + K",
-            "mac": "Command + K",
-            "linux": "Ctrl + K"
+            "win": "Ctrl+K",
+            "mac": "Command+K",
+            "linux": "Ctrl+K"
           },
           "description": "超链接"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + I",
-            "mac": "Command + Shift + I",
-            "linux": "Ctrl + Shift + I"
+            "win": "Ctrl+Shift+I",
+            "mac": "Command+Shift+I",
+            "linux": "Ctrl+Shift+I"
           },
           "description": "图片"
         },
         {
           "command": {
-            "win": "Ctrl + \\",
-            "mac": "Command + \\",
-            "linux": "Ctrl + \\"
+            "win": "Ctrl+\\",
+            "mac": "Command+\\",
+            "linux": "Ctrl+\\"
           },
           "description": "清楚格式"
         }
@@ -315,41 +323,41 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl + Shift + L",
-            "mac": "Command + Shift + L",
-            "linux": "Ctrl + Shift + L"
+            "win": "Ctrl+Shift+L",
+            "mac": "Command+Shift+L",
+            "linux": "Ctrl+Shift+L"
           },
           "description": "切换侧边栏"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + 1",
-            "mac": "Command + Shift + 1",
-            "linux": "Ctrl + Shift + 1"
+            "win": "Ctrl+Shift+1",
+            "mac": "Command+Shift+1",
+            "linux": "Ctrl+Shift+1"
           },
           "description": "大纲"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + 2",
-            "mac": "Command + Shift + 2",
-            "linux": "Ctrl + Shift + 2"
+            "win": "Ctrl+Shift+2",
+            "mac": "Command+Shift+2",
+            "linux": "Ctrl+Shift+2"
           },
           "description": "文章"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + 3",
-            "mac": "Command + Shift + 3",
-            "linux": "Ctrl + Shift + 3"
+            "win": "Ctrl+Shift+3",
+            "mac": "Command+Shift+3",
+            "linux": "Ctrl+Shift+3"
           },
           "description": "文件树"
         },
         {
           "command": {
-            "win": "Ctrl + /",
-            "mac": "Command + /",
-            "linux": "Ctrl + /"
+            "win": "Ctrl+/",
+            "mac": "Command+/",
+            "linux": "Ctrl+/"
           },
           "description": "源代码模式"
         },
@@ -367,41 +375,41 @@
         },
         {
           "command": {
-            "win": "Ctrl + Shift + 0",
-            "mac": "Command + Shift + 0",
-            "linux": "Ctrl + Shift + 0"
+            "win": "Ctrl+Shift+0",
+            "mac": "Command+Shift+0",
+            "linux": "Ctrl+Shift+0"
           },
           "description": "实际尺寸"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + =",
-            "mac": "Command + Shift + =",
-            "linux": "Ctrl + Shift + ="
+            "win": "Ctrl+Shift+=",
+            "mac": "Command+Shift+=",
+            "linux": "Ctrl+Shift+="
           },
           "description": "放大"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + –",
-            "mac": "Command + Shift + –",
-            "linux": "Ctrl + Shift + –"
+            "win": "Ctrl+Shift+Minus",
+            "mac": "Command+Shift+Minus",
+            "linux": "Ctrl+Shift+Minus"
           },
           "description": "缩小"
         },
         {
           "command": {
-            "win": "Ctrl + Tab",
-            "mac": "Command + Tab",
-            "linux": "Ctrl + Tab"
+            "win": "Ctrl+Tab",
+            "mac": "Command+Tab",
+            "linux": "Ctrl+Tab"
           },
           "description": "在打开的文档之间切换"
         },
         {
           "command": {
-            "win": "Ctrl + Shift + I",
-            "mac": "Command + Shift + I",
-            "linux": "Ctrl + Shift + I"
+            "win": "Ctrl+Shift+I",
+            "mac": "Command+Shift+I",
+            "linux": "Ctrl+Shift+I"
           },
           "description": "开发者工具"
         }
