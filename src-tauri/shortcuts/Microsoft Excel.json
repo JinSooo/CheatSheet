@@ -110,27 +110,6 @@
       ]
     },
     {
-      "name": "键盘使用功能区",
-      "shortcuts": [
-        {
-          "command": {
-            "win": "Ctrl+F1",
-            "mac": "Command+F1",
-            "linux": "Ctrl+F1"
-          },
-          "description": "展开或收起功能区"
-        },
-        {
-          "command": {
-            "win": "Shift+F10",
-            "mac": "Shift+F10",
-            "linux": "Shift+F10"
-          },
-          "description": "打开上下文菜单"
-        }
-      ]
-    },
-    {
       "name": "单元格导航",
       "shortcuts": [
         {
