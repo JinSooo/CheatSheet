@@ -1,21 +1,21 @@
 {
   "$schema": "./template/shortcut.schema.json",
-  "name": "Navicat",
+  "name": "Navicat Premium",
   "categories": [
     {
       "name": "常规",
       "shortcuts": [
         {
-          "command": {
-            "win": "Ctrl+Shift+Number",
-            "mac": "Command+Shift+Number",
-            "linux": "Ctrl+Shift+Number"
-          },
-          "description": "添加到收藏夹"
-        },
-        {
           "command": { "win": "F8", "mac": "F8", "linux": "F8" },
           "description": "Navicat 主窗口或对象选项卡"
+        },
+        {
+          "command": { "win": "F1", "mac": "F1", "linux": "F1" },
+          "description": "帮助"
+        },
+        {
+          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
+          "description": "新建查询"
         },
         {
           "command": {
@@ -34,12 +34,20 @@
           "description": "下一个窗口或选项卡"
         },
         {
-          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
-          "description": "新建查询"
+          "command": {
+            "win": "Ctrl+Shift+NumPad",
+            "mac": "Command+Shift+NumPad",
+            "linux": "Ctrl+Shift+NumPad"
+          },
+          "description": "添加到收藏夹"
         },
         {
-          "command": { "win": "F1", "mac": "F1", "linux": "F1" },
-          "description": "帮助"
+          "command": {
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
+          },
+          "description": "打开收藏夹链接"
         }
       ]
     },
@@ -47,24 +55,16 @@
       "name": "Navicat 主窗口",
       "shortcuts": [
         {
-          "command": {
-            "win": "Ctrl+Number",
-            "mac": "Command+Number",
-            "linux": "Ctrl+Number"
-          },
-          "description": "打开收藏夹链接"
-        },
-        {
           "command": { "win": "F6", "mac": "F6", "linux": "F6" },
           "description": "命令列界面"
         },
         {
-          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
-          "description": "历史日志"
-        },
-        {
           "command": { "win": "F12", "mac": "F12", "linux": "F12" },
           "description": "仅显示活跃对象"
+        },
+        {
+          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
+          "description": "历史日志"
         },
         {
           "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
@@ -77,6 +77,18 @@
             "linux": "Ctrl+Shift+F"
           },
           "description": "在数据库或模式中查找"
+        },
+        {
+          "command": { "win": "Ctrl+Plus", "mac": "Command+Plus", "linux": "Ctrl+Plus" },
+          "description": "放大"
+        },
+        {
+          "command": { "win": "Ctrl+Minus", "mac": "Command+Minus", "linux": "Ctrl+Minus" },
+          "description": "缩小"
+        },
+        {
+          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
+          "description": "重置缩放"
         }
       ]
     },
@@ -102,23 +114,11 @@
         {
           "command": { "win": "Delete", "mac": "Delete", "linux": "Delete" },
           "description": "删除已选择的外键"
-        },
-        {
-          "command": { "win": "Ctrl+=", "mac": "Command+=", "linux": "Ctrl+=" },
-          "description": "放大"
-        },
-        {
-          "command": { "win": "Ctrl+-", "mac": "Command+-", "linux": "Ctrl+-" },
-          "description": "缩小"
-        },
-        {
-          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
-          "description": "重置缩放"
         }
       ]
     },
     {
-      "name": "表或集合设计器",
+      "name": "表/集合设计器",
       "shortcuts": [
         {
           "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
@@ -161,56 +161,48 @@
           "description": "前往行"
         },
         {
-          "command": { "win": "Ctrl+←", "mac": "Command+←", "linux": "Ctrl+←" },
+          "command": { "win": "Ctrl+Left", "mac": "Command+Left", "linux": "Ctrl+Left" },
           "description": "移动到当前记录的第一列"
         },
         {
-          "command": { "win": "Ctrl+→", "mac": "Command+→", "linux": "Ctrl+→" },
+          "command": { "win": "Ctrl+Right", "mac": "Command+Right", "linux": "Ctrl+Right" },
           "description": "移动到当前记录的最后一列"
         },
         {
           "command": {
-            "win": "Ctrl+HOME",
-            "mac": "Command+HOME",
-            "linux": "Ctrl+HOME"
+            "win": "Ctrl+Home",
+            "mac": "Command+Home",
+            "linux": "Ctrl+Home"
           },
           "description": "移动到当前列的第一行"
         },
         {
           "command": {
-            "win": "Ctrl+END",
-            "mac": "Command+END",
-            "linux": "Ctrl+END"
+            "win": "Ctrl+End",
+            "mac": "Command+End",
+            "linux": "Ctrl+End"
           },
           "description": "移动到当前列的最后一行"
         },
         {
           "command": {
-            "win": "Ctrl+PAGE UP or Ctrl+↑",
-            "mac": "Command+PAGE UP or Command+↑",
-            "linux": "Ctrl+PAGE UP or Ctrl+↑"
+            "win": "Ctrl+PgUp | Ctrl+Up",
+            "mac": "Command+PgUp | Command+Up",
+            "linux": "Ctrl+PgUp | Ctrl+Up"
           },
           "description": "移动到当前页面的第一行"
         },
         {
           "command": {
-            "win": "Ctrl+PAGE DOWN or Ctrl+↓",
-            "mac": "Command+PAGE DOWN or Command+↓",
-            "linux": "Ctrl+PAGE DOWN or Ctrl+↓"
+            "win": "Ctrl+PgDn | Ctrl+Down",
+            "mac": "Command+PgDn | Command+Down",
+            "linux": "Ctrl+PgDn | Ctrl+Down"
           },
           "description": "移动到当前页面的最后一行"
         },
         {
           "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
           "description": "应用筛选或应用排序"
-        },
-        {
-          "command": {
-            "win": "Shift+Arrow",
-            "mac": "Shift+Arrow",
-            "linux": "Shift+Arrow"
-          },
-          "description": "选择单元格"
         },
         {
           "command": {
@@ -222,9 +214,9 @@
         },
         {
           "command": {
-            "win": "Insert or Ctrl+N",
-            "mac": "Insert or Command+N",
-            "linux": "Insert or Ctrl+N"
+            "win": "Insert | Ctrl+N",
+            "mac": "Insert | Command+N",
+            "linux": "Insert | Ctrl+N"
           },
           "description": "添加记录"
         },
@@ -251,7 +243,7 @@
       ]
     },
     {
-      "name": "视图或实体化视图设计器",
+      "name": "实体化视图设计器",
       "shortcuts": [
         {
           "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
@@ -267,9 +259,9 @@
         },
         {
           "command": {
-            "win": "Alt+Number",
-            "mac": "Option+Number",
-            "linux": "Alt+Number"
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
           },
           "description": "切换到结果 1 - 9"
         }
@@ -304,17 +296,12 @@
         },
         {
           "command": {
-            "win": "Alt+Number",
-            "mac": "Option+Number",
-            "linux": "Alt+Number"
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
           },
           "description": "切换到结果选项卡"
-        }
-      ]
-    },
-    {
-      "name": "查询编辑器",
-      "shortcuts": [
+        },
         {
           "command": {
             "win": "Ctrl+Shift+V",
@@ -334,35 +321,6 @@
         {
           "command": { "win": "F3", "mac": "F3", "linux": "F3" },
           "description": "查找下一个文本"
-        },
-        {
-          "command": { "win": "Ctrl+=", "mac": "Command+=", "linux": "Ctrl+=" },
-          "description": "放大"
-        },
-        {
-          "command": { "win": "Ctrl+-", "mac": "Command+-", "linux": "Ctrl+-" },
-          "description": "缩小"
-        },
-        {
-          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
-          "description": "重置缩放"
-        }
-      ]
-    },
-    {
-      "name": "SQL 创建工具",
-      "shortcuts": [
-        {
-          "command": { "win": "Ctrl+=", "mac": "Command+=", "linux": "Ctrl+=" },
-          "description": "放大"
-        },
-        {
-          "command": { "win": "Ctrl+-", "mac": "Command+-", "linux": "Ctrl+-" },
-          "description": "缩小"
-        },
-        {
-          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
-          "description": "重置缩放"
         }
       ]
     },
@@ -441,18 +399,6 @@
         {
           "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
           "description": "设置已选择的表、实体、视图、外键或形状为粗体"
-        },
-        {
-          "command": { "win": "Ctrl+=", "mac": "Command+=", "linux": "Ctrl+=" },
-          "description": "放大"
-        },
-        {
-          "command": { "win": "Ctrl+-", "mac": "Command+-", "linux": "Ctrl+-" },
-          "description": "缩小"
-        },
-        {
-          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
-          "description": "重置缩放"
         }
       ]
     },
