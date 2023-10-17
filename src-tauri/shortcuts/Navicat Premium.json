@@ -1,0 +1,427 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Navicat Premium",
+  "categories": [
+    {
+      "name": "常规",
+      "shortcuts": [
+        {
+          "command": { "win": "F8", "mac": "F8", "linux": "F8" },
+          "description": "Navicat 主窗口或对象选项卡"
+        },
+        {
+          "command": { "win": "F1", "mac": "F1", "linux": "F1" },
+          "description": "帮助"
+        },
+        {
+          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
+          "description": "新建查询"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Tab",
+            "mac": "Command+Tab",
+            "linux": "Ctrl+Tab"
+          },
+          "description": "下一个窗口或选项卡"
+        },
+        {
+          "command": {
+            "win": "Shift+Ctrl+Tab",
+            "mac": "Shift+Command+Tab",
+            "linux": "Shift+Ctrl+Tab"
+          },
+          "description": "下一个窗口或选项卡"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+NumPad",
+            "mac": "Command+Shift+NumPad",
+            "linux": "Ctrl+Shift+NumPad"
+          },
+          "description": "添加到收藏夹"
+        },
+        {
+          "command": {
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
+          },
+          "description": "打开收藏夹链接"
+        }
+      ]
+    },
+    {
+      "name": "Navicat 主窗口",
+      "shortcuts": [
+        {
+          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
+          "description": "命令列界面"
+        },
+        {
+          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
+          "description": "仅显示活跃对象"
+        },
+        {
+          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
+          "description": "历史日志"
+        },
+        {
+          "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
+          "description": "新建对象"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F",
+            "mac": "Command+Shift+F",
+            "linux": "Ctrl+Shift+F"
+          },
+          "description": "在数据库或模式中查找"
+        },
+        {
+          "command": { "win": "Ctrl+Plus", "mac": "Command+Plus", "linux": "Ctrl+Plus" },
+          "description": "放大"
+        },
+        {
+          "command": { "win": "Ctrl+Minus", "mac": "Command+Minus", "linux": "Ctrl+Minus" },
+          "description": "缩小"
+        },
+        {
+          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
+          "description": "重置缩放"
+        }
+      ]
+    },
+    {
+      "name": "ER 图表视图",
+      "shortcuts": [
+        {
+          "command": { "win": "F5", "mac": "F5", "linux": "F5" },
+          "description": "刷新"
+        },
+        {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "选择"
+        },
+        {
+          "command": { "win": "H", "mac": "H", "linux": "H" },
+          "description": "移动图表"
+        },
+        {
+          "command": { "win": "R", "mac": "R", "linux": "R" },
+          "description": "新建外键"
+        },
+        {
+          "command": { "win": "Del", "mac": "Del", "linux": "Del" },
+          "description": "删除已选择的外键"
+        }
+      ]
+    },
+    {
+      "name": "表/集合设计器",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
+          "description": "打开表或集合"
+        },
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "查找字段"
+        },
+        {
+          "command": { "win": "F3", "mac": "F3", "linux": "F3" },
+          "description": "查找下一个字段"
+        },
+        {
+          "command": {
+            "win": "Shift+F3",
+            "mac": "Shift+F3",
+            "linux": "Shift+F3"
+          },
+          "description": "查找上一个字段"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "设计对象（表、集合、视图、实体化视图）"
+        },
+        {
+          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
+          "description": "查询对象（表、集合、视图、实体化视图）"
+        },
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "查找文本"
+        },
+        {
+          "command": { "win": "F3", "mac": "F3", "linux": "F3" },
+          "description": "查找下一个文本"
+        },
+        {
+          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
+          "description": "前往行"
+        },
+        {
+          "command": { "win": "Ctrl+Left", "mac": "Command+Left", "linux": "Ctrl+Left" },
+          "description": "移动到当前记录的第一列"
+        },
+        {
+          "command": { "win": "Ctrl+Right", "mac": "Command+Right", "linux": "Ctrl+Right" },
+          "description": "移动到当前记录的最后一列"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Home",
+            "mac": "Command+Home",
+            "linux": "Ctrl+Home"
+          },
+          "description": "移动到当前列的第一行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+End",
+            "mac": "Command+End",
+            "linux": "Ctrl+End"
+          },
+          "description": "移动到当前列的最后一行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgUp | Ctrl+Up",
+            "mac": "Command+PgUp | Command+Up",
+            "linux": "Ctrl+PgUp | Ctrl+Up"
+          },
+          "description": "移动到当前页面的第一行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgDn | Ctrl+Down",
+            "mac": "Command+PgDn | Command+Down",
+            "linux": "Ctrl+PgDn | Ctrl+Down"
+          },
+          "description": "移动到当前页面的最后一行"
+        },
+        {
+          "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
+          "description": "应用筛选或应用排序"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Enter",
+            "mac": "Command+Enter",
+            "linux": "Ctrl+Enter"
+          },
+          "description": "打开编辑器来编辑数据"
+        },
+        {
+          "command": {
+            "win": "Insert | Ctrl+N",
+            "mac": "Insert | Command+N",
+            "linux": "Insert | Ctrl+N"
+          },
+          "description": "添加记录"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Del",
+            "mac": "Command+Del",
+            "linux": "Ctrl+Del"
+          },
+          "description": "删除记录"
+        },
+        {
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "应用记录更改"
+        },
+        {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "放弃记录更改"
+        },
+        {
+          "command": { "win": "Ctrl+T", "mac": "Command+T", "linux": "Ctrl+T" },
+          "description": "停止加载数据"
+        }
+      ]
+    },
+    {
+      "name": "实体化视图设计器",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
+          "description": "导入 SQL"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
+          "description": "切换到定义"
+        },
+        {
+          "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
+          "description": "预览"
+        },
+        {
+          "command": {
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
+          },
+          "description": "切换到结果 1 - 9"
+        }
+      ]
+    },
+    {
+      "name": "查询设计器",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
+          "description": "打开外部文件"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
+          "description": "切换到查询编辑器"
+        },
+        {
+          "command": { "win": "Ctrl+R", "mac": "Command+R", "linux": "Ctrl+R" },
+          "description": "运行或运行已选择的"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+R",
+            "mac": "Command+Shift+R",
+            "linux": "Ctrl+Shift+R"
+          },
+          "description": "运行当前语句"
+        },
+        {
+          "command": { "win": "Ctrl+T", "mac": "Command+T", "linux": "Ctrl+T" },
+          "description": "停止"
+        },
+        {
+          "command": {
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
+          },
+          "description": "切换到结果选项卡"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+V",
+            "mac": "Command+Shift+V",
+            "linux": "Ctrl+Shift+V"
+          },
+          "description": "从剪贴板堆栈粘贴"
+        },
+        {
+          "command": { "win": "Ctrl+/", "mac": "Command+/", "linux": "Ctrl+/" },
+          "description": "注释或取消注释行"
+        },
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "查找文本"
+        },
+        {
+          "command": { "win": "F3", "mac": "F3", "linux": "F3" },
+          "description": "查找下一个文本"
+        }
+      ]
+    },
+    {
+      "name": "调试器",
+      "shortcuts": [
+        {
+          "command": { "win": "F9", "mac": "F9", "linux": "F9" },
+          "description": "运行"
+        },
+        {
+          "command": { "win": "F10", "mac": "F10", "linux": "F10" },
+          "description": "逐过程"
+        },
+        {
+          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
+          "description": "逐语句"
+        },
+        {
+          "command": {
+            "win": "Shift+F11",
+            "mac": "Shift+F11",
+            "linux": "Shift+F11"
+          },
+          "description": "跳过"
+        }
+      ]
+    },
+    {
+      "name": "模型",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "在模型新建图表"
+        },
+        {
+          "command": { "win": "Ctrl+P", "mac": "Command+P", "linux": "Ctrl+P" },
+          "description": "打印图表"
+        },
+        {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "选择"
+        },
+        {
+          "command": { "win": "H", "mac": "H", "linux": "H" },
+          "description": "移动图表"
+        },
+        {
+          "command": { "win": "T", "mac": "T", "linux": "T" },
+          "description": "新建表或实体"
+        },
+        {
+          "command": { "win": "V", "mac": "V", "linux": "V" },
+          "description": "新建视图"
+        },
+        {
+          "command": { "win": "R", "mac": "R", "linux": "R" },
+          "description": "新建外键或关系"
+        },
+        {
+          "command": { "win": "A", "mac": "A", "linux": "A" },
+          "description": "新建标签"
+        },
+        {
+          "command": { "win": "N", "mac": "N", "linux": "N" },
+          "description": "新建笔记"
+        },
+        {
+          "command": { "win": "I", "mac": "I", "linux": "I" },
+          "description": "新建图像"
+        },
+        {
+          "command": { "win": "L", "mac": "L", "linux": "L" },
+          "description": "新建层"
+        },
+        {
+          "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
+          "description": "设置已选择的表、实体、视图、外键或形状为粗体"
+        }
+      ]
+    },
+    {
+      "name": "图表",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "设计对象"
+        },
+        {
+          "command": { "win": "F5", "mac": "F5", "linux": "F5" },
+          "description": "刷新数据"
+        },
+        {
+          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
+          "description": "显示仪表板"
+        },
+        {
+          "command": { "win": "Ctrl+P", "mac": "Command+P", "linux": "Ctrl+P" },
+          "description": "打印仪表板"
+        }
+      ]
+    }
+  ]
+}

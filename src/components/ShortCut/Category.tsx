@@ -18,7 +18,15 @@ const Category = ({ category }: Props) => {
       <div className='font-bold ml-[40%] pl-3 pb-3'>{category.name}</div>
       {category.shortcuts.map((shortcut) => (
         // 系统存在对应快捷键才显示
-        <>{shortcut.command[os] && <ShortCutItem key={shortcut.description} shortcut={shortcut} />}</>
+        <>
+          {shortcut.command[os] && (
+            <ShortCutItem
+              key={shortcut.description}
+              command={shortcut.command[os]}
+              description={shortcut.description}
+            />
+          )}
+        </>
       ))}
     </div>
   )

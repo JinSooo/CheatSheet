@@ -1,9 +1,10 @@
-use crate::config::get;
-use crate::window::get_main_window;
-use crate::APP;
 use log::info;
 use tauri::api::notification::Notification;
 use tauri::Window;
+
+use crate::config::get;
+use crate::window::get_main_window;
+use crate::APP;
 
 // 根据显示屏按比例适配窗口大小
 pub static WINDOW_SIZE_RATIO: f64 = 0.75;
@@ -41,4 +42,15 @@ pub fn adjust_center_main_window() {
     let main_window = get_main_window();
     adjust_window_size(&main_window);
     main_window.center().unwrap();
+}
+
+#[tauri::command]
+pub fn get_font_families() -> Vec<String> {
+    let x = font_kit::source::SystemSource::new()
+        .all_families()
+        .unwrap()
+        .iter()
+        .map(|f| f.to_string())
+        .collect();
+    x
 }

@@ -1,7 +1,7 @@
 [package]
 name = "cheat_sheet"
-version = "0.0.6"
-description = "A Tauri App"
+version = "0.0.7"
+description = "A cross-platform display of application shortcuts app"
 authors = ["JinSo, NoahCode"]
 license = "MIT"
 repository = "https://github.com/JinSooo/CheatSheet"
@@ -28,6 +28,7 @@ dirs = "5.0.1"
 log = "0.4.20"
 mouse_position = "0.1.3"
 window-shadows = "0.2.1"
+font-kit = "0.11.0"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.

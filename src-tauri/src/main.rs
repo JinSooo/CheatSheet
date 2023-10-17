@@ -3,9 +3,9 @@
 
 mod active_window;
 mod config;
-mod event;
 mod hotkey;
 mod tray;
+mod updater;
 mod utils;
 mod window;
 
@@ -14,13 +14,14 @@ use std::time;
 use crate::utils::adjust_center_main_window;
 use active_window::*;
 use config::*;
-use event::*;
 use hotkey::*;
 use once_cell::sync::OnceCell;
 use tauri::{api::notification::Notification, generate_handler};
 use tauri_plugin_autostart::MacosLauncher;
 use tauri_plugin_log::LogTarget;
 use tray::*;
+use updater::*;
+use utils::*;
 use window::*;
 
 // Global AppHandle
@@ -46,7 +47,6 @@ fn main() {
                 .build(),
         )
         .plugin(tauri_plugin_store::Builder::default().build())
-        .on_window_event(init_tauri_event)
         .system_tray(init_tray())
         .on_system_tray_event(tray_handler)
         .setup(|app| {
@@ -63,6 +63,8 @@ fn main() {
             init_hotkey();
             init_active_window_map();
 
+            check_update();
+
             // FIX(Mac): CheatSheet窗口无法居中显示
             std::thread::spawn(|| {
                 std::thread::sleep(time::Duration::from_millis(10));
@@ -75,7 +77,8 @@ fn main() {
         .invoke_handler(generate_handler![
             left_click_type,
             register_shortcut_by_frontend,
-            update_window
+            update_window,
+            get_font_families
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")

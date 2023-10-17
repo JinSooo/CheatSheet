@@ -86,7 +86,6 @@ body {
 html {
   overflow: -moz-hidden-unscrollable;
   height: 100%;
-  font-family: "HarmonyOS";
 }
 
 body {
@@ -97,8 +96,6 @@ body {
 /* 字体 */
 @font-face {
   font-style: normal;
-  font-family: "HarmonyOS";
-  src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
 }
 
 /*覆盖 tailwind 默认背景色*/

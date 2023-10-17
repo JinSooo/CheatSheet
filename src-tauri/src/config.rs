@@ -40,7 +40,7 @@ pub fn check_config() {
     check_config_key("cheatSheetShortCut", "F2");
     check_config_key("activeWindowShortCut", "Ctrl+F2");
     check_config_key("autoStart", false);
-    check_config_key("checkUpdate", false);
+    check_config_key("checkUpdate", true);
     check_config_key("windowOpacity", 10);
     check_config_key("windowBorderRadius", 16);
     check_config_key("windowSizeRatio", WINDOW_SIZE_RATIO);

@@ -1,0 +1,432 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Google Chrome",
+  "categories": [
+    {
+      "name": "标签页",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+N", "mac": "Command+N", "linux": "Ctrl+N" },
+          "description": "打开新窗口"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+N",
+            "mac": "Command+Shift+N",
+            "linux": "Ctrl+Shift+N"
+          },
+          "description": "在无痕模式下打开新窗口"
+        },
+        {
+          "command": { "win": "Ctrl+T", "mac": "Command+T", "linux": "Ctrl+T" },
+          "description": "打开新的标签页，并跳转到该标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+T",
+            "mac": "Command+Shift+T",
+            "linux": "Ctrl+Shift+T"
+          },
+          "description": "按标签页的关闭顺序重新打开先前关闭的标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Tab",
+            "mac": "Command+Tab",
+            "linux": "Ctrl+Tab"
+          },
+          "description": "跳转到下一个打开的标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgDn",
+            "mac": "Command+PgDn",
+            "linux": "Ctrl+PgDn"
+          },
+          "description": "跳转到下一个打开的标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Tab",
+            "mac": "Command+Shift+Tab",
+            "linux": "Ctrl+Shift+Tab"
+          },
+          "description": "跳转到上一个打开的标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgUp",
+            "mac": "Command+PgUp",
+            "linux": "Ctrl+PgUp"
+          },
+          "description": "跳转到上一个打开的标签页"
+        },
+        {
+          "command": {
+            "win": "Alt+Home",
+            "mac": "Option+Home",
+            "linux": "Alt+Home"
+          },
+          "description": "在当前标签页中打开主页"
+        },
+        {
+          "command": {
+            "win": "Alt+Left",
+            "mac": "Option+Left",
+            "linux": "Alt+Left"
+          },
+          "description": "打开当前标签页浏览记录中记录的上一个页面"
+        },
+        {
+          "command": {
+            "win": "Alt+Right",
+            "mac": "Option+Right",
+            "linux": "Alt+Right"
+          },
+          "description": "打开当前标签页浏览记录中记录的下一个页面"
+        },
+        {
+          "command": { "win": "Ctrl+W", "mac": "Command+W", "linux": "Ctrl+W" },
+          "description": "关闭当前标签页"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F4",
+            "mac": "Command+F4",
+            "linux": "Ctrl+F4"
+          },
+          "description": "关闭当前标签页"
+        }
+      ]
+    },
+    {
+      "name": "窗口",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+W",
+            "mac": "Command+Shift+W",
+            "linux": "Ctrl+Shift+W"
+          },
+          "description": "关闭当前窗口"
+        },
+        {
+          "command": { "win": "Alt+F4", "mac": "Option+F4", "linux": "Alt+F4" },
+          "description": "关闭当前窗口"
+        },
+        {
+          "command": {
+            "win": "Alt+Space & N",
+            "mac": "Option+Space & N",
+            "linux": "Alt+Space & N"
+          },
+          "description": "最小化当前窗口"
+        },
+        {
+          "command": {
+            "win": "Alt+Space & X",
+            "mac": "Option+Space & X",
+            "linux": "Alt+Space & X"
+          },
+          "description": "最大化当前窗口"
+        },
+        {
+          "command": {
+            "win": "Alt+F & X",
+            "mac": "Option+F & X",
+            "linux": "Alt+F & X"
+          },
+          "description": "退出 Google Chrome"
+        }
+      ]
+    },
+    {
+      "name": "功能",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Alt+F | Alt+E",
+            "mac": "Option+F | Option+E",
+            "linux": "Alt+F | Alt+E"
+          },
+          "description": "打开 Chrome 菜单"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+B",
+            "mac": "Command+Shift+B",
+            "linux": "Ctrl+Shift+B"
+          },
+          "description": "显示或隐藏书签栏"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+O",
+            "mac": "Command+Shift+O",
+            "linux": "Ctrl+Shift+O"
+          },
+          "description": "打开书签管理器"
+        },
+        {
+          "command": { "win": "Ctrl+H", "mac": "Command+H", "linux": "Ctrl+H" },
+          "description": "在新标签页中打开\"历史记录\"页"
+        },
+        {
+          "command": { "win": "Ctrl+J", "mac": "Command+J", "linux": "Ctrl+J" },
+          "description": "在新标签页中打开\"下载内容\"页"
+        },
+        {
+          "command": {
+            "win": "Shift+Esc",
+            "mac": "Shift+Esc",
+            "linux": "Shift+Esc"
+          },
+          "description": "打开 Chrome 任务管理器"
+        },
+        {
+          "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
+          "description": "打开查找栏搜索当前网页"
+        },
+        {
+          "command": { "win": "F3", "mac": "F3", "linux": "F3" },
+          "description": "打开查找栏搜索当前网页"
+        },
+        {
+          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
+          "description": "跳转到与查找栏中搜索字词相匹配的下一条内容"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+G",
+            "mac": "Command+Shift+G",
+            "linux": "Ctrl+Shift+G"
+          },
+          "description": "跳转到与查找栏中搜索字词相匹配的上一条内容"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+J | F12",
+            "mac": "Command+Shift+J | F12",
+            "linux": "Ctrl+Shift+J | F12"
+          },
+          "description": "打开\"开发者工具\""
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Del",
+            "mac": "Command+Shift+Del",
+            "linux": "Ctrl+Shift+Del"
+          },
+          "description": "打开\"清除浏览数据\"选项"
+        },
+        {
+          "command": { "win": "F1", "mac": "F1", "linux": "F1" },
+          "description": "在新标签页中打开 Chrome 帮助中心"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+M",
+            "mac": "Command+Shift+M",
+            "linux": "Ctrl+Shift+M"
+          },
+          "description": "使用其他帐号登录或以访客身份浏览"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+I",
+            "mac": "Option+Shift+I",
+            "linux": "Alt+Shift+I"
+          },
+          "description": "打开反馈表单"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F6",
+            "mac": "Command+F6",
+            "linux": "Ctrl+F6"
+          },
+          "description": "跳至网页内容"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+A",
+            "mac": "Option+Shift+A",
+            "linux": "Alt+Shift+A"
+          },
+          "description": "将焦点移到非使用中的对话框"
+        }
+      ]
+    },
+    {
+      "name": "地址栏快捷键",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
+          "description": "跳转到地址栏"
+        },
+        {
+          "command": { "win": "Alt+D", "mac": "Option+D", "linux": "Alt+D" },
+          "description": "跳转到地址栏"
+        },
+        {
+          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
+          "description": "跳转到地址栏"
+        },
+        {
+          "command": { "win": "Ctrl+K", "mac": "Command+K", "linux": "Ctrl+K" },
+          "description": "从页面中的任意位置搜索"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
+          "description": "从页面中的任意位置搜索"
+        }
+      ]
+    },
+    {
+      "name": "网页",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+P", "mac": "Command+P", "linux": "Ctrl+P" },
+          "description": "打印当前网页"
+        },
+        {
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "保存当前网页"
+        },
+        {
+          "command": {
+            "win": "F5 | Ctrl+R",
+            "mac": "F5 | Command+R",
+            "linux": "F5 | Ctrl+R"
+          },
+          "description": "重新加载当前网页"
+        },
+        {
+          "command": {
+            "win": "Shift+F5 | Ctrl+Shift+R",
+            "mac": "Shift+F5 | Command+Shift+R",
+            "linux": "Shift+F5 | Ctrl+Shift+R"
+          },
+          "description": "重新加载当前网页（忽略缓存的内容）"
+        },
+        {
+          "command": { "win": "Tab", "mac": "Tab", "linux": "Tab" },
+          "description": "浏览下一个可点击项"
+        },
+        {
+          "command": {
+            "win": "Shift+Tab",
+            "mac": "Shift+Tab",
+            "linux": "Shift+Tab"
+          },
+          "description": "浏览上一个可点击项"
+        },
+        {
+          "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
+          "description": "使用 Chrome 打开计算机中的文件"
+        },
+        {
+          "command": { "win": "Ctrl+U", "mac": "Command+U", "linux": "Ctrl+U" },
+          "description": "显示当前网页的 HTML 源代码（不可修改）"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "将当前网页保存为书签"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+D",
+            "mac": "Command+Shift+D",
+            "linux": "Ctrl+Shift+D"
+          },
+          "description": "将所有打开的标签页以书签的形式保存在新文件夹中"
+        },
+        {
+          "command": {
+            "win": "Space | PgDn",
+            "mac": "Space | PgDn",
+            "linux": "Space | PgDn"
+          },
+          "description": "向下滚动网页，一次一个屏幕"
+        },
+        {
+          "command": {
+            "win": "Shift+Space | PgUp",
+            "mac": "Shift+Space | PgUp",
+            "linux": "Shift+Space | PgUp"
+          },
+          "description": "向上滚动网页，一次一个屏幕"
+        },
+        {
+          "command": { "win": "Home", "mac": "Home", "linux": "Home" },
+          "description": "转到网页顶部"
+        },
+        {
+          "command": { "win": "End", "mac": "End", "linux": "End" },
+          "description": "转到网页底部"
+        },
+        {
+          "command": {
+            "win": "Alt+Home",
+            "mac": "Option+Home",
+            "linux": "Alt+Home"
+          },
+          "description": "在当前标签页中打开主页"
+        }
+      ]
+    },
+    {
+      "name": "内容",
+      "shortcuts": [
+        {
+          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
+          "description": "开启或关闭全屏模式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Plus",
+            "mac": "Command+Plus",
+            "linux": "Ctrl+Plus"
+          },
+          "description": "放大网页上的所有内容"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
+          },
+          "description": "缩小网页上的所有内容"
+        },
+        {
+          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
+          "description": "将网页上的所有内容恢复到默认大小"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Left",
+            "mac": "Command+Left",
+            "linux": "Ctrl+Left"
+          },
+          "description": "将光标移到文本字段中的上一个字词起始处"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Right",
+            "mac": "Command+Right",
+            "linux": "Ctrl+Right"
+          },
+          "description": "将光标移到下一个字词起始处"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Backspace",
+            "mac": "Command+Backspace",
+            "linux": "Ctrl+Backspace"
+          },
+          "description": "删除文本字段中的上一个字词"
+        }
+      ]
+    }
+  ]
+}

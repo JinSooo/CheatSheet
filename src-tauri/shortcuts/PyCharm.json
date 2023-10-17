@@ -1,0 +1,935 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "PyCharm",
+  "categories": [
+    {
+      "name": "创建和编辑",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Alt+Enter",
+            "mac": "Option+Enter",
+            "linux": "Alt+Enter"
+          },
+          "description": "智能提示"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Space",
+            "mac": "Command+Space",
+            "linux": "Ctrl+Space"
+          },
+          "description": "基本代码补全"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space",
+            "linux": "Ctrl+Shift+Space"
+          },
+          "description": "智能代码补全"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Space",
+            "mac": "Command+Option+Space",
+            "linux": "Ctrl+Alt+Space"
+          },
+          "description": "类型名称补全"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Enter",
+            "mac": "Command+Shift+Enter",
+            "linux": "Ctrl+Shift+Enter"
+          },
+          "description": "补全声明"
+        },
+        {
+          "command": {
+            "win": "Ctrl+P",
+            "mac": "Command+P",
+            "linux": "Ctrl+P"
+          },
+          "description": "参数信息"
+        },
+        {
+          "command": {
+            "win": "Alt+Q",
+            "mac": "Option+Q",
+            "linux": "Alt+Q"
+          },
+          "description": "上下文信息"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+I",
+            "mac": "Command+Shift+I",
+            "linux": "Ctrl+Shift+I"
+          },
+          "description": "快速定义"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Q",
+            "mac": "Command+Q",
+            "linux": "Ctrl+Q"
+          },
+          "description": "快速文档"
+        },
+        {
+          "command": {
+            "win": "Shift+F1",
+            "mac": "Shift+F1",
+            "linux": "Shift+F1"
+          },
+          "description": "外部文档"
+        },
+        {
+          "command": {
+            "win": "Alt+Insert",
+            "mac": "Option+Insert",
+            "linux": "Alt+Insert"
+          },
+          "description": "生成代码"
+        },
+        {
+          "command": {
+            "win": "Ctrl+O",
+            "mac": "Command+O",
+            "linux": "Ctrl+O"
+          },
+          "description": "覆盖成员"
+        },
+        {
+          "command": {
+            "win": "Ctrl+I",
+            "mac": "Command+I",
+            "linux": "Ctrl+I"
+          },
+          "description": "实现成员"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+T",
+            "mac": "Command+Option+T",
+            "linux": "Ctrl+Alt+T"
+          },
+          "description": "环绕"
+        },
+        {
+          "command": { "win": "Ctrl+/", "mac": "Command+/", "linux": "Ctrl+/" },
+          "description": "行注释"
+        },
+        {
+          "command": {
+            "win": "Ctrl+W",
+            "mac": "Command+W",
+            "linux": "Ctrl+W"
+          },
+          "description": "扩展选择"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+W",
+            "mac": "Command+Shift+W",
+            "linux": "Ctrl+Shift+W"
+          },
+          "description": "收缩选择"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+O",
+            "mac": "Command+Option+O",
+            "linux": "Ctrl+Alt+O"
+          },
+          "description": "优化导入"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+I",
+            "mac": "Command+Option+I",
+            "linux": "Ctrl+Alt+I"
+          },
+          "description": "自动缩进行"
+        },
+        {
+          "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
+          "description": "剪切"
+        },
+        {
+          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
+          "description": "复制"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
+          "description": "粘贴"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+C",
+            "mac": "Command+Shift+C",
+            "linux": "Ctrl+Shift+C"
+          },
+          "description": "复制文档路径"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+V",
+            "mac": "Command+Shift+V",
+            "linux": "Ctrl+Shift+V"
+          },
+          "description": "从剪贴板历史粘贴"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "复制当前行或选择"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Up | Ctrl+Shift+Down",
+            "mac": "Command+Shift+Up | Command+Shift+Down",
+            "linux": "Ctrl+Shift+Up | Ctrl+Shift+Down"
+          },
+          "description": "向上/向下移动线"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "删除插入符号处的行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+J",
+            "mac": "Command+Shift+J",
+            "linux": "Ctrl+Shift+J"
+          },
+          "description": "删除分割行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Enter",
+            "mac": "Command+Enter",
+            "linux": "Ctrl+Enter"
+          },
+          "description": "加入分割行"
+        },
+        {
+          "command": {
+            "win": "Shift+Enter",
+            "mac": "Shift+Enter",
+            "linux": "Shift+Enter"
+          },
+          "description": "开始新行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+U",
+            "mac": "Command+Shift+U",
+            "linux": "Ctrl+Shift+U"
+          },
+          "description": "切换大小写"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Plus",
+            "mac": "Command+Plus",
+            "linux": "Ctrl+Plus"
+          },
+          "description": "展开代码块"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
+          },
+          "description": "折叠代码块"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Plus",
+            "mac": "Command+Shift+Plus",
+            "linux": "Ctrl+Shift+Plus"
+          },
+          "description": "展开所有"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Minus",
+            "mac": "Command+Shift+Minus",
+            "linux": "Ctrl+Shift+Minus"
+          },
+          "description": "折叠所有"
+        },
+        {
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "全部保存"
+        }
+      ]
+    },
+    {
+      "name": "版本控制",
+      "shortcuts": [
+        {
+          "command": { "win": "Alt+`", "mac": "Option+`", "linux": "Alt+`" },
+          "description": "VCS 操作弹出窗口"
+        },
+        {
+          "command": { "win": "Ctrl+K", "mac": "Command+K", "linux": "Ctrl+K" },
+          "description": "提交"
+        },
+        {
+          "command": { "win": "Ctrl+T", "mac": "Command+T", "linux": "Ctrl+T" },
+          "description": "更新项目"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+C",
+            "mac": "Option+Shift+C",
+            "linux": "Alt+Shift+C"
+          },
+          "description": "近期变动"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Z",
+            "mac": "Command+Option+Z",
+            "linux": "Ctrl+Alt+Z"
+          },
+          "description": "恢复"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+K",
+            "mac": "Command+Shift+K",
+            "linux": "Ctrl+Shift+K"
+          },
+          "description": "推送"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+Down",
+            "mac": "Command+Option+Shift+Down",
+            "linux": "Ctrl+Alt+Shift+Down"
+          },
+          "description": "下一个更改"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+Up",
+            "mac": "Command+Option+Shift+Up",
+            "linux": "Ctrl+Alt+Shift+Up"
+          },
+          "description": "上一个更改"
+        }
+      ]
+    },
+    {
+      "name": "管理IDE",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+A",
+            "mac": "Command+Shift+A",
+            "linux": "Ctrl+Shift+A"
+          },
+          "description": "查找动作"
+        },
+        {
+          "command": {
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
+          },
+          "description": "打开工具窗口"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Y",
+            "mac": "Command+Option+Y",
+            "linux": "Ctrl+Alt+Y"
+          },
+          "description": "同步"
+        },
+        {
+          "command": { "win": "Ctrl+`", "mac": "Command+`", "linux": "Ctrl+`" },
+          "description": "快速切换方案"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+S",
+            "mac": "Command+Option+S",
+            "linux": "Ctrl+Alt+S"
+          },
+          "description": "设置"
+        },
+        {
+          "command": {
+            "win": "F4 | Alt+Home",
+            "mac": "F4 | Option+Home",
+            "linux": "F4 | Alt+Home"
+          },
+          "description": "跳转到源/导航栏"
+        },
+        {
+          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
+          "description": "跳转到最后一个工具窗口"
+        },
+        {
+          "command": {
+            "win": "Shift+Esc",
+            "mac": "Shift+Esc",
+            "linux": "Shift+Esc"
+          },
+          "description": "隐藏活动窗口"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F12",
+            "mac": "Command+Shift+F12",
+            "linux": "Ctrl+Shift+F12"
+          },
+          "description": "隐藏所有工具窗口"
+        },
+        {
+          "command": {
+            "win": "Alt+Right",
+            "mac": "Option+Right",
+            "linux": "Alt+Right"
+          },
+          "description": "转到下一个编辑器选项卡"
+        },
+        {
+          "command": {
+            "win": "Alt+Left",
+            "mac": "Option+Left",
+            "linux": "Alt+Left"
+          },
+          "description": "转到上一个编辑器选项卡"
+        },
+        {
+          "command": { "win": "Esc", "mac": "Esc", "linux": "Esc" },
+          "description": "转到编辑器（从工具窗口）"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F4",
+            "mac": "Command+Shift+F4",
+            "linux": "Ctrl+Shift+F4"
+          },
+          "description": "关闭活动标签"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F4",
+            "mac": "Command+F4",
+            "linux": "Ctrl+F4"
+          },
+          "description": "关闭活动窗口"
+        }
+      ]
+    },
+    {
+      "name": "全局搜索",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Shift+Shift",
+            "mac": "Shift+Shift",
+            "linux": "Shift+Shift"
+          },
+          "description": "全局搜索"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F",
+            "mac": "Command+F",
+            "linux": "Ctrl+F"
+          },
+          "description": "查找"
+        },
+        {
+          "command": {
+            "win": "Ctrl+R",
+            "mac": "Command+R",
+            "linux": "Ctrl+R"
+          },
+          "description": "替换"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F",
+            "mac": "Command+Shift+F",
+            "linux": "Ctrl+Shift+F"
+          },
+          "description": "在路径中查找"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+R",
+            "mac": "Command+Shift+R",
+            "linux": "Ctrl+Shift+R"
+          },
+          "description": "在路径中替换"
+        },
+        {
+          "command": {
+            "win": "F3 | Shift+F3",
+            "mac": "F3 | Shift+F3",
+            "linux": "F3 | Shift+F3"
+          },
+          "description": "下一个/上一个"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F3",
+            "mac": "Command+F3",
+            "linux": "Ctrl+F3"
+          },
+          "description": "在插入符号处查找单词"
+        },
+        {
+          "command": {
+            "win": "Ctrl+N | Ctrl+Shift+N",
+            "mac": "Command+N | Command+Shift+N",
+            "linux": "Ctrl+N | Ctrl+Shift+N"
+          },
+          "description": "转到类/文件"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F12",
+            "mac": "Command+F12",
+            "linux": "Ctrl+F12"
+          },
+          "description": "转到文件成员"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+N",
+            "mac": "Command+Option+Shift+N",
+            "linux": "Ctrl+Alt+Shift+N"
+          },
+          "description": "转到符号"
+        }
+      ]
+    },
+    {
+      "name": "从符号导航",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
+          "description": "声明"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+B",
+            "mac": "Command+Shift+B",
+            "linux": "Ctrl+Shift+B"
+          },
+          "description": "类型声明（仅限 JavaScript）"
+        },
+        {
+          "command": { "win": "Ctrl+U", "mac": "Command+U", "linux": "Ctrl+U" },
+          "description": "超级方法"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+B",
+            "mac": "Command+Option+B",
+            "linux": "Ctrl+Alt+B"
+          },
+          "description": "实现"
+        },
+        {
+          "command": {
+            "win": "Alt+F7 | Ctrl+F7",
+            "mac": "Option+F7 | Command+F7",
+            "linux": "Alt+F7 | Ctrl+F7"
+          },
+          "description": "查找用法/在文件中查找用法"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F7",
+            "mac": "Command+Shift+F7",
+            "linux": "Ctrl+Shift+F7"
+          },
+          "description": "突出显示文件中的用法"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+F7",
+            "mac": "Command+Option+F7",
+            "linux": "Ctrl+Alt+F7"
+          },
+          "description": "显示用法"
+        }
+      ]
+    },
+    {
+      "name": "重构和清理",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+T",
+            "mac": "Command+Option+Shift+T",
+            "linux": "Ctrl+Alt+Shift+T"
+          },
+          "description": "重构这个"
+        },
+        {
+          "command": { "win": "F5", "mac": "F5", "linux": "F5" },
+          "description": "复制"
+        },
+        {
+          "command": { "win": "F6", "mac": "F6", "linux": "F6" },
+          "description": "移动"
+        },
+        {
+          "command": {
+            "win": "Alt+Del",
+            "mac": "Option+Del",
+            "linux": "Alt+Del"
+          },
+          "description": "安全删除"
+        },
+        {
+          "command": {
+            "win": "Shift+F6",
+            "mac": "Shift+F6",
+            "linux": "Shift+F6"
+          },
+          "description": "重命名"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F6",
+            "mac": "Command+F6",
+            "linux": "Ctrl+F6"
+          },
+          "description": "更改签名"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+N",
+            "mac": "Command+Option+N",
+            "linux": "Ctrl+Alt+N"
+          },
+          "description": "排队"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+M",
+            "mac": "Command+Option+M",
+            "linux": "Ctrl+Alt+M"
+          },
+          "description": "提取方法"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+V | Ctrl+Alt+P",
+            "mac": "Command+Option+V | Command+Option+P",
+            "linux": "Ctrl+Alt+V | Ctrl+Alt+P"
+          },
+          "description": "引入变量/参数"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+F | Ctrl+Alt+C",
+            "mac": "Command+Option+F | Command+Option+C",
+            "linux": "Ctrl+Alt+F | Ctrl+Alt+C"
+          },
+          "description": "引入字段/常量"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+L",
+            "mac": "Command+Option+L",
+            "linux": "Ctrl+Alt+L"
+          },
+          "description": "重新格式化代码"
+        }
+      ]
+    },
+    {
+      "name": "分析和探索",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+F1",
+            "mac": "Command+F1",
+            "linux": "Ctrl+F1"
+          },
+          "description": "显示错误描述"
+        },
+        {
+          "command": {
+            "win": "F2 | Shift+F2",
+            "mac": "F2 | Shift+F2",
+            "linux": "F2 | Shift+F2"
+          },
+          "description": "下一个/上一个突出显示的错误"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+I",
+            "mac": "Command+Option+Shift+I",
+            "linux": "Ctrl+Alt+Shift+I"
+          },
+          "description": "按名称运行检查"
+        },
+        {
+          "command": { "win": "Ctrl+H", "mac": "Command+H", "linux": "Ctrl+H" },
+          "description": "类型层次结构"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+H",
+            "mac": "Command+Option+H",
+            "linux": "Ctrl+Alt+H"
+          },
+          "description": "调用层次结构"
+        }
+      ]
+    },
+    {
+      "name": "在上下文中导航",
+      "shortcuts": [
+        {
+          "command": { "win": "Alt+F1", "mac": "Option+F1", "linux": "Alt+F1" },
+          "description": "选择在"
+        },
+        {
+          "command": { "win": "Ctrl+E", "mac": "Command+E", "linux": "Ctrl+E" },
+          "description": "最近浏览过的"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+E",
+            "mac": "Command+Shift+E",
+            "linux": "Ctrl+Shift+E"
+          },
+          "description": "最近的位置"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Backspace",
+            "mac": "Command+Shift+Backspace",
+            "linux": "Ctrl+Shift+Backspace"
+          },
+          "description": "上次编辑位置"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Left | Ctrl+Alt+Right",
+            "mac": "Command+Option+Left | Command+Option+Right",
+            "linux": "Ctrl+Alt+Left | Ctrl+Alt+Right"
+          },
+          "description": "向后/向前导航"
+        },
+        {
+          "command": {
+            "win": "Alt+Up | Alt+Down",
+            "mac": "Option+Up | Option+Down",
+            "linux": "Alt+Up | Alt+Down"
+          },
+          "description": "转到上一个/下一个方法"
+        },
+        {
+          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
+          "description": "转到行/列"
+        },
+        {
+          "command": {
+            "win": "Ctrl+[",
+            "mac": "Command+[",
+            "linux": "Ctrl+["
+          },
+          "description": "转到代码块开始"
+        },
+        {
+          "command": {
+            "win": "Ctrl+]",
+            "mac": "Command+]",
+            "linux": "Ctrl+]"
+          },
+          "description": "转到代码块结束"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+F",
+            "mac": "Option+Shift+F",
+            "linux": "Alt+Shift+F"
+          },
+          "description": "添加到收藏夹"
+        },
+        {
+          "command": { "win": "F11", "mac": "F11", "linux": "F11" },
+          "description": "切换书签"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F11",
+            "mac": "Command+F11",
+            "linux": "Ctrl+F11"
+          },
+          "description": "使用助记符切换书签"
+        },
+        {
+          "command": {
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
+          },
+          "description": "转到编号的书签"
+        },
+        {
+          "command": {
+            "win": "Shift+F11",
+            "mac": "Shift+F11",
+            "linux": "Shift+F11"
+          },
+          "description": "显示书签"
+        }
+      ]
+    },
+    {
+      "name": "编译、运行和调试",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+F10",
+            "mac": "Command+Shift+F10",
+            "linux": "Ctrl+Shift+F10"
+          },
+          "description": "运行上下文配置"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+F9",
+            "mac": "Option+Shift+F9",
+            "linux": "Alt+Shift+F9"
+          },
+          "description": "调试选定的配置"
+        },
+        {
+          "command": {
+            "win": "Alt+Shift+F10",
+            "mac": "Option+Shift+F10",
+            "linux": "Alt+Shift+F10"
+          },
+          "description": "运行选定的配置"
+        },
+        {
+          "command": {
+            "win": "Shift+F9",
+            "mac": "Shift+F9",
+            "linux": "Shift+F9"
+          },
+          "description": "调试当前配置"
+        },
+        {
+          "command": {
+            "win": "Shift+F10",
+            "mac": "Shift+F10",
+            "linux": "Shift+F10"
+          },
+          "description": "运行当前配置"
+        },
+        {
+          "command": { "win": "F7", "mac": "F7", "linux": "F7" },
+          "description": "进入"
+        },
+        {
+          "command": { "win": "F8", "mac": "F8", "linux": "F8" },
+          "description": "跨过"
+        },
+        {
+          "command": {
+            "win": "Shift+F7",
+            "mac": "Shift+F7",
+            "linux": "Shift+F7"
+          },
+          "description": "智能步入"
+        },
+        {
+          "command": {
+            "win": "Shift+F8",
+            "mac": "Shift+F8",
+            "linux": "Shift+F8"
+          },
+          "description": "步出"
+        },
+        {
+          "command": { "win": "Alt+F9", "mac": "Option+F9", "linux": "Alt+F9" },
+          "description": "运行到光标"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+F9",
+            "mac": "Command+Option+F9",
+            "linux": "Ctrl+Alt+F9"
+          },
+          "description": "强制运行到光标"
+        },
+        {
+          "command": {
+            "win": "Alt+F10",
+            "mac": "Option+F10",
+            "linux": "Alt+F10"
+          },
+          "description": "显示执行点"
+        },
+        {
+          "command": { "win": "Alt+F8", "mac": "Option+F8", "linux": "Alt+F8" },
+          "description": "评估表达式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F2",
+            "mac": "Command+F2",
+            "linux": "Ctrl+F2"
+          },
+          "description": "停止"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F2",
+            "mac": "Command+Shift+F2",
+            "linux": "Ctrl+Shift+F2"
+          },
+          "description": "停止后台进程"
+        },
+        {
+          "command": { "win": "F9", "mac": "F9", "linux": "F9" },
+          "description": "简历计划"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F8",
+            "mac": "Command+F8",
+            "linux": "Ctrl+F8"
+          },
+          "description": "切换行断点"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Shift+F8",
+            "mac": "Command+Option+Shift+F8",
+            "linux": "Ctrl+Alt+Shift+F8"
+          },
+          "description": "切换临时行断点"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F8",
+            "mac": "Command+Shift+F8",
+            "linux": "Ctrl+Shift+F8"
+          },
+          "description": "编辑/查看断点"
+        }
+      ]
+    }
+  ]
+}

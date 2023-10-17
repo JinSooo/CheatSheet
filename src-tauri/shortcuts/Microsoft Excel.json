@@ -1,0 +1,505 @@
+{
+  "$schema": "./template/shortcut.schema.json",
+  "name": "Microsoft Excel",
+  "categories": [
+    {
+      "name": "常用快捷键",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+W", "mac": "Command+W", "linux": "Ctrl+W" },
+          "description": "关闭工作簿"
+        },
+        {
+          "command": { "win": "Ctrl+O", "mac": "Command+O", "linux": "Ctrl+O" },
+          "description": "打开工作簿"
+        },
+        {
+          "command": { "win": "Ctrl+S", "mac": "Command+S", "linux": "Ctrl+S" },
+          "description": "保存工作簿"
+        },
+        {
+          "command": {
+            "win": "Shift+F10",
+            "mac": "Shift+F10",
+            "linux": "Shift+F10"
+          },
+          "description": "打开上下文菜单"
+        },
+        {
+          "command": { "win": "Ctrl+9", "mac": "Command+9", "linux": "Ctrl+9" },
+          "description": "隐藏选定的行"
+        },
+        {
+          "command": { "win": "Ctrl+0", "mac": "Command+0", "linux": "Ctrl+0" },
+          "description": "隐藏选定的列"
+        }
+      ]
+    },
+    {
+      "name": "编辑",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
+          "description": "复制所选内容"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
+          "description": "粘贴所选内容"
+        },
+        {
+          "command": { "win": "Ctrl+Z", "mac": "Command+Z", "linux": "Ctrl+Z" },
+          "description": "撤消最近操作"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "恢复上一次操作"
+        },
+        {
+          "command": { "win": "Del", "mac": "Del", "linux": "Del" },
+          "description": "删除单元格内容"
+        },
+        {
+          "command": { "win": "Ctrl+X", "mac": "Command+X", "linux": "Ctrl+X" },
+          "description": "剪切所选内容"
+        },
+        {
+          "command": { "win": "Ctrl+B", "mac": "Command+B", "linux": "Ctrl+B" },
+          "description": "应用加粗格式"
+        }
+      ]
+    },
+    {
+      "name": "选项卡",
+      "shortcuts": [
+        {
+          "command": { "win": "Alt+Q", "mac": "Option+Q", "linux": "Alt+Q" },
+          "description": "移动到功能区上的\"搜索\"字段"
+        },
+        {
+          "command": { "win": "Alt+F", "mac": "Option+F", "linux": "Alt+F" },
+          "description": "打开\"文件\"菜单"
+        },
+        {
+          "command": { "win": "Alt+H", "mac": "Option+H", "linux": "Alt+H" },
+          "description": "打开\"主页\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+N", "mac": "Option+N", "linux": "Alt+N" },
+          "description": "打开\"插入\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+P", "mac": "Option+P", "linux": "Alt+P" },
+          "description": "打开\"页面布局\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+M", "mac": "Option+M", "linux": "Alt+M" },
+          "description": "打开\"公式\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+A", "mac": "Option+A", "linux": "Alt+A" },
+          "description": "打开\"数据\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+R", "mac": "Option+R", "linux": "Alt+R" },
+          "description": "打开\"审阅\"选项卡"
+        },
+        {
+          "command": { "win": "Alt+W", "mac": "Option+W", "linux": "Alt+W" },
+          "description": "打开\"视图\"选项卡"
+        }
+      ]
+    },
+    {
+      "name": "单元格导航",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Shift+Tab",
+            "mac": "Shift+Tab",
+            "linux": "Shift+Tab"
+          },
+          "description": "移到工作表中的前一个单元格或对话框中的前一个选项"
+        },
+        {
+          "command": {
+            "win": "Ctrl+End",
+            "mac": "Command+End",
+            "linux": "Ctrl+End"
+          },
+          "description": "移到工作表上的最后一个单元格，即所使用的最右一列的最下面一行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+End",
+            "mac": "Command+Shift+End",
+            "linux": "Ctrl+Shift+End"
+          },
+          "description": "将单元格选定区域扩展至工作表上最后一个使用的单元格（右下角）"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Home",
+            "mac": "Command+Home",
+            "linux": "Ctrl+Home"
+          },
+          "description": "移到工作表的开头"
+        },
+        {
+          "command": {
+            "win": "PgDn",
+            "mac": "PgDn",
+            "linux": "PgDn"
+          },
+          "description": "在工作表中向下移动一屏"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgDn",
+            "mac": "Command+PgDn",
+            "linux": "Ctrl+PgDn"
+          },
+          "description": "移到工作簿中的下一个工作表"
+        },
+        {
+          "command": {
+            "win": "Alt+PgDn",
+            "mac": "Option+PgDn",
+            "linux": "Alt+PgDn"
+          },
+          "description": "在工作表中向右移动一屏"
+        },
+        {
+          "command": { "win": "PgUp", "mac": "PgUp", "linux": "PgUp" },
+          "description": "在工作表中向上移动一屏"
+        },
+        {
+          "command": {
+            "win": "Alt+PgUp",
+            "mac": "Option+PgUp",
+            "linux": "Alt+PgUp"
+          },
+          "description": "在工作表中向左移动一屏"
+        },
+        {
+          "command": {
+            "win": "Ctrl+PgUp",
+            "mac": "Command+PgUp",
+            "linux": "Ctrl+PgUp"
+          },
+          "description": "移到工作簿中的上一个工作表"
+        },
+        {
+          "command": {
+            "win": "Alt+Down",
+            "mac": "Option+Down",
+            "linux": "Alt+Down"
+          },
+          "description": "对应用了数据验证选项的单元格打开验证选项列表"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+=",
+            "mac": "Command+Option+=",
+            "linux": "Ctrl+Alt+="
+          },
+          "description": "放大"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Minus",
+            "mac": "Command+Option+Minus",
+            "linux": "Ctrl+Alt+Minus"
+          },
+          "description": "缩小"
+        }
+      ]
+    },
+    {
+      "name": "单元格格式",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+1", "mac": "Command+1", "linux": "Ctrl+1" },
+          "description": "打开\"设置单元格格式\"对话框"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F | Ctrl+Shift+P",
+            "mac": "Command+Shift+F | Command+Shift+P",
+            "linux": "Ctrl+Shift+F | Ctrl+Shift+P"
+          },
+          "description": "在\"设置单元格格式\"对话框中设置 字体格式"
+        },
+        {
+          "command": {
+            "win": "Shift+F2",
+            "mac": "Shift+F2",
+            "linux": "Shift+F2"
+          },
+          "description": "插入备注"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+F2",
+            "mac": "Command+Shift+F2",
+            "linux": "Ctrl+Shift+F2"
+          },
+          "description": "插入线程批注"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Plus",
+            "mac": "Command+Shift+Plus",
+            "linux": "Ctrl+Shift+Plus"
+          },
+          "description": "打开\"插入\"对话框以插入空白单元格"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
+          },
+          "description": "打开\"删除\"对话框以删除所选单元格"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+V",
+            "mac": "Command+Option+V",
+            "linux": "Ctrl+Alt+V"
+          },
+          "description": "打开\"选择性粘贴\"对话框"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "使用\"向下填充\"命令将所选区域最顶端单元格的内容和格式复制到下面的单元格中"
+        },
+        {
+          "command": { "win": "Ctrl+K", "mac": "Command+K", "linux": "Ctrl+K" },
+          "description": "打开\"插入超链接\"对话框"
+        },
+        {
+          "command": { "win": "F7", "mac": "F7", "linux": "F7" },
+          "description": "检查活动工作表或选定范围中的拼写"
+        },
+        {
+          "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
+          "description": "显示包含数据的选定单元格的\"快速分析\"选项"
+        },
+        {
+          "command": {
+            "win": "Ctrl+L | Ctrl+T",
+            "mac": "Command+L | Command+T",
+            "linux": "Ctrl+L | Ctrl+T"
+          },
+          "description": "显示\"创建表\"对话框"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+G",
+            "mac": "Command+Shift+G",
+            "linux": "Ctrl+Shift+G"
+          },
+          "description": "打开工作簿统计信息对话框"
+        }
+      ]
+    },
+    {
+      "name": "单元格快捷输入",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+Shift+:",
+            "mac": "Command+Shift+:",
+            "linux": "Ctrl+Shift+:"
+          },
+          "description": "输入当前时间"
+        },
+        {
+          "command": { "win": "Ctrl+;", "mac": "Command+;", "linux": "Ctrl+;" },
+          "description": "输入当前日期"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+~",
+            "mac": "Command+Shift+~",
+            "linux": "Ctrl+Shift+~"
+          },
+          "description": "应用\"常规\"数字格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+$",
+            "mac": "Command+Shift+$",
+            "linux": "Ctrl+Shift+$"
+          },
+          "description": "应用两位小数的货币格式 (括号中的负数)"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+%",
+            "mac": "Command+Shift+%",
+            "linux": "Ctrl+Shift+%"
+          },
+          "description": "应用无小数位数的百分比格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+^",
+            "mac": "Command+Shift+^",
+            "linux": "Ctrl+Shift+^"
+          },
+          "description": "应用带两个小数位数的科学数字格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+#",
+            "mac": "Command+Shift+#",
+            "linux": "Ctrl+Shift+#"
+          },
+          "description": "应用日期格式以及日期、月份和年份"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+@",
+            "mac": "Command+Shift+@",
+            "linux": "Ctrl+Shift+@"
+          },
+          "description": "使用小时和分钟以及 AM 或 PM 应用时间格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+!",
+            "mac": "Command+Shift+!",
+            "linux": "Ctrl+Shift+!"
+          },
+          "description": "对负值应用带两个小数位数、千位分隔符和减号 (-) 数字格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+I | Ctrl+3",
+            "mac": "Command+I | Command+3",
+            "linux": "Ctrl+I | Ctrl+3"
+          },
+          "description": "将文本设置为斜体或删除倾斜格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+B | Ctrl+2",
+            "mac": "Command+B | Command+2",
+            "linux": "Ctrl+B | Ctrl+2"
+          },
+          "description": "将文本设置为加粗或删除加粗格式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+U | Ctrl+4",
+            "mac": "Command+U | Command+4",
+            "linux": "Ctrl+U | Ctrl+4"
+          },
+          "description": "为文字添加下划线或删除下划线"
+        },
+        {
+          "command": { "win": "Ctrl+5", "mac": "Command+5", "linux": "Ctrl+5" },
+          "description": "应用或删除删除线格式"
+        }
+      ]
+    },
+    {
+      "name": "选择",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+A", "mac": "Command+A", "linux": "Ctrl+A" },
+          "description": "选择整个工作表"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space",
+            "linux": "Ctrl+Shift+Space"
+          },
+          "description": "选择整个工作表"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+PgDn",
+            "mac": "Command+Shift+PgDn",
+            "linux": "Ctrl+Shift+PgDn"
+          },
+          "description": "选择工作簿中的当前和下一个工作表"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+PgUp",
+            "mac": "Command+Shift+PgUp",
+            "linux": "Ctrl+Shift+PgUp"
+          },
+          "description": "选择工作簿中的当前和上一个工作表"
+        },
+        {
+          "command": {
+            "win": "Shift+Up | Shift+Down",
+            "mac": "Shift+Up | Shift+Down",
+            "linux": "Shift+Up | Shift+Down"
+          },
+          "description": "将单元格的选定范围扩大一个单元格"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Up | Ctrl+Shift+Down",
+            "mac": "Command+Shift+Up | Command+Shift+Down",
+            "linux": "Ctrl+Shift+Up | Ctrl+Shift+Down"
+          },
+          "description": "将单元格的选定范围扩展到活动单元格所在列或行中的最后一个非空单元格，或者如果下一个单元格为空，则扩展到下一个非空单元格"
+        },
+        {
+          "command": {
+            "win": "Shift+F8",
+            "mac": "Shift+F8",
+            "linux": "Shift+F8"
+          },
+          "description": "通过使用箭头键将非邻近单元格或区域添加到单元格的选定范围中"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Space",
+            "mac": "Command+Space",
+            "linux": "Ctrl+Space"
+          },
+          "description": "选择工作表中的整列"
+        },
+        {
+          "command": {
+            "win": "Shift+Space",
+            "mac": "Shift+Space",
+            "linux": "Shift+Space"
+          },
+          "description": "选择工作表中的整行"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space",
+            "linux": "Ctrl+Shift+Space"
+          },
+          "description": "当某个对象处于选定状态时，选择工作表上的所有对象"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+Home",
+            "mac": "Command+Shift+Home",
+            "linux": "Ctrl+Shift+Home"
+          },
+          "description": "将单元格的选定范围扩展到工作表的开头"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+*",
+            "mac": "Command+Shift+*",
+            "linux": "Ctrl+Shift+*"
+          },
+          "description": "选择活动单元格周围的当前区域"
+        }
+      ]
+    }
+  ]
+}
