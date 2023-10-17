@@ -55,7 +55,7 @@
           "description": "恢复上一次操作"
         },
         {
-          "command": { "win": "Delete", "mac": "Delete", "linux": "Delete" },
+          "command": { "win": "Del", "mac": "Del", "linux": "Del" },
           "description": "删除单元格内容"
         },
         {

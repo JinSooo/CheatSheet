@@ -329,9 +329,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Delete",
-            "mac": "Command+Delete",
-            "linux": "Ctrl+Delete"
+            "win": "Ctrl+Del",
+            "mac": "Command+Del",
+            "linux": "Ctrl+Del"
           },
           "description": "删除单词转发"
         }

@@ -52,6 +52,8 @@ Linux
 - `ArrowDown` -> `Down`
 - `+` -> `Plus`
 - `-` -> `Minus`
+- `Delete` -> `Del`
+- `Number(数字)` -> `NumPad`
 
 ### 转义字符
 

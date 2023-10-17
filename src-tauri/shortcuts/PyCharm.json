@@ -504,9 +504,9 @@
         },
         {
           "command": {
-            "win": "Alt+Delete",
-            "mac": "Option+Delete",
-            "linux": "Alt+Delete"
+            "win": "Alt+Del",
+            "mac": "Option+Del",
+            "linux": "Alt+Del"
           },
           "description": "安全删除"
         },

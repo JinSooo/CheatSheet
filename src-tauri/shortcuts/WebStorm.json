@@ -203,9 +203,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Delete",
-            "mac": "Command+Delete",
-            "linux": "Ctrl+Delete"
+            "win": "Ctrl+Del",
+            "mac": "Command+Del",
+            "linux": "Ctrl+Del"
           },
           "description": "删除到词尾"
         },
@@ -726,9 +726,9 @@
         },
         {
           "command": {
-            "win": "Alt+Delete",
-            "mac": "Option+Delete",
-            "linux": "Alt+Delete"
+            "win": "Alt+Del",
+            "mac": "Option+Del",
+            "linux": "Alt+Del"
           },
           "description": "安全删除"
         },

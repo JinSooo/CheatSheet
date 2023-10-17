@@ -213,9 +213,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Shift+Delete",
-            "mac": "Command+Shift+Delete",
-            "linux": "Ctrl+Shift+Delete"
+            "win": "Ctrl+Shift+Del",
+            "mac": "Command+Shift+Del",
+            "linux": "Ctrl+Shift+Del"
           },
           "description": "打开\"清除浏览数据\"选项"
         },

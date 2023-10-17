@@ -397,9 +397,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Delete",
-            "mac": "Command+Delete",
-            "linux": "Ctrl+Delete"
+            "win": "Ctrl+Del",
+            "mac": "Command+Del",
+            "linux": "Ctrl+Del"
           },
           "description": "字词 - 删除至结尾"
         },

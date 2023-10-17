@@ -327,14 +327,14 @@
           "description": "向左删除一个字词"
         },
         {
-          "command": { "win": "Delete", "mac": "Delete", "linux": "Delete" },
+          "command": { "win": "Del", "mac": "Del", "linux": "Del" },
           "description": "向右删除一个字符"
         },
         {
           "command": {
-            "win": "Ctrl+Delete",
-            "mac": "Command+Delete",
-            "linux": "Ctrl+Delete"
+            "win": "Ctrl+Del",
+            "mac": "Command+Del",
+            "linux": "Ctrl+Del"
           },
           "description": "在右侧位置删除(光标位于两个单词之间) "
         },
