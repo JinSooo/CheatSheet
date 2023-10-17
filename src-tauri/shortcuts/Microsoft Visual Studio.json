@@ -1,6 +1,6 @@
 {
   "$schema": "./template/shortcut.schema.json",
-  "name": "Visual Studio",
+  "name": "Microsoft Visual Studio",
   "categories": [
     {
       "name": "生成",
@@ -15,9 +15,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Break",
-            "mac": "Command+Break",
-            "linux": "Ctrl+Break"
+            "win": "Ctrl+Backspace",
+            "mac": "Command+Backspace",
+            "linux": "Ctrl+Backspace"
           },
           "description": "取消"
         },
@@ -48,9 +48,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Alt+Break",
-            "mac": "Command+Option+Break",
-            "linux": "Ctrl+Alt+Break"
+            "win": "Ctrl+Alt+Backspace",
+            "mac": "Command+Option+Backspace",
+            "linux": "Ctrl+Alt+Backspace"
           },
           "description": "全部中断"
         },
@@ -153,28 +153,8 @@
       ]
     },
     {
-      "name": "编辑",
+      "name": "基本",
       "shortcuts": [
-        {
-          "command": {
-            "win": "Ctrl+M, Ctrl+O",
-            "mac": "Command+M, Command+O",
-            "linux": "Ctrl+M, Ctrl+O"
-          },
-          "description": "折叠到定义"
-        },
-        {
-          "command": {
-            "win": "Ctrl+K, Ctrl+C",
-            "mac": "Command+K, Command+C",
-            "linux": "Ctrl+K, Ctrl+C"
-          },
-          "description": "注释选定内容"
-        },
-        {
-          "command": { "win": "Alt+→ ", "mac": "Option+→ ", "linux": "Alt+→ " },
-          "description": "完成单词"
-        },
         {
           "command": { "win": "Ctrl+C", "mac": "Command+C", "linux": "Ctrl+C" },
           "description": "复制"
@@ -186,6 +166,47 @@
         {
           "command": { "win": "Ctrl+F", "mac": "Command+F", "linux": "Ctrl+F" },
           "description": "查找"
+        },
+        {
+          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
+          "description": "粘贴"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "重做"
+        },
+        {
+          "command": { "win": "Ctrl+H", "mac": "Command+H", "linux": "Ctrl+H" },
+          "description": "替换"
+        },
+        {
+          "command": { "win": "Ctrl+A", "mac": "Command+A", "linux": "Ctrl+A" },
+          "description": "全选"
+        }
+      ]
+    },
+    {
+      "name": "编辑",
+      "shortcuts": [
+        {
+          "command": {
+            "win": "Ctrl+M & Ctrl+O",
+            "mac": "Command+M & Command+O",
+            "linux": "Ctrl+M & Ctrl+O"
+          },
+          "description": "折叠到定义"
+        },
+        {
+          "command": {
+            "win": "Ctrl+K & Ctrl+C",
+            "mac": "Command+K & Command+C",
+            "linux": "Ctrl+K & Ctrl+C"
+          },
+          "description": "注释选定内容"
+        },
+        {
+          "command": { "win": "Alt+Right ", "mac": "Option+Right ", "linux": "Alt+Right " },
+          "description": "完成单词"
         },
         {
           "command": {
@@ -217,49 +238,25 @@
         },
         {
           "command": {
-            "win": "Ctrl+K, Ctrl+D",
-            "mac": "Command+K, Command+D",
-            "linux": "Ctrl+K, Ctrl+D"
+            "win": "Ctrl+K & Ctrl+D",
+            "mac": "Command+K & Command+D",
+            "linux": "Ctrl+K & Ctrl+D"
           },
           "description": "设置文档格式"
         },
         {
           "command": {
-            "win": "Ctrl+K, Ctrl+F",
-            "mac": "Command+K, Command+F",
-            "linux": "Ctrl+K, Ctrl+F"
+            "win": "Ctrl+K & Ctrl+F",
+            "mac": "Command+K & Command+F",
+            "linux": "Ctrl+K & Ctrl+F"
           },
           "description": "设置选定内容的格式"
         },
         {
-          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
-          "description": "转到"
-        },
-        {
           "command": {
-            "win": "Ctrl+F12",
-            "mac": "Command+F12",
-            "linux": "Ctrl+F12"
-          },
-          "description": "转到声明"
-        },
-        {
-          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
-          "description": "转到定义"
-        },
-        {
-          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
-          "description": "转到查找组合"
-        },
-        {
-          "command": { "win": "F8", "mac": "F8", "linux": "F8" },
-          "description": "转到下一个位置"
-        },
-        {
-          "command": {
-            "win": "Ctrl+K, Ctrl+X",
-            "mac": "Command+K, Command+X",
-            "linux": "Ctrl+K, Ctrl+X"
+            "win": "Ctrl+K & Ctrl+X",
+            "mac": "Command+K & Command+X",
+            "linux": "Ctrl+K & Ctrl+X"
           },
           "description": "插入代码片段"
         },
@@ -269,9 +266,9 @@
         },
         {
           "command": {
-            "win": "Shift+Alt+↓",
-            "mac": "Shift+Option+↓",
-            "linux": "Shift+Alt+↓"
+            "win": "Shift+Alt+Down",
+            "mac": "Shift+Option+Down",
+            "linux": "Shift+Alt+Down"
           },
           "description": "行 - 向下扩展列"
         },
@@ -308,10 +305,6 @@
           "description": "参数信息"
         },
         {
-          "command": { "win": "Ctrl+V", "mac": "Command+V", "linux": "Ctrl+V" },
-          "description": "粘贴"
-        },
-        {
           "command": {
             "win": "Alt+F12",
             "mac": "Option+F12",
@@ -320,26 +313,14 @@
           "description": "查看定义"
         },
         {
-          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
-          "description": "重做"
-        },
-        {
-          "command": { "win": "Ctrl+H", "mac": "Command+H", "linux": "Ctrl+H" },
-          "description": "替换"
-        },
-        {
-          "command": { "win": "Ctrl+A", "mac": "Command+A", "linux": "Ctrl+A" },
-          "description": "全选"
-        },
-        {
           "command": { "win": "Ctrl+W", "mac": "Command+W", "linux": "Ctrl+W" },
           "description": "选择当前字词"
         },
         {
           "command": {
-            "win": "Ctrl+K, Ctrl+S",
-            "mac": "Command+K, Command+S",
-            "linux": "Ctrl+K, Ctrl+S"
+            "win": "Ctrl+K & Ctrl+S",
+            "mac": "Command+K & Command+S",
+            "linux": "Ctrl+K & Ctrl+S"
           },
           "description": "环绕"
         },
@@ -353,41 +334,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+M, Ctrl+L",
-            "mac": "Command+M, Command+L",
-            "linux": "Ctrl+M, Ctrl+L"
-          },
-          "description": "切换所有大纲显示"
-        },
-        {
-          "command": {
-            "win": "Ctrl+K, Ctrl+K",
-            "mac": "Command+K, Command+K",
-            "linux": "Ctrl+K, Ctrl+K"
-          },
-          "description": "切换书签"
-        },
-        {
-          "command": {
-            "win": "Ctrl+Alt+Space",
-            "mac": "Command+Option+Space",
-            "linux": "Ctrl+Alt+Space"
-          },
-          "description": "切换完成模式"
-        },
-        {
-          "command": {
-            "win": "Ctrl+M, Ctrl+M",
-            "mac": "Command+M, Command+M",
-            "linux": "Ctrl+M, Ctrl+M"
-          },
-          "description": "切换大纲显示展开"
-        },
-        {
-          "command": {
-            "win": "Ctrl+K, Ctrl+U",
-            "mac": "Command+K, Command+U",
-            "linux": "Ctrl+K, Ctrl+U"
+            "win": "Ctrl+K & Ctrl+U",
+            "mac": "Command+K & Command+U",
+            "linux": "Ctrl+K & Ctrl+U"
           },
           "description": "取消注释选定内容"
         },
@@ -410,6 +359,67 @@
             "linux": "Ctrl+Backspace"
           },
           "description": "字词 - 删除至开头"
+        }
+      ]
+    },
+    {
+      "name": "转到/切换",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+G", "mac": "Command+G", "linux": "Ctrl+G" },
+          "description": "转到"
+        },
+        {
+          "command": {
+            "win": "Ctrl+F12",
+            "mac": "Command+F12",
+            "linux": "Ctrl+F12"
+          },
+          "description": "转到声明"
+        },
+        {
+          "command": { "win": "F12", "mac": "F12", "linux": "F12" },
+          "description": "转到定义"
+        },
+        {
+          "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
+          "description": "转到查找组合"
+        },
+        {
+          "command": { "win": "F8", "mac": "F8", "linux": "F8" },
+          "description": "转到下一个位置"
+        },
+        {
+          "command": {
+            "win": "Ctrl+M & Ctrl+L",
+            "mac": "Command+M & Command+L",
+            "linux": "Ctrl+M & Ctrl+L"
+          },
+          "description": "切换所有大纲显示"
+        },
+        {
+          "command": {
+            "win": "Ctrl+K & Ctrl+K",
+            "mac": "Command+K & Command+K",
+            "linux": "Ctrl+K & Ctrl+K"
+          },
+          "description": "切换书签"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Alt+Space",
+            "mac": "Command+Option+Space",
+            "linux": "Ctrl+Alt+Space"
+          },
+          "description": "切换完成模式"
+        },
+        {
+          "command": {
+            "win": "Ctrl+M & Ctrl+M",
+            "mac": "Command+M & Command+M",
+            "linux": "Ctrl+M & Ctrl+M"
+          },
+          "description": "切换大纲显示展开"
         }
       ]
     },
@@ -512,9 +522,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+R, Ctrl+M",
-            "mac": "Command+R, Command+M",
-            "linux": "Ctrl+R, Ctrl+M"
+            "win": "Ctrl+R & Ctrl+M",
+            "mac": "Command+R & Command+M",
+            "linux": "Ctrl+R & Ctrl+M"
           },
           "description": "提取方法"
         }
@@ -550,21 +560,21 @@
         },
         {
           "command": {
-            "win": "Ctrl+\\, Ctrl+E",
-            "mac": "Command+\\, Command+E",
-            "linux": "Ctrl+\\, Ctrl+E"
+            "win": "Ctrl+\\ & Ctrl+E",
+            "mac": "Command+\\ & Command+E",
+            "linux": "Ctrl+\\ & Ctrl+E"
           },
           "description": "错误列表"
         },
         {
-          "command": { "win": "Ctrl+-", "mac": "Command+-", "linux": "Ctrl+-" },
+          "command": { "win": "Ctrl+Minus", "mac": "Command+Minus", "linux": "Ctrl+Minus" },
           "description": "向后导航"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+-",
-            "mac": "Command+Shift+-",
-            "linux": "Ctrl+Shift+-"
+            "win": "Ctrl+Shift+Minus",
+            "mac": "Command+Shift+Minus",
+            "linux": "Ctrl+Shift+Minus"
           },
           "description": "向前导航"
         },
@@ -614,9 +624,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+\\, Ctrl+M",
-            "mac": "Command+\\, Command+M",
-            "linux": "Ctrl+\\, Ctrl+M"
+            "win": "Ctrl+\\ & Ctrl+M",
+            "mac": "Command+\\ & Command+M",
+            "linux": "Ctrl+\\ & Ctrl+M"
           },
           "description": "TFS 团队资源管理器"
         },
