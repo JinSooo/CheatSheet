@@ -1,6 +1,6 @@
 {
   "$schema": "./template/shortcut.schema.json",
-  "name": "Web Storm",
+  "name": "WebStorm",
   "categories": [
     {
       "name": "编辑",
@@ -28,14 +28,6 @@
         {
           "command": { "win": "Ctrl+Q", "mac": "Command+Q", "linux": "Ctrl+Q" },
           "description": "快速文档查找"
-        },
-        {
-          "command": {
-            "win": "Ctrl+mouse over",
-            "mac": "Command+mouse over",
-            "linux": "Ctrl+mouse over"
-          },
-          "description": "简要信息"
         },
         {
           "command": {
@@ -219,33 +211,33 @@
         },
         {
           "command": {
-            "win": "Ctrl+NumPad+",
-            "mac": "Command+NumPad+",
-            "linux": "Ctrl+NumPad+"
+            "win": "Ctrl+Plus",
+            "mac": "Command+Plus",
+            "linux": "Ctrl+Plus"
           },
           "description": "展开代码块"
         },
         {
           "command": {
-            "win": "Ctrl+NumPad-",
-            "mac": "Command+NumPad-",
-            "linux": "Ctrl+NumPad-"
+            "win": "Ctrl+Minus",
+            "mac": "Command+Minus",
+            "linux": "Ctrl+Minus"
           },
           "description": "折叠代码块"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+NumPad+",
-            "mac": "Command+Shift+NumPad+",
-            "linux": "Ctrl+Shift+NumPad+"
+            "win": "Ctrl+Shift+Plus",
+            "mac": "Command+Shift+Plus",
+            "linux": "Ctrl+Shift+Plus"
           },
           "description": "展开全部"
         },
         {
           "command": {
-            "win": "Ctrl+Shift+NumPad-",
-            "mac": "Command+Shift+NumPad-",
-            "linux": "Ctrl+Shift+NumPad-"
+            "win": "Ctrl+Shift+Minus",
+            "mac": "Command+Shift+Minus",
+            "linux": "Ctrl+Shift+Minus"
           },
           "description": "全部收缩"
         },
@@ -264,17 +256,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Alt+Click",
-            "mac": "Option+Click",
-            "linux": "Alt+Click"
-          },
-          "description": "添加或删除插入符号"
-        },
-        {
-          "command": {
-            "win": "Shift+Ctrl+Alt+J",
-            "mac": "Shift+Command+Option+J",
-            "linux": "Shift+Ctrl+Alt+J"
+            "win": "Ctrl+Alt+Shift+J",
+            "mac": "Command+Option+Shift+J",
+            "linux": "Ctrl+Alt+Shift+J"
           },
           "description": "选择所有出现"
         },
@@ -419,9 +403,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+B , Ctrl+Click",
-            "mac": "Command+B , Command+Click",
-            "linux": "Ctrl+B , Ctrl+Click"
+            "win": "Ctrl+B & Ctrl+Click",
+            "mac": "Command+B & Command+Click",
+            "linux": "Ctrl+B & Ctrl+Click"
           },
           "description": "转到声明"
         },
@@ -547,11 +531,19 @@
         },
         {
           "command": {
-            "win": "Ctrl+]/[",
-            "mac": "Command+]/[",
-            "linux": "Ctrl+]/["
+            "win": "Ctrl+[",
+            "mac": "Command+[",
+            "linux": "Ctrl+["
           },
-          "description": "移动到代码块结束/开始"
+          "description": "移动到代码块开始"
+        },
+        {
+          "command": {
+            "win": "Ctrl+]",
+            "mac": "Command+]",
+            "linux": "Ctrl+]"
+          },
+          "description": "移动到代码块结束"
         },
         {
           "command": {
@@ -583,17 +575,25 @@
         },
         {
           "command": {
-            "win": "F2/Shift+F2",
-            "mac": "F2/Shift+F2",
-            "linux": "F2/Shift+F2"
+            "win": "F2",
+            "mac": "F2",
+            "linux": "F2"
           },
-          "description": "下一个/上一个突出显示的错误"
+          "description": "下一个突出显示的错误"
         },
         {
           "command": {
-            "win": "F4 , Ctrl+Enter",
-            "mac": "F4 , Command+Enter",
-            "linux": "F4 , Ctrl+Enter"
+            "win": "Shift+F2",
+            "mac": "Shift+F2",
+            "linux": "Shift+F2"
+          },
+          "description": "上一个突出显示的错误"
+        },
+        {
+          "command": {
+            "win": "F4 & Ctrl+Enter",
+            "mac": "F4 & Command+Enter",
+            "linux": "F4 & Ctrl+Enter"
           },
           "description": "跳转到源"
         },
@@ -619,9 +619,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+#[0-9]",
-            "mac": "Command+#[0-9]",
-            "linux": "Ctrl+#[0-9]"
+            "win": "Ctrl+NumPad",
+            "mac": "Command+NumPad",
+            "linux": "Ctrl+NumPad"
           },
           "description": "转到编号的书签"
         },
@@ -714,9 +714,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+Alt+Shift +T",
-            "mac": "Command+Option+Shift +T",
-            "linux": "Ctrl+Alt+Shift +T"
+            "win": "Ctrl+Alt+Shift+T",
+            "mac": "Command+Option+Shift+T",
+            "linux": "Ctrl+Alt+Shift+T"
           },
           "description": "重构这个"
         },
@@ -820,9 +820,9 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Double Shift",
-            "mac": "Double Shift",
-            "linux": "Double Shift"
+            "win": "Shift+Shift",
+            "mac": "Shift+Shift",
+            "linux": "Shift+Shift"
           },
           "description": "全局搜索"
         },
@@ -836,9 +836,9 @@
         },
         {
           "command": {
-            "win": "Alt+#[0-9]",
-            "mac": "Option+#[0-9]",
-            "linux": "Alt+#[0-9]"
+            "win": "Alt+NumPad",
+            "mac": "Option+NumPad",
+            "linux": "Alt+NumPad"
           },
           "description": "打开相应的工具窗口"
         },
