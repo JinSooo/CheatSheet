@@ -1,6 +1,6 @@
 {
   "$schema": "./template/shortcut.schema.json",
-  "name": "Sublime",
+  "name": "Sublime Text",
   "categories": [
     {
       "name": "编辑",
@@ -19,31 +19,72 @@
         },
         {
           "command": {
-            "win": "Shift+Ctrl+Enter",
-            "mac": "Shift+Command+Enter",
-            "linux": "Shift+Ctrl+Enter"
+            "win": "Ctrl+Shift+Enter",
+            "mac": "Command+Shift+Enter",
+            "linux": "Ctrl+Shift+Enter"
           },
           "description": "在前面插入行"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+UP",
-            "mac": "Shift+Command+UP",
-            "linux": "Shift+Ctrl+UP"
+            "win": "Ctrl+Shift+Up",
+            "mac": "Command+Shift+Up",
+            "linux": "Ctrl+Shift+Up"
           },
           "description": "向上移动行"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+DOWN",
-            "mac": "Shift+Command+DOWN",
-            "linux": "Shift+Ctrl+DOWN"
+            "win": "Ctrl+Shift+Down",
+            "mac": "Command+Shift+Down",
+            "linux": "Ctrl+Shift+Down"
           },
           "description": "向下移动行"
         },
         {
+          "command": {
+            "win": "Ctrl+Shift+D",
+            "mac": "Command+Shift+D",
+            "linux": "Ctrl+Shift+D"
+          },
+          "description": "复制行"
+        },
+        {
           "command": { "win": "Ctrl+L", "mac": "Command+L", "linux": "Ctrl+L" },
           "description": "选择行 - 重复以选择下一行"
+        },
+        {
+          "command": { "win": "Ctrl+J", "mac": "Command+J", "linux": "Ctrl+J" },
+          "description": "将下面的行加入到当前行的末尾"
+        },
+        {
+          "command": {
+            "win": "Ctrl+Shift+V",
+            "mac": "Command+Shift+V",
+            "linux": "Ctrl+Shift+V"
+          },
+          "description": "粘贴和缩进"
+        },
+        {
+          "command": { "win": "Ctrl+U", "mac": "Command+U", "linux": "Ctrl+U" },
+          "description": "撤销"
+        },
+        {
+          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
+          "description": "重做或重复上一个键盘快捷键命令"
+        }
+      ]
+    },
+    {
+      "name": "快捷",
+      "shortcuts": [
+        {
+          "command": { "win": "Ctrl+]", "mac": "Command+]", "linux": "Ctrl+]" },
+          "description": "缩进当前行"
+        },
+        {
+          "command": { "win": "Ctrl+[", "mac": "Command+[", "linux": "Ctrl+[" },
+          "description": "取消缩进当前行"
         },
         {
           "command": { "win": "Ctrl+D", "mac": "Command+D", "linux": "Ctrl+D" },
@@ -55,47 +96,27 @@
         },
         {
           "command": {
-            "win": "Shift+Ctrl+M",
-            "mac": "Shift+Command+M",
-            "linux": "Shift+Ctrl+M"
+            "win": "Ctrl+Shift+M",
+            "mac": "Command+Shift+M",
+            "linux": "Ctrl+Shift+M"
           },
           "description": "选择当前括号的所有内容"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+K",
-            "mac": "Command+K,Command+K",
-            "linux": "Ctrl+K,Ctrl+K"
+            "win": "Ctrl+K & Ctrl+K",
+            "mac": "Command+K & Command+K",
+            "linux": "Ctrl+K & Ctrl+K"
           },
           "description": "从光标处删除到行尾"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+Backspace",
-            "mac": "Command+K,Command+Backspace",
-            "linux": "Ctrl+K,Ctrl+Backspace"
+            "win": "Ctrl+K & Ctrl+Backspace",
+            "mac": "Command+K & Command+Backspace",
+            "linux": "Ctrl+K & Ctrl+Backspace"
           },
           "description": "从光标删除到行首"
-        },
-        {
-          "command": { "win": "Ctrl+]", "mac": "Command+]", "linux": "Ctrl+]" },
-          "description": "缩进当前行"
-        },
-        {
-          "command": { "win": "Ctrl+[", "mac": "Command+[", "linux": "Ctrl+[" },
-          "description": "取消缩进当前行"
-        },
-        {
-          "command": {
-            "win": "Shift+Ctrl+D",
-            "mac": "Shift+Command+D",
-            "linux": "Shift+Ctrl+D"
-          },
-          "description": "复制行"
-        },
-        {
-          "command": { "win": "Ctrl+J", "mac": "Command+J", "linux": "Ctrl+J" },
-          "description": "将下面的行加入到当前行的末尾"
         },
         {
           "command": { "win": "Ctrl+/", "mac": "Command+/", "linux": "Ctrl+/" },
@@ -103,23 +124,11 @@
         },
         {
           "command": {
-            "win": "Shift+Ctrl+/",
-            "mac": "Shift+Command+/",
-            "linux": "Shift+Ctrl+/"
+            "win": "Ctrl+Shift+/",
+            "mac": "Command+Shift+/",
+            "linux": "Ctrl+Shift+/"
           },
           "description": "阻止注释当前选择"
-        },
-        {
-          "command": { "win": "Ctrl+Y", "mac": "Command+Y", "linux": "Ctrl+Y" },
-          "description": "重做或重复上一个键盘快捷键命令"
-        },
-        {
-          "command": {
-            "win": "Shift+Ctrl+V",
-            "mac": "Shift+Command+V",
-            "linux": "Shift+Ctrl+V"
-          },
-          "description": "粘贴和缩进"
         },
         {
           "command": {
@@ -128,10 +137,6 @@
             "linux": "Ctrl+Space"
           },
           "description": "选择下一个自动完成建议"
-        },
-        {
-          "command": { "win": "Ctrl+U", "mac": "Command+U", "linux": "Ctrl+U" },
-          "description": "撤销"
         }
       ]
     },
@@ -165,49 +170,49 @@
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+C",
-            "mac": "Command+K,Command+C",
-            "linux": "Ctrl+K,Ctrl+C"
+            "win": "Ctrl+K & Ctrl+C",
+            "mac": "Command+K & Command+C",
+            "linux": "Ctrl+K & Ctrl+C"
           },
           "description": "滚动到选择"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+A",
-            "mac": "Shift+Command+A",
-            "linux": "Shift+Ctrl+A"
+            "win": "Ctrl+Shift+A",
+            "mac": "Command+Shift+A",
+            "linux": "Ctrl+Shift+A"
           },
           "description": "选择标签"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+J",
-            "mac": "Shift+Command+J",
-            "linux": "Shift+Ctrl+J"
+            "win": "Ctrl+Shift+J",
+            "mac": "Command+Shift+J",
+            "linux": "Ctrl+Shift+J"
           },
           "description": "选择缩进"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+Space",
-            "mac": "Shift+Command+Space",
-            "linux": "Shift+Ctrl+Space"
+            "win": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space",
+            "linux": "Ctrl+Shift+Space"
           },
           "description": "选择范围"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+B",
-            "mac": "Command+K,Command+B",
-            "linux": "Ctrl+K,Ctrl+B"
+            "win": "Ctrl+K & Ctrl+B",
+            "mac": "Command+K & Command+B",
+            "linux": "Ctrl+K & Ctrl+B"
           },
           "description": "切换侧边栏"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+P",
-            "mac": "Shift+Command+P",
-            "linux": "Shift+Ctrl+P"
+            "win": "Ctrl+Shift+P",
+            "mac": "Command+Shift+P",
+            "linux": "Ctrl+Shift+P"
           },
           "description": "命令提示符"
         }
@@ -238,9 +243,9 @@
         },
         {
           "command": {
-            "win": "Shift+Ctrl+F",
-            "mac": "Shift+Command+F",
-            "linux": "Shift+Ctrl+F"
+            "win": "Ctrl+Shift+F",
+            "mac": "Command+Shift+F",
+            "linux": "Ctrl+Shift+F"
           },
           "description": "在文件中查找"
         }
@@ -251,19 +256,19 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Shift+Alt+2",
-            "mac": "Shift+Option+2",
-            "linux": "Shift+Alt+2"
-          },
-          "description": "将视图拆分为两列"
-        },
-        {
-          "command": {
             "win": "Shift+Alt+1",
             "mac": "Shift+Option+1",
             "linux": "Shift+Alt+1"
           },
           "description": "将视图还原为单列"
+        },
+        {
+          "command": {
+            "win": "Shift+Alt+2",
+            "mac": "Shift+Option+2",
+            "linux": "Shift+Alt+2"
+          },
+          "description": "将视图拆分为两列"
         },
         {
           "command": {
@@ -279,9 +284,9 @@
         },
         {
           "command": {
-            "win": "Shift+Ctrl+2",
-            "mac": "Shift+Command+2",
-            "linux": "Shift+Ctrl+2"
+            "win": "Ctrl+Shift+2",
+            "mac": "Command+Shift+2",
+            "linux": "Ctrl+Shift+2"
           },
           "description": "将文件移动到组 2"
         }
@@ -292,25 +297,25 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+L",
-            "mac": "Command+K,Command+L",
-            "linux": "Ctrl+K,Ctrl+L"
+            "win": "Ctrl+K & Ctrl+L",
+            "mac": "Command+K & Command+L",
+            "linux": "Ctrl+K & Ctrl+L"
           },
           "description": "转换为小写"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+U",
-            "mac": "Command+K,Command+U",
-            "linux": "Ctrl+K,Ctrl+U"
+            "win": "Ctrl+K & Ctrl+U",
+            "mac": "Command+K & Command+U",
+            "linux": "Ctrl+K & Ctrl+U"
           },
           "description": "转换为大写"
         },
         {
           "command": {
-            "win": "Shift+c,Ctrl+K",
-            "mac": "Shift+c,Command+K",
-            "linux": "Shift+c,Ctrl+K"
+            "win": "Shift+C & Ctrl+K",
+            "mac": "Shift+C & Command+K",
+            "linux": "Shift+C & Ctrl+K"
           },
           "description": "删除行"
         },
@@ -324,9 +329,9 @@
         },
         {
           "command": {
-            "win": "Ctrl+Del",
-            "mac": "Command+Del",
-            "linux": "Ctrl+Del"
+            "win": "Ctrl+Delete",
+            "mac": "Command+Delete",
+            "linux": "Ctrl+Delete"
           },
           "description": "删除单词转发"
         }
@@ -337,37 +342,37 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Alt+Ctrl+↓",
-            "mac": "Option+Command+↓",
-            "linux": "Alt+Ctrl+↓"
+            "win": "Ctrl+Alt+Down",
+            "mac": "Command+Option+Down",
+            "linux": "Ctrl+Alt+Down"
           },
           "description": "用光标在下面添加新行"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+D",
-            "mac": "Command+K,Command+D",
-            "linux": "Ctrl+K,Ctrl+D"
+            "win": "Ctrl+K & Ctrl+D",
+            "mac": "Command+K & Command+D",
+            "linux": "Ctrl+K & Ctrl+D"
           },
           "description": "跳过选择"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+L",
-            "mac": "Shift+Command+L",
-            "linux": "Shift+Ctrl+L"
+            "win": "Ctrl+Shift+L",
+            "mac": "Command+Shift+L",
+            "linux": "Ctrl+Shift+L"
           },
           "description": "将选择拆分为行"
         },
         {
           "command": { "win": "Alt+F3", "mac": "Option+F3", "linux": "Alt+F3" },
-          "description": "Add cursor at all occurrences of a word"
+          "description": "在所有出现的单词处添加光标"
         },
         {
           "command": {
-            "win": "Alt+Ctrl+UP",
-            "mac": "Option+Command+UP",
-            "linux": "Alt+Ctrl+UP"
+            "win": "Ctrl+Alt+Up",
+            "mac": "Command+Option+Up",
+            "linux": "Ctrl+Alt+Up"
           },
           "description": "用光标在上面添加新行"
         },
@@ -382,57 +387,57 @@
       "shortcuts": [
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+G",
-            "mac": "Command+K,Command+G",
-            "linux": "Ctrl+K,Ctrl+G"
+            "win": "Ctrl+K & Ctrl+G",
+            "mac": "Command+K & Command+G",
+            "linux": "Ctrl+K & Ctrl+G"
           },
           "description": "清除标记"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+X",
-            "mac": "Command+K,Command+X",
-            "linux": "Ctrl+K,Ctrl+X"
+            "win": "Ctrl+K & Ctrl+X",
+            "mac": "Command+K & Command+X",
+            "linux": "Ctrl+K & Ctrl+X"
           },
           "description": "用标记切换位置"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+A",
-            "mac": "Command+K,Command+A",
-            "linux": "Ctrl+K,Ctrl+A"
+            "win": "Ctrl+K & Ctrl+A",
+            "mac": "Command+K & Command+A",
+            "linux": "Ctrl+K & Ctrl+A"
           },
           "description": "选择标记"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+Space",
-            "mac": "Command+K,Command+Space",
-            "linux": "Ctrl+K,Ctrl+Space"
+            "win": "Ctrl+K & Ctrl+Space",
+            "mac": "Command+K & Command+Space",
+            "linux": "Ctrl+K & Ctrl+Space"
           },
           "description": "设置标记"
         },
         {
           "command": {
-            "win": "Ctrl+K,Ctrl+J",
-            "mac": "Command+K,Command+J",
-            "linux": "Ctrl+K,Ctrl+J"
+            "win": "Ctrl+K & Ctrl+J",
+            "mac": "Command+K & Command+J",
+            "linux": "Ctrl+K & Ctrl+J"
           },
           "description": "展开全部"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+]",
-            "mac": "Shift+Command+]",
-            "linux": "Shift+Ctrl+]"
+            "win": "Ctrl+Shift+]",
+            "mac": "Command+Shift+]",
+            "linux": "Ctrl+Shift+]"
           },
           "description": "展开代码"
         },
         {
           "command": {
-            "win": "Shift+Ctrl+[",
-            "mac": "Shift+Command+[",
-            "linux": "Shift+Ctrl+["
+            "win": "Ctrl+Shift+[",
+            "mac": "Command+Shift+[",
+            "linux": "Ctrl+Shift+["
           },
           "description": "折叠代码"
         }
