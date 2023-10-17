@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["./out/*", "./src-tauri/target/*", "./.next/*", "./src/components/ui/*"]
+    "ignore": ["./out/*", "./src-tauri/target/*", "./.next/*", "./src/components/ui/*", "./README.md"]
   },
   "organizeImports": {
     "enabled": true,
