@@ -1,7 +1,7 @@
 [package]
 name = "cheat_sheet"
-version = "0.0.6"
-description = "A Tauri App"
+version = "0.0.7"
+description = "A cross-platform display of application shortcuts app"
 authors = ["JinSo, NoahCode"]
 license = "MIT"
 repository = "https://github.com/JinSooo/CheatSheet"
