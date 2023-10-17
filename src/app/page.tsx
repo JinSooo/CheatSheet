@@ -1,13 +1,15 @@
 'use client'
-
 import ShortCut from '@/components/ShortCut/ShortCut'
 import useTheme from '@/lib/hooks/useTheme'
+import { StoreContext } from '@/lib/store'
 import { listen } from '@tauri-apps/api/event'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { Store } from 'tauri-plugin-store-api'
 
 export default function Home() {
   // 内部自处理主题
   const _ = useTheme()
+  const { configStore } = useContext(StoreContext)
   const [backgroundOpacity, setBackgroundOpacity] = useState(1) // 背景透明度
   const [windowBorderRadius, setWindowBorderRadius] = useState(16) // 窗口圆角
 
@@ -19,6 +21,15 @@ export default function Home() {
       setWindowBorderRadius(event.payload as number)
     })
   }
+
+  const initWindowStyle = async (configStore: Store) => {
+    setBackgroundOpacity(((await configStore.get('windowOpacity')) as number) / 10 ?? 1)
+    setWindowBorderRadius((await configStore.get('windowBorderRadius')) ?? 16)
+  }
+
+  useEffect(() => {
+    if (configStore) initWindowStyle(configStore)
+  }, [configStore])
 
   useEffect(() => {
     initWindowListener()
