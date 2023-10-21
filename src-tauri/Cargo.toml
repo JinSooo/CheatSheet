@@ -1,6 +1,6 @@
 [package]
 name = "cheat_sheet"
-version = "1.0.1"
+version = "1.0.2"
 description = "A cross-platform display of application shortcuts app"
 authors = ["JinSo, NoahCode"]
 license = "MIT"
