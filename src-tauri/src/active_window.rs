@@ -28,8 +28,8 @@ static ACTIVE_WINDOW_COMPAT: OnceCell<Vec<&str>> = OnceCell::new();
 pub fn init_active_window_map() {
     let app_handle = APP.get().unwrap();
     let resource_path = resource_dir(app_handle.package_info(), &get_main_window().env()).unwrap();
-    let map_path = resource_path.join("../resources/AppMap.json");
-    let compat_path = resource_path.join("../resources/AppCompat.json");
+    let map_path = resource_path.join("resources/AppMap.json");
+    let compat_path = resource_path.join("resources/AppCompat.json");
     info!("Load map config: {:?}", map_path);
     info!("Load compat config: {:?}", compat_path);
 
