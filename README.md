@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/imgs/icon.png" width="70" />
+<img src="docs/images/icon.png" width="70" />
 
 ### CheatSheet
 
@@ -15,9 +15,9 @@
 
 <br/>
 
-<img src="public/imgs/cheatsheet-win-lightdark.png" width="400" />
+<img src="docs/images/cheatsheet-win-lightdark.png" width="400" />
 &nbsp
-<img src="public/imgs/cheatsheet-mac-lightdark.png" width="400" />
+<img src="docs/images/cheatsheet-mac-lightdark.png" width="400" />
 </div>
 
 # 👋 目录
@@ -31,6 +31,9 @@
   - [CheatSheet 窗口样式](#cheatsheet-窗口样式)
   - [自定义全局热键](#自定义全局热键)
   - [配置的导入/导出](#配置的导入导出)
+- [🎉 更新窗口](#-更新窗口)
+  - [最新版](#最新版)
+  - [更新版本](#更新版本)
 - [✨ 安装](#-安装)
   - [Windows](#windows)
   - [Mac](#mac)
@@ -45,13 +48,13 @@
 当处于某个应用下时, 按下全局热键, 即可显示当前应用的快捷键
 
 <div align="center">
-  <img src="public/imgs/1.gif" width="800" />
+  <img src="docs/images/display-shortcuts.gif" width="800" />
 </div>
 
 多个应用直接切换
 
 <div align="center">
-  <img src="public/imgs/3.gif" width="800" />
+  <img src="docs/images/application-switching.gif" width="800" />
 </div>
 
 ## 全局热键
@@ -71,7 +74,7 @@
 当快捷键描述超出一定长度时, 对于溢出的字符会进行省略, 可以通过将鼠标划入到该描述的方式来显示完整的描述。
 
 <div align="center">
-  <img src="public/imgs/2.gif" width="800" />
+  <img src="docs/images/shortcut-description.gif" width="800" />
 </div>
 
 # 🚀 配置窗口
@@ -88,7 +91,7 @@
 ## CheatSheet 窗口样式
 
 <div align="center">
-  <img src="public/imgs/4.gif" width="800" />
+  <img src="docs/images/window-style.gif" width="800" />
 </div>
 
 ## 自定义全局热键
@@ -98,13 +101,43 @@
 
 1. 单键的话, 只支持 `F1` ~ `F12`
 2. 快捷键的话, 支持功能键(`Ctrl`、`Alt`、`Shift`) + 普通按键, 如 `Ctrl + P`, `Ctrl + Shift + T` 等等方式
-<!-- GIF -->
+
+<div align="center">
+  <img src="docs/images/customizing-global-hotkeys.gif" width="800" />
+</div>
 
 ## 配置的导入/导出
 
-配置文件导入后, 并不会立刻生效, 需要重启软件!!!
+> 配置文件导入后, 并不会立刻生效, 需要重启软件!!!
+
+在 `关于应用` 里面找到 `导出配置` 按钮，进行配置导出
+
+在 `关于应用` 里面找到 `导入配置` 按钮，进行配置导入
+
+# 🎉 更新窗口
+
+### 最新版
+
+<div align="center">
+  <img src="docs/images/update-latest.png" />
+</div>
+
+### 更新版本
+
+<div align="center">
+  <img src="docs/images/update-update-1.png" />
+</div>
+
+<div align="center">
+  <img src="docs/images/update-update-2.png" />
+</div>
 
 # ✨ 安装
+
+|平台  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;    | 下载       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;                                                      |
+| ------- | ---------------------------------------------------------------- |
+| Windows | [点击下载](https://github.com/JinSooo/CheatSheet/releases/latest) |
+| Mac     | [点击下载](https://github.com/JinSooo/CheatSheet/releases/latest) |
 
 ## Windows
 
