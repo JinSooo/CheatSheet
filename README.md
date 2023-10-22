@@ -65,9 +65,9 @@
 
 | 类型         | 描述                                                            | 样式                                               |
 | ------------ | --------------------------------------------------------------- | -------------------------------------------------- |
-| 普通快捷键   | 按顺序按下每一个按键即可                                        | <img src="public/imgs/shortcut-normal.png" />      |
-| 组合快捷键   | 先按下第一个普通快捷键,再按下第二个普通快捷键,用`&`符号表示     | <img src="public/imgs/shortcut-combination.png" /> |
-| 多功能快捷键 | 第一个普通快捷键和第二个普通快捷键都能触发该功能,用`\|`符号表示 | <img src="public/imgs/shortcut-mutil.png" />       |
+| 普通快捷键   | 按顺序按下每一个按键即可                                        | <img src="docs/images/shortcut-normal.png" />      |
+| 组合快捷键   | 先按下第一个普通快捷键,再按下第二个普通快捷键,用`&`符号表示     | <img src="docs/images/shortcut-combination.png" /> |
+| 多功能快捷键 | 第一个普通快捷键和第二个普通快捷键都能触发该功能,用`\|`符号表示 | <img src="docs/images/shortcut-mutil.png" />       |
 
 ## 快捷键描述
 
