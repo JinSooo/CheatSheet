@@ -37,6 +37,7 @@
 - [✨ 安装](#-安装)
   - [Windows](#windows)
   - [Mac](#mac)
+- [🎨 CheatSheet 编辑器](#-cheatsheet-编辑器)
 - [🤝 手动编译](#-手动编译)
   - [环境要求](#环境要求)
   - [开始编译](#开始编译)
@@ -148,6 +149,16 @@
 
 1. 从 [Release](https://github.com/JinSooo/CheatSheet/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`cheatsheet_{version}_aarch64.dmg`的安装包，否则请下载名为`cheatsheet_{version}_x64.dmg`的安装包）
 2. 双击下载的文件后将 CheatSheet 拖入 Applications 文件夹即可完成安装。
+
+# 🎨 CheatSheet 编辑器
+
+> 项目地址: <https://github.com/JinSooo/CheatSheet-Editor>
+
+用于 CheatSheet 的应用快捷键可视化编辑器, 在线访问地址 <https://cheat-sheet-editor.jinso365.top>
+
+<div align="center">
+  <img src="docs/images/editor-dark.png" width="800" />
+</div>
 
 # 🤝 手动编译
 
